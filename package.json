@@ -1,0 +1,38 @@
+{
+  "name": "copart-ui-component-library",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/copartit/copart-ui-component-library.git"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "description": "Copart component library",
+  "author": "Sidharth Mehra",
+  "scripts": {
+    "start": "webpack-dev-server",
+    "test": "test"
+  },
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/copartit/copart-ui-component-library/issues"
+  },
+  "homepage": "https://github.com/copartit/copart-ui-component-library#readme",
+  "dependencies": {
+    "html-webpack-plugin": "^2.29.0",
+    "material-design-icons": "^3.0.1",
+    "material-icons": "^0.1.0",
+    "material-ui": "^0.19.4",
+    "path": "^0.12.7",
+    "prop-types": "^15.6.0",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "webpack": "^3.0.0",
+    "webpack-dev-server": "^2.5.0"
+  },
+  "devDependencies": {
+    "babel-core": "^6.25.0",
+    "babel-loader": "^7.1.0",
+    "babel-preset-es2017": "^6.24.1",
+    "babel-preset-react": "^6.24.1"
+  }
+}
