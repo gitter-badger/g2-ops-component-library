@@ -3,7 +3,7 @@ import PropTypes from "prop-types"
 import MuiIconButton from "material-ui/IconButton"
 
 const IconButton = props => (
-  <MuiIconButton tooltip={props.tooltip} onClick={props.onClick}>
+  <MuiIconButton tooltip={props.tooltip} onClick={props.onClick} {...props}>
     {props.children}
   </MuiIconButton>
 )
