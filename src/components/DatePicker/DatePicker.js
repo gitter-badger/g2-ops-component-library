@@ -1,4 +1,5 @@
-import React, {Component, PropTypes} from 'react';
+import React, {Component} from 'react';
+import PropTypes from 'prop-types'
 import {dateTimeFormat, formatIso, isEqualDate} from 'material-ui/DatePicker/dateUtils';
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
 import TextField from 'material-ui/TextField';
@@ -8,133 +9,30 @@ import moment from 'moment'
 
 class DatePicker extends Component {
   static propTypes = {
-    /**
-     * Constructor for date formatting for the specified `locale`.
-     * The constructor must follow this specification: ECMAScript Internationalization API 1.0 (ECMA-402).
-     * `Intl.DateTimeFormat` is supported by most modern browsers, see http://caniuse.com/#search=intl,
-     * otherwise https://github.com/andyearnshaw/Intl.js is a good polyfill.
-     *
-     * By default, a built-in `DateTimeFormat` is used which supports the 'en-US' `locale`.
-     */
     DateTimeFormat: PropTypes.func,
-    /**
-     * If true, automatically accept and close the picker on select a date.
-     */
     autoOk: PropTypes.bool,
-    /**
-     * Override the default text of the 'Cancel' button.
-     */
     cancelLabel: PropTypes.node,
-    /**
-     * The css class name of the root element.
-     */
     className: PropTypes.string,
-    /**
-     * Used to control how the Date Picker will be displayed when the input field is focused.
-     * `dialog` (default) displays the DatePicker as a dialog with a modal.
-     * `inline` displays the DatePicker below the input field (similar to auto complete).
-     */
     container: PropTypes.oneOf(['dialog', 'inline']),
-    /**
-     * This is the initial date value of the component.
-     * If either `value` or `valueLink` is provided they will override this
-     * prop with `value` taking precedence.
-     */
     defaultDate: PropTypes.object,
-    /**
-     * Override the inline-styles of DatePickerDialog's Container element.
-     */
     dialogContainerStyle: PropTypes.object,
-    /**
-     * Disables the year selection in the date picker.
-     */
     disableYearSelection: PropTypes.bool,
-    /**
-     * Disables the DatePicker.
-     */
     disabled: PropTypes.bool,
-    /**
-     * Used to change the first day of week. It varies from
-     * Saturday to Monday between different locales.
-     * The allowed range is 0 (Sunday) to 6 (Saturday).
-     * The default is `1`, Monday, as per ISO 8601.
-     */
     firstDayOfWeek: PropTypes.number,
-    /**
-     * This function is called to format the date displayed in the input field, and should return a string.
-     * By default if no `locale` and `DateTimeFormat` is provided date objects are formatted to ISO 8601 YYYY-MM-DD.
-     *
-     * @param {object} date Date object to be formatted.
-     * @returns {any} The formatted date.
-     */
     formatDate: PropTypes.func,
-    /**
-     * Locale used for formatting the `DatePicker` date strings. Other than for 'en-US', you
-     * must provide a `DateTimeFormat` that supports the chosen `locale`.
-     */
     locale: PropTypes.string,
-    /**
-     * The ending of a range of valid dates. The range includes the endDate.
-     * The default value is current date + 100 years.
-     */
     maxDate: PropTypes.object,
-    /**
-     * The beginning of a range of valid dates. The range includes the startDate.
-     * The default value is current date - 100 years.
-     */
     minDate: PropTypes.object,
-    /**
-     * Tells the component to display the picker in portrait or landscape mode.
-     */
     mode: PropTypes.oneOf(['portrait', 'landscape']),
-    /**
-     * Override the default text of the 'OK' button.
-     */
     okLabel: PropTypes.node,
-    /**
-     * Callback function that is fired when the date value changes.
-     *
-     * @param {null} null Since there is no particular event associated with the change,
-     * the first argument will always be null.
-     * @param {object} date The new date.
-     */
     onChange: PropTypes.func,
-    /**
-     * Callback function that is fired when the Date Picker's dialog is dismissed.
-     */
     onDismiss: PropTypes.func,
-    /**
-     * Callback function that is fired when the Date Picker's `TextField` gains focus.
-     */
     onFocus: PropTypes.func,
-    /**
-     * Callback function that is fired when the Date Picker's dialog is shown.
-     */
     onShow: PropTypes.func,
-    /**
-     * Callback function that is fired when a touch tap event occurs on the Date Picker's `TextField`.
-     *
-     * @param {object} event TouchTap event targeting the `TextField`.
-     */
     onTouchTap: PropTypes.func,
-    /**
-     * Callback function used to determine if a day's entry should be disabled on the calendar.
-     *
-     * @param {object} day Date object of a day.
-     * @returns {boolean} Indicates whether the day should be disabled.
-     */
     shouldDisableDate: PropTypes.func,
-    /**
-     * Override the inline-styles of the root element.
-     */
     style: PropTypes.object,
-    /**
-     * Override the inline-styles of DatePicker's TextField element.
-     */
     textFieldStyle: PropTypes.object,
-    /**
-     * Sets the date for the Date Picker programmatically.
-     */
     value: PropTypes.object,
   };
 
@@ -179,15 +77,7 @@ class DatePicker extends Component {
     return this.state.date;
   }
 
-  /**
-   * Open the date-picker dialog programmatically from a parent.
-   */
   openDialog() {
-    /**
-     * if the date is not selected then set it to new date
-     * (get the current system date while doing so)
-     * else set it to the currently selected date
-     */
     if (this.state.date !== undefined) {
       this.setState({
         dialogDate: this.getDate(),
@@ -199,9 +89,6 @@ class DatePicker extends Component {
     }
   }
 
-  /**
-   * Alias for `openDialog()` for an api consistent with TextField.
-   */
   focus() {
     this.openDialog();
   }
@@ -235,27 +122,35 @@ class DatePicker extends Component {
     }
   };
 
-  isValidDate = (value) => value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) 
+  isValidDate = (value) => {
+    return value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
+  }
 
-  handleTextFieldChange = (event) => {
-    // regex to set the date according to the default format DD/MM/YYYY or MM/DD/YYYY
-    const value = event.target.value.replace(/[^\d/]/g, '')
-    const replacedValue = value.replace(/^(\d{1,2})(\d{1,2})(\d{4})$/, '$1/$2/$3')
-
-    const isValidDate = this.isValidDate(replacedValue)
+  handleKeyUp = (event) => {
+    const value = this.state.displayDate
+    let displayDate = value.replace(/^(\d\d)(\d)$/g,'$1/$2')
+         .replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2')
+         .replace(/[^\d\/]/g,'')
     const { formatDate, defaultFormat } = this.props
+    const isValidDate = this.isValidDate(displayDate)
     if (isValidDate) {
-      const displayDate = formatDate ? formatDate(replacedValue) : this.formatDate(new Date(replacedValue))
-      const date = formatDate ? moment(replacedValue, defaultFormat).toDate() : this.formatDate(new Date(replacedValue))  
+      displayDate = formatDate ? formatDate(displayDate) : this.formatDate(new Date(displayDate))
+      const date = formatDate ? moment(displayDate, defaultFormat).toDate() : this.formatDate(new Date(displayDate))  
       this.setState({
         date,
-        displayDate
+        displayDate,
       })
     } else {
       this.setState({
-        displayDate: replacedValue
+        displayDate,
       })
     }
+  }
+
+  handleTextFieldChange = (event) => {
+    this.setState({
+        displayDate: event.target.value
+    })
   }
 
   isControlled() {
@@ -318,6 +213,7 @@ class DatePicker extends Component {
         <TextField
           {...other}
           onFocus={this.handleFocus}
+          onKeyUp={this.handleKeyUp}
           onChange={this.handleTextFieldChange}
           ref="input"
           style={textFieldStyle}
@@ -326,7 +222,7 @@ class DatePicker extends Component {
           underlineStyle={{ borderColor: '#1d5ab9' }}
           underlineFocusStyle={{ borderColor: '#1d5ab9' }}
         />
-        <IconButton onClick={this.handleTouchTap}>
+        <IconButton onClick={this.handleTouchTap} style={{ marginLeft: '-40px' }}>
           <CalendarIcon />
         </IconButton>
         <DatePickerDialog

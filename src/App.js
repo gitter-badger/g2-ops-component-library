@@ -17,7 +17,7 @@ export default class App extends React.Component {
   render() {
     const defaultFormat = 'DD/MM/YYYY'
     return (
-      <div style={{ textAlign: "center", margin: "-7px" }}>
+      <div style={{ margin: "-7px" }}>
         <AppBar
           iconElementLeft={<img src="public/images/logo.svg" alt="Copart" />}
           iconElementRight={<Button label={"Feedback"} default labelColor={"#000000"} labelStyle={{}} />}
@@ -25,13 +25,7 @@ export default class App extends React.Component {
         >
         {this.props.children}
         </AppBar>
-        <h1>Copart UI Library</h1>
-        <div style={{ marginBottom: "5px" }}>
-          <Button label={"Button"} />
-        </div>
-        <IconButton tooltip={"tooltip"} onClick={() => console.log("clicked")}>
-          <ActionHome />
-        </IconButton>
+        <h1>DatePicker</h1>
         <DatePicker
           autoOk
           hintText={defaultFormat}
@@ -43,6 +37,9 @@ export default class App extends React.Component {
           defaultFormat={defaultFormat}
           formatDate={(date) => {
             return moment(date, defaultFormat).format(defaultFormat)
+          }}
+          style={{
+            marginLeft: '40px'
           }}
         />
       </div>

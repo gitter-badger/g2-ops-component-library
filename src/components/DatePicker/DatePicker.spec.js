@@ -4,7 +4,7 @@ import {shallow} from 'enzyme';
 import {assert} from 'chai';
 import {stub} from 'sinon';
 import DatePicker from './DatePicker';
-import getMuiTheme from '../styles/getMuiTheme';
+import getMuiTheme from 'material-ui/styles/getMuiTheme';
 
 describe('<DatePicker />', () => {
   const muiTheme = getMuiTheme();
