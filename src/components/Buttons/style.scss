@@ -1,0 +1,38 @@
+.copartButton {
+  height: 36px;
+  button {
+    &:disabled {
+      cursor: not-allowed!important;
+    }
+    span {
+      font-weight: 600!important;
+    }
+  }
+}
+.primaryButton {
+  button {
+    background-color: #1D5AB9!important;
+    &:hover {
+      background-color: darken(#1D5AB9, 15%)!important;
+    }
+    span {
+      color: white!important;
+    }
+  }
+}
+.secondaryButton {
+  button {
+    background-color: white!important;
+    &:hover {
+      background-color: darken(white, 15%)!important;
+    }
+  }
+}
+.inactiveButton {
+  button {
+    background-color: #DFDFDF!important;
+    &:hover {
+      background-color: darken(#DFDFDF, 15%)!important;
+    }
+  }
+}

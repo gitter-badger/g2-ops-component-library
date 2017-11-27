@@ -25,7 +25,10 @@ export default class App extends React.Component {
         >
         {this.props.children}
         </AppBar>
-        <h1>DatePicker</h1>
+        <Button type="primary" label="Test Button" />
+        <Button type="secondary" label="Test Button" />
+        <Button type="inactive" label="Test Button" />
+      <h1>DatePicker</h1>
         <DatePicker
           autoOk
           hintText={defaultFormat}
