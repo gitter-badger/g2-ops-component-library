@@ -1,6 +1,11 @@
 import React from "react"
+import PropTypes from 'prop-types'
 import RaisedButton from "material-ui/RaisedButton"
 import './style.scss'
+
+const buttonPropTypes = {
+  type: PropTypes.string.isRequired,
+}
 
 const Button = ({ primary, secondary, disabled, type, ...otherProps }) => {
   return (
@@ -12,5 +17,7 @@ const Button = ({ primary, secondary, disabled, type, ...otherProps }) => {
     />
   )
 }
+
+Button.propTypes = buttonPropTypes
 
 export default Button
