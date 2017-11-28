@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 import RaisedButton from "material-ui/RaisedButton"
 import AddIcon from "material-ui/svg-icons/content/add"
 import EditIcon from "material-ui/svg-icons/image/edit"
+import DeleteIcon from "material-ui/svg-icons/action/delete-forever"
 import './style.scss'
 
 const buttonPropTypes = {
@@ -37,6 +38,15 @@ const Button = ({ primary, secondary, disabled, type, ...otherProps }) => {
         label="Edit"
         className={`copartButton primaryButton ${type}Button`}
         icon={<EditIcon />}
+      />
+      break
+    }
+    case "delete": {
+      button = <RaisedButton
+        {...otherProps}
+        label="Delete"
+        className={`copartButton ${type}Button`}
+        icon={<DeleteIcon />}
       />
       break
     }

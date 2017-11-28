@@ -18,7 +18,6 @@
     }
     span {
       color: white!important;
-      text-transform: capitalize!important;
     }
   }
 }
@@ -38,7 +37,18 @@
     }
   }
 }
-.addButton, .editButton {
+.deleteButton {
+  button {
+    background-color: #EE2727!important;
+    &:hover {
+      background-color: darken(#EE2727, 15%)!important;
+    }
+    span {
+      color: white!important;
+    }
+  }
+}
+.addButton, .editButton, .deleteButton {
   button {
     svg {
       margin: 0!important;
@@ -50,7 +60,7 @@
     }
   }
 }
-.addButton {
+.addButton, .deleteButton {
   button {
     svg {
       height: 20px!important;
