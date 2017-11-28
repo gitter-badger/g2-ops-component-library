@@ -1,11 +1,12 @@
 .copartButton {
   height: 36px;
+  min-width: 110px!important;
   button {
     &:disabled {
       cursor: not-allowed!important;
     }
     span {
-      font-weight: 600!important;
+      font-weight: 500!important;
       text-transform: capitalize!important;
     }
   }
