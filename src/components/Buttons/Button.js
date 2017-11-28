@@ -1,6 +1,7 @@
 import React from "react"
 import PropTypes from 'prop-types'
 import RaisedButton from "material-ui/RaisedButton"
+import AddIcon from "material-ui/svg-icons/content/add"
 import './style.scss'
 
 const buttonPropTypes = {
@@ -8,14 +9,31 @@ const buttonPropTypes = {
 }
 
 const Button = ({ primary, secondary, disabled, type, ...otherProps }) => {
-  return (
-    <RaisedButton
-      {...otherProps}
-      className={`copartButton ${type}Button`}
-      labelStyle={{ textTransform: 'Capitalize' }}
-      disabled={type === "inactive"}
-    />
-  )
+  let button
+  switch (type) {
+    case "primary":
+    case "secondary":
+    case "inactive": {
+      button = <RaisedButton
+        {...otherProps}
+        className={`copartButton ${type}Button`}
+        labelStyle={{ textTransform: 'Capitalize' }}
+        disabled={type === "inactive"}
+      />
+      break
+    }
+    case "add": {
+      button = <RaisedButton
+        {...otherProps}
+        label="Add"
+        className={`copartButton primaryButton ${type}Button`}
+        labelStyle={{ textTransform: 'Capitalize' }}
+        icon={<AddIcon />}
+      />
+      break
+    }
+  }
+  return button || null
 }
 
 Button.propTypes = buttonPropTypes

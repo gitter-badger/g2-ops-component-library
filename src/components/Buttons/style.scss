@@ -36,3 +36,17 @@
     }
   }
 }
+.addButton {
+  button {
+    svg {
+      margin: 0!important;
+      color: white!important;
+      fill: white!important;
+      height: 20px!important;
+      width: 20px!important;
+    }
+    span {
+      padding-left: 0!important;
+    }
+  }
+}
