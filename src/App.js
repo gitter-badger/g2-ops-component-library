@@ -26,14 +26,14 @@ export default class App extends React.Component {
         {this.props.children}
         </AppBar>
         <div style={{ margin: '10px' }}>
-          <span style={{ margin: '10px' }}><Button type="primary" label="Test Button" /></span>
-          <span style={{ margin: '10px' }}><Button type="secondary" label="Test Button" /></span>
-          <span style={{ margin: '10px' }}><Button type="inactive" label="Test Button" /></span>
+          <span style={{ margin: '10px' }}><Button type="primary" label="Copart Primary Button" /></span>
+          <span style={{ margin: '10px' }}><Button type="secondary" label="Secondary Button" /></span>
+          <span style={{ margin: '10px' }}><Button type="inactive" label="Inactive" /></span>
           <span style={{ margin: '10px' }}><Button type="add" /></span>
           <span style={{ margin: '10px' }}><Button type="edit" /></span>
           <span style={{ margin: '10px' }}><Button type="delete" /></span>
         </div>
-      <h1>DatePicker</h1>
+      {/* <h1>DatePicker</h1>
         <DatePicker
           autoOk
           hintText={defaultFormat}
@@ -49,7 +49,7 @@ export default class App extends React.Component {
           style={{
             marginLeft: '40px'
           }}
-        />
+        /> */}
       </div>
     )
   }
