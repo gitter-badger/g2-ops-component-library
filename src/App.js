@@ -20,7 +20,7 @@ export default class App extends React.Component {
       <div style={{ margin: "-7px" }}>
         <AppBar
           iconElementLeft={<img src="public/images/logo.svg" alt="Copart" />}
-          iconElementRight={<Button label={"Feedback"} default labelColor={"#000000"} labelStyle={{}} />}
+          iconElementRight={<Button label={"Feedback"} type={"secondary"} />}
           iconStyleRight={{ padding: "5px" }}
         >
         {this.props.children}
@@ -33,23 +33,22 @@ export default class App extends React.Component {
           <span style={{ margin: '10px' }}><Button type="edit" /></span>
           <span style={{ margin: '10px' }}><Button type="delete" /></span>
         </div>
-      {/* <h1>DatePicker</h1>
-        <DatePicker
-          autoOk
-          hintText={defaultFormat}
-          container="inline"
-          value={this.state.dateValue}
-          onChange={this.handleChange}
-          floatingLabelText="Select Date"
-          floatingLabelFixed
-          defaultFormat={defaultFormat}
-          formatDate={(date) => {
-            return moment(date, defaultFormat).format(defaultFormat)
-          }}
-          style={{
-            marginLeft: '40px'
-          }}
-        /> */}
+        <div style={{ margin: '20px' }}>
+        <h1>DatePicker</h1>
+          <DatePicker
+            autoOk
+            hintText={defaultFormat}
+            container="inline"
+            value={this.state.dateValue}
+            onChange={this.handleChange}
+            floatingLabelText="Select Date"
+            floatingLabelFixed
+            defaultFormat={defaultFormat}
+            formatDate={(date) => {
+              return moment(date, defaultFormat).format(defaultFormat)
+            }}
+          />
+        </div>
       </div>
     )
   }
