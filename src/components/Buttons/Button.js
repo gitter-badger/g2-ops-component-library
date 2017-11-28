@@ -18,7 +18,6 @@ const Button = ({ primary, secondary, disabled, type, ...otherProps }) => {
       button = <RaisedButton
         {...otherProps}
         className={`copartButton ${type}Button`}
-        labelStyle={{ textTransform: 'Capitalize' }}
         disabled={type === "inactive"}
       />
       break
@@ -28,7 +27,6 @@ const Button = ({ primary, secondary, disabled, type, ...otherProps }) => {
         {...otherProps}
         label="Add"
         className={`copartButton primaryButton ${type}Button`}
-        labelStyle={{ textTransform: 'Capitalize' }}
         icon={<AddIcon />}
       />
       break
@@ -38,7 +36,6 @@ const Button = ({ primary, secondary, disabled, type, ...otherProps }) => {
         {...otherProps}
         label="Edit"
         className={`copartButton primaryButton ${type}Button`}
-        labelStyle={{ textTransform: 'Capitalize' }}
         icon={<EditIcon />}
       />
       break
