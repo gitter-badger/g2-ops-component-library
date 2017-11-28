@@ -2,6 +2,7 @@ import React from "react"
 import PropTypes from 'prop-types'
 import RaisedButton from "material-ui/RaisedButton"
 import AddIcon from "material-ui/svg-icons/content/add"
+import EditIcon from "material-ui/svg-icons/image/edit"
 import './style.scss'
 
 const buttonPropTypes = {
@@ -29,6 +30,16 @@ const Button = ({ primary, secondary, disabled, type, ...otherProps }) => {
         className={`copartButton primaryButton ${type}Button`}
         labelStyle={{ textTransform: 'Capitalize' }}
         icon={<AddIcon />}
+      />
+      break
+    }
+    case "edit": {
+      button = <RaisedButton
+        {...otherProps}
+        label="Edit"
+        className={`copartButton primaryButton ${type}Button`}
+        labelStyle={{ textTransform: 'Capitalize' }}
+        icon={<EditIcon />}
       />
       break
     }

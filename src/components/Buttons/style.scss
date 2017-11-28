@@ -36,17 +36,31 @@
     }
   }
 }
-.addButton {
+.addButton, .editButton {
   button {
     svg {
       margin: 0!important;
       color: white!important;
       fill: white!important;
+    }
+    span {
+      padding-left: 3px!important;
+    }
+  }
+}
+.addButton {
+  button {
+    svg {
       height: 20px!important;
       width: 20px!important;
     }
-    span {
-      padding-left: 0!important;
+  }
+}
+.editButton {
+  button {
+    svg {
+      height: 16px!important;
+      width: 16px!important;
     }
   }
 }

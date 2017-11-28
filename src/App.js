@@ -29,6 +29,7 @@ export default class App extends React.Component {
         <Button type="secondary" label="Test Button" />
         <Button type="inactive" label="Test Button" />
         <Button type="add" />
+        <Button type="edit" />
       <h1>DatePicker</h1>
         <DatePicker
           autoOk
