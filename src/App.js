@@ -25,12 +25,14 @@ export default class App extends React.Component {
         >
         {this.props.children}
         </AppBar>
-        <Button type="primary" label="Test Button" />
-        <Button type="secondary" label="Test Button" />
-        <Button type="inactive" label="Test Button" />
-        <Button type="add" />
-        <Button type="edit" />
-        <Button type="delete" />
+        <div style={{ margin: '10px' }}>
+          <span style={{ margin: '10px' }}><Button type="primary" label="Test Button" /></span>
+          <span style={{ margin: '10px' }}><Button type="secondary" label="Test Button" /></span>
+          <span style={{ margin: '10px' }}><Button type="inactive" label="Test Button" /></span>
+          <span style={{ margin: '10px' }}><Button type="add" /></span>
+          <span style={{ margin: '10px' }}><Button type="edit" /></span>
+          <span style={{ margin: '10px' }}><Button type="delete" /></span>
+        </div>
       <h1>DatePicker</h1>
         <DatePicker
           autoOk
