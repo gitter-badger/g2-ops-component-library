@@ -49,6 +49,17 @@ module.exports = {
           },
         ],
       },
+      {
+        test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 10000,
+            },
+          },
+        ],
+      },
     ],
   },
   plugins: [HtmlWebpackPluginConfig],
