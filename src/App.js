@@ -36,11 +36,6 @@ export default class App extends React.Component {
     return (
       <div style={{ margin: "-8px" }}>
         <AppBar
-          {...appBarPropsCobalt}
-        >
-        {this.props.children}
-        </AppBar>
-        <AppBar
           {...appBarPropsCAS}
         >
         {this.props.children}

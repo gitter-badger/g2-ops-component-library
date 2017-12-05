@@ -5,6 +5,7 @@ import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
 import TextField from 'material-ui/TextField';
 import IconButton from '../../components/Buttons/IconButton'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
+import { wrapMuiContext } from  '../../wrapMuiContext'
 import moment from 'moment'
 
 class DatePicker extends Component {
@@ -251,4 +252,4 @@ class DatePicker extends Component {
   }
 }
 
-export default DatePicker;
+export default wrapMuiContext(DatePicker);
