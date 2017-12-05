@@ -202,7 +202,7 @@ class DatePicker extends Component {
       wordings,
       defaultFormat,
       formatDate: formatDateProp,
-      ...other,
+      ...other
     } = this.props;
 
     const {prepareStyles} = this.context.muiTheme;
