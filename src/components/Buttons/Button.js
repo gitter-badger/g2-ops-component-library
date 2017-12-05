@@ -1,9 +1,10 @@
-import React from "react"
+import React from 'react'
 import PropTypes from 'prop-types'
-import RaisedButton from "material-ui/RaisedButton"
-import AddIcon from "material-ui/svg-icons/content/add"
-import EditIcon from "material-ui/svg-icons/image/edit"
-import DeleteIcon from "material-ui/svg-icons/action/delete-forever"
+import RaisedButton from 'material-ui/RaisedButton'
+import AddIcon from 'material-ui/svg-icons/content/add'
+import EditIcon from 'material-ui/svg-icons/image/edit'
+import DeleteIcon from 'material-ui/svg-icons/action/delete-forever'
+import { wrapMuiContext } from '../../wrapMuiContext'
 import './style.scss'
 
 const buttonPropTypes = {
@@ -13,38 +14,38 @@ const buttonPropTypes = {
 const Button = ({ primary, secondary, disabled, type, ...buttonProps }) => {
   let typeProps
   switch (type) {
-    case "primary":
-    case "secondary":
-    case "inactive": {
+    case 'primary':
+    case 'secondary':
+    case 'inactive': {
       typeProps = {
         ...buttonProps,
         className:`copartButton ${type}Button`,
-        disabled:type === "inactive",
+        disabled:type === 'inactive',
       }
       break
     }
-    case "add": {
+    case 'add': {
       typeProps = {
         ...buttonProps,
-        label:"Add",
+        label:'Add',
         className:`copartButton primaryButton ${type}Button`,
         icon:<AddIcon />,
       }
       break
     }
-    case "edit": {
+    case 'edit': {
       typeProps = {
         ...buttonProps,
-        label:"Edit",
+        label:'Edit',
         className:`copartButton primaryButton ${type}Button`,
         icon:<EditIcon />,
       }
       break
     }
-    case "delete": {
+    case 'delete': {
       typeProps = {
         ...buttonProps,
-        label:"Delete",
+        label:'Delete',
         className:`copartButton ${type}Button`,
         icon:<DeleteIcon />,
       }
@@ -59,4 +60,4 @@ const Button = ({ primary, secondary, disabled, type, ...buttonProps }) => {
 
 Button.propTypes = buttonPropTypes
 
-export default Button
+export default wrapMuiContext(Button)
