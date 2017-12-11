@@ -89,6 +89,8 @@ class SearchBar extends React.Component {
     const { searchTypeValue, searchTypes = defaultSearchTypes, ...otherProps } = this.props
     return (
       <TextField
+        borderless={true}
+        placeholder="Type here to Search"
         className="searchBarTextField"
         onRenderPrefix={this.renderContextualMenu}
         onRenderSuffix={this.renderSearchIcon}
