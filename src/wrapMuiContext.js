@@ -3,6 +3,7 @@ import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import injectTapEventPlugin from 'react-tap-event-plugin'
+import { initializeIcons } from '@uifabric/icons'
 
 const copartBaseTheme = {
   ...lightBaseTheme,
@@ -13,6 +14,7 @@ const copartBaseTheme = {
   }
 }
 
+initializeIcons();
 injectTapEventPlugin();
 
 // a higher order function that provides mui context to the Component being passed.

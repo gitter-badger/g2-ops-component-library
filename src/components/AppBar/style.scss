@@ -1,39 +1,39 @@
 .flex-grid {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 .flex-grid .col {
-    color: white;
-    font-size: 13px;
+  display: flex;
+  color: white;
+  font-size: 13px;
+  margin-right: 10px;
 }
-.flex-grid .col img {
-    width: 30px;
+.element img {
+  margin-right: 5px;
 }
 
 .flex-grid .col svg {
-    color: white;
+  color: white;
 }
 
 .logo {
-    margin-top: 5px;
-    width: 110px;
+  margin-top: 5px;
+  width: 110px;
 }
 
-.element-icon {
-    margin-right: 2px;
-    margin-left: 15px;
+.text {
+  margin-top: 8px;
 }
 
-.role-text {
-    margin-left: 2px;
-}
-
-.element-text {
-    font-size: 16px !important;
+.iconText {
+  margin-top: 6px;
 }
 
 .logout-icon {
-    margin-top: -3px;
-    margin-right: 10px;
+  margin-left: 10px;
+}
+
+.searchBar {
+  margin-left: 100px;
 }
