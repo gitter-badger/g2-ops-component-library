@@ -27,6 +27,11 @@ export class ContextualMenu extends React.Component {
     return (
       <IconButton
         onRenderIcon={this.props.onRenderIcon || this.onRenderIcon}
+        styles={{
+          menuIcon: {
+            display: 'none'
+          }
+        }}
         menuProps={{
           isBeakVisible: false,
           directionalHint: directionalHint,
