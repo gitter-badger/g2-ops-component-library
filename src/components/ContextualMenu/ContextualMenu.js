@@ -2,7 +2,8 @@ import * as React from 'react'
 import { IconButton } from 'office-ui-fabric-react/lib/Button'
 import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
 import { TextField } from 'office-ui-fabric-react/lib/TextField'
-import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
+import { wrapFabricContext } from '../../wrapFabricContext'
+import './style.scss'
 
 export class ContextualMenu extends React.Component {
   state = {
@@ -13,6 +14,7 @@ export class ContextualMenu extends React.Component {
     beakWidth: 20,
     edgeFixed: false
   }
+  onRenderIcon = () => <i className="material-icons">account_circle</i>
   render() {
     let {
       beakWidth,
@@ -22,39 +24,35 @@ export class ContextualMenu extends React.Component {
       gapSpace,
       useDirectionalHintForRtl
     } = this.state
-
     return (
-      <Fabric>
-        <IconButton
-          menuProps={{
-            isBeakVisible: false,
-            directionalHint: directionalHint,
-            directionalHintForRTL: directionalHintForRTL,
-            gapSpace: gapSpace,
-            beakWidth: beakWidth,
-            directionalHintFixed: edgeFixed,
-            onItemClick: (event, item) => console.log(item),
-            items: [
-              {
-                key: 'userName',
-                name: 'Sidharth Mehra'
-              },
-              {
-                key: 'settings',
-                name: 'Settings'
-              },
-              {
-                key: 'logout',
-                name: 'Logout'
-              },
-            ]
-          }}
-        >
-          <i className="material-icons">account_circle</i>
-        </IconButton>
-      </Fabric>
+      <IconButton
+        onRenderIcon={this.props.onRenderIcon || this.onRenderIcon}
+        menuProps={{
+          isBeakVisible: false,
+          directionalHint: directionalHint,
+          directionalHintForRTL: directionalHintForRTL,
+          gapSpace: gapSpace,
+          beakWidth: beakWidth,
+          directionalHintFixed: edgeFixed,
+          onItemClick: (event, item) => console.log(item),
+          items: [
+            {
+              key: 'userName',
+              name: this.props.userName,
+            },
+            {
+              key: 'settings',
+              name: 'Settings'
+            },
+            {
+              key: 'logout',
+              name: 'Logout'
+            },
+          ]
+        }}
+      />
     )
   }
 }
 
-export default ContextualMenu
+export default wrapFabricContext(ContextualMenu)

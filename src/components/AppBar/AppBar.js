@@ -57,7 +57,10 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
         </div>
       )}
       <div className="col logout-icon">{renderIfLoggedInMenu(
-        <ContextualMenu username={'Sidharth Mehra'}/>
+        <ContextualMenu
+          userName={'Sidharth Mehra'}
+          onRenderIcon={() => (<i className="material-icons md-light">account_circle</i>)}
+        />
       )}</div>
       <DefaultButton text="Feedback" />
     </div>
@@ -69,7 +72,7 @@ const renderLogoAndSearchBar = (showSearchBar) => (
     <img className="logo" src="public/images/logo.svg" alt="Copart" />
     {showSearchBar &&
       <div className="searchBar">
-        <SearchBar searchTypeValue={{ key: 'lot', name: 'Lot' }} />
+        <SearchBar searchTypeValue={{ key: 'lot', name: 'Lot' }} borderless={true} />
       </div>
     }
   </div>

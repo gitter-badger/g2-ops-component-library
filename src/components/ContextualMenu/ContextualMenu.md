@@ -1,5 +1,5 @@
 Contextual Menu Example:
 
 ```js
-<ContextualMenu />
+<ContextualMenu userName='Sidharth Mehra' />
 ```

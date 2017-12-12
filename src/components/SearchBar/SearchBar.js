@@ -1,12 +1,12 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import IconButton from 'material-ui/IconButton'
-import { TextField } from 'office-ui-fabric-react/lib/TextField';
+import renderIf from 'render-if'
+import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
-import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
-import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
+import { DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button'
 import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox'
-import { wrapMuiContext } from  '../../wrapMuiContext'
+import Checkbox from '../Checkbox/Checkbox'
+import { wrapFabricContext } from '../../wrapFabricContext'
 import './style.scss'
 
 const defaultSearchTypes = [
@@ -53,50 +53,84 @@ class SearchBar extends React.Component {
   }
 
   renderContextualMenu = () => (
-    <Fabric>
-      <DefaultButton
-        className="searchTypesMenuButton"
-        text={this.state.searchTypeValue.name}
-        menuProps={{
-          isBeakVisible: false,
-          directionalHint: DirectionalHint.bottomLeftEdge,
-          directionalHintForRTL: DirectionalHint.bottomLeftEdge,
-          gapSpace: 0,
-          beakWidth: 20,
-          directionalHintFixed: true,
-          onItemClick: (event, item) => this.handleMenuChange(event,null,item),
-          items: [
-            { key: 'lot', name: 'Lot' },
-            { key: 'seller', name: 'Seller' },
-            { key: 'owner', name: 'Owner' },
-            { key: 'seller-personnel', name: 'Seller Personnel' },
-            { key: 'facility', name: 'Facility' },
-            { key: 'location', name: 'Location' },
-            { key: 'buyer', name: 'Buyer' },
-          ]
-        }}
-      />
-    </Fabric>
+    <DefaultButton
+      className="searchTypesMenuButton"
+      text={this.state.searchTypeValue.name}
+      menuProps={{
+        isBeakVisible: false,
+        directionalHint: DirectionalHint.bottomLeftEdge,
+        directionalHintForRTL: DirectionalHint.bottomLeftEdge,
+        gapSpace: 0,
+        beakWidth: 20,
+        directionalHintFixed: true,
+        onItemClick: (event, item) => this.handleMenuChange(event,null,item),
+        items: [
+          { key: 'lot', name: 'Lot' },
+          { key: 'seller', name: 'Seller' },
+          { key: 'owner', name: 'Owner' },
+          { key: 'seller-personnel', name: 'Seller Personnel' },
+          { key: 'facility', name: 'Facility' },
+          { key: 'location', name: 'Location' },
+          { key: 'buyer', name: 'Buyer' },
+        ]
+      }}
+    />
   )
 
-  renderSearchIcon = () => (
-    <IconButton onClick={this.props.handleSearch}>
-      <i className="material-icons">search</i>
-    </IconButton>
+  renderSearchIcon = (handleSearch) => (
+    <IconButton
+      onClick={handleSearch}
+      iconProps={ { iconName: 'search' } }
+      title='Search'
+    />
   )
 
   render() {
-    const { searchTypeValue, searchTypes = defaultSearchTypes, ...otherProps } = this.props
+    const { searchTypeValue: searchTypeValueProps, searchTypes = defaultSearchTypes, handleSearch, ...searchBarProps } = this.props
+    const { searchTypeValue } = this.state
+    const renderAllFacilitiesCheckbox = renderIf(searchTypeValue.key === 'lot')
+    const colorStyle = { color: '#fff' }
     return (
-      <TextField
-        borderless={true}
-        placeholder="Type here to Search"
-        className="searchBarTextField"
-        onRenderPrefix={this.renderContextualMenu}
-        onRenderSuffix={this.renderSearchIcon}
-      />
+      <div className="searchBarDiv">
+        <TextField
+          {...searchBarProps}
+          placeholder="Type here to Search"
+          className="searchBarTextField"
+          onRenderPrefix={this.renderContextualMenu}
+          onRenderSuffix={() => this.renderSearchIcon(handleSearch)}
+        />
+        {renderAllFacilitiesCheckbox(
+          <Checkbox
+            className="searchBarCheckbox"
+            label={'All Facilities'}
+            styles={{
+              checkboxCheckedHovered: {
+                borderColor: 'black',
+              },
+              checkboxCheckedFocused: {
+                background: '#fff',
+                borderColor: '#fff'
+              },
+              checkboxChecked: {
+                background: '#fff',
+                borderColor: '#fff'
+              },
+              checkmark: {
+                opacity: '0',
+                color: 'black'
+              },
+              checkmarkChecked: {
+                opacity: '1'
+              },
+              text: colorStyle,
+              textHovered: colorStyle,
+              textFocused: colorStyle
+            }}
+          />
+        )}
+      </div>
     )
   }
 }
 
-export default wrapMuiContext(SearchBar)
+export default SearchBar

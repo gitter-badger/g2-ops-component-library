@@ -9,6 +9,14 @@
   padding: 0px;
 }
 
+.searchBarDiv {
+  display: flex;
+}
+
 .searchBarTextField {
   min-width: 30em;
+}
+
+.searchBarCheckbox {
+  margin-left: 10px;
 }
