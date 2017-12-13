@@ -4,5 +4,6 @@ SearchBar Example:
 <SearchBar
   searchTypeValue={{ key: 'lot', name: 'Lot' }}
   underlined
+  showCheckbox={false}
 />
 ```

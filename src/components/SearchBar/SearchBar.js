@@ -35,7 +35,8 @@ class SearchBar extends React.Component {
     handleMenuChange: PropTypes.func,
     searchTypevalue: PropTypes.string,
     searchTypes: PropTypes.arrayOf(PropTypes.shape),
-    handleSearch: PropTypes.func
+    handleSearch: PropTypes.func,
+    showCheckbox: PropTypes.bool
   }
 
   state = {
@@ -86,7 +87,7 @@ class SearchBar extends React.Component {
   )
 
   render() {
-    const { searchTypeValue: searchTypeValueProps, searchTypes = defaultSearchTypes, handleSearch, ...searchBarProps } = this.props
+    const { searchTypeValue: searchTypeValueProps, searchTypes = defaultSearchTypes, handleSearch, showCheckbox, ...searchBarProps } = this.props
     const { searchTypeValue } = this.state
     const renderAllFacilitiesCheckbox = renderIf(searchTypeValue.key === 'lot')
     const colorStyle = { color: '#fff' }
@@ -99,7 +100,7 @@ class SearchBar extends React.Component {
           onRenderPrefix={this.renderContextualMenu}
           onRenderSuffix={() => this.renderSearchIcon(handleSearch)}
         />
-        {renderAllFacilitiesCheckbox(
+        {showCheckbox && renderAllFacilitiesCheckbox(
           <Checkbox
             className="searchBarCheckbox"
             label={'All Facilities'}

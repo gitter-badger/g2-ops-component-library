@@ -6,7 +6,7 @@
   },
   "version": "1.0.0",
   "main": "index.js",
-  "description": "Copart component library",
+  "description": "Copart UI Component Library",
   "author": "Sidharth Mehra",
   "scripts": {
     "start": "webpack-dev-server",

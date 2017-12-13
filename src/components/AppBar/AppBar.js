@@ -72,7 +72,11 @@ const renderLogoAndSearchBar = (showSearchBar) => (
     <img className="logo" src="public/images/logo.svg" alt="Copart" />
     {showSearchBar &&
       <div className="searchBar">
-        <SearchBar searchTypeValue={{ key: 'lot', name: 'Lot' }} borderless={true} />
+        <SearchBar
+          searchTypeValue={{ key: 'lot', name: 'Lot' }}
+          borderless={true}
+          showCheckbox={true}
+        />
       </div>
     }
   </div>
