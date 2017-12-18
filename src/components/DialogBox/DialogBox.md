@@ -1,0 +1,4 @@
+DialogBox example
+```js
+  <DialogBox />
+```
