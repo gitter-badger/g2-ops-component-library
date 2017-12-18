@@ -1,67 +1,44 @@
 import * as React from 'react'
+import PropTypes from 'prop-types'
 import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog'
-import { PrimaryButton, DefaultButton } from 'office-ui-fabric-react/lib/Button'
-import { ChoiceGroup } from 'office-ui-fabric-react/lib/ChoiceGroup'
+import './style.scss'
 
 export class DialogBox extends React.Component {
-  state = {
-    hideDialog: true
+  static defaultProps = {
+    isBlocking: false,
+    hideDialog: false,
   }
-  showDialog = () => {
-    this.setState({ hideDialog: false })
-  }
-  closeDialog = () => {
-    this.setState({ hideDialog: true })
-  }
-  onChoiceChanged = () => {
-    console.log('Choice option change')
+  static propTypes = {
+    title: PropTypes.string,
+    subText: PropTypes.string,
+    onDismiss: PropTypes.func.isRequired,
+    hideDialog: PropTypes.bool,
+    isBlocking: PropTypes.bool,
+    onRenderFooter: PropTypes.func,
+    containerClassName: PropTypes.string
   }
   render() {
+    const { title, subText, onDismiss, hideDialog, isBlocking, containerClassName, children, onRenderFooter, ...otherProps } = this.props
     return (
-      <div>
-        <DefaultButton
-          description='Opens the Sample Dialog'
-          onClick={this.showDialog}
-          text='Open Dialog'
-        />
-        <Dialog
-          hidden={this.state.hideDialog}
-          onDismiss={this.closeDialog}
-          dialogContentProps={{
-            type: DialogType.largeHeader,
-            title: 'All emails together',
-            subText: 'Your Inbox has changed. No longer does it include favorites, it is a singular destination for your emails.'
-          }}
-          modalProps={{
-            isBlocking: false,
-            containerClassName: 'ms-dialogMainOverride'
-          }}
-        >
-          <ChoiceGroup
-            options={[
-              {
-                key: 'A',
-                text: 'Option A'
-              },
-              {
-                key: 'B',
-                text: 'Option B',
-                checked: true
-              },
-              {
-                key: 'C',
-                text: 'Option C',
-                disabled: true
-              }
-            ] }
-            onChange={ this._onChoiceChanged }
-          />
-          <DialogFooter>
-            <PrimaryButton onClick={ this._closeDialog } text='Save' />
-            <DefaultButton onClick={ this._closeDialog } text='Cancel' />
-          </DialogFooter>
-        </Dialog>
-      </div>
+      <Dialog
+        hidden={hideDialog}
+        onDismiss={onDismiss}
+        dialogContentProps={{
+          type: DialogType.normal,
+          title: title,
+          subText: subText
+        }}
+        modalProps={{
+          isBlocking: isBlocking,
+          containerClassName: 'dialogModelContent'
+        }}
+      >
+      {children}
+      {onRenderFooter && 
+        <DialogFooter>
+          {onRenderFooter()}
+        </DialogFooter>}
+      </Dialog>
     )
   }
 }
