@@ -13,8 +13,9 @@ Copart SnackBar Example:
     {state.showSnackBar && (
       <SnackBar
         showSnackBar={state.showSnackBar}
-        message="Hey, you are now seeing a SnackBar."
+        message="Oops, something went wrong here."
         showOKButton
+        error
       />
     )}
   </div>
