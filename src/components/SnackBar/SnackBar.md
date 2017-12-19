@@ -1,4 +1,4 @@
-Button Component Examples:
+Copart SnackBar Example:
 ```js
   initialState = { showSnackBar: false };
 
