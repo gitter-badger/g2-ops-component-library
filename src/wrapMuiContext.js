@@ -11,6 +11,10 @@ const copartBaseTheme = {
     ...lightBaseTheme.palette,
     primary1Color: '#1d5ab9',
     primary2Color: '#1d5ab9'
+  },
+  timePicker: {
+    ...lightBaseTheme.timepicker,
+    headerColor: '#1d5ab9'
   }
 }
 
