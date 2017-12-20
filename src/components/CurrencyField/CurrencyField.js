@@ -9,6 +9,7 @@ import { wrapMuiContext } from '../../wrapMuiContext'
 const getDelimiter = countryCode => (countryCode.toUpperCase() === 'IN' ? '.' : ',')
 const isBlank = (val) => val == null || (typeof val === 'string' && !val.trim().length)
 const CASCountry = ['US', 'UK', 'CA', 'IR', 'ME', 'GB']
+const GlobalCountry = ['DE', 'ES', 'IN']
 const formatValue = (country, value, currencyStyle) => formatCurrency(
   country,
   value || 0.00,
@@ -18,15 +19,23 @@ const formatValue = (country, value, currencyStyle) => formatCurrency(
 class CurrencyField extends Component {
   constructor(props) {
     super(props)
-    const { value, countryCode: country } = props
-    const companyMapper = companyCodeMapper(country.toUpperCase())
-    const currency = companyMapper.currency
-    const locale = companyMapper.locale
-    const displayedValue = isBlank(value, currency) ? '' : formatCurrency(country, value, currency, locale)
+    const { value, countryCode } = props
+    const country = countryCode.toUpperCase()
+    
+    const companyMapper = companyCodeMapper(country.toUpperCase() || 'US')
+    let errorMessage = '', displayedValue = 0.00, currency = 'USD', locale = 'en-US'
+
+    if (!(GlobalCountry.includes(country) || CASCountry.includes(country))) {
+      errorMessage = 'Please enter/send a valid country'
+    } else {
+      currency = companyMapper && companyMapper.currency
+      locale = companyMapper && companyMapper.locale
+      displayedValue = isBlank(value, currency) ? '' : formatCurrency(country, value, currency, locale)
+    }
 
     this.state = {
-      errorMessage: '',
-      value,
+      errorMessage,
+      value: value || 0,
       displayedValue,
       currency,
       locale,
@@ -43,8 +52,9 @@ class CurrencyField extends Component {
   onBlur = e => {
     const input = e.target.value
     const { currency, locale } = this.state
-    const { countryCode: country, maxValue } = this.props
-    
+    const { countryCode, maxValue } = this.props
+    const country = countryCode.toUpperCase()
+
     const inputFieldIsBlank = isBlank(input)
     let replacedValue = ''
 
@@ -77,7 +87,13 @@ class CurrencyField extends Component {
   }
 
   handleChange = input => {
-    const { countryCode: country, maxValue } = this.props
+    const { countryCode, maxValue } = this.props
+    const country = countryCode.toUpperCase()
+
+    if (!(GlobalCountry.includes(country) || CASCountry.includes(country))) {
+      this.setState({ errorMessage: 'Not a valid country' })
+      return
+    }
     const delimiter = getDelimiter(country)
     const displayedValue = CASCountry.includes(country)
       ? stripDownCurrency(country, input)
