@@ -1,61 +1,99 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { TextField } from 'office-ui-fabric-react/lib/TextField'
-import formatCurrency from './currencyUtils'
+import formatCurrency, { stripDownCurrency } from './currencyUtils'
 import { serialize } from './formatCurrency'
 import companyCodeMapper from './countryMapper'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
 const getDelimiter = countryCode => (countryCode.toUpperCase() === 'IN' ? '.' : ',')
 const isBlank = (val) => val == null || (typeof val === 'string' && !val.trim().length)
+const CASCountry = ['US', 'UK', 'CA', 'IR', 'ME', 'GB']
+const formatValue = (country, value, currencyStyle) => formatCurrency(
+  country,
+  value || 0.00,
+  currencyStyle,
+)
 
 class CurrencyField extends Component {
   constructor(props) {
     super(props)
-    const { value, countryCode } = props
-    const companyMapper = companyCodeMapper(countryCode.toUpperCase())
+    const { value, countryCode: country } = props
+    const companyMapper = companyCodeMapper(country.toUpperCase())
     const currency = companyMapper.currency
     const locale = companyMapper.locale
-    const displayedValue = isBlank(value, currency) ? '' : formatCurrency(value, currency, locale)
+    const displayedValue = isBlank(value, currency) ? '' : formatCurrency(country, value, currency, locale)
 
     this.state = {
-      errorText: '',
+      errorMessage: '',
       value,
       displayedValue,
       currency,
       locale,
     }
   }
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.hasOwnProperty('value') && document.activeElement !== this.textField.input) {
-      const { locale, currency } = this.state
-      const displayedValue = isBlank(nextProps.value) ? '' : formatCurrency(nextProps.value, currency, locale)
-      this.setState({ value: nextProps.value, displayedValue })
-    }
-  }
+  // componentWillReceiveProps(nextProps) {
+  //   if (nextProps.hasOwnProperty('value') && document.activeElement !== this.textField.input) {
+  //     const { locale, currency } = this.state
+  //     const displayedValue = isBlank(nextProps.value) ? '' : formatCurrency(nextProps.value, currency, locale)
+  //     this.setState({ value: nextProps.value, displayedValue })
+  //   }
+  // }
 
   onBlur = e => {
     const input = e.target.value
     const { currency, locale } = this.state
-    const { countryCode } = this.props
-    // check if the field is blank and if it is, updated the value properly
+    const { countryCode: country, maxValue } = this.props
+    
     const inputFieldIsBlank = isBlank(input)
-    const replacedValue = inputFieldIsBlank ? '' : Number(serialize(countryCode, input)).toFixed(2)
-    this.setState({
-      displayedValue: inputFieldIsBlank ? null : formatCurrency(replacedValue, currency, locale),
-      value: replacedValue,
-    })
-    if (this.props.onChange) {
-      this.props.onChange(e, replacedValue)
+    let replacedValue = ''
+
+    if (CASCountry.includes(country)) {
+      replacedValue = stripDownCurrency(country, input).replace(/[a-zA-Z,$#\^&*\(\)@!]+/, '') || 0
+      
+      if (replacedValue && replacedValue !== '' && replacedValue !== '0.00' && replacedValue !== '.') {
+        if (+replacedValue <= maxValue) {
+          this.setState({ displayedValue: formatValue(country, replacedValue, currency), value: replacedValue })
+        } else {
+          this.setState({ displayedValue: formatValue(country, maxValue, currency), value: replacedValue })
+        }
+      } else {
+        this.setState({ displayedValue: formatValue(country, 0, currency), value: replacedValue })
+      }
+      if (this.props.onBlur) {
+        this.props.onBlur(e)
+      }
+    } else {
+      replacedValue = inputFieldIsBlank ? '' : Number(serialize(country, input)).toFixed(2)
+      
+      this.setState({
+        displayedValue: inputFieldIsBlank ? null : formatCurrency(country, replacedValue, currency, locale),
+        value: replacedValue,
+      })
+      if (this.props.onChange) {
+        this.props.onChange(e, replacedValue)
+      }
     }
   }
 
   handleChange = input => {
-    const delimiter = getDelimiter(this.props.countryCode)
-    const displayedValue = input.replace(/\D/g, match => (match === delimiter ? delimiter : ''))
+    const { countryCode: country, maxValue } = this.props
+    const delimiter = getDelimiter(country)
+    const displayedValue = CASCountry.includes(country)
+      ? stripDownCurrency(country, input)
+      : input.replace(/\D/g, (match) => (match === delimiter ? delimiter : ''))
+
     this.setState({ displayedValue })
-    if (this.props.handleChange) {
-      this.props.handleChange(input, displayedValue)
+
+    if (Number(displayedValue) <= this.props.maxValue) {
+      this.setState({ errorMessage: '' })
+      this.setState({ displayedValue })
+      // calling handle change from props if its there
+      if (this.props.handleChange) {
+        this.props.handleChange(event, displayedValue)
+      }
+    } else {
+      this.setState({ errorMessage: `Max Limit $${maxValue}` })
     }
   }
 
@@ -75,12 +113,13 @@ class CurrencyField extends Component {
           onChanged={this.handleChange}
           onBlur={this.onBlur}
           onFocus={(e) => this.handleChange(e.target.value)}
+          errorMessage={this.state.errorMessage}
         />
         <input type="hidden"
           name={this.props.name}
           required={this.props.required}
           value={this.state.value}
-        />
+          />
       </div>
     )
   }
