@@ -101,7 +101,7 @@ class CurrencyField extends Component {
 
     this.setState({ displayedValue })
 
-    if (Number(displayedValue) <= this.props.maxValue) {
+    if (Number(displayedValue.replace(/\D/g, '')) <= Number(String(maxValue).replace(/\D/g, ''))) {
       this.setState({ errorMessage: '' })
       this.setState({ displayedValue })
       // calling handle change from props if its there
@@ -112,8 +112,6 @@ class CurrencyField extends Component {
       this.setState({ errorMessage: `Max Limit $${maxValue}` })
     }
   }
-
-  serialize = value => serialize(this.props.countryCode, value)
 
   render() {
     const {
