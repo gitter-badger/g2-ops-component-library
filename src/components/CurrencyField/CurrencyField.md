@@ -1,10 +1,13 @@
 CurrencyField Example:
 
 ```js
+  const companyCodeMapper = require('./countryMapper').default;
+  const countryCode = 'DE';
+
   <CurrencyField
     label={'Currency Field'}
-    countryCode={'DE'}
-    placeholder={'0.00,00 €'}
+    countryCode={countryCode}
+    placeholder={companyCodeMapper(countryCode).placeHolder}
     maxValue={999999999.99}
   />
 ```
