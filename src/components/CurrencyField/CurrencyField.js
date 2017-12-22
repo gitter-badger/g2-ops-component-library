@@ -2,9 +2,8 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import formatCurrency, { stripDownCurrency } from './currencyUtils'
-import { serialize } from './formatCurrency'
+import { serialize } from './currencyUtils'
 import companyCodeMapper from './countryMapper'
-import { wrapMuiContext } from '../../wrapMuiContext'
 
 const getDelimiter = countryCode => (countryCode.toUpperCase() === 'IN' ? '.' : ',')
 const isBlank = (val) => val == null || (typeof val === 'string' && !val.trim().length)
@@ -17,6 +16,16 @@ const formatValue = (country, value, currencyStyle) => formatCurrency(
 )
 
 class CurrencyField extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    label: PropTypes.string,
+    countryCode: PropTypes.string.isRequired,
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    onChange: PropTypes.func,
+  }
+
   constructor(props) {
     super(props)
     const { value, countryCode } = props
@@ -41,13 +50,6 @@ class CurrencyField extends Component {
       locale,
     }
   }
-  // componentWillReceiveProps(nextProps) {
-  //   if (nextProps.hasOwnProperty('value') && document.activeElement !== this.textField.input) {
-  //     const { locale, currency } = this.state
-  //     const displayedValue = isBlank(nextProps.value) ? '' : formatCurrency(nextProps.value, currency, locale)
-  //     this.setState({ value: nextProps.value, displayedValue })
-  //   }
-  // }
 
   onBlur = e => {
     const input = e.target.value
@@ -138,13 +140,5 @@ class CurrencyField extends Component {
     )
   }
 }
-CurrencyField.propTypes = {
-  name: PropTypes.string,
-  value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
-  label: PropTypes.string,
-  countryCode: PropTypes.string.isRequired,
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  onChange: PropTypes.func,
-}
-export default wrapMuiContext(CurrencyField)
+
+export default CurrencyField

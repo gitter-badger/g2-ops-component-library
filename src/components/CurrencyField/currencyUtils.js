@@ -1,5 +1,18 @@
 import countryMapper, { currencyDisplayMap } from './countryMapper'
 
+export const serialize = (countryCode, inputValue) => {
+  switch (countryCode.toUpperCase()) {
+    case 'IN':
+      return parseFloat(inputValue.replace(/[^\d.]/g, ''))
+    case 'DE':
+    case 'ES': {
+      const commasToPoints = inputValue.replace(/\D|\./g, (matched) => (matched === ',' ? '.' : ''))
+      return parseFloat(commasToPoints)
+    }
+    default:
+  }
+}
+
 export const getItem = (key) => {
   const value = localStorage.getItem(key)
   return value && JSON.parse(value)
@@ -45,11 +58,3 @@ export const stripDownCurrency = (country, currencyValue = '') =>
   2 decimals is a standard for payment fields across other applications as well.
 */
 export const roundCurrency = (value, roundOffDecimal = 2) => +(+value || 0).toFixed(roundOffDecimal)
-//
-// /*
-//   Returns the default currency for the present environment. Mainly used in C stack.
-// */
-// export const defaultCurrency = () =>
-//   (countryCode === 'UK'
-//     ? propOr('GBP', 'selectedCurrency', getItem('dashboard'))
-//     : propOr('USD', 'currency', countryMapper(propOr(countryCode, 'selectedCountry', getItem('dashboard')))))
