@@ -2,8 +2,9 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import renderIf from 'render-if'
 import MuiAppBar from 'material-ui/AppBar'
-import Button from "../Buttons/Button"
-import LogoutMenu from './LogoutMenu'
+import SearchBar from '../SearchBar/SearchBar'
+import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
+import ContextualMenu from '../ContextualMenu/ContextualMenu'
 import { wrapMuiContext } from '../../wrapMuiContext'
 import './style.scss'
 
@@ -17,18 +18,11 @@ const flagMapper = {
   'ca': 'canada'
 }
 
-const Flag = ({ countryCode }) => {
+const Flag = ({ countryCode, type }) => {
+  const imgProps = type === 'cas' ? { height: '22px' } : { height: '30px' }
   const flagUrl = `public/flag_icons/flag_${flagMapper[countryCode] || countryCode}.png`
-  return <img src={flagUrl} alt="Flag" />
+  return <img src={flagUrl} alt="Flag" {...imgProps} />
 }
-
-const Role = ({ role }) => (
-  <div className="col">{role}</div>
-)
-
-const Phone = ({ phoneNumber }) => (
-  <div className="col element-text">{phoneNumber}</div>
-)
 
 const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
   const renderIfFlag = renderIf(config.includes('flag') && isLoggedOn)
@@ -40,23 +34,53 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     countryCode,
     role,
     yardNumber,
-    phoneNumber
+    phoneNumber,
+    type,
+    showSearchBar,
   } = otherProps
   return (
     <div className="flex-grid">
-      <div className="col element-icon">{renderIfFlag(<Flag countryCode={countryCode} />)}</div>
-      {renderIfRole(<Role role={role} />)}
-      <div className="col element-icon">{renderIfYard(<i className="material-icons md-light">domain</i>)}</div>
-      <div className="col element-text">{renderIfYard(<div>{yardNumber}</div>)}</div>
-      <div className="col element-icon">{renderIfPhone(<i className="material-icons md-light">phone</i>)}</div>
-      {renderIfPhone(<Phone phoneNumber={phoneNumber} />)}
+      <div className="col element">
+        {renderIfFlag(<Flag countryCode={countryCode} type={type} />)}
+        {renderIfRole(<div className="text">{role}</div>)}
+      </div>
+      {renderIfYard(
+        <div className="col element">
+          <i className="material-icons md-light">domain</i>
+          <div className="iconText">{yardNumber}</div>
+        </div>
+      )}
+      {renderIfPhone(
+        <div className="col element">
+          <i className="material-icons md-light">phone</i>
+          <div className="iconText">{phoneNumber}</div>
+        </div>
+      )}
       <div className="col logout-icon">{renderIfLoggedInMenu(
-        <LogoutMenu userName={'Sidharth Mehra'} />
+        <ContextualMenu
+          userName={'Sidharth Mehra'}
+          onRenderIcon={() => (<i className="material-icons md-light">account_circle</i>)}
+        />
       )}</div>
-      <Button label="Feedback" type="secondary" />
+      <DefaultButton text="Feedback" />
     </div>
   )
 }
+
+const renderLogoAndSearchBar = (showSearchBar) => (
+  <div className="flex-grid">
+    <img className="logo" src="public/images/logo.svg" alt="Copart" />
+    {showSearchBar &&
+      <div className="searchBar">
+        <SearchBar
+          searchTypeValue={{ key: 'lot', name: 'Lot' }}
+          borderless={true}
+          showCheckbox={true}
+        />
+      </div>
+    }
+  </div>
+)
 
 const AppBar = (props) => {
   const { config, iconElementRight, isLoggedOn, iconStyleRight, children, ...otherProps } = props
@@ -65,13 +89,18 @@ const AppBar = (props) => {
     role,
     yardNumber,
     phoneNumber,
+    type,
+    showSearchBar,
     ...appBarProps
   } = otherProps
   return (
     <MuiAppBar
-      iconElementLeft={<img className="logo" src="public/images/logo.svg" alt="Copart" />}
+      iconElementLeft={renderLogoAndSearchBar(showSearchBar)}
       iconElementRight={renderAppBarElements(props)}
-      iconStyleRight={iconStyleRight}
+      iconStyleRight={{
+        marginTop: '14px',
+        marginRight: '-14px'
+      }}
       {...appBarProps}
     >
       {children}

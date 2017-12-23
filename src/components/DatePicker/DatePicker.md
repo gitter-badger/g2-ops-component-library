@@ -2,18 +2,18 @@ DatePicker Example:
 
 ```js
 var moment = require('moment');
-var defaultFormat = 'DD/MM/YYYY'
+var defaultFormat = 'MM/DD/YYYY'
 
 initialState = { "dateValue" : null };
 <DatePicker
-    autoOk
-    hintText={defaultFormat}
-    container="inline"
-    value={state.dateValue}
-    onChange={(e, dateValue) => setState({ dateValue})}
-    floatingLabelText="Select Date"
-    floatingLabelFixed
-    defaultFormat={defaultFormat}
-    formatDate={(date) => moment(date, defaultFormat).format(defaultFormat)}
+	autoOk
+	style={{ maxWidth: '200px' }}
+	hintText={defaultFormat}
+	container="inline"
+	value={state.dateValue}
+	onChange={(e, dateValue) => setState({ dateValue})}
+	label="Select Date"
+	defaultFormat={defaultFormat}
+	formatDate={(date) => moment(date, defaultFormat).format(defaultFormat)}
 />
 ```

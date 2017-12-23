@@ -1,12 +1,13 @@
-import React, {Component} from 'react';
+import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {dateTimeFormat, formatIso, isEqualDate} from 'material-ui/DatePicker/dateUtils';
-import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog';
-import TextField from 'material-ui/TextField';
+import {dateTimeFormat, formatIso, isEqualDate} from 'material-ui/DatePicker/dateUtils'
+import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
+import moment from 'moment'
+import TextField from '../../components/TextField/TextField'
 import IconButton from '../../components/Buttons/IconButton'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
 import { wrapMuiContext } from  '../../wrapMuiContext'
-import moment from 'moment'
+import './style.scss'
 
 class DatePicker extends Component {
   static propTypes = {
@@ -113,9 +114,9 @@ class DatePicker extends Component {
   };
 
   handleTouchTap = (event) => {
-    if (this.props.onTouchTap) {
-      this.props.onTouchTap(event);
-    }
+    // if (this.props.onTouchTap) {
+    //   this.props.onTouchTap(event);
+    // }
     if (!this.props.disabled) {
       setTimeout(() => {
         this.openDialog();
@@ -148,9 +149,9 @@ class DatePicker extends Component {
     }
   }
 
-  handleTextFieldChange = (event) => {
+  handleTextFieldChange = (value) => {
     this.setState({
-        displayDate: event.target.value
+        displayDate: value
     })
   }
 
@@ -209,23 +210,36 @@ class DatePicker extends Component {
     const {prepareStyles} = this.context.muiTheme;
     const formatDate = formatDateProp || this.formatDate;
 
+    /*
+    <TextField
+      {...other}
+      onFocus={this.handleFocus}
+      onKeyUp={this.handleKeyUp}
+      onChange={this.handleTextFieldChange}
+      ref="input"
+      style={textFieldStyle}
+      value={this.state.displayDate}
+      floatingLabelStyle={{ color: '#1d5ab9' }}
+      underlineStyle={{ borderColor: '#1d5ab9' }}
+      underlineFocusStyle={{ borderColor: '#1d5ab9' }}
+    />
+    
+    */
+
     return (
       <div className={className} style={prepareStyles(Object.assign({}, style))}>
         <TextField
           {...other}
-          onFocus={this.handleFocus}
-          onKeyUp={this.handleKeyUp}
-          onChange={this.handleTextFieldChange}
-          ref="input"
-          style={textFieldStyle}
           value={this.state.displayDate}
-          floatingLabelStyle={{ color: '#1d5ab9' }}
-          underlineStyle={{ borderColor: '#1d5ab9' }}
-          underlineFocusStyle={{ borderColor: '#1d5ab9' }}
+          onChanged={this.handleTextFieldChange}
+          onKeyUp={this.handleKeyUp}
+          // errorMessage={'This field is Required'}
+          onRenderSuffix={() => (
+            <div onClick={this.handleTouchTap}>
+              <i className="material-icons md-dark md-18">date_range</i>
+            </div>
+          )}
         />
-        <IconButton onClick={this.handleTouchTap} style={{ marginLeft: '-40px' }}>
-          <CalendarIcon />
-        </IconButton>
         <DatePickerDialog
           DateTimeFormat={DateTimeFormat}
           autoOk={autoOk}
