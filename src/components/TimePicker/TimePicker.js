@@ -1,14 +1,28 @@
-import React, { Component, PropTypes } from 'react'
-import TimePicker from 'material-ui/TimePicker'
+import React, { Component } from 'react'
+import PropTypes from 'prop-types'
+import MuiTimePicker from 'material-ui/TimePicker'
 import { wrapMuiContext } from  '../../wrapMuiContext'
 import Style from './Style'
 
-class TimePickerNew extends Component {
+class TimePicker extends Component {
+  static propTypes = {
+    name: PropTypes.string,
+    value: PropTypes.string,
+    label: PropTypes.string,
+    style: PropTypes.shape(),
+    textStyle: PropTypes.shape(),
+    errorText: PropTypes.string,
+    errorStyle: PropTypes.shape(),
+    required: PropTypes.bool,
+    disabled: PropTypes.bool,
+    handleChange: PropTypes.func,
+    floatingLabelFixed: PropTypes.bool,
+  }
   render() {
     const { disabled, label, required, textStyle, name, value, handleChange, errorText, errorStyle, style } = this.props
     return (
       <div>
-        <TimePicker
+        <MuiTimePicker
           autoOk
           ref={(elem) => { this.timePicker = elem }}
           className={disabled ? 'disabledTabField' : 'editableTabField'}
@@ -28,24 +42,15 @@ class TimePickerNew extends Component {
           errorText={errorText}
           errorStyle={errorStyle || Style.errorStyle}
         />
-        <input type="hidden" name={this.props.name} value={this.props.value} ref={(elem) => { this.input = elem }} />
+        <input
+          type="hidden"
+          name={this.props.name}
+          value={this.props.value}
+          ref={(elem) => { this.input = elem }}
+        />
       </div>
     )
   }
 }
 
-TimePickerNew.propTypes = {
-  name: PropTypes.string,
-  value: PropTypes.string,
-  label: PropTypes.string,
-  style: PropTypes.shape(),
-  textStyle: PropTypes.shape(),
-  errorText: PropTypes.string,
-  errorStyle: PropTypes.shape(),
-  required: PropTypes.bool,
-  disabled: PropTypes.bool,
-  handleChange: PropTypes.func,
-  floatingLabelFixed: PropTypes.bool,
-}
-
-export default wrapMuiContext(TimePickerNew)
+export default wrapMuiContext(TimePicker)
