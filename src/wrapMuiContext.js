@@ -15,7 +15,11 @@ const copartBaseTheme = {
   timePicker: {
     ...lightBaseTheme.timepicker,
     headerColor: '#1d5ab9'
-  }
+  },
+  tabs: {
+    selectedTextColor: 'rgba(38, 166, 91, 1.0)',
+    textColor: 'rgba(218, 223, 225, 1.0)',
+  },
 }
 
 initializeIcons();
