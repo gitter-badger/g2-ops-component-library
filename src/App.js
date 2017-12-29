@@ -2,10 +2,10 @@ import React from "react"
 import ReactDOM from "react-dom"
 import ActionHome from "material-ui/svg-icons/action/home"
 import moment from 'moment'
-import AppBar from "./components/AppBar/"
-import Button from "./components/Buttons/Button"
-import DatePicker from './components/DatePicker'
-import IconButton from "./components/Buttons/IconButton"
+import AppBar from "components/AppBar/"
+import Button from "components/Buttons/Button"
+import DatePicker from 'components/DatePicker'
+import IconButton from "components/Buttons/IconButton"
 
 const appBarPropsCobalt = {
   type: 'cobalt',

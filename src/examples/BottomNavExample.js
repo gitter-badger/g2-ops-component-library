@@ -1,7 +1,7 @@
 import React from 'react'
-import Paper from '../components/Paper/Paper'
-import BottomNavigation from '../components/BottomNavigation/BottomNavigation'
-import BottomNavigationItem from '../components/BottomNavigation/BottomNavigationItem'
+import Paper from 'components/Paper/Paper'
+import BottomNavigation from 'components/BottomNavigation/BottomNavigation'
+import BottomNavigationItem from 'components/BottomNavigation/BottomNavigationItem'
 import { wrapMuiContext } from '../wrapMuiContext'
 
 const BottomNavExample = (props) => (

@@ -1,5 +1,9 @@
 const path = require("path")
 
+const { join, resolve } = path
+const root = resolve(__dirname)
+const src = join(root, 'src')
+
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
   template: "./src/index.html",
@@ -14,6 +18,10 @@ module.exports = {
     filename: "bundle.js",
   },
   resolve: {
+    alias: {
+      examples: join(src, 'examples'),
+      components: join(src, 'components'),
+    },
     extensions: [".jsx", ".js", ".css"],
   },
   module: {
