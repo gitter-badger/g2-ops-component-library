@@ -1,9 +1,8 @@
 import React, { Component, isValidElement } from 'react'
 import PropTypes from 'prop-types'
-import TextField from 'material-ui/TextField'
+import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import { isNil, identity } from './autoSelectUtils'
 import Options from './AutoSelectOptions'
-import { wrapMuiContext } from  '../../wrapMuiContext'
 
 const KeyCode = {
   'enter': 13,
@@ -95,7 +94,7 @@ class AutoSelect extends Component {
 
     this.state = {
       active: false,
-      highlightedOption: null,
+      highlightedOption: firstMatchingOption(props),
       scrollToIndex: null,
       displayValue: getDisplayValue(props),
     }
@@ -204,16 +203,16 @@ class AutoSelect extends Component {
     this.setState({ displayValue })
   }
 
-  handleChange = (e) => {
-    this.setState({ displayValue: e.target.value })
+  handleChange = (changedValue) => {
+    this.setState({ displayValue: changedValue })
     const { onFocus, value, onChange, options, ...otherProps } = this.props // eslint-disable-line no-unused-vars
     const { displayOption, serializeOption } = getOptionTransforms(otherProps)
 
-    const valueIndexAmongOptions = options.findIndex((o) => displayOption(o) === e.target.value)
+    const valueIndexAmongOptions = options.findIndex((o) => displayOption(o) === changedValue)
     const valueAmongOptions = options[valueIndexAmongOptions]
-    const newValue = valueAmongOptions ? serializeOption(valueAmongOptions) : e.target.value
+    const newValue = valueAmongOptions ? serializeOption(valueAmongOptions) : changedValue
 
-    onChange && onChange(e, newValue)
+    onChange && onChange(newValue)
   }
 
   afterSelectOption = () => {
@@ -248,12 +247,12 @@ class AutoSelect extends Component {
       : options.findIndex((o) => startsWithIgnoringCase(String(display(o)), getDisplayValue(this.props)))
     const textFieldProps = {
       value: this.state.displayValue == null ? '' : this.state.displayValue,
-      onChange: this.handleChange,
+      onChanged: this.handleChange,
       onClick: this.handleFocus,
       onFocus: this.handleFocus,
       onBlur: this.handleBlur,
       autoComplete: 'off',
-      errorText:  errorText,
+      errorMessage:  errorText,
       errorStyle,
       hintStyle: { overflow: 'hidden', whiteSpace: 'nowrap' },
       ...otherProps,
@@ -323,4 +322,4 @@ AutoSelect.propTypes = {
   selectTextField: PropTypes.func,
 }
 
-export default wrapMuiContext(AutoSelect)
+export default AutoSelect
