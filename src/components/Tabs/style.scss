@@ -1,7 +1,25 @@
+$default-tab: '';
+
 .tabIcon {
   font-size: 24px;
   margin-bottom: 5px;
 }
 .tabIconDispatch {
   font-size: 16px;
+}
+.default_tab {
+  background-color: #545A63 !important;
+  border-bottom: 5px solid #0D5DB8 !important;
+  color: white !important;
+  text-transform: capitalize !important;
+  font-size: 10px !important;
+  @media (min-width: 1100px) {
+    font-size: 11px !important;
+  };
+}
+.active_tab {
+  background-color: white !important;
+  border-bottom: 5px solid #545A63 !important;
+  color: #545A63 !important;
+  text-transform: capitalize !important;
 }

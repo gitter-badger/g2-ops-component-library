@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Tabs as MuiTabs, Tab } from 'material-ui/Tabs'
 import Badge from 'material-ui/Badge'
-import style from './style'
 import './style.scss'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
@@ -26,24 +25,8 @@ const IconWithoutBadge = ({ tabClassName = 'tabIcon', tabConfig }) => {
 
 const getLabelForTab = (label, labelError = label, tabHasError = false) => (tabHasError ? labelError : label)
 
-const generateStyles = (slideIndex) => {
-  style.tab = []
-  style.tab[0] = style.default_tab
-  style.tab[1] = style.default_tab
-  style.tab[2] = style.default_tab
-  style.tab[3] = style.default_tab
-  style.tab[4] = style.default_tab
-  style.tab[5] = style.default_tab
-  style.tab[6] = style.default_tab
-  style.tab[7] = style.default_tab
-  style.tab[8] = style.default_tab
-  style.tab[slideIndex] = { ...style.tab[slideIndex], ...style.active_tab }
-  return style.tab
-}
-
 const renderTab = (tabConfig, index, slideIndex, onTabActive, tabsWithErrors) => {
-  // A temorary solution to override active tab CSS. Refactor the following code later.
-  style.tab = generateStyles(slideIndex)
+  const tabClassName = slideIndex === index ? 'default_tab active_tab' : 'default_tab'
   return (
     <Tab
       icon={tabConfig.showBadge ? <IconWithBadge tabConfig={tabConfig} /> : <IconWithoutBadge tabConfig={tabConfig} />}
@@ -53,8 +36,7 @@ const renderTab = (tabConfig, index, slideIndex, onTabActive, tabsWithErrors) =>
       onActive={(activeTab) => {
         onTabActive(activeTab, tabConfig, index)
       }}
-      style={style.tab[index]}
-      className={tabConfig.className}
+      className={`${tabClassName} ${tabConfig.className}`}
       name={tabConfig.name}
     />
   )
@@ -71,7 +53,7 @@ class Tabs extends React.Component {
     const { slideIndex, tabsConfig, onTabActive, tabsWithErrors } = this.props
     return (
       <div>
-        <MuiTabs ref="tabs" tabItemContainerStyle={style.tabItemContainer}>
+        <MuiTabs ref="tabs">
           {tabsConfig && tabsConfig.map((tabConfig, index) =>
             renderTab(tabConfig, index, slideIndex, onTabActive, tabsWithErrors)
           )}
