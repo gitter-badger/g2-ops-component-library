@@ -1,6 +1,5 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import cn from 'classnames'
 import { Tabs as MuiTabs, Tab } from 'material-ui/Tabs'
 import Badge from 'material-ui/Badge'
 import style from './style'
@@ -22,7 +21,7 @@ const IconWithoutBadge = ({ tabClassName = 'tabIcon', tabConfig }) => {
   if (tabConfig.iconName) {
     return <i className="material-icons">{tabConfig.iconName}</i>
   }
-  return <i className={cn(`fa ${tabConfig.iconClassName}`, tabClassName)} />
+  return <i className={`fa ${tabConfig.iconClassName} ${tabClassName}`} />
 }
 
 const getLabelForTab = (label, labelError = label, tabHasError = false) => (tabHasError ? labelError : label)
