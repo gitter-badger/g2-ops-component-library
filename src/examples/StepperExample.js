@@ -3,7 +3,7 @@ import {
   Step,
   Stepper,
   StepLabel,
-} from '../components/Stepper/Stepper';
+} from 'components/Stepper/Stepper';
 import RaisedButton from 'material-ui/RaisedButton';
 import FlatButton from 'material-ui/FlatButton';
 import { wrapMuiContext } from '../wrapMuiContext'
