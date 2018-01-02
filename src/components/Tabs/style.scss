@@ -23,3 +23,9 @@ $default-tab: '';
   color: #545A63 !important;
   text-transform: capitalize !important;
 }
+
+@media screen and (max-width: 1000px) {
+  .tabLabel {
+    display: none;
+  }
+}

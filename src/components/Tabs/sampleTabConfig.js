@@ -1,4 +1,5 @@
 import React from 'react'
+import './sampleTabConfigStyle.scss'
 const SELLER_AND_CONTACT = 'sellerAndContact'
 const LOT_INFORMATION = 'lotInformation'
 const BILLING_AND_PICKUP = 'billingAndPickup'
@@ -8,7 +9,7 @@ const CRITICAL_DATES = 'criticalDates'
 const VIRTUAL_BID_LOG = 'virtualBidLog'
 const SERVICE_ORDER = 'serviceOrder'
 
-const label = (labelText) => <span className={''}>{labelText}</span>
+const label = (labelText) => <span className={'tabLabel'}>{labelText}</span>
 
 export default [
   {
