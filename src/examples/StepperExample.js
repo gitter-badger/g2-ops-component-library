@@ -2,10 +2,9 @@ import React from 'react';
 import {
   Step,
   Stepper,
-  StepLabel,
+  StepLabel
 } from 'components/Stepper/Stepper';
-import RaisedButton from 'material-ui/RaisedButton';
-import FlatButton from 'material-ui/FlatButton';
+import Button from 'components/Buttons/Button'
 import { wrapMuiContext } from '../wrapMuiContext'
 
 /**
@@ -15,25 +14,9 @@ import { wrapMuiContext } from '../wrapMuiContext'
  * Linear steppers require users to complete one step in order to move on to the next.
  */
 class StepperExample extends React.Component {
-
   state = {
     finished: false,
-    stepIndex: 0,
-  };
-
-  handleNext = () => {
-    const {stepIndex} = this.state;
-    this.setState({
-      stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2,
-    });
-  };
-
-  handlePrev = () => {
-    const {stepIndex} = this.state;
-    if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1});
-    }
+    stepIndex: 0
   };
 
   getStepContent(stepIndex) {
@@ -49,9 +32,24 @@ class StepperExample extends React.Component {
     }
   }
 
+  handlePrev = () => {
+    const { stepIndex } = this.state
+    if (stepIndex > 0) {
+      this.setState({stepIndex: stepIndex - 1})
+    }
+  };
+
+  handleNext = () => {
+    const { stepIndex } = this.state
+    this.setState({
+      stepIndex: stepIndex + 1,
+      finished: stepIndex >= 2
+    })
+  };
+
   render() {
-    const {finished, stepIndex} = this.state;
-    const contentStyle = {margin: '0 16px'};
+    const { finished, stepIndex } = this.state
+    const contentStyle = { margin: '0 16px' }
 
     return (
       <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
@@ -83,15 +81,16 @@ class StepperExample extends React.Component {
             <div>
               <p>{this.getStepContent(stepIndex)}</p>
               <div style={{marginTop: 12}}>
-                <FlatButton
+                <Button
+                  type="secondary"
                   label="Back"
                   disabled={stepIndex === 0}
                   onClick={this.handlePrev}
                   style={{marginRight: 12}}
                 />
-                <RaisedButton
+                <Button
+                  type="primary"
                   label={stepIndex === 2 ? 'Finish' : 'Next'}
-                  primary={true}
                   onClick={this.handleNext}
                 />
               </div>
@@ -103,4 +102,4 @@ class StepperExample extends React.Component {
   }
 }
 
-export default wrapMuiContext(StepperExample);
+export default wrapMuiContext(StepperExample)
