@@ -112,7 +112,7 @@ class AutoSelect extends Component {
     }
     let inputElem
     if (this.textField) {
-      inputElem = this.textField.input
+      inputElem = this.textField._textElement
     }
     if (document.activeElement !== inputElem) {
       this.setState({ displayValue })
@@ -197,7 +197,7 @@ class AutoSelect extends Component {
 
   handleClickOption = (serializedOption) => {
     const { onChange, displayOption, displaySelectedOption, options, serializeOption } = this.props
-    onChange && onChange(null, serializedOption)
+    onChange && onChange(serializedOption)
     const selectedOption = options.find((o) => serializeOption(o) === serializedOption)
     const displayValue = (displaySelectedOption || displayOption)(selectedOption)
     this.setState({ displayValue })
@@ -277,7 +277,7 @@ class AutoSelect extends Component {
           name={`${name}-txtField`}
           {...textFieldProps}
           type="text"
-          ref={(c) => { this.textField = c }}
+          componentRef={(c) => { this.textField = c }}
           onKeyDown={this.handleKeyDown}
         />
         {active && (

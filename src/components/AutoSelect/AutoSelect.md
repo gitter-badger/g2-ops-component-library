@@ -17,7 +17,7 @@ initialState = { value: 'ele' };
   options={options}
   selectedOption="C"
   value={state.value}
-  onChange={(e, value) => setState({ value })}
+  onChange={(value) => setState({ value })}
   displayOption={(code) => descriptions[code].desc}
   optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
   width={200}
