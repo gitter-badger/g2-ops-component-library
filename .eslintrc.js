@@ -1,13 +1,20 @@
+const path = require('path')
+
 module.exports = {
   parser: "babel-eslint",
   env: {
     browser: true,
     node: true,
   },
-  plugins: ["import", "react"],
-  extends: ["eslint:recommended", "plugin:import/errors", "plugin:react/recommended"],
+  plugins: ["react"],
+  extends: "eslint-config-airbnb-easy",
   settings: {
-    "import/resolver": "webpack",
+    'import/resolver': {
+      node: {
+        extensions: ['.js'],
+        paths: ['node_modules', path.join(__dirname, 'src')],
+      },
+    },
   },
   rules: {
     "array-bracket-spacing": [1, "always"],

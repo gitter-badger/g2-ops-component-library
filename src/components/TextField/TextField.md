@@ -2,7 +2,8 @@ Generic TextField component that can be used to implement custom components such
 
 Example:
 ```js
-<div>
+initialState = { textFieldValue: '' };
+<div style={{ width: '300px' }}>
   <TextField
     label={'First Name'}
     placeholder={'Enter First Name'}
@@ -13,7 +14,9 @@ Example:
   />
   <TextField
     label={'Required Field'}
-    errorMessage={'This field is required.'}
+    value={state.textFieldValue}
+    onChanged={(textFieldValue) => setState({ textFieldValue })}
+    onGetErrorMessage={() => (state.textFieldValue || ''.length) === 0 ? 'This field is required.' : ''}
   />
 </div>
 ```
