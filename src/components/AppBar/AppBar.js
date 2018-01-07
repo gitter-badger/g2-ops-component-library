@@ -26,14 +26,17 @@ const appBarPropTypes = {
   ).isRequired,
   /** Action to perform on feedback button click */
   onFeedbackClick: PropTypes.func,
+  /** Render Search Bar */
+  onRenderSearchBar: PropTypes.func,
   /** Two digit country code that renders the Flag */
   countryCode: PropTypes.string.isRequired,
   /** Role Text */
   role: PropTypes.string,
   /** Yard number */
   yardNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  /** phone number */
   phoneNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  showCheckbox: PropTypes.bool,
+  /** boolean to show searchbar component */
   showSearchBar: PropTypes.bool,
   /** If isLoggedOn is false, renders just the Feedback button, else everything is rendered. */
   isLoggedOn: PropTypes.bool.isRequired
@@ -95,7 +98,7 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
   )
 }
 
-const renderLogoAndSearchBar = (showSearchBar, moduleName, showCheckbox) => (
+const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderSearchBar }) => (
   <div className="flex-grid">
     <div className="appBarLeft">
       <img className="logo" src="public/images/logo.svg" alt="Copart" />
@@ -103,11 +106,7 @@ const renderLogoAndSearchBar = (showSearchBar, moduleName, showCheckbox) => (
     </div>
     {showSearchBar &&
       <div className="searchBar">
-        <SearchBar
-          searchTypeValue={{ key: 'lot', name: 'Lot' }}
-          borderless={true}
-          showCheckbox={showCheckbox}
-        />
+        {onRenderSearchBar()}
       </div>
     }
   </div>
@@ -122,16 +121,16 @@ const AppBar = (props) => {
     phoneNumber,
     type,
     showSearchBar,
-    showCheckbox,
     logoutItems,
     onLogoutItemClicked,
     moduleName,
     onFeedbackClick,
+    onRenderSearchBar,
     ...appBarProps
   } = otherProps
   return (
     <MuiAppBar
-      iconElementLeft={renderLogoAndSearchBar(showSearchBar, moduleName, showCheckbox)}
+      iconElementLeft={renderLogoAndSearchBar(props)}
       iconElementRight={renderAppBarElements(props)}
       iconStyleRight={{
         marginTop: '14px',
