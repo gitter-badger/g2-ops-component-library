@@ -15,7 +15,9 @@ const appBarPropsCobalt = {
   role: 'Germany Office Employee',
   yardNumber: 5001,
   phoneNumber: '7834873587',
-  showSearchBar: true
+  showSearchBar: true,
+  showCheckbox: true,
+  moduleName: 'Cobalt Portal'
 }
 
 const appBarPropsCAS = {
@@ -25,22 +27,33 @@ const appBarPropsCAS = {
   countryCode: 'us',
   yardNumber: 12,
   phoneNumber: '7834873587',
-  showSearchBar: true
+  showSearchBar: true,
+  showCheckbox: true,
+  moduleName: 'CAS Portal'
 }
 
+const logoutItems = [{
+  key: 'userName',
+  name: 'Sidharth Mehra'
+},
+{
+  key: 'settings',
+  name: 'Settings'
+},
+{
+  key: 'logout',
+  name: 'Logout'
+}]
+
 export default class App extends React.Component {
-  state = {
-    dateValue: null,
-  }
-  handleChange = (event, dateValue) => {
-    this.setState({ dateValue })
-  }
   render() {
-    const defaultFormat = 'DD/MM/YYYY'
     return (
       <div style={{ margin: "-8px" }}>
         <AppBar
           {...appBarPropsCobalt}
+          onLogoutItemClicked={(event, item) => console.log(item)}
+          logoutItems={logoutItems}
+          onFeedbackClick={() => console.log('Feedback clicked')}
         />
       </div>
     )

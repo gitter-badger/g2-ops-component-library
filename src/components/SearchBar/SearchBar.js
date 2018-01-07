@@ -123,7 +123,10 @@ class SearchBar extends React.Component {
               checkmarkChecked: {
                 opacity: '1'
               },
-              text: colorStyle,
+              text: {
+                ...colorStyle,
+                fontSize: '12px'
+              },
               textHovered: colorStyle,
               textFocused: colorStyle
             }}

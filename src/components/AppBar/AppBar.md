@@ -8,18 +8,11 @@ var configCobalt = {
   countryCode: 'de',
   yardNumber: 5001,
   role: 'Germany Executive',
-  showSearchBar: false
+  showSearchBar: false,
+  showCheckbox: false,
+  moduleName: 'Cobalt Portal'
 };
 
-<div style={{ margin: "0px" }}>
-  <AppBar
-    {...configCobalt}
-   />
-</div>
-```
-
-CAS Portal App Bar
-```js
 var configCAS = {
   type: 'cas',
   config: [ 'flag', 'yard', 'phone' ],
@@ -27,12 +20,30 @@ var configCAS = {
   countryCode: 'us',
   yardNumber: 12,
   phoneNumber: 7834873587,
-  showSearchBar: false
+  showSearchBar: false,
+  showCheckbox: false,
+  moduleName: 'CAS Portal'
 };
+
+var logoutItems = [{
+    key: 'userName',
+    name: 'Sidharth Mehra'
+  },
+  {
+    key: 'settings',
+    name: 'Settings'
+  },
+  {
+    key: 'logout',
+    name: 'Logout'
+}];
 
 <div style={{ margin: "0px" }}>
   <AppBar
-    {...configCAS}
+    {...configCobalt}
+    onLogoutItemClicked={(event, item) => console.log(item)}
+    logoutItems={logoutItems}
+    onFeedbackClick={() => console.log('Feedback clicked')}
    />
 </div>
 ```
