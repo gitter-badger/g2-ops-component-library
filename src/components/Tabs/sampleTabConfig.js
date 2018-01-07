@@ -1,5 +1,6 @@
 import React from 'react'
 import './sampleTabConfigStyle.scss'
+
 const SELLER_AND_CONTACT = 'sellerAndContact'
 const LOT_INFORMATION = 'lotInformation'
 const BILLING_AND_PICKUP = 'billingAndPickup'
