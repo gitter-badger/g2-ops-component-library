@@ -1,18 +1,16 @@
 import React from 'react'
-import { BottomNavigation as MuiBottomNavigation } from 'material-ui/BottomNavigation'
+import { BottomNavigation as MuiBottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
+import { wrapMuiContext } from '../../wrapMuiContext'
 
 /**
  *
  * @example ../../examples/BottomNavigation.md
  */
-class BottomNavigation extends React.Component {
-  render() {
-    return (
-      <MuiBottomNavigation {...this.props}>
-        {this.props.children}
-      </MuiBottomNavigation>
-    )
-  }
-}
+const BottomNavigation = (props) => (
+  <MuiBottomNavigation {...props}>
+    {props.children}
+  </MuiBottomNavigation>
+)
 
-export default BottomNavigation
+export default wrapMuiContext(BottomNavigation)
+export { BottomNavigationItem }

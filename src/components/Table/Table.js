@@ -14,13 +14,13 @@ import { wrapMuiContext } from '../../wrapMuiContext'
 *
 * @example ../../examples/Table.md
 */
-const TableComponent =(props) => (
+const Table =(props) => (
   <MuiTable {...props}>
     {props.children}
   </MuiTable>
 ) 
 
-export const Table = wrapMuiContext(TableComponent)
+export default wrapMuiContext(Table)
 export {
   TableBody,
   TableFooter,

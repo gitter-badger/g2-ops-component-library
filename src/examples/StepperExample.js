@@ -1,7 +1,6 @@
 import React from 'react';
-import {
+import Stepper, {
   Step,
-  Stepper,
   StepLabel
 } from 'components/Stepper/Stepper';
 import Button from 'components/Buttons/Button'

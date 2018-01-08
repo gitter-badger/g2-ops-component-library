@@ -1,5 +1,5 @@
 import React from 'react'
-import { Table, TableHeader, TableHeaderColumn, TableBody, TableRow, TableRowColumn } from 'components/Table/Table'
+import Table, { TableHeader, TableHeaderColumn, TableBody, TableRow, TableRowColumn } from 'components/Table/Table'
 
 const TableExample = () => (
   <Table>

@@ -1,8 +1,6 @@
 import React from 'react'
 import Paper from 'components/Paper/Paper'
-import BottomNavigation from 'components/BottomNavigation/BottomNavigation'
-import BottomNavigationItem from 'components/BottomNavigation/BottomNavigationItem'
-import { wrapMuiContext } from '../wrapMuiContext'
+import BottomNavigation, { BottomNavigationItem } from 'components/BottomNavigation/BottomNavigation'
 
 const BottomNavExample = (props) => (
   <Paper zDepth={1}>
@@ -26,4 +24,4 @@ const BottomNavExample = (props) => (
   </Paper>
 )
 
-export default wrapMuiContext(BottomNavExample)
+export default BottomNavExample
