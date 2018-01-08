@@ -1,6 +1,8 @@
 Cobalt Portal App Bar
 
 ```js
+var SearchBar = require('../SearchBar/SearchBar').default
+
 var configCobalt = {
   type: 'cobalt',
   config: [ 'flag', 'role', 'yard' ],
@@ -8,18 +10,10 @@ var configCobalt = {
   countryCode: 'de',
   yardNumber: 5001,
   role: 'Germany Executive',
-  showSearchBar: false
+  showSearchBar: false,
+  moduleName: 'Cobalt Portal'
 };
 
-<div style={{ margin: "0px" }}>
-  <AppBar
-    {...configCobalt}
-   />
-</div>
-```
-
-CAS Portal App Bar
-```js
 var configCAS = {
   type: 'cas',
   config: [ 'flag', 'yard', 'phone' ],
@@ -27,12 +21,49 @@ var configCAS = {
   countryCode: 'us',
   yardNumber: 12,
   phoneNumber: 7834873587,
-  showSearchBar: false
+  showSearchBar: false,
+  moduleName: 'CAS Portal'
 };
 
-<div style={{ margin: "0px" }}>
+var logoutItems = [{
+    key: 'userName',
+    name: 'Sidharth Mehra'
+  },
+  {
+    key: 'settings',
+    name: 'Settings'
+  },
+  {
+    key: 'logout',
+    name: 'Logout'
+}];
+
+var searchTypes = [
+	{ key: 'lot', name: 'Lot' },
+  { key: 'seller', name: 'Seller' },
+  { key: 'owner', name: 'Owner' },
+  { key: 'seller-personnel', name: 'Seller Personnel' },
+  { key: 'facility', name: 'Facility' },
+  { key: 'location', name: 'Location' },
+  { key: 'buyer', name: 'Buyer' },
+];
+
+<div style={{ margin: "-17px" }}>
   <AppBar
-    {...configCAS}
+    {...configCobalt}
+    onLogoutItemClicked={(event, item) => console.log(item)}
+    logoutItems={logoutItems}
+    onFeedbackClick={() => console.log('Feedback clicked')}
+    onRenderSearchBar={() => (
+      <SearchBar
+        searchType={{ key: 'lot', name: 'Lot' }}
+        searchTypes={searchTypes}
+        borderless
+        searchText='Default Search Text'
+        handleSearch={() => console.log('Search Clicked')}
+        showCheckbox={false}
+      />
+    )}
    />
 </div>
 ```

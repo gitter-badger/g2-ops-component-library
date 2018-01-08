@@ -4,59 +4,50 @@ import renderIf from 'render-if'
 import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
 import { DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button'
-import { SearchBox } from 'office-ui-fabric-react/lib/SearchBox'
-import Checkbox from '../Checkbox/Checkbox'
+import Checkbox from 'components/Checkbox/Checkbox'
 import { wrapFabricContext } from '../../wrapFabricContext'
 import './style.scss'
 
-const defaultSearchTypes = [
-  { code: 'lot',
-    description: 'Lot',
-  },
-  { code: 'seller',
-    description: 'Seller',
-  },
-  { code: 'owner',
-    description: 'Owner',
-  },
-  { code: 'location',
-    description: 'Location',
-  },
-  { code: 'facility',
-    description: 'Facility',
-  },
-  { code: 'sellerPersonnel',
-    description: 'Seller Personnel',
-  },
-]
-
 class SearchBar extends React.Component {
   static propTypes = {
-    handleMenuChange: PropTypes.func,
-    searchTypevalue: PropTypes.string,
-    searchTypes: PropTypes.arrayOf(PropTypes.shape),
-    handleSearch: PropTypes.func,
+    /** Callback triggered when the search type changes */
+    onSearchTypeChange: PropTypes.func,
+    /** Search Type, one of the items of type { key,name } from the searchTypes provided  */
+    searchType: PropTypes.shape({
+      key: PropTypes.string,
+      name: PropTypes.string,
+    }),
+    /** Search Types to be rendered in the searchMenu on the left */
+    searchTypes: PropTypes.arrayOf(PropTypes.shape({
+      key: PropTypes.string,
+      name: PropTypes.string,
+    })),
+    /** Trigger search handler */
+    handleSearch: PropTypes.func.isRequired,
+    /** search text to display within the Search box */
+    searchText: PropTypes.string,
+    /** boolean to show Checkbox */
     showCheckbox: PropTypes.bool
   }
 
   state = {
-    searchTypeValue: this.props.searchTypeValue || { key: 'lot', name: 'Lot' },
+    searchType: this.props.searchType || { key: 'lot', name: 'Lot' },
   }
 
-  handleMenuChange = (event, index, value) => {
+  handleMenuChange = (event, index, item) => {
     this.setState({
-      searchTypeValue: value
+      searchType: item
     }, () => {
-      if(this.props.handleMenuChange) {
-        this.props.handleMenuChange(event, index, value)
+      if(this.props.onMenuChange) {
+        this.props.onMenuChange(event, index, item)
       }
     })
   }
 
-  renderContextualMenu = () => (
+  renderSearchBarMenu = (items) => (
     <DefaultButton
       className="searchTypesMenuButton"
-      text={this.state.searchTypeValue.name}
+      text={this.state.searchType.name}
       menuProps={{
         isBeakVisible: false,
         directionalHint: DirectionalHint.bottomLeftEdge,
@@ -64,16 +55,8 @@ class SearchBar extends React.Component {
         gapSpace: 0,
         beakWidth: 20,
         directionalHintFixed: true,
-        onItemClick: (event, item) => this.handleMenuChange(event,null,item),
-        items: [
-          { key: 'lot', name: 'Lot' },
-          { key: 'seller', name: 'Seller' },
-          { key: 'owner', name: 'Owner' },
-          { key: 'seller-personnel', name: 'Seller Personnel' },
-          { key: 'facility', name: 'Facility' },
-          { key: 'location', name: 'Location' },
-          { key: 'buyer', name: 'Buyer' },
-        ]
+        onItemClick: (event, item) => this.handleMenuChange(event, null, item),
+        items: items
       }}
     />
   )
@@ -87,9 +70,9 @@ class SearchBar extends React.Component {
   )
 
   render() {
-    const { searchTypeValue: searchTypeValueProps, searchTypes = defaultSearchTypes, handleSearch, showCheckbox, ...searchBarProps } = this.props
-    const { searchTypeValue } = this.state
-    const renderAllFacilitiesCheckbox = renderIf(searchTypeValue.key === 'lot')
+    const { searchType: searchTypeProp, searchTypes, handleSearch, showCheckbox, ...searchBarProps } = this.props
+    const { searchType } = this.state
+    const renderAllFacilitiesCheckbox = renderIf(searchType.key === 'lot')
     const colorStyle = { color: '#fff' }
     return (
       <div className="searchBarDiv">
@@ -97,7 +80,7 @@ class SearchBar extends React.Component {
           {...searchBarProps}
           placeholder="Type here to Search"
           className="searchBarTextField"
-          onRenderPrefix={this.renderContextualMenu}
+          onRenderPrefix={() => this.renderSearchBarMenu(searchTypes)}
           onRenderSuffix={() => this.renderSearchIcon(handleSearch)}
         />
         {showCheckbox && renderAllFacilitiesCheckbox(
@@ -123,7 +106,10 @@ class SearchBar extends React.Component {
               checkmarkChecked: {
                 opacity: '1'
               },
-              text: colorStyle,
+              text: {
+                ...colorStyle,
+                fontSize: '12px'
+              },
               textHovered: colorStyle,
               textFocused: colorStyle
             }}
