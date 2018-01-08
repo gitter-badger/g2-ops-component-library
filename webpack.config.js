@@ -3,6 +3,7 @@ const path = require("path")
 const { join, resolve } = path
 const root = resolve(__dirname)
 const src = join(root, 'src')
+const dest = join(root, 'public')
 
 const HtmlWebpackPlugin = require("html-webpack-plugin")
 const HtmlWebpackPluginConfig = new HtmlWebpackPlugin({
@@ -14,13 +15,15 @@ module.exports = {
   devtool: 'source-map',
   entry: "./src/index.js",
   output: {
-    path: path.resolve(__dirname, "public"),
+    publicPath: '/',
+    path: dest,
     filename: "bundle.js",
   },
   resolve: {
     alias: {
       examples: join(src, 'examples'),
       components: join(src, 'components'),
+      assets: join(dest, 'assets'),
     },
     extensions: [".jsx", ".js", ".css"],
   },

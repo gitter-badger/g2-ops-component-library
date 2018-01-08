@@ -20,7 +20,7 @@ const flagMapper = {
 
 const Flag = ({ countryCode, type }) => {
   const imgProps = type === 'cas' ? { height: '22px' } : { height: '30px' }
-  const flagUrl = `public/flag_icons/flag_${flagMapper[countryCode] || countryCode}.png`
+  const flagUrl = `assets/flag_icons/flag_${flagMapper[countryCode] || countryCode}.png`
   return <img src={flagUrl} alt="Flag" {...imgProps} />
 }
 
@@ -69,7 +69,7 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
 
 const renderLogoAndSearchBar = (showSearchBar) => (
   <div className="flex-grid">
-    <img className="logo" src="public/images/logo.svg" alt="Copart" />
+    <img className="logo" src="assets/images/logo.svg" alt="Copart" />
     {showSearchBar &&
       <div className="searchBar">
         <SearchBar
