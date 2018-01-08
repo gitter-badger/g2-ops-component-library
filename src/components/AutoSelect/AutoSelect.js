@@ -78,6 +78,29 @@ const UP = -1
 const DOWN = 1
 
 class AutoSelect extends Component {
+  static propTypes = {
+    name: PropTypes.string.isRequired,
+    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    disabled: PropTypes.bool,
+    required: PropTypes.bool,
+    errorText: PropTypes.string.isRequired,
+    errorStyle: PropTypes.shape(),
+    options: validateOptions,
+    onFocus: PropTypes.func.isRequired,
+    onChange: PropTypes.func,
+    onBlur: PropTypes.func,
+    isReadable: PropTypes.bool,
+    displayOption: validateOptionTransforms,
+    serializeOption: validateOptionTransforms,
+    underlineFocusStyle: PropTypes.objectOf(PropTypes.any),
+    floatingLabelStyle: PropTypes.objectOf(PropTypes.any),
+    'data-uname': PropTypes.string,
+    Options: PropTypes.func,
+    displaySelectedOption: PropTypes.func,
+    optionStyleProps: PropTypes.objectOf(PropTypes.any),
+    selectTextField: PropTypes.func,
+  }
+
   static defaultProps = {
     value: '',
     errorText: '',
@@ -297,29 +320,6 @@ class AutoSelect extends Component {
       </div>
     )
   }
-}
-
-AutoSelect.propTypes = {
-  name: PropTypes.string.isRequired,
-  value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
-  disabled: PropTypes.bool,
-  required: PropTypes.bool,
-  errorText: PropTypes.string.isRequired,
-  errorStyle: PropTypes.shape(),
-  options: validateOptions,
-  onFocus: PropTypes.func.isRequired,
-  onChange: PropTypes.func,
-  onBlur: PropTypes.func,
-  isReadable: PropTypes.bool,
-  displayOption: validateOptionTransforms,
-  serializeOption: validateOptionTransforms,
-  underlineFocusStyle: PropTypes.objectOf(PropTypes.any),
-  floatingLabelStyle: PropTypes.objectOf(PropTypes.any),
-  'data-uname': PropTypes.string,
-  Options: PropTypes.func,
-  displaySelectedOption: PropTypes.func,
-  optionStyleProps: PropTypes.objectOf(PropTypes.any),
-  selectTextField: PropTypes.func,
 }
 
 export default AutoSelect
