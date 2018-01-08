@@ -1,4 +1,4 @@
-# Copart UI Component Library
+# Ops Portal UI Component Library
 
 Collection of generic UI components built in React using Material-ui and Fabric.
 Live style guide available using React Styleguidist.
