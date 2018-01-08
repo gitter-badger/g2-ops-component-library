@@ -6,11 +6,11 @@ import { wrapMuiContext } from '../../wrapMuiContext'
  *
  * @example ../../examples/Stepper.md
  */
-const StepperComponent = (props) => (
+const Stepper = (props) => (
   <MuiStepper {...props}>
     {props.children}
   </MuiStepper>
 )
 
-export const Stepper = wrapMuiContext(StepperComponent)
+export default wrapMuiContext(Stepper)
 export { Step, StepLabel }

@@ -1,12 +1,12 @@
 {
-  "name": "copart-ui-component-library",
+  "name": "ops-portal-component-library",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/copartit/copart-ui-component-library.git"
+    "url": "git+https://github.com/copartit/ops-portal-component-library.git"
   },
   "version": "1.0.0",
   "main": "index.js",
-  "description": "Copart UI Component Library",
+  "description": "Ops-portal UI Component Library",
   "author": "Sidharth Mehra",
   "scripts": {
     "start": "webpack-dev-server",
@@ -16,9 +16,9 @@
   },
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/copartit/copart-ui-component-library/issues"
+    "url": "https://github.com/copartit/ops-portal-component-library/issues"
   },
-  "homepage": "https://github.com/copartit/copart-ui-component-library#readme",
+  "homepage": "https://github.com/copartit/ops-portal-component-library#readme",
   "dependencies": {
     "@uifabric/icons": "^5.3.0",
     "babel-preset-es2015": "^6.24.1",
