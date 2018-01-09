@@ -50,7 +50,7 @@ class Tabs extends React.Component {
       <div>
         <MuiTabs>
           {tabsConfig && tabsConfig.map((tabConfig, index) => {
-            const tabClassName = slideIndex === index ? 'tab active' : 'tab default'
+            const tabClassName = slideIndex === index ? 'tab tabActive' : 'tab tabDefault'
             return (
               <Tab
                 icon={tabConfig.showBadge ? <IconWithBadge tabConfig={tabConfig} /> : <IconWithoutBadge tabConfig={tabConfig} />}

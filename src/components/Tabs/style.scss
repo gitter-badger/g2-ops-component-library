@@ -15,12 +15,12 @@ $default-tab: '';
     font-size: 11px !important;
   };
 }
-.default {
+.tabDefault {
   background-color: #545A63 !important;
   border-bottom: 5px solid #0D5DB8 !important;
   color: white !important;
 }
-.active {
+.tabActive {
   background-color: white !important;
   border-bottom: 5px solid #545A63 !important;
   color: #545A63 !important;

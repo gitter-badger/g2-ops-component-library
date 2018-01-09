@@ -24,6 +24,7 @@ module.exports = {
       examples: join(src, 'examples'),
       components: join(src, 'components'),
       assets: join(dest, 'assets'),
+      types: join(root, 'types')
     },
     extensions: [".jsx", ".js", ".css"],
   },
