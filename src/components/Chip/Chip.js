@@ -28,7 +28,7 @@ Chip.propTypes = {
   labelColor: PropTypes.string,
   /** Override the inline-styles of the label. */
   labelStyle: PropTypes.objectOf(PropTypes.any),
-  /** Callback function fired when the delete icon is clicked. If set, the delete icon will be shown. */  
+  /** Callback function fired when the delete icon is clicked. If set, the delete icon will be shown. */
   onRequestDelete: PropTypes.func,
   /** Callback function fired when the Chip element is touch-tapped. */
   onTouchTap: PropTypes.func,

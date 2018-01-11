@@ -11,8 +11,8 @@ import './style.scss'
 const appBarPropTypes = {
   /** Type of App bar, currently supports two values 'cas' and 'cobalt' */
   type: PropTypes.string.isRequired,
-  /** Config that determines elements rendered in right side of the App Bar*/
-  config: PropTypes.array.isRequired,
+  /** Config that determines elements rendered in right side of the App Bar */
+  config: PropTypes.arrayOf(PropTypes.string).isRequired,
   /** Module Name displayed under the Copart Logo */
   moduleName: PropTypes.string.isRequired,
   /** Action to perform when a logout menu item is clicked */
@@ -21,7 +21,7 @@ const appBarPropTypes = {
   logoutItems: PropTypes.arrayOf(
     PropTypes.shape({
       key: PropTypes.string,
-      name: PropTypes.string,
+      name: PropTypes.string
     })
   ).isRequired,
   /** Action to perform on feedback button click */
@@ -33,9 +33,9 @@ const appBarPropTypes = {
   /** Role Text */
   role: PropTypes.string,
   /** Yard number */
-  yardNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  yardNumber: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
   /** phone number */
-  phoneNumber: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  phoneNumber: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
   /** boolean to show searchbar component */
   showSearchBar: PropTypes.bool,
   /** If isLoggedOn is false, renders just the Feedback button, else everything is rendered. */
@@ -48,8 +48,14 @@ const flagMapper = {
 
 const Flag = ({ countryCode, type }) => {
   const imgProps = type === 'cas' ? { height: '22px' } : { height: '30px' }
-  const flagUrl = `assets/flag_icons/flag_${flagMapper[countryCode] || countryCode}.png`
-  return <img src={flagUrl} alt="Flag" {...imgProps} />
+  const flagUrl = `./public/assets/flag_icons/flag_${flagMapper[countryCode] || countryCode}.png`
+  return (
+    <img
+      src={flagUrl}
+      alt="Flag"
+      {...imgProps}
+    />
+  )
 }
 
 const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
@@ -67,12 +73,17 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     showSearchBar,
     logoutItems,
     onLogoutItemClicked,
-    onFeedbackClick,
+    onFeedbackClick
   } = otherProps
   return (
     <div className="flex-grid">
       <div className="col element">
-        {renderIfFlag(<Flag countryCode={countryCode} type={type} />)}
+        {renderIfFlag(
+          <Flag
+            countryCode={countryCode}
+            type={type}
+          />
+        )}
         {renderIfRole(<div className="text">{role}</div>)}
       </div>
       {renderIfYard(
@@ -93,7 +104,10 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
           onItemClick={onLogoutItemClicked}
         />
       )}</div>
-      <DefaultButton text="Feedback" onClick={onFeedbackClick} />
+      <DefaultButton
+        text="Feedback"
+        onClick={onFeedbackClick}
+      />
     </div>
   )
 }
@@ -101,7 +115,11 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
 const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderSearchBar }) => (
   <div className="flex-grid">
     <div className="appBarLeft">
-      <img className="logo" src="assets/images/logo.svg" alt="Copart" />
+      <img
+        className="logo"
+        src="./public/assets/images/logo.svg"
+        alt="Copart"
+      />
       <span className="moduleName">{moduleName}</span>
     </div>
     {showSearchBar &&
