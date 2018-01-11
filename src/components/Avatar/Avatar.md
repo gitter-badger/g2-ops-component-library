@@ -1,22 +1,22 @@
 Avatar Example:
 
+Useful for actions that can be used as overlays on top of images or documents.
+
 ```js
+const iconsList = [
+  'file_upload', 'file_download', 'edit', 'delete', 'remove', 'add'
+];
+
 <div>
-  <span style={{ marginLeft: '5px' }}>
+  {iconsList.map((iconName) => (
+    <span style={{ marginLeft: '5px' }}>
     <Avatar
       color={'black'}
       backgroundColor={'#ccc'}
       size={30}
-      icon={<i className="material-icons">person</i>}
+      icon={<i className="material-icons">{iconName}</i>}
     />
   </span>
-  <span style={{ marginLeft: '5px' }}>
-    <Avatar
-      color={'black'}
-      backgroundColor={'#ccc'}
-      size={30}
-      icon={<i className="material-icons">file_upload</i>}
-    />
-  </span>
+  ))}
 </div>
 ```
