@@ -5,7 +5,7 @@ import renderer from 'react-test-renderer'
 import { shallow } from 'enzyme'
 import Car from 'material-ui/svg-icons/maps/directions-car'
 
-import { wrapMuiContext, copartBaseTheme } from '../../../../wrapMuiContext'
+import { wrapWithMaterialUIContext, theme } from '../../../../utils/wrapWithContext'
 
 import QuickFilters from '../quick-filters.component'
 
@@ -33,12 +33,12 @@ describe('<QuickFilters />', () => {
   })
 
   test('<QuickFilters /> renders properly', () => {
-    const tree = renderer.create(wrapMuiContext(<QuickFilters {...props} />))
+    const tree = renderer.create(wrapWithMaterialUIContext(<QuickFilters {...props} />))
     expect(tree.toJSON()).toMatchSnapshot()
   })
 
   test('<QuickFilters /> should change active filter', () => {
-    const tree = shallow(<QuickFilters {...props} />, { context: { muiTheme: copartBaseTheme } })
+    const tree = shallow(<QuickFilters {...props} />, { context: { muiTheme: theme } })
     expect(tree.state('selectedQuickFilter')).toBe('quickFilterOne')
     expect(
       tree
