@@ -25,11 +25,7 @@
     "babel-preset-stage-0": "^6.24.1",
     "classnames": "^2.2.5",
     "css-loader": "^0.28.7",
-    "enzyme": "^3.3.0",
-    "enzyme-adapter-react-15": "^1.0.5",
     "html-webpack-plugin": "^2.29.0",
-    "identity-obj-proxy": "3.0.0",
-    "jest": "^22.0.6",
     "material-design-icons": "^3.0.1",
     "material-icons": "^0.1.0",
     "material-ui": "0.15.4",
@@ -42,7 +38,6 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-tap-event-plugin": "2.0.1",
-    "react-test-renderer": "^15.4.2",
     "react-tooltip": "^3.4.0",
     "react-virtualized": "^9.14.1",
     "render-if": "^0.1.1",
@@ -57,9 +52,14 @@
     "babel-loader": "^7.1.0",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.5",
     "eslint-config-airbnb-easy": "^1.0.10",
     "eslint-plugin-import": "^2.8.0",
-    "react-styleguidist": "^6.0.33"
+    "identity-obj-proxy": "3.0.0",
+    "jest": "^22.0.6",
+    "react-styleguidist": "^6.0.33",
+    "react-test-renderer": "^15.4.2"
   },
   "jest": {
     "moduleNameMapper": {
