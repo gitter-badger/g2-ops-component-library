@@ -1,10 +1,7 @@
 // @flow
 import type { FilterType } from 'types/Filter'
-
 import React from 'react'
-
 import Filter from 'components/FilterSidebar/Filter'
-
 import './filters.component.scss'
 
 type FiltersPropType = {
@@ -12,8 +9,8 @@ type FiltersPropType = {
   onFilterChange: (Array<string>, string) => void,
 }
 
-const Filters = ({ filters = [], onFilterChange }: FiltersPropType) => (
-  <div className="Filters">
+const Filters = ({ filters = [], onFilterChange, width }: FiltersPropType) => (
+  <div className="Filters" style={{ width }}>
     <div className="sectionHeading">
       <div className="label">Filters</div>
     </div>

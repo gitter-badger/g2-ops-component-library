@@ -10,6 +10,8 @@ var quickLinks = require('./FilterMockData').quickLinks;
     onFilterChange={() => { console.log('on filter change ') }}
     onQuickFiltersChange={() => { console.log('onn quick filter change ') }}
     quickFilters={quickLinks}
+    height={'250px'}
+    width={'250px'}
 />
 
 ```

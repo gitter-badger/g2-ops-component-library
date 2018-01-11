@@ -36,10 +36,10 @@ class FilterSidebarComponent extends Component<FilterSidebarComponentPropType, F
   }
 
   render() {
-    const { quickFilters, filters, onFilterChange, onQuickFiltersChange, selectedQuickFilter } = this.props
+    const { quickFilters, filters, onFilterChange, onQuickFiltersChange, selectedQuickFilter, height, width } = this.props
     const renderIfFilterDrawerOpen = renderIf(this.state.filterDrawerOpen)
     return (
-      <div className="FilterSidebar">
+      <div className="FilterSidebar" style={{ height }}>
         <div className="filtersOptions">
           <div className="filterSwitcher">
             <FilterSwitcher onFilterOpen={this.toggleFilterDrawer} open={this.state.filterDrawerOpen} />
@@ -53,7 +53,7 @@ class FilterSidebarComponent extends Component<FilterSidebarComponentPropType, F
           </div>
         </div>
         <div className={cn('filters', { open: this.state.filterDrawerOpen })}>
-          {renderIfFilterDrawerOpen(<Filters filters={filters} onFilterChange={onFilterChange} />)}
+          {renderIfFilterDrawerOpen(<Filters width={width} filters={filters} onFilterChange={onFilterChange} />)}
         </div>
       </div>
     )
