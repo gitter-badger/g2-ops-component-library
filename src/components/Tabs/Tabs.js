@@ -47,10 +47,10 @@ class Tabs extends React.Component {
   render() {
     const { slideIndex, tabsConfig, onTabActive, tabsWithErrors } = this.props
     return (
-      <div>
+      <div className="tabs">
         <MuiTabs>
           {tabsConfig && tabsConfig.map((tabConfig, index) => {
-            const tabClassName = slideIndex === index ? 'tab tabActive' : 'tab tabDefault'
+            const tabClassName = slideIndex === index ? 'tab active' : 'tab default'
             return (
               <Tab
                 icon={tabConfig.showBadge ? <IconWithBadge tabConfig={tabConfig} /> : <IconWithoutBadge tabConfig={tabConfig} />}
