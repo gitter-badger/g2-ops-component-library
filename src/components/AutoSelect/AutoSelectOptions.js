@@ -2,7 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { AutoSizer, List } from 'react-virtualized'
 import cn from 'classnames'
-import mdlComponent from './mdlComponent'
+import mdlComponent from './autoselectMdlComponent'
 import { identity } from './autoSelectUtils'
 
 import './AutoSelect.scss'

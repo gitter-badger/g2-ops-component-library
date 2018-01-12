@@ -4,12 +4,14 @@ import { TextField as FabricTextField } from 'office-ui-fabric-react/lib/TextFie
 import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
 
 const propTypes = {
-  text: PropTypes.string,
+  text: PropTypes.string
 }
 
-const TextField = props => (
+const TextField = (props) => (
   <Fabric>
-    <FabricTextField {...props} />
+    <FabricTextField
+      {...props}
+    />
   </Fabric>
 )
 
