@@ -18,7 +18,8 @@ module.exports = {
   output: {
     publicPath: '/',
     path: dest,
-    filename: 'bundle.js'
+    filename: 'bundle.js',
+    libraryTarget: 'commonjs'
   },
   resolve: {
     alias: {
