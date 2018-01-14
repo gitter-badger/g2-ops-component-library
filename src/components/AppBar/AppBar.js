@@ -29,6 +29,10 @@ const appBarPropTypes = {
   onRenderSearchBar: PropTypes.func,
   /** Two digit country code that renders the Flag */
   countryCode: PropTypes.string.isRequired,
+  /** Override default function that renders the Flag */
+  onRenderFlag: PropTypes.func,
+  /** Override default function that renders the Logo */
+  onRenderLogo: PropTypes.func,
   /** Role Text */
   role: PropTypes.string,
   /** Yard number */
@@ -72,16 +76,15 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     showSearchBar,
     logoutItems,
     onLogoutItemClicked,
-    onFeedbackClick
+    onFeedbackClick,
+    onRenderFlag,
+    onRenderLogo
   } = otherProps
   return (
     <div className="flex-grid">
       <div className="col element">
         {renderIfFlag(
-          <Flag
-            countryCode={countryCode}
-            type={type}
-          />
+          onRenderFlag()
         )}
         {renderIfRole(<div className="text">{role}</div>)}
       </div>
@@ -111,14 +114,10 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
   )
 }
 
-const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderSearchBar }) => (
+const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, onRenderSearchBar }) => (
   <div className="flex-grid">
     <div className="appBarLeft">
-      <img
-        className="logo"
-        src="./public/assets/images/logo.svg"
-        alt="Copart"
-      />
+      {onRenderLogo()}
       <span className="moduleName">{moduleName}</span>
     </div>
     {showSearchBar &&
@@ -161,5 +160,21 @@ const AppBar = (props) => {
 }
 
 AppBar.propTypes = appBarPropTypes
+
+AppBar.defaultProps = {
+  onRenderFlag: () => (
+    <Flag
+      countryCode={this.props.countryCode}
+      type={this.props.type}
+    />
+  ),
+  onRenderLogo: () => (
+    <img
+      className="logo"
+      src="./public/assets/images/logo.svg"
+      alt="Copart"
+    />
+  )
+}
 
 export default wrapMuiContext(AppBar)
