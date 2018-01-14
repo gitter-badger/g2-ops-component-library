@@ -5,14 +5,17 @@
     "url": "git+https://github.com/copartit/ops-portal-component-library.git"
   },
   "version": "1.0.0",
-  "main": "src/index.js",
+  "main": "index.js",
   "description": "Ops-portal UI Component Library",
   "author": "Sidharth Mehra",
   "scripts": {
     "start": "webpack-dev-server",
     "test": "test",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "build:dev": "webpack",
+    "build": "NODE_ENV=production BABEL_ENV=production webpack -p",
+    "prepublish": "yarn build"
   },
   "license": "ISC",
   "bugs": {
