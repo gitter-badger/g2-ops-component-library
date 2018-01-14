@@ -5,7 +5,7 @@
     "url": "git+https://github.com/copartit/ops-portal-component-library.git"
   },
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "src/index.js",
   "description": "Ops-portal UI Component Library",
   "author": "Sidharth Mehra",
   "scripts": {
