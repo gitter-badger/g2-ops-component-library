@@ -142,6 +142,8 @@ const AppBar = (props) => {
     moduleName,
     onFeedbackClick,
     onRenderSearchBar,
+    onRenderFlag,
+    onRenderLogo,
     ...appBarProps
   } = otherProps
   return (
@@ -164,8 +166,8 @@ AppBar.propTypes = appBarPropTypes
 AppBar.defaultProps = {
   onRenderFlag: () => (
     <Flag
-      countryCode={this.props.countryCode}
-      type={this.props.type}
+      countryCode={'de'}
+      type={'cobalt'}
     />
   ),
   onRenderLogo: () => (
