@@ -1,1 +1,1 @@
-export default './SearchBar'
+export default from './SearchBar'
