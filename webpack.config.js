@@ -20,7 +20,8 @@ module.exports = {
   externals: {
     react: { commonjs: 'react', commonjs2: 'react' },
     'react-dom': { commonjs: 'react-dom', commonjs2: 'react-dom' },
-    'material-ui': { commonjs: 'material-ui', commonjs2: 'material-ui' }
+    'material-ui': { commonjs: 'material-ui', commonjs2: 'material-ui' },
+    'office-ui-fabric-react': { commonjs: 'office-ui-fabric-react', commonjs2: 'office-ui-fabric-react' }
   },
   resolve: {
     alias: {
