@@ -51,12 +51,12 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: [ 'node_modules' ]
+        exclude: /node_modules/
       },
       {
         test: /\.jsx$/,
         loader: 'babel-loader',
-        exclude: [ 'node_modules' ]
+        exclude: /node_modules/
       },
       {
         test: /\.(css|less)/,

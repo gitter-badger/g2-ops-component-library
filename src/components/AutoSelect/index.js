@@ -1,1 +1,1 @@
-export default from './AutoSelect.js';
+export default from './AutoSelect'

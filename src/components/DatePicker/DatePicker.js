@@ -1,12 +1,12 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {dateTimeFormat, formatIso, isEqualDate} from 'material-ui/DatePicker/dateUtils'
+import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/dateUtils'
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import moment from 'moment'
 import TextField from 'components/TextField/TextField'
-import IconButton from 'components/Buttons/IconButton'
+import IconButton from 'components/Button/IconButton'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
-import { wrapMuiContext } from  '../../wrapMuiContext'
+import { wrapMuiContext } from '../../wrapMuiContext'
 import './style.scss'
 
 class DatePicker extends Component {

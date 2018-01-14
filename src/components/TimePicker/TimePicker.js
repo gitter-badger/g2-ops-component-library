@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import MuiTimePicker from 'material-ui/TimePicker'
-import { wrapMuiContext } from  '../../wrapMuiContext'
+import { wrapMuiContext } from '../../wrapMuiContext'
 import Style from './Style'
 
 class TimePicker extends Component {
@@ -16,7 +16,7 @@ class TimePicker extends Component {
     required: PropTypes.bool,
     disabled: PropTypes.bool,
     handleChange: PropTypes.func,
-    floatingLabelFixed: PropTypes.bool,
+    floatingLabelFixed: PropTypes.bool
   }
   render() {
     const { disabled, label, required, textStyle, name, value, handleChange, errorText, errorStyle, style } = this.props
@@ -26,7 +26,7 @@ class TimePicker extends Component {
           autoOk
           ref={(elem) => { this.timePicker = elem }}
           className={disabled ? 'disabledTabField' : 'editableTabField'}
-          style={{...Style.root, style}}
+          style={{ ...Style.root, style }}
           disabled={disabled}
           floatingLabelText={required && !disabled ? `${label}*` : label}
           hintText={disabled ? '' : 'HH:MM'}
