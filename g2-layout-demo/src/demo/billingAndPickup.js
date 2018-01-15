@@ -2,6 +2,7 @@ import React from 'react'
 import PickupDetails from './pickupDetails'
 import AdvanceChargePayment from './advanceChargePayment'
 import TowProvider from './towProvider'
+import ChargesTable from './chargesTable'
 import './style.scss'
 
 class BillingAndPickup extends React.Component {
@@ -12,16 +13,11 @@ class BillingAndPickup extends React.Component {
           <div>
             <PickupDetails />
             <AdvanceChargePayment />
-            <div className="section header">
-              <span style={{ paddingLeft: '10px' }}>Tow Provider</span>
-            </div>
             <TowProvider />
           </div>
         </div>
         <div className="charges">
-          <div className="section header">
-            <span style={{ paddingLeft: '10px' }}>Seller Billing</span>
-          </div>
+          <ChargesTable />
         </div>
       </div>
     )

@@ -7,7 +7,7 @@ const AdvanceChargePayment = () => (
       <span style={{ paddingLeft: '10px' }}>Advance Charge Payment</span>
     </div>
     <div className="wrapper">
-      <div className="footer">Footer</div>
+      <div className="footer"></div>
     </div>
   </div>
 )
