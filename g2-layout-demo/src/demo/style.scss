@@ -1,0 +1,96 @@
+.breadcrumbsContainer {
+  clear: both;
+  font-size: 12px;
+  padding: 10px;
+  background-color: #3c4656;
+  color: white;
+  font-weight: 100;
+}
+.breadcrumbsContainer a,
+.breadcrumbsContainer a:visited,
+.breadcrumbsContainer a:link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.container {
+  display: flex;
+  overflow-y: auto;
+  .sidebar {
+    min-width: 250px;
+    width: 250px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    margin-right: 5px;
+  }
+  .tabs {
+    flex: 1;
+  }
+  .pickup {
+    width: 70%;
+  }
+  .charges {
+    margin-left: 5px;
+    width: 30%;
+  }
+}
+.commoninfo {
+  min-height: 72px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: #545a63;
+  .lotandviewers {
+    display: flex;
+    padding: 10px 0px 0px 10px;
+    .lot {
+      font-size: 24px;
+    }
+  }
+  .stage {
+    color: white;
+    background-color: rgb(75, 157, 79);
+    height: 36px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .description {
+    font-size: 14px;
+    padding: 10px;
+  }
+}
+.viewers {
+  color: #545a63;
+  height: max-content;
+  background-color: white;
+  border-radius: 2px;
+  margin-left: 30%;
+  padding: 0px 10px;
+}
+.bottomnav {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+.bottomnav .background {
+  background-color: #E0E0E0 !important;
+}
+.notes {
+  width: 600px;
+  flex: none !important;
+}
+.md-rtl {
+  transform: scaleX(-1);
+}
+.section {
+  margin-top: 5px;
+}
+.header {
+  background-color: rgb(29, 90, 185);
+  text-transform: capitalize;
+  color: #fff;
+  padding: 10px 0 10px 0;
+  font-size: 14px;
+  max-height: 40px;
+  width: 100%;
+}
