@@ -1,34 +1,31 @@
 .wrapper {
   display: flex;  
   flex-flow: row wrap;
-  font-weight: bold;
   text-align: center;
 }
 
 .wrapper > * {
+  margin-top: 5px;
   padding: 10px;
   flex: 1 100%;
 }
 
 .footer {
-  background: #EEEEEE;
-  margin-top: 5px;
+  background: #f4f4f4;
 }
 
 .main {
+  margin-left: 5px;
   text-align: left;
-  margin-top: 5px;
-  background: #EEEEEE;
+  background: #f4f4f4;
 }
 
 .aside-1 {
-  margin-top: 5px;
-  background: #EEEEEE;
+  background: #f4f4f4;
 }
 
 @media all and (min-width: 600px) {
   .aside { flex: 1 auto; }
-  .main { margin-left: 5px }
 }
 
 @media all and (min-width: 800px) {

@@ -1,6 +1,6 @@
 import React from 'react'
 import { Table, TableBody, TableHeader, TableHeaderColumn, TableRowColumn, TableRow } from 'ops-portal-component-library'
-import './flexBoxExample.css'
+import './billingAndPickup.css'
 
 const tableStyle = {
   dialog: { width: '80%', maxWidth: 'none' },
@@ -166,7 +166,6 @@ const ChargesTable = () => (
       <span style={{ paddingLeft: '10px' }}>Seller Billing</span>
     </div>
     <div className="wrapper">
-      <RenderTable />
     </div>
   </div>
 )

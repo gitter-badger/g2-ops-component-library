@@ -1,19 +1,10 @@
 import React from 'react'
 import { AutoSelect, TextField } from 'ops-portal-component-library'
-import './flexBoxExample.css'
+import { yesNoOptions, yesNoDescriptions, locationOptions, locationDescriptions } from './autoSelectOptionsRefData'
+import style from './style'
+import './billingAndPickup.css'
 
 const basicFields = ['Pickup Required', 'Residence', 'Tow Type', 'Towable', 'Keys']
-const options = ['Y', 'N']
-const descriptions = {
-  'Y': { code: 'Y', desc: 'Yes'},
-  'N': { code: 'N', desc: 'No'},
-}
-
-const optionsLocation = [0, 1]
-const descriptionsLocation = {
-  0: { code: 0, desc: '14185 Dallas Parkway, Dallas TX-75254'},
-  1: { code: 1, desc: '521 South Good Latimer, Apt 1728, Dallas TX-75254'},
-}
 
 class PickupDetails extends React.Component {
   state = {
@@ -25,6 +16,7 @@ class PickupDetails extends React.Component {
     'Location': '',
   }
   render() {
+    const disabled = false
     return (
       <div>
         <div className="section header">
@@ -33,50 +25,51 @@ class PickupDetails extends React.Component {
         <div className="wrapper">
           <div className="aside aside-1">
             {basicFields.map(fieldKey => (
-              <div key={`div-${fieldKey}`} style={{ maxWidth: 'auto', display: 'flex', fontSize: '12px', fontWeight: 400, marginTop: '5px' }}>
-                <span style={{ color: '#1d5ab9', textAlign: 'left', width: '40%', marginTop: '10px', fontSize: '12px' }}>{fieldKey}*: </span>
-                <span style={{ width: '100%' }}>
+              <div key={`div-${fieldKey}`} style={style.fieldGroup}>
+                <span style={style.fieldLabel}>{fieldKey}*: </span>
+                <span style={style.autoSelectField}>
                   <AutoSelect
                     key={`autoselect-${fieldKey}`}
                     name={fieldKey}
                     placeholder={fieldKey}
-                    options={options}
-                    displayOption={(code) => descriptions[code].desc}
+                    options={yesNoOptions}
+                    disabled={disabled}
+                    displayOption={(code) => yesNoDescriptions[code].desc}
                     value={this.state[fieldKey]}
                     onChange={(value) => this.setState({ [fieldKey]: value })}
                     optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
-                    width={200}
                   />
                 </span>
               </div>
             ))}
           </div>
           <div className="main">
-            <div style={{ maxWidth: 'auto', display: 'flex', fontSize: '12px', fontWeight: 400, marginTop: '5px' }}>
-              <span style={{ color: '#1d5ab9', textAlign: 'left', width: '25%', marginTop: '10px', fontSize: '12px' }}>Location*: </span>
-              <span style={{ width: '100%' }}>
+            <div style={style.fieldGroup}>
+              <span style={style.fieldLabel}>Location*: </span>
+              <span style={style.autoSelectField}>
                 <AutoSelect
                   name="Location"
-                  options={optionsLocation}
+                  options={locationOptions}
                   placeholder={'Location'}
                   value={this.state.Location}
+                  disabled={disabled}
                   onChange={(value) => this.setState({ 'Location': value })}
-                  displayOption={(code) => descriptionsLocation[code].desc}
+                  displayOption={(code) => locationDescriptions[code].desc}
                   optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
-                  width={200}
                 />
               </span>
             </div>
           </div>
           <div className="footer">
-            <div style={{ maxWidth: 'auto', display: 'flex', fontSize: '12px', fontWeight: 400, marginTop: '5px' }}>
-                <span style={{ color: '#1d5ab9', textAlign: 'left', width: '25%', marginTop: '10px', fontSize: '12px' }}>
+            <div style={style.fieldGroup}>
+                <span style={style.fieldLabel}>
                   Special Transport Instructions:
                 </span>
                 <span style={{ width: '100%' }}>
                   <TextField
                     multiline
                     autoAdjustHeight
+                    disabled={disabled}
                     resizable={false}
                     rows={2}
                     placeholder={'Special Transport Instructions'}

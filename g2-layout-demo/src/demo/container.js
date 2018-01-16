@@ -25,9 +25,9 @@ class Container extends React.Component {
             />
             <BillingAndPickup />
           </div>
-        </div>
-        <div className="bottomnav">
-          <BottomNav />
+          <div className="bottomnav">
+            <BottomNav />
+          </div>
         </div>
       </div>
     )
