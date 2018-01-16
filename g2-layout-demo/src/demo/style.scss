@@ -16,6 +16,7 @@
 .container {
   display: flex;
   overflow-y: auto;
+  padding-bottom: 30px;
   .sidebar {
     min-width: 250px;
     width: 250px;
@@ -84,7 +85,7 @@
   padding: 0px 10px;
 }
 .bottomnav {
-  position: absolute;
+  position: fixed;
   bottom: 0;
   width: 100%;
 }
