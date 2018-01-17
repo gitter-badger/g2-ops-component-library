@@ -62,19 +62,19 @@ class PickupDetails extends React.Component {
           </div>
           <div className="footer">
             <div style={style.fieldGroup}>
-                <span style={style.fieldLabel}>
-                  Special Transport Instructions:
-                </span>
-                <span style={{ width: '100%' }}>
-                  <TextField
-                    multiline
-                    autoAdjustHeight
-                    disabled={disabled}
-                    resizable={false}
-                    rows={2}
-                    placeholder={'Special Transport Instructions'}
-                  />
-                </span>
+              <span style={style.fieldLabel}>
+                Special Transport Instructions:
+              </span>
+              <span style={{ width: '100%' }}>
+                <TextField
+                  multiline
+                  autoAdjustHeight
+                  disabled={disabled}
+                  resizable={false}
+                  rows={2}
+                  placeholder={'Special Transport Instructions'}
+                />
+              </span>
             </div>
           </div>
         </div>

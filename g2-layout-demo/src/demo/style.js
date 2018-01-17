@@ -11,7 +11,6 @@ export default {
     fontSize: '12px'
   },
   autoSelectField: {
-    minWidth: '200px'
   },
   textField: {
     
