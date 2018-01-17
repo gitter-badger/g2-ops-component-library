@@ -27,7 +27,7 @@
     "html-webpack-plugin": "2.29.0",
     "jest": "20.0.4",
     "object-assign": "4.1.1",
-    "ops-portal-component-library": "git+https://github.com/copartit/ops-portal-component-library.git#e23f08c78e07113ece6c0f9bfce2e889ad2358d1",
+    "ops-portal-component-library": "git+https://github.com/copartit/ops-portal-component-library.git#d9869a92fa4a32bfee77a4c9b6d3b5eb0785516b",
     "postcss-flexbugs-fixes": "3.2.0",
     "postcss-loader": "2.0.8",
     "promise": "8.0.1",

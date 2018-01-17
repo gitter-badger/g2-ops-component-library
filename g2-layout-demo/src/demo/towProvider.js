@@ -15,12 +15,8 @@ class TowProvider extends React.Component {
     'Trip Distance': '',
     'Unit': '',
   }
-  formatDate = (date) => {
-    console.log(date, moment(date, defaultFormat).format(defaultFormat))
-    return moment(date, defaultFormat).format(defaultFormat)
-  }
+  formatDate = (date) => moment(date, defaultFormat).format(defaultFormat)
   render() {
-    console.log(this.state)
     return (
       <div>
         <div className="section header">
@@ -53,10 +49,7 @@ class TowProvider extends React.Component {
                     hintText={defaultFormat}
                     container="inline"
                     value={this.state['Scheduled Trip Date']}
-                    onChange={(e, dateValue) => {
-                      console.log('Scheduled Trip Date', dateValue)
-                      this.setState({ 'Scheduled Trip Date': dateValue })
-                    }}
+                    onChange={(e, dateValue) => this.setState({ 'Scheduled Trip Date': dateValue })}
                     defaultFormat={defaultFormat}
                     formatDate={this.formatDate}
                   />
@@ -71,10 +64,7 @@ class TowProvider extends React.Component {
                     hintText={defaultFormat}
                     container="inline"
                     value={this.state['Promised Trip Date']}
-                    onChange={(e, dateValue) => {
-                      console.log('Scheduled Trip Date', dateValue)
-                      this.setState({ 'Promised Trip Date': dateValue })}
-                    }
+                    onChange={(e, dateValue) => this.setState({ 'Promised Trip Date': dateValue })}
                     defaultFormat={defaultFormat}
                     formatDate={this.formatDate}
                   />
@@ -91,10 +81,7 @@ class TowProvider extends React.Component {
                     hintText={defaultFormat}
                     container="inline"
                     value={this.state['Trip Date']}
-                    onChange={(e, dateValue) => {
-                      console.log('Scheduled Trip Date', dateValue)
-                      this.setState({ 'Trip Date': dateValue })}
-                    }
+                    onChange={(e, dateValue) => this.setState({ 'Trip Date': dateValue })}
                     defaultFormat={defaultFormat}
                     formatDate={this.formatDate}
                   />
