@@ -1,5 +1,5 @@
 .wrapper {
-  display: flex;  
+  display: flex;
   flex-flow: row wrap;
   text-align: center;
 }
@@ -7,7 +7,6 @@
 .wrapper > * {
   margin-top: 5px;
   padding: 10px;
-  flex: 1 100%;
 }
 
 .footer {
@@ -38,7 +37,7 @@
 
 @media all and (min-width: 800px) {
   .main    { flex: 3 0px; }
-  .aside-1 { order: 1; } 
+  .aside-1 { order: 1; }
   .main    { order: 2; }
   .footer  { order: 3; }
 }

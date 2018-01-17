@@ -18,102 +18,98 @@ class TowProvider extends React.Component {
   formatDate = (date) => moment(date, defaultFormat).format(defaultFormat)
   render() {
     return (
-      <div>
+      <div style={{ overflow: 'auto' }}>
         <div className="section header">
           <span style={{ paddingLeft: '10px' }}>Tow Provider</span>
         </div>
-        <div className="wrapper">
-          <div className="footer">
-            <div className="fieldGroup">
-              <div className="field" style={style.fieldGroup}>
-                <span style={style.fieldLabel}>Select Tow Provider*: </span>
-                <span style={style.autoSelectField}>
-                  <AutoSelect
-                    name={'Select Tow Provider'}
-                    options={towProviderOptions}
-                    placeholder={'Select Tow Provider'}
-                    value={this.state['Select Tow Provider']}
-                    disabled={false}
-                    onChange={(value) => this.setState({ 'Select Tow Provider': value })}
-                    displayOption={(code) => towProviderDescriptions[code].desc}
-                    optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
-                  />
-                </span>
-              </div>
-              <div className="field" style={style.fieldGroup}>
-                <span style={style.fieldLabel}>Scheduled Trip Date*: </span>
-                <span style={style.autoSelectField}>
-                  <DatePicker
-                    autoOk
-                    placeholder={defaultFormat}
-                    hintText={defaultFormat}
-                    container="inline"
-                    value={this.state['Scheduled Trip Date']}
-                    onChange={(e, dateValue) => this.setState({ 'Scheduled Trip Date': dateValue })}
-                    defaultFormat={defaultFormat}
-                    formatDate={this.formatDate}
-                  />
-                </span>
-              </div>
-              <div className="field" style={style.fieldGroup}>
-                <span style={style.fieldLabel}>Promised Trip Date*: </span>
-                <span style={style.autoSelectField}>
-                  <DatePicker
-                    autoOk
-                    placeholder={defaultFormat}
-                    hintText={defaultFormat}
-                    container="inline"
-                    value={this.state['Promised Trip Date']}
-                    onChange={(e, dateValue) => this.setState({ 'Promised Trip Date': dateValue })}
-                    defaultFormat={defaultFormat}
-                    formatDate={this.formatDate}
-                  />
-                </span>
-              </div>
-            </div>
-            <div className="fieldGroup">
-              <div className="field" style={style.fieldGroup}>
-                <span style={style.fieldLabel}>Trip Date: </span>
-                <span style={style.autoSelectField}>
-                  <DatePicker
-                    autoOk
-                    placeholder={defaultFormat}
-                    hintText={defaultFormat}
-                    container="inline"
-                    value={this.state['Trip Date']}
-                    onChange={(e, dateValue) => this.setState({ 'Trip Date': dateValue })}
-                    defaultFormat={defaultFormat}
-                    formatDate={this.formatDate}
-                  />
-                </span>
-              </div>
-              <div className="field" style={style.fieldGroup}>
-                <span style={style.fieldLabel}>Trip Distance: </span>
-                <span>
-                  <TextField
-                    autoAdjustHeight
-                    disabled={false}
-                    placeholder={'Trip Distance'}
-                  />
-                </span>
-              </div>
-              <div className="field" style={style.fieldGroup}>
-                <span style={style.fieldLabel}>Unit: </span>
-                <span>
-                  <TextField
-                    autoAdjustHeight
-                    disabled={false}
-                    value={'KM'}
-                    placeholder={'Unit'}
-                  />
-                </span>
-              </div>
-            </div>
+        <section className="col-1-1">
+          <div className="col-1-3">
+            <span>Select Tow Provider*: </span>
+            <span>
+              <AutoSelect
+                name={'Select Tow Provider'}
+                options={towProviderOptions}
+                placeholder={'Select Tow Provider'}
+                value={this.state['Select Tow Provider']}
+                disabled={false}
+                onChange={(value) => this.setState({ 'Select Tow Provider': value })}
+                displayOption={(code) => towProviderDescriptions[code].desc}
+                optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+              />
+            </span>
           </div>
-        </div>
+          <div className="col-1-3">
+            <span>Scheduled Trip Date*: </span>
+            <span>
+              <DatePicker
+                autoOk
+                placeholder={defaultFormat}
+                hintText={defaultFormat}
+                container="inline"
+                value={this.state['Scheduled Trip Date']}
+                onChange={(e, dateValue) => this.setState({ 'Scheduled Trip Date': dateValue })}
+                defaultFormat={defaultFormat}
+                formatDate={this.formatDate}
+              />
+            </span>
+          </div>
+          <div className="col-1-3">
+            <span>Promised Trip Date*: </span>
+            <span>
+              <DatePicker
+                autoOk
+                placeholder={defaultFormat}
+                hintText={defaultFormat}
+                container="inline"
+                value={this.state['Promised Trip Date']}
+                onChange={(e, dateValue) => this.setState({ 'Promised Trip Date': dateValue })}
+                defaultFormat={defaultFormat}
+                formatDate={this.formatDate}
+              />
+            </span>
+          </div>
+        </section>
+        <section className="col-1-1">
+          <div className="col-1-3">
+            <span>Trip Date: </span>
+            <span>
+              <DatePicker
+                autoOk
+                placeholder={defaultFormat}
+                hintText={defaultFormat}
+                container="inline"
+                value={this.state['Trip Date']}
+                onChange={(e, dateValue) => this.setState({ 'Trip Date': dateValue })}
+                defaultFormat={defaultFormat}
+                formatDate={this.formatDate}
+              />
+            </span>
+          </div>
+          <div className="col-1-3">
+            <span>Trip Distance: </span>
+            <span>
+              <TextField
+                autoAdjustHeight
+                disabled={false}
+                placeholder={'Trip Distance'}
+              />
+            </span>
+          </div>
+          <div className="col-1-3">
+            <span>Unit: </span>
+            <span>
+              <TextField
+                autoAdjustHeight
+                disabled={false}
+                value={'KM'}
+                placeholder={'Unit'}
+              />
+            </span>
+          </div>
+        </section>
       </div>
     )
   }
-} 
+}
 
 export default TowProvider
