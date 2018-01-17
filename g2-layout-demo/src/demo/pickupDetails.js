@@ -18,7 +18,7 @@ class PickupDetails extends React.Component {
   render() {
     const disabled = false
     return (
-      <div style={{ overflow: 'auto' }}>
+      <div style={{ display: 'table', width: '100%' }}>
         <div className="section header">
           <span style={{ paddingLeft: '10px' }}>Pickup Details</span>
         </div>

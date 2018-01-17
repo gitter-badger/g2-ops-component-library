@@ -12,7 +12,7 @@ class AdvanceChargePayment extends React.Component {
   }
   render() {
     return (
-      <div style={{ overflow: 'auto' }}>
+      <div style={{ display: 'table', width: '100%' }}>
         <section className="section header">
           <span style={{ paddingLeft: '10px' }}>Advance Charge Payment</span>
         </section>
