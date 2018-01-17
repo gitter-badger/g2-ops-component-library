@@ -36,7 +36,7 @@ class DatePicker extends Component {
     style: PropTypes.object,
     textFieldStyle: PropTypes.object,
     value: PropTypes.object,
-  };
+  }
 
   static defaultProps = {
     autoOk: false,
@@ -45,84 +45,74 @@ class DatePicker extends Component {
     disableYearSelection: false,
     firstDayOfWeek: 1,
     style: {},
-  };
+  }
 
   static contextTypes = {
-    muiTheme: PropTypes.object.isRequired,
-  };
+    muiTheme: PropTypes.object.isRequired
+  }
 
   state = {
     date: undefined,
-    displayDate: '',
-  };
+    displayDate: ''
+  }
 
   componentWillMount() {
     this.setState({
-      date: this.isControlled() ? this.getControlledDate() : this.props.defaultDate,
-    });
+      date: this.isControlled() ? this.getControlledDate() : this.props.defaultDate
+    })
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.isControlled()) {
-      const newDate = this.getControlledDate(nextProps);
+    if (this.isControlled() && nextProps.value !== null) {
+      const newDate = this.getControlledDate(nextProps)
       if (!isEqualDate(this.state.date, newDate)) {
         const { defaultFormat } = this.props
         this.setState({
           date: newDate,
           displayDate: moment(newDate, defaultFormat).format(defaultFormat)
-        });
+        })
       }
     }
   }
 
   getDate() {
-    return this.state.date;
+    return this.state.date
   }
 
-  openDialog() {
-    if (this.state.date !== undefined) {
-      this.setState({
-        dialogDate: this.getDate(),
-      }, this.refs.dialogWindow.show);
-    } else {
-      this.setState({
-        dialogDate: new Date(),
-      }, this.refs.dialogWindow.show);
+  getControlledDate(props = this.props) {
+    if (props.value instanceof Date) {
+      return props.value
     }
   }
 
   focus() {
-    this.openDialog();
+    this.openDialog()
   }
 
   handleAccept = (date) => {
     if (!this.isControlled()) {
       this.setState({
-        date: date,
-      });
+        date: date
+      })
     }
     if (this.props.onChange) {
-      this.props.onChange(null, date);
+      this.props.onChange(null, date)
     }
-  };
+  }
 
   handleFocus = (event) => {
-    // event.target.blur();
     if (this.props.onFocus) {
-      this.props.onFocus(event);
+      this.props.onFocus(event)
     }
-  };
+  }
 
-  handleTouchTap = (event) => {
-    // if (this.props.onTouchTap) {
-    //   this.props.onTouchTap(event);
-    // }
+  handleClick = (event) => {
     if (!this.props.disabled) {
       setTimeout(() => {
-        this.openDialog();
-      }, 0);
+        this.openDialog()
+      }, 0)
     }
-  };
+  }
 
   isValidDate = (value) => {
     return value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
@@ -130,53 +120,60 @@ class DatePicker extends Component {
 
   handleKeyUp = (event) => {
     const value = this.state.displayDate
-    let displayDate = value.replace(/^(\d\d)(\d)$/g,'$1/$2')
-         .replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2')
-         .replace(/[^\d\/]/g,'')
+    let displayDate = value.replace(/^(\d\d)(\d)$/g, '$1/$2')
+      .replace(/^(\d\d\/\d\d)(\d+)$/g, '$1/$2')
+      .replace(/[^\d\/]/g, '')
     const { formatDate, defaultFormat } = this.props
     const isValidDate = this.isValidDate(displayDate)
     if (isValidDate) {
       displayDate = formatDate ? formatDate(displayDate) : this.formatDate(new Date(displayDate))
-      const date = formatDate ? moment(displayDate, defaultFormat).toDate() : this.formatDate(new Date(displayDate))  
+      const date = formatDate ? moment(displayDate, defaultFormat).toDate() : this.formatDate(new Date(displayDate))
       this.setState({
         date,
-        displayDate,
+        displayDate
       })
     } else {
       this.setState({
-        displayDate,
+        displayDate
       })
     }
   }
 
   handleTextFieldChange = (value) => {
     this.setState({
-        displayDate: value
+      displayDate: value
     })
   }
 
   isControlled() {
-    return this.props.hasOwnProperty('value');
+    return this.props.hasOwnProperty('value')
   }
 
-  getControlledDate(props = this.props) {
-    if (props.value instanceof Date) {
-      return props.value;
+
+  openDialog() {
+    if (this.state.date !== undefined) {
+      this.setState({
+        dialogDate: this.getDate()
+      }, this.dialogWindow.show)
+    } else {
+      this.setState({
+        dialogDate: new Date()
+      }, this.dialogWindow.show)
     }
   }
 
   formatDate = (date) => {
     if (this.props.locale) {
-      const DateTimeFormat = this.props.DateTimeFormat || dateTimeFormat;
+      const DateTimeFormat = this.props.DateTimeFormat || dateTimeFormat
       return new DateTimeFormat(this.props.locale, {
         day: 'numeric',
         month: 'numeric',
-        year: 'numeric',
-      }).format(date);
+        year: 'numeric'
+      }).format(date)
     } else {
-      return formatIso(date);
+      return formatIso(date)
     }
-  };
+  }
 
   render() {
     const {
@@ -205,26 +202,10 @@ class DatePicker extends Component {
       defaultFormat,
       formatDate: formatDateProp,
       ...other
-    } = this.props;
+    } = this.props
 
-    const {prepareStyles} = this.context.muiTheme;
-    const formatDate = formatDateProp || this.formatDate;
-
-    /*
-    <TextField
-      {...other}
-      onFocus={this.handleFocus}
-      onKeyUp={this.handleKeyUp}
-      onChange={this.handleTextFieldChange}
-      ref="input"
-      style={textFieldStyle}
-      value={this.state.displayDate}
-      floatingLabelStyle={{ color: '#1d5ab9' }}
-      underlineStyle={{ borderColor: '#1d5ab9' }}
-      underlineFocusStyle={{ borderColor: '#1d5ab9' }}
-    />
-    
-    */
+    const { prepareStyles } = this.context.muiTheme
+    const formatDate = formatDateProp || this.formatDate
 
     return (
       <div className={className} style={prepareStyles(Object.assign({}, style))}>
@@ -233,9 +214,8 @@ class DatePicker extends Component {
           value={this.state.displayDate}
           onChanged={this.handleTextFieldChange}
           onKeyUp={this.handleKeyUp}
-          // errorMessage={'This field is Required'}
           onRenderSuffix={() => (
-            <div onClick={this.handleTouchTap}>
+            <div onClick={this.handleClick}>
               <i className="material-icons md-dark md-18">date_range</i>
             </div>
           )}
@@ -257,13 +237,13 @@ class DatePicker extends Component {
           onAccept={this.handleAccept}
           onShow={onShow}
           onDismiss={onDismiss}
-          ref="dialogWindow"
+          ref={(elem) => { this.dialogWindow = elem }}
           shouldDisableDate={shouldDisableDate}
           wordings={wordings}
         />
       </div>
-    );
+    )
   }
 }
 
-export default wrapMuiContext(DatePicker);
+export default wrapMuiContext(DatePicker)
