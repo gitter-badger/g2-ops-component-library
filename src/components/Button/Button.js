@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
+import MuiIconButton from 'material-ui/IconButton'
 import AddIcon from 'material-ui/svg-icons/content/add'
 import EditIcon from 'material-ui/svg-icons/image/edit'
 import DeleteIcon from 'material-ui/svg-icons/action/delete-forever'
@@ -8,10 +9,16 @@ import { wrapMuiContext } from '../../wrapMuiContext'
 import './style.scss'
 
 const buttonPropTypes = {
-  type: PropTypes.string.isRequired
+  type: PropTypes.oneOf([
+    'primary',
+    'secondary',
+    'inactive',
+    'add',
+    'edit',
+    'delete'
+  ]).isRequired
 }
-
-const Button = ({ primary, secondary, disabled, type, ...buttonProps }) => {
+const Button = ({ primary, secondary, type, ...buttonProps }) => {
   let typeProps
   switch (type) {
     case 'primary':
@@ -19,8 +26,7 @@ const Button = ({ primary, secondary, disabled, type, ...buttonProps }) => {
     case 'inactive': {
       typeProps = {
         ...buttonProps,
-        className: `copartButton ${type}Button`,
-        disabled: type === 'inactive'
+        className: `copartButton ${type}Button`
       }
       break
     }
@@ -60,4 +66,5 @@ const Button = ({ primary, secondary, disabled, type, ...buttonProps }) => {
 
 Button.propTypes = buttonPropTypes
 
+export const IconButton = wrapMuiContext(MuiIconButton)
 export default wrapMuiContext(Button)
