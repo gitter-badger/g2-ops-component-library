@@ -1,5 +1,5 @@
 import React from 'react'
-import { AutoSelect, TextField } from 'ops-portal-component-library'
+import { AutoSelect, TextField, IconButton } from 'ops-portal-component-library'
 import ComponentWithLabel from './componentLabelWrapper'
 import { yesNoOptions, yesNoDescriptions, locationOptions, locationDescriptions } from './autoSelectOptionsRefData'
 // import style from './style'
@@ -68,8 +68,12 @@ class PickupDetails extends React.Component {
                   </div>
                 )}
                 renderEntityAction={() => (
-                  <div onClick={() => console.log('Location clicked')}>
-                    <i className="material-icons md-dark md-28">add_box</i>
+                  <div style={{ marginTop: '-10px' }}>
+                    <IconButton
+                      tooltip={'Add Location'}
+                      onTouchTap={() => console.log('Location clicked')}>          
+                        <i className="material-icons md-dark md-28">add_box</i>
+                    </IconButton>
                   </div>
                 )}
               />
