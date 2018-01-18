@@ -41,3 +41,6 @@
   .main    { order: 2; }
   .footer  { order: 3; }
 }
+.md-28 {
+  font-size: 28px;
+}

@@ -1,5 +1,6 @@
 import React from 'react'
 import { AutoSelect, TextField, DatePicker } from 'ops-portal-component-library'
+import ComponentWithLabel from './componentLabelWrapper'
 import { towProviderOptions, towProviderDescriptions } from './autoSelectOptionsRefData'
 import style from './style'
 import moment from 'moment'
@@ -25,87 +26,96 @@ class TowProvider extends React.Component {
         <div style={{ display: 'table', padding: '15px', backgroundColor: '#f4f4f4' }}>
           <section className="col-1-1">
             <div className="col-1-3">
-              <span>Select Tow Provider*: </span>
-              <span>
-                <AutoSelect
-                  name={'Select Tow Provider'}
-                  options={towProviderOptions}
-                  placeholder={'Select Tow Provider'}
-                  value={this.state['Select Tow Provider']}
-                  disabled={false}
-                  onChange={(value) => this.setState({ 'Select Tow Provider': value })}
-                  displayOption={(code) => towProviderDescriptions[code].desc}
-                  optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
-                />
-              </span>
+              <ComponentWithLabel
+                Component={AutoSelect}
+                name={'Select Tow Provider'}
+                label={'Select Tow Provider'}
+                required
+                options={towProviderOptions}
+                placeholder={'Select Tow Provider'}
+                value={this.state['Select Tow Provider']}
+                disabled={false}
+                onChange={(value) => this.setState({ 'Select Tow Provider': value })}
+                displayOption={(code) => towProviderDescriptions[code].desc}
+                optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+                fieldStyle={style.fieldStyle}
+                labelStyle={style.labelStyle}
+              />
             </div>
             <div className="col-1-3">
-              <span>Scheduled Trip Date*: </span>
-              <span>
-                <DatePicker
-                  autoOk
-                  placeholder={defaultFormat}
-                  hintText={defaultFormat}
-                  container="inline"
-                  value={this.state['Scheduled Trip Date']}
-                  onChange={(e, dateValue) => this.setState({ 'Scheduled Trip Date': dateValue })}
-                  defaultFormat={defaultFormat}
-                  formatDate={this.formatDate}
-                />
-              </span>
+              <ComponentWithLabel
+                Component={DatePicker}
+                autoOk
+                label="Scheduled Trip Date"
+                required
+                placeholder={defaultFormat}
+                hintText={defaultFormat}
+                container="inline"
+                value={this.state['Scheduled Trip Date']}
+                onChange={(e, dateValue) => this.setState({ 'Scheduled Trip Date': dateValue })}
+                defaultFormat={defaultFormat}
+                formatDate={this.formatDate}
+                fieldStyle={style.fieldStyle}
+                labelStyle={style.labelStyle}
+              />
             </div>
             <div className="col-1-3">
-              <span>Promised Trip Date*: </span>
-              <span>
-                <DatePicker
-                  autoOk
-                  placeholder={defaultFormat}
-                  hintText={defaultFormat}
-                  container="inline"
-                  value={this.state['Promised Trip Date']}
-                  onChange={(e, dateValue) => this.setState({ 'Promised Trip Date': dateValue })}
-                  defaultFormat={defaultFormat}
-                  formatDate={this.formatDate}
-                />
-              </span>
+              <ComponentWithLabel
+                Component={DatePicker}
+                autoOk
+                label="Promised Trip Date"
+                required
+                placeholder={defaultFormat}
+                hintText={defaultFormat}
+                container="inline"
+                value={this.state['Promised Trip Date']}
+                onChange={(e, dateValue) => this.setState({ 'Promised Trip Date': dateValue })}
+                defaultFormat={defaultFormat}
+                formatDate={this.formatDate}
+                fieldStyle={style.fieldStyle}
+                labelStyle={style.labelStyle}
+              />
             </div>
           </section>
           <section className="col-1-1">
             <div className="col-1-3">
-              <span>Trip Date: </span>
-              <span>
-                <DatePicker
-                  autoOk
-                  placeholder={defaultFormat}
-                  hintText={defaultFormat}
-                  container="inline"
-                  value={this.state['Trip Date']}
-                  onChange={(e, dateValue) => this.setState({ 'Trip Date': dateValue })}
-                  defaultFormat={defaultFormat}
-                  formatDate={this.formatDate}
-                />
-              </span>
+              <ComponentWithLabel
+                Component={DatePicker}
+                autoOk
+                label="Trip Date"
+                placeholder={defaultFormat}
+                hintText={defaultFormat}
+                container="inline"
+                value={this.state['Trip Date']}
+                onChange={(e, dateValue) => this.setState({ 'Trip Date': dateValue })}
+                defaultFormat={defaultFormat}
+                formatDate={this.formatDate}
+                fieldStyle={style.fieldStyle}
+                labelStyle={style.labelStyle}
+              />
             </div>
             <div className="col-1-3">
-              <span>Trip Distance: </span>
-              <span>
-                <TextField
-                  autoAdjustHeight
-                  disabled={false}
-                  placeholder={'Trip Distance'}
-                />
-              </span>
+              <ComponentWithLabel
+                Component={TextField}
+                label="Trip Distance"
+                autoAdjustHeight
+                disabled={false}
+                placeholder={'Trip Distance'}
+                fieldStyle={style.fieldStyle}
+                labelStyle={style.labelStyle}
+              />
             </div>
             <div className="col-1-3">
-              <span>Unit: </span>
-              <span>
-                <TextField
-                  autoAdjustHeight
-                  disabled={false}
-                  value={'KM'}
-                  placeholder={'Unit'}
-                />
-              </span>
+              <ComponentWithLabel
+                Component={TextField}
+                label="Unit"
+                autoAdjustHeight
+                disabled={false}
+                value={'KM'}
+                placeholder={'Unit'}
+                fieldStyle={style.fieldStyle}
+                labelStyle={style.labelStyle}
+              />
             </div>
           </section>
         </div>
