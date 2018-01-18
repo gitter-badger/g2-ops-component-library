@@ -1,19 +1,8 @@
 export default {
-  fieldGroup: {
-    display: 'flex',
-    marginTop: '5px',
+  fieldStyle: {
+    width: '50%'
   },
-  fieldLabel: {
-    color: '#1d5ab9',
-    textAlign: 'left',
-    width: '30%',
-    marginTop: '10px',
-    fontSize: '12px'
-  },
-  autoSelectField: {
-    maxWidth: '200px'
-  },
-  textField: {
-    
+  labelStyle: {
+    width: '50%'
   }
 }
