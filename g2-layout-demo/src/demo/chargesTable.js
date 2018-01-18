@@ -1,5 +1,12 @@
 import React from 'react'
-import { Table, TableBody, TableHeader, TableHeaderColumn, TableRowColumn, TableRow } from 'ops-portal-component-library'
+import {
+  Table,
+  TableBody,
+  TableHeader,
+  TableHeaderColumn,
+  TableRowColumn,
+  TableRow
+} from 'ops-portal-component-library'
 import './billingAndPickup.css'
 
 const tableStyle = {
@@ -63,110 +70,71 @@ const tableStyle = {
   },
 }
 
-const RenderTable = () => (
-  <Table>
-    <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
-      <TableRow style={{ backgroundColor: '#CCC', height: '30px' }}>
-        <TableHeaderColumn style={{ height: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
-          <span style={tableStyle.tableHeaderDesc}>Charge Type</span>
-        </TableHeaderColumn>
-        <TableHeaderColumn style={{ height: '30px' }}>
-          <span style={tableStyle.tableHeaderAmount}>Amount</span>
-        </TableHeaderColumn>
-      </TableRow>
-    </TableHeader>
-    <TableBody displayRowCheckbox={false}>
-      <TableRow style={{ height: '30px' }}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Total Advances
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={{ height: '30px' }}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Copart Charges
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={{ height: '30px' }}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Seller Payments
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={{ height: '30px' }}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Purchase Amount
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={{ height: '30px' }}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          High Bid Amount
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={{ height: '30px' }}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Current Due
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={{ height: '30px' }}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Accrued Storage
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={{ height: '30px' }}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Proceeds
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={tableStyle.tableRowStyle}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Due Copart
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-      <TableRow style={tableStyle.tableRowStyle}>
-        <TableRowColumn style={tableStyle.tableColumnDesc}>
-          Due Seller
-        </TableRowColumn>
-        <TableRowColumn style={tableStyle.tableColumnAmount}>
-          {0.00}
-        </TableRowColumn>
-      </TableRow>
-    </TableBody>
-  </Table>
-)
-
 const ChargesTable = () => (
   <div>
     <div className="section header">
       <span style={{ paddingLeft: '10px' }}>Seller Billing</span>
     </div>
-    <div className="wrapper">
-    </div>
+    <section className="col-1-1" style={{ padding: '0px' }}>
+      <Table>
+        <TableHeader displaySelectAll={false} adjustForCheckbox={false}>
+          <TableRow style={{ backgroundColor: '#CCC', height: '30px' }}>
+            <TableHeaderColumn style={{ height: '30px', paddingLeft: '10px', paddingRight: '10px' }}>
+              <span style={tableStyle.tableHeaderDesc}>{'Charge Type'}</span>
+            </TableHeaderColumn>
+            <TableHeaderColumn style={{ height: '30px' }}>
+              <span style={tableStyle.tableHeaderAmount}>{'Amount'}</span>
+            </TableHeaderColumn>
+          </TableRow>
+        </TableHeader>
+        <TableBody displayRowCheckbox={false}>
+          <TableRow style={{ height: '30px' }}>
+            <TableRowColumn style={tableStyle.tableColumnDesc}>
+              <div style={tableStyle.iconDiv}>
+                <span>Advance Charges<i className="material-icons md-18">open_in_new</i></span>
+              </div>
+            </TableRowColumn>
+            <TableRowColumn style={tableStyle.tableColumnAmount}>
+              <span>{'0.00'}</span>
+            </TableRowColumn>
+          </TableRow>
+          <TableRow style={{ height: '30px' }}>
+            <TableRowColumn style={tableStyle.tableColumnDesc}>
+              <div style={tableStyle.iconDiv}>
+                <span>Copart Charges<i className="material-icons md-18">open_in_new</i></span>
+              </div>
+            </TableRowColumn>
+            <TableRowColumn style={tableStyle.tableColumnAmount}>
+              <span>{'0.00'}</span>
+            </TableRowColumn>
+          </TableRow>
+          <TableRow style={tableStyle.tableRowStyle}>
+            <TableRowColumn style={tableStyle.tableColumnDesc}>
+              {'Sale Price'}
+            </TableRowColumn>
+            <TableRowColumn style={tableStyle.tableColumnAmount}>
+              <span>{'0.00'}</span>
+            </TableRowColumn>
+          </TableRow>
+          <TableRow>
+            <TableRowColumn style={tableStyle.tableTotalChargesColumnDesc}>
+              {'Total Charges'}
+            </TableRowColumn>
+            <TableRowColumn style={tableStyle.tableTotalChargesColumnAmount}>
+              <span>{'0.00'}</span>
+            </TableRowColumn>
+          </TableRow>
+          <TableRow>
+            <TableRowColumn style={tableStyle.tableTotalChargesColumnDesc}>
+              {'Total Due From Seller'}
+            </TableRowColumn>
+            <TableRowColumn style={tableStyle.tableTotalChargesColumnAmount}>
+              {'0.00'}
+            </TableRowColumn>
+          </TableRow>)
+        </TableBody>
+      </Table>
+    </section>
   </div>
 )
 
