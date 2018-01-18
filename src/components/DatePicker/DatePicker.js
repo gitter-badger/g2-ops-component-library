@@ -4,7 +4,7 @@ import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/d
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import moment from 'moment'
 import TextField from 'components/TextField/TextField'
-import IconButton from 'components/Button/IconButton'
+import { IconButton } from 'components/Button'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
 import { wrapMuiContext } from '../../wrapMuiContext'
 import './style.scss'
