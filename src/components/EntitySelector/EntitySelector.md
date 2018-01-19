@@ -1,28 +1,40 @@
 Entity Selector Example:
 
 ```js
-var refData = require('./refData').default;
+const refData = require('./refData').default;
+const { IconButton } = require('../Button');
 const locationOptions = refData.ids;
 const locationDescriptions = refData.entities;
 
 initialState = { value: '' };
 
-<div style={{ maxWidth: '500px' }}>
+<div style={{ maxWidth: '500px', height: '250px' }}>
   <EntitySelector
     name="Location"
     options={locationOptions}
     value={state.value}
     label="Location"
-    labelPositon="left"
+    labelPosition="left"
     required
     onChange={(value) => setState({ value })}
     typeOfSelector="pickupLocation"
-    iconProps={{
-      iconName: 'add_box',
-      actionToolTip: 'Add New Location',
-      onTouchTap: () => console.log('Add New Location clicked')
-    }}
-    onRenderEntityInformation={() => 'Entity Information Rendered here...'}
+    onRenderEntityAction={() => (
+      <IconButton 
+        tooltip={'Add New Location'}
+        onTouchTap={() => console.log('Add New Location clicked')}
+      >
+        <i className="material-icons md-dark md-28">add_box</i>
+      </IconButton>
+    )}
+    onRenderSuffix={() => (
+      <IconButton
+        style={{ margin: '-15px' }}
+        onTouchTap={() => console.log('edit clicked')}
+        tooltip={'Edit Location'}
+      >
+        <i className="material-icons md-dark md-18">edit_mode</i>
+      </IconButton>
+    )}
   />
 </div>
 ```

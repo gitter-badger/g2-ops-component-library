@@ -54,19 +54,17 @@ const searchThroughOptions = ({ options, displayOption, value }) => {
   )
 }
 const Selector = (props) => {
-  const { iconProps, labelPosition, label, required, onRenderSuffix, onRenderEntityInformation, options, typeOfSelector, ...otherProps } = props
+  const { labelPosition, label, required, onRenderSuffix, onRenderEntityAction, options, typeOfSelector, ...otherProps } = props
   const { entityDataSource, entityDisplayFunction, primaryTextKeys, rowHeight = 72 } = getPropsForEntity(typeOfSelector, props)
-  const { actionToolTip, onTouchTap, iconName } = iconProps
   const renderIfLabelOnLeft = renderIf(labelPosition === 'left')
   const labelText = required ? `${label}*:` : `${label}:`
   const dataSource = options.map((id) => buildItem(id, entityDataSource.entities[id], typeOfSelector, primaryTextKeys))
   const valueEntity = entityDataSource.entities[props.value]
-  const entityInformation = valueEntity ? getPrimaryTextComponentBasedOnEntity(typeOfSelector, valueEntity) : ''
   return (
     <div>
       <div style={{ display: 'flex' }}>
         {renderIfLabelOnLeft(
-          <span style={{ width: '20%' }}>
+          <span style={{ width: '20%', marginTop: '10px', color: '#1d5ab9', fontSize: '13px' }}>
             {labelText}
           </span>
         )}
@@ -83,20 +81,14 @@ const Selector = (props) => {
             }}
             searchThroughOptions={searchThroughOptions}
             title={props.value}
-            onRenderSuffix={() => (
-              <div style={{ maxWidth: '20px' }} onClick={() => console.log('edit clicked')}>
-                <i className="material-icons md-dark md-18">edit_mode</i>
-              </div>
-            )}
+            onRenderSuffix={onRenderSuffix}
           />
         </span>
         <span style={{ width: '10%', marginTop: '-9px' }}>
-          <IconButton onTouchTap={onTouchTap}>
-            <i className="material-icons md-dark md-28">{iconName}</i>
-          </IconButton>
+          {onRenderEntityAction()}
         </span>
       </div>
-      <EntityInformation entityInformation={entityInformation} />
+      <EntityInformation valueEntity={valueEntity} />
     </div>
   )
 }
