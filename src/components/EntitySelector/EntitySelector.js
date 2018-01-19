@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import pickupLocations from './refData'
 import Selector from './Selector'
 
 const EntitySelectorPropTypes = {
@@ -20,7 +19,7 @@ class EntitySelector extends Component {
   render() {
     return (
       <div>
-        <Selector {...this.props} pickupLocations={pickupLocations} />
+        <Selector {...this.props} />
       </div>
     )
   }

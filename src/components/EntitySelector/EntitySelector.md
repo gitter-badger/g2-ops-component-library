@@ -1,10 +1,10 @@
 Entity Selector Example:
 
 ```js
-const refData = require('./refData').default;
+const pickupLocations = require('./refData').default;
 const { IconButton } = require('../Button');
-const locationOptions = refData.ids;
-const locationDescriptions = refData.entities;
+const locationOptions = pickupLocations.ids;
+const locationDescriptions = pickupLocations.entities;
 
 initialState = { value: '' };
 
@@ -18,6 +18,7 @@ initialState = { value: '' };
     required
     onChange={(value) => setState({ value })}
     typeOfSelector="pickupLocation"
+    pickupLocations={pickupLocations}
     onRenderEntityAction={() => (
       <IconButton 
         tooltip={'Add New Location'}

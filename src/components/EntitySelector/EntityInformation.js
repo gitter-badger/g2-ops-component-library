@@ -19,7 +19,7 @@ const EntityInformation = ({ valueEntity = {} }) => {
   const renderIfValueEntity = renderIf(name)
   return (
     renderIfValueEntity(
-      <table style={{ width: '80%', float: 'right', borderCollapse: 'collapse' }}>
+      <table style={{ width: '80%', float: 'right', borderCollapse: 'collapse', fontSize: '14px' }}>
         <tbody>
           <tr>
             <td>

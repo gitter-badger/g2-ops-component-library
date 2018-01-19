@@ -3,10 +3,11 @@ export const yesNoDescriptions = {
   'Y': { code: 'Y', desc: 'Yes'},
   'N': { code: 'N', desc: 'No'},
 }
-export const locationOptions = [0, 1]
-export const locationDescriptions = {
-  0: { code: 0, desc: '14185 Dallas Parkway, Dallas TX-75254'},
-  1: { code: 1, desc: '521 South Good Latimer, Apt 1728, Dallas TX-75254'},
+export const towTypeOptions = ['S', 'M', 'H']
+export const towTypeDescriptions = {
+  'S': { code: 'S', desc: 'Standard' },
+  'M': { code: 'M', desc: 'Medium' },
+  'H': { code: 'H', desc: 'Heavy' }
 }
 export const towProviderOptions = [0,1]
 export const towProviderDescriptions = {
