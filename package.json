@@ -39,6 +39,7 @@
     "office-ui-fabric-react": "^5.30.2",
     "path": "^0.12.7",
     "prop-types": "^15.6.0",
+    "ramda": "^0.25.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-tap-event-plugin": "2.0.1",
