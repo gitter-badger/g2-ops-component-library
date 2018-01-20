@@ -24,7 +24,7 @@ initialState = { value: '' };
         tooltip={'Add New Location'}
         onTouchTap={() => console.log('Add New Location clicked')}
       >
-        <i className="material-icons md-dark md-28">add_box</i>
+        <i className="material-icons md-dark md-22">add_box</i>
       </IconButton>
     )}
     onRenderSuffix={() => (

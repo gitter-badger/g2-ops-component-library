@@ -1,14 +1,11 @@
 import React from 'react'
-import { AutoSelect, TextField, IconButton, EntitySelector, DialogBox } from 'ops-portal-component-library'
+import { AutoSelect, TextField } from 'ops-portal-component-library'
 import ComponentWithLabel from './componentLabelWrapper'
-import pickupLocations from './refData'
+import Location from './location'
 import { yesNoOptions, yesNoDescriptions, towTypeOptions, towTypeDescriptions } from './autoSelectOptionsRefData'
-// import style from './style'
 import './billingAndPickup.css'
 
 const basicFields = ['Pickup Required', 'Residence', 'Tow Type', 'Towable', 'Keys']
-
-const locationOptions = pickupLocations.ids;
 
 const getOptionsForField = (fieldKey) => {
   switch(fieldKey) {
@@ -30,16 +27,15 @@ const getDescriptionForField = (fieldKey) => {
 
 class PickupDetails extends React.Component {
   state = {
-    'Pickup Required': '',
-    'Residence': '',
-    'Tow Type': '',
-    'Towable': '',
-    'Keys': '',
-    'Location': '',
+    'Pickup Required': 'Yes',
+    'Residence': 'No',
+    'Tow Type': 'Standard',
+    'Towable': 'Yes',
+    'Keys': 'Yes',
+    'Special Transport Instructions': 'Special Transport Instructions added here.'
   }
   render() {
-    console.log(DialogBox)
-    const disabled = false
+    const disabled = true
     return (
       <div style={{ display: 'table', width: '100%' }}>
         <div className="section header">
@@ -69,34 +65,7 @@ class PickupDetails extends React.Component {
           </div>
           <div className="col-1-2" style={{ padding: '5px 0 5px 5px' }}>
             <div style={{ backgroundColor: '#f4f4f4', padding: '15px', height: '220px' }}>
-              <EntitySelector
-                name="Location"
-                options={locationOptions}
-                value={this.state['Location']}
-                label="Location"
-                labelPosition="left"
-                required
-                onChange={(value) => this.setState({ 'Location': value })}
-                typeOfSelector="pickupLocation"
-                pickupLocations={pickupLocations}
-                onRenderEntityAction={() => (
-                  <IconButton 
-                    tooltip={'Add New Location'}
-                    onTouchTap={() => console.log('Add New Location clicked')}
-                  >
-                    <i className="material-icons md-dark md-28">add_box</i>
-                  </IconButton>
-                )}
-                onRenderSuffix={() => (
-                  <IconButton
-                    style={{ margin: '-15px' }}
-                    onTouchTap={() => console.log('edit clicked')}
-                    tooltip={'Edit Location'}
-                  >
-                    <i className="material-icons md-dark md-18">edit_mode</i>
-                  </IconButton>
-                )}
-              />
+              <Location disabled={disabled} />
             </div>
           </div>
           <div className="col-1-1" style={{ padding: '15px', backgroundColor: '#f4f4f4' }}>
@@ -108,9 +77,11 @@ class PickupDetails extends React.Component {
               disabled={disabled}
               resizable={false}
               rows={2}
+              onChanged={(value) => this.setState({ 'Special Transport Instructions': value })}
+              value={this.state['Special Transport Instructions']}
               placeholder={'Special Transport Instructions'}
-              labelStyle={{ width: '30%'}}
-              fieldStyle={{ width: '70%'}}
+              labelStyle={{ width: '25%'}}
+              fieldStyle={{ width: '75%'}}
             />
           </div>
         </section>

@@ -5,7 +5,8 @@ import {
   TableHeader,
   TableHeaderColumn,
   TableRowColumn,
-  TableRow
+  TableRow,
+  IconButton
 } from 'ops-portal-component-library'
 import './billingAndPickup.css'
 
@@ -70,6 +71,12 @@ const tableStyle = {
   },
 }
 
+const renderIcon = (iconName) => (
+  <IconButton style={{ margin: '-15px' }}onTouchTap={() => console.log(iconName, ' clicked')}>
+    <i className="material-icons md-18">open_in_new</i>
+  </IconButton>
+)
+
 const ChargesTable = () => (
   <div>
     <div className="section header">
@@ -91,7 +98,7 @@ const ChargesTable = () => (
           <TableRow style={{ height: '30px' }}>
             <TableRowColumn style={tableStyle.tableColumnDesc}>
               <div style={tableStyle.iconDiv}>
-                <span>Advance Charges<i className="material-icons md-18">open_in_new</i></span>
+                <span>Advance Charges{renderIcon('Advance Charges')}</span>
               </div>
             </TableRowColumn>
             <TableRowColumn style={tableStyle.tableColumnAmount}>
@@ -101,7 +108,7 @@ const ChargesTable = () => (
           <TableRow style={{ height: '30px' }}>
             <TableRowColumn style={tableStyle.tableColumnDesc}>
               <div style={tableStyle.iconDiv}>
-                <span>Copart Charges<i className="material-icons md-18">open_in_new</i></span>
+                <span>Copart Charges{renderIcon('Copart Charges')}</span>
               </div>
             </TableRowColumn>
             <TableRowColumn style={tableStyle.tableColumnAmount}>
