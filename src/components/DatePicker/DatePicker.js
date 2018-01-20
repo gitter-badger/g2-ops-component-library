@@ -44,7 +44,7 @@ class DatePicker extends Component {
     disabled: false,
     disableYearSelection: false,
     firstDayOfWeek: 1,
-    style: {},
+    style: {}
   }
 
   static contextTypes = {
@@ -57,8 +57,10 @@ class DatePicker extends Component {
   }
 
   componentWillMount() {
+    const { defaultDate, defaultFormat } = this.props
     this.setState({
-      date: this.isControlled() ? this.getControlledDate() : this.props.defaultDate
+      date: this.isControlled() ? this.getControlledDate() : defaultDate,
+      displayDate: this.isControlled() ? moment(this.getControlledDate(), defaultFormat).format(defaultFormat) : ''
     })
   }
 
@@ -215,9 +217,13 @@ class DatePicker extends Component {
           onChanged={this.handleTextFieldChange}
           onKeyUp={this.handleKeyUp}
           onRenderSuffix={() => (
-            <div onClick={this.handleClick}>
+            <IconButton
+              style={{ margin: '-15px' }}
+              onTouchTap={this.handleClick}
+              tooltip={'Select Date'}
+            >
               <i className="material-icons md-dark md-18">date_range</i>
-            </div>
+            </IconButton>
           )}
         />
         <DatePickerDialog

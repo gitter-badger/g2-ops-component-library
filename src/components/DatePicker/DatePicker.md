@@ -2,9 +2,9 @@ DatePicker Example:
 
 ```js
 var moment = require('moment');
-var defaultFormat = 'MM/DD/YYYY'
+var defaultFormat = 'DD/MM/YYYY'
 
-initialState = { dateValue: null };
+initialState = { dateValue: moment().toDate() };
 <div style={{ maxWidth: '300px' }}>
   <DatePicker
 		autoOk
