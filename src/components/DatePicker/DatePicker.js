@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import renderIf from 'render-if'
 import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/dateUtils'
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import moment from 'moment'
-import TextField from 'components/TextField/TextField'
+import TextField from 'components/TextField'
 import { IconButton } from 'components/Button'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
 import { wrapMuiContext } from '../../wrapMuiContext'
@@ -116,9 +117,7 @@ class DatePicker extends Component {
     }
   }
 
-  isValidDate = (value) => {
-    return value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
-  }
+  isValidDate = (value) => value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
 
   handleKeyUp = (event) => {
     const value = this.state.displayDate
@@ -185,6 +184,7 @@ class DatePicker extends Component {
       className,
       container,
       defaultDate, // eslint-disable-line no-unused-vars
+      disabled,
       dialogContainerStyle,
       disableYearSelection,
       firstDayOfWeek,
@@ -208,15 +208,16 @@ class DatePicker extends Component {
 
     const { prepareStyles } = this.context.muiTheme
     const formatDate = formatDateProp || this.formatDate
-
+    const renderDateIcon = renderIf(disabled === false)
     return (
       <div className={className} style={prepareStyles(Object.assign({}, style))}>
         <TextField
           {...other}
           value={this.state.displayDate}
+          disabled={disabled}
           onChanged={this.handleTextFieldChange}
           onKeyUp={this.handleKeyUp}
-          onRenderSuffix={() => (
+          onRenderSuffix={() => renderDateIcon(
             <IconButton
               style={{ margin: '-15px' }}
               onTouchTap={this.handleClick}

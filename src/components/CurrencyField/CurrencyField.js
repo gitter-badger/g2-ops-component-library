@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import { TextField } from 'office-ui-fabric-react/lib/TextField'
+import TextField from 'components/TextField'
 import formatCurrency, { stripDownCurrency, serialize } from './currencyUtils'
 import companyCodeMapper from './countryMapper'
 
@@ -17,7 +17,10 @@ const formatValue = (country, value, currencyStyle) => formatCurrency(
 class CurrencyField extends Component {
   static propTypes = {
     name: PropTypes.string,
-    value: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
+    value: PropTypes.oneOfType([
+      PropTypes.number,
+      PropTypes.string
+    ]),
     label: PropTypes.string,
     countryCode: PropTypes.string.isRequired,
     disabled: PropTypes.bool,
@@ -114,12 +117,14 @@ class CurrencyField extends Component {
   render() {
     const {
       onChange,
+      disabled,
       ...restProps
     } = this.props
     return (
       <div>
         <TextField
           {...restProps}
+          disabled={disabled}
           ref={(elem) => { this.textField = elem }}
           value={this.state.displayedValue}
           onChanged={this.handleChange}

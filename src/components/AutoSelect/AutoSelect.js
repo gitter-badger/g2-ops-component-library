@@ -1,6 +1,6 @@
 import React, { Component, isValidElement } from 'react'
 import PropTypes from 'prop-types'
-import { TextField } from 'office-ui-fabric-react/lib/TextField'
+import TextField from 'components/TextField'
 import { isNil, identity } from './autoSelectUtils'
 import Options from './AutoSelectOptions'
 
@@ -160,7 +160,7 @@ class AutoSelect extends Component {
     const { active } = this.state
 
     switch (e.keyCode) {
-      case KeyCode['enter']: {
+      case KeyCode.enter: {
         const selectedOption = this.selectedOption()
         if (active && selectedOption) {
           e.stopPropagation()
@@ -171,7 +171,7 @@ class AutoSelect extends Component {
         }
         return
       }
-      case KeyCode['tab']: {
+      case KeyCode.tab: {
         // eslint-disable-line no-fallthrough
         const selectedOption = this.selectedOption()
         if (!active || !selectedOption || serializeOption(selectedOption) === value) {
@@ -184,16 +184,16 @@ class AutoSelect extends Component {
         this.afterSelectOption()
         return
       }
-      case KeyCode['esc']: {
+      case KeyCode.esc: {
         this.setState({ active: false })
         return
       }
-      case KeyCode['down']:
-      case KeyCode['up']: {
+      case KeyCode.down:
+      case KeyCode.up: {
         e.stopPropagation()
         e.preventDefault()
 
-        const dir = e.keyCode === KeyCode['down'] ? DOWN : UP
+        const dir = e.keyCode === KeyCode.down ? DOWN : UP
 
         if (dir === DOWN && !active) {
           return this.setState({

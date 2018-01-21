@@ -1,6 +1,6 @@
 const countryCode = 'DE'
 
-export const currencyDisplayMap = currency =>
+export const currencyDisplayMap = (currency) =>
   ({
     USD: 'symbol',
     CAD: 'code',
@@ -11,7 +11,7 @@ export const currencyDisplayMap = currency =>
     BHD: 'symbol',
   }[currency])
 
-const companyCodeMapper = country =>
+const companyCodeMapper = (country) =>
   ({
     US: {
       companyCode: 'COPART',

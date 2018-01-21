@@ -5,12 +5,16 @@ import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
 import { wrapFabricContext } from '../../wrapFabricContext'
 
 const propTypes = {
-  text: PropTypes.string
+  text: PropTypes.string,
+  disabled: PropTypes.bool,
+  placeholder: PropTypes.string
 }
 
-const TextField = (props) => (
+const TextField = ({ placeholder, disabled, ...otherProps }) => (
   <FabricTextField
-    {...props}
+    {...otherProps}
+    disabled={disabled}
+    placeholder={disabled ? '' : placeholder}
   />
 )
 
