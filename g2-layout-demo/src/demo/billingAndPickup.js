@@ -7,13 +7,14 @@ import './style.scss'
 
 class BillingAndPickup extends React.Component {
   render() {
+    const { isEditing } = this.props
     return (
       <div className="container">
         <div className="pickup">
           <div>
-            <PickupDetails />
-            <AdvanceChargePayment />
-            <TowProvider />
+            <PickupDetails isEditing={isEditing} />
+            <AdvanceChargePayment isEditing={isEditing} />
+            <TowProvider isEditing={isEditing} />
           </div>
         </div>
         <div className="charges">

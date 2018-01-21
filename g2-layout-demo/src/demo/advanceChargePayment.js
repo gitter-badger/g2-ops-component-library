@@ -11,7 +11,8 @@ class AdvanceChargePayment extends React.Component {
     'Responsible Party': '',
     'Advance Charges Paid': ''
   }
-  render() {
+  render() { 
+    const disabled = !this.props.isEditing
     return (
       <div style={{ display: 'table', width: '100%' }}>
         <section className="section header">
@@ -26,7 +27,7 @@ class AdvanceChargePayment extends React.Component {
               options={yesNoOptions}
               label="Are There Advance Charges?"
               required
-              disabled={false}
+              disabled={disabled}
               displayOption={(code) => yesNoDescriptions[code].desc}
               value={this.state['Are There Advance Charges?']}
               onChange={(value) => this.setState({ 'Are There Advance Charges?': value })}
@@ -42,7 +43,7 @@ class AdvanceChargePayment extends React.Component {
               required
               label="Responsible Party"
               autoAdjustHeight
-              disabled={false}
+              disabled={disabled}
               resizable={false}
               rows={2}
               placeholder={'Responsible Party'}
@@ -58,7 +59,7 @@ class AdvanceChargePayment extends React.Component {
               required
               placeholder={'Advance Charges Paid'}
               options={yesNoOptions}
-              disabled={false}
+              disabled={disabled}
               displayOption={(code) => yesNoDescriptions[code].desc}
               value={this.state['Advance Charges Paid']}
               onChange={(value) => this.setState({ 'Advance Charges Paid': value })}

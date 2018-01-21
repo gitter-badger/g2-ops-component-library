@@ -18,6 +18,7 @@ class TowProvider extends React.Component {
   }
   formatDate = (date) => moment(date, defaultFormat).format(defaultFormat)
   render() {
+    const disabled = !this.props.isEditing
     return (
       <div style={{ display: 'table', width: '100%' }}>
         <div className="section header">
@@ -34,7 +35,7 @@ class TowProvider extends React.Component {
                 options={towProviderOptions}
                 placeholder={'Select Tow Provider'}
                 value={this.state['Select Tow Provider']}
-                disabled={false}
+                disabled={disabled}
                 onChange={(value) => this.setState({ 'Select Tow Provider': value })}
                 displayOption={(code) => towProviderDescriptions[code].desc}
                 optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
@@ -51,6 +52,7 @@ class TowProvider extends React.Component {
                 placeholder={defaultFormat}
                 hintText={defaultFormat}
                 container="inline"
+                disabled={disabled}
                 value={this.state['Scheduled Trip Date']}
                 onChange={(e, dateValue) => this.setState({ 'Scheduled Trip Date': dateValue })}
                 defaultFormat={defaultFormat}
@@ -68,6 +70,7 @@ class TowProvider extends React.Component {
                 placeholder={defaultFormat}
                 hintText={defaultFormat}
                 container="inline"
+                disabled={disabled}
                 value={this.state['Promised Trip Date']}
                 onChange={(e, dateValue) => this.setState({ 'Promised Trip Date': dateValue })}
                 defaultFormat={defaultFormat}
@@ -86,6 +89,7 @@ class TowProvider extends React.Component {
                 placeholder={defaultFormat}
                 hintText={defaultFormat}
                 container="inline"
+                disabled={disabled}
                 value={this.state['Trip Date']}
                 onChange={(e, dateValue) => this.setState({ 'Trip Date': dateValue })}
                 defaultFormat={defaultFormat}
@@ -99,7 +103,7 @@ class TowProvider extends React.Component {
                 Component={TextField}
                 label="Trip Distance"
                 autoAdjustHeight
-                disabled={false}
+                disabled={disabled}
                 placeholder={'Trip Distance'}
                 fieldStyle={style.fieldStyle}
                 labelStyle={style.labelStyle}
@@ -110,7 +114,7 @@ class TowProvider extends React.Component {
                 Component={TextField}
                 label="Unit"
                 autoAdjustHeight
-                disabled={false}
+                disabled={disabled}
                 value={'KM'}
                 placeholder={'Unit'}
                 fieldStyle={style.fieldStyle}

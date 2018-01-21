@@ -8,9 +8,11 @@ import './style.scss'
 
 class Container extends React.Component {
   state = {
-    slideIndex: 2
+    slideIndex: 2,
+    isEditing: false,
   }
   render() {
+    const { isEditing, slideIndex } = this.state
     return (
       <div>
         <div className="container">
@@ -21,13 +23,16 @@ class Container extends React.Component {
             <Tabs
               tabsConfig={tabsConfig}
               onTabActive={(activeTab, tabConfig, index) => this.setState({ slideIndex: index })}
-              slideIndex={this.state.slideIndex}
+              slideIndex={slideIndex}
             />
-            <BillingAndPickup />
+            <BillingAndPickup isEditing={isEditing} />
           </div>
         </div>
         <div className="bottomnav">
-          <BottomNav />
+          <BottomNav
+            isEditing={isEditing}
+            onToggleEdit={() => this.setState({ isEditing: !isEditing })}
+          />
         </div>
       </div>
     )

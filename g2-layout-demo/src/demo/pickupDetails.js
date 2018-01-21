@@ -35,7 +35,7 @@ class PickupDetails extends React.Component {
     'Special Transport Instructions': 'Special Transport Instructions added here.'
   }
   render() {
-    const disabled = true
+    const disabled = !this.props.isEditing
     return (
       <div style={{ display: 'table', width: '100%' }}>
         <div className="section header">
