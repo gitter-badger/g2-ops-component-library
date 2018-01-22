@@ -112,8 +112,31 @@
   background-color: rgb(29, 90, 185);
   text-transform: capitalize;
   color: #fff;
-  padding: 10px 0 10px 0;
+  padding: 5px 0 5px 0;
   font-size: 14px;
   max-height: 40px;
   width: 100%;
+}
+.locationDialogContainer {
+  min-width: 60% !important;
+}
+.ms-Dialog-header {
+  background-color: #1d5ab9;
+}
+.ms-Dialog-title {
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 15px;
+}
+.ms-Dialog-topButton{
+  button {
+    div {
+      i {
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
 }

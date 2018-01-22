@@ -10,7 +10,7 @@ export default {
       is_commercial_flg: true,
       lot_site_nm: 'CopartDE Location',
       addr_line1: 'Test PIV Location',
-      addr_line2: 'Test PIV Location Line 2',
+      addr_line2: 'Line 2',
       city: 'Calle Aduana',
       state_cd: 'M',
       cntry_cd: 'DEU',

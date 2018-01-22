@@ -1,5 +1,5 @@
 import React from 'react'
-import { AutoSelect, TextField } from 'ops-portal-component-library'
+import { AutoSelect } from 'ops-portal-component-library'
 import ComponentWithLabel from './componentLabelWrapper'
 import { yesNoOptions, yesNoDescriptions, responsiblePartyOptions, responsiblePartyDescriptions } from './autoSelectOptionsRefData'
 import style from './style'

@@ -10,11 +10,11 @@ const defaultFormat = 'DD/MM/YYYY'
 class TowProvider extends React.Component {
   state = {
     'Select Tow Provider': 172,
-    'Scheduled Trip Date': new Date(),
-    'Promised Trip Date': new Date(),
-    'Trip Date': new Date(),
+    'Scheduled Trip Date': null,
+    'Promised Trip Date': null,
+    'Trip Date': null,
     'Trip Distance': '',
-    'Unit': '',
+    'Unit': 'KM',
   }
   formatDate = (date) => moment(date, defaultFormat).format(defaultFormat)
   render() {
@@ -104,6 +104,8 @@ class TowProvider extends React.Component {
                 label="Trip Distance"
                 autoAdjustHeight
                 disabled={disabled}
+                value={this.state['Trip Distance']}
+                onChanged={(value) => this.setState({ 'Trip Distance': value })}
                 placeholder={'Trip Distance'}
                 fieldStyle={style.fieldStyle}
                 labelStyle={style.labelStyle}
@@ -115,7 +117,8 @@ class TowProvider extends React.Component {
                 label="Unit"
                 autoAdjustHeight
                 disabled={disabled}
-                value={'KM'}
+                value={this.state['Unit']}
+                onChanged={(value) => this.setState({ 'Unit': value })}
                 placeholder={'Unit'}
                 fieldStyle={style.fieldStyle}
                 labelStyle={style.labelStyle}

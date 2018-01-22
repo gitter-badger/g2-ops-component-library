@@ -19,3 +19,8 @@ export const responsiblePartyDescriptions = {
   'S': { code: 'S', desc: 'Seller'},
   'O': { code: '0', desc: 'Owner' },
 }
+export const unitOptions = ['K', 'M']
+export const unitDescriptions = {
+  'K': { code: 'K', desc: 'KM'},
+  'M': { code: 'M', desc: 'Miles'},
+}

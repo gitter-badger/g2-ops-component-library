@@ -32,7 +32,7 @@ class PickupDetails extends React.Component {
     'Tow Type': 'Standard',
     'Towable': 'Yes',
     'Keys': 'Yes',
-    'Special Transport Instructions': 'Special Transport Instructions added here.'
+    'Special Transport Instructions': ''
   }
   render() {
     const disabled = !this.props.isEditing
