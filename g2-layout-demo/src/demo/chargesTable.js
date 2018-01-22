@@ -63,6 +63,7 @@ const tableStyle = {
     width: '170px',
   },
   iconDiv: { display: 'inline' },
+  iconText: { position: 'relative', top: '-5px' },
   tableRowStyle: {
     fontWeight: '900',
     backgroundColor: 'rgba(137, 196, 244, 0.2)',
@@ -79,7 +80,7 @@ const renderIcon = (iconName) => (
 
 const ChargesTable = () => (
   <div>
-    <div className="section header">
+    <div className="header">
       <span style={{ paddingLeft: '10px' }}>Seller Billing</span>
     </div>
     <section className="col-1-1" style={{ padding: '0px' }}>
@@ -98,7 +99,8 @@ const ChargesTable = () => (
           <TableRow style={{ height: '30px' }}>
             <TableRowColumn style={tableStyle.tableColumnDesc}>
               <div style={tableStyle.iconDiv}>
-                <span>Advance Charges{renderIcon('Advance Charges')}</span>
+                <span style={tableStyle.iconText}>Advance Charges</span>
+                {renderIcon('Advance Charges')}
               </div>
             </TableRowColumn>
             <TableRowColumn style={tableStyle.tableColumnAmount}>
@@ -108,7 +110,8 @@ const ChargesTable = () => (
           <TableRow style={{ height: '30px' }}>
             <TableRowColumn style={tableStyle.tableColumnDesc}>
               <div style={tableStyle.iconDiv}>
-                <span>Copart Charges{renderIcon('Copart Charges')}</span>
+                <span style={tableStyle.iconText}>Copart Charges</span>
+                {renderIcon('Copart Charges')}
               </div>
             </TableRowColumn>
             <TableRowColumn style={tableStyle.tableColumnAmount}>

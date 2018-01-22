@@ -1,8 +1,4 @@
 export default {
-  fieldStyle: {
-    width: '50%'
-  },
-  labelStyle: {
-    width: '50%'
-  }
+  labelStyle: { width: '40%' },
+  fieldStyle: { width: '60%' }
 }

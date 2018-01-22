@@ -9,10 +9,10 @@ import './billingAndPickup.css'
 const defaultFormat = 'DD/MM/YYYY'
 class TowProvider extends React.Component {
   state = {
-    'Select Tow Provider': '',
-    'Scheduled Trip Date': null,
-    'Promised Trip Date': null,
-    'Trip Date': null,
+    'Select Tow Provider': 172,
+    'Scheduled Trip Date': new Date(),
+    'Promised Trip Date': new Date(),
+    'Trip Date': new Date(),
     'Trip Distance': '',
     'Unit': '',
   }
@@ -21,12 +21,12 @@ class TowProvider extends React.Component {
     const disabled = !this.props.isEditing
     return (
       <div style={{ display: 'table', width: '100%' }}>
-        <div className="section header">
+        <div className="header">
           <span style={{ paddingLeft: '10px' }}>Tow Provider</span>
         </div>
-        <div style={{ display: 'table', padding: '15px', backgroundColor: '#f4f4f4' }}>
-          <section className="col-1-1">
-            <div className="col-1-3">
+        <div style={{ display: 'table', padding: '0px', backgroundColor: '#f4f4f4', marginTop: '5px' }}>
+          <section className="col-1-1" style={{ padding: '0px' }}>
+            <div className="col-1-3" style={{ padding: '0 0 0 5px' }}>
               <ComponentWithLabel
                 Component={AutoSelect}
                 name={'Select Tow Provider'}
@@ -43,7 +43,7 @@ class TowProvider extends React.Component {
                 labelStyle={style.labelStyle}
               />
             </div>
-            <div className="col-1-3">
+            <div className="col-1-3" style={{ padding: '0px' }}>
               <ComponentWithLabel
                 Component={DatePicker}
                 autoOk
@@ -61,7 +61,7 @@ class TowProvider extends React.Component {
                 labelStyle={style.labelStyle}
               />
             </div>
-            <div className="col-1-3">
+            <div className="col-1-3" style={{ padding: '0 5px 0 0' }}>
               <ComponentWithLabel
                 Component={DatePicker}
                 autoOk
@@ -80,8 +80,8 @@ class TowProvider extends React.Component {
               />
             </div>
           </section>
-          <section className="col-1-1">
-            <div className="col-1-3">
+          <section className="col-1-1" style={{ padding: '0px' }}>
+            <div className="col-1-3" style={{ padding: '0 0 0 5px' }}>
               <ComponentWithLabel
                 Component={DatePicker}
                 autoOk
@@ -98,7 +98,7 @@ class TowProvider extends React.Component {
                 labelStyle={style.labelStyle}
               />
             </div>
-            <div className="col-1-3">
+            <div className="col-1-3" style={{ padding: '0px' }}>
               <ComponentWithLabel
                 Component={TextField}
                 label="Trip Distance"
@@ -109,7 +109,7 @@ class TowProvider extends React.Component {
                 labelStyle={style.labelStyle}
               />
             </div>
-            <div className="col-1-3">
+            <div className="col-1-3" style={{ padding: '0 5px 0 0' }}>
               <ComponentWithLabel
                 Component={TextField}
                 label="Unit"

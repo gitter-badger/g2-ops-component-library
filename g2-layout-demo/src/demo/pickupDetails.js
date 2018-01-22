@@ -38,12 +38,12 @@ class PickupDetails extends React.Component {
     const disabled = !this.props.isEditing
     return (
       <div style={{ display: 'table', width: '100%' }}>
-        <div className="section header">
+        <div className="header">
           <span style={{ paddingLeft: '10px' }}>Pickup Details</span>
         </div>
         <section className="col-1-1" style={{ padding: '0px' }}>
-          <div className="col-1-2" style={{ padding: '5px 0 5px' }}>
-            <div style={{ backgroundColor: '#f4f4f4', padding: '15px', height: 'auto' }}>
+          <div className="col-1-2" style={{ padding: '0px' }}>
+            <div style={{ backgroundColor: '#f4f4f4', height: 'auto', padding: '5px', marginTop: '5px' }}>
               {basicFields.map(fieldKey => (
                 <ComponentWithLabel
                   Component={AutoSelect}
@@ -63,12 +63,10 @@ class PickupDetails extends React.Component {
               ))}
             </div>
           </div>
-          <div className="col-1-2" style={{ padding: '5px 0 5px 5px' }}>
-            <div style={{ backgroundColor: '#f4f4f4', padding: '15px', height: '220px' }}>
-              <Location disabled={disabled} />
-            </div>
+          <div className="col-1-2" style={{ padding: '0px' }}>
+            <Location disabled={disabled} />
           </div>
-          <div className="col-1-1" style={{ padding: '15px', backgroundColor: '#f4f4f4' }}>
+          <div className="col-1-1" style={{ padding: '0px', backgroundColor: '#f4f4f4', marginTop: '5px' }}>
             <ComponentWithLabel
               Component={TextField}
               multiline
@@ -80,8 +78,8 @@ class PickupDetails extends React.Component {
               onChanged={(value) => this.setState({ 'Special Transport Instructions': value })}
               value={this.state['Special Transport Instructions']}
               placeholder={'Special Transport Instructions'}
-              labelStyle={{ width: '25%'}}
-              fieldStyle={{ width: '75%'}}
+              labelStyle={{ width: '25%', padding: '0 5px 0 5px' }}
+              fieldStyle={{ width: '75%', padding: '0 5px 0 5px' }}
             />
           </div>
         </section>

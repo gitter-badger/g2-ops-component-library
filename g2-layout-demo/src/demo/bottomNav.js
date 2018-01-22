@@ -3,7 +3,7 @@ import { BottomNavigation, BottomNavigationItem, Paper } from 'ops-portal-compon
 import './style.scss'
 
 const bottomNavConfig = (isEditing) => [
-  { label: 'Awaiting Release', icon: 'forward', rtl: 'md-rtl' },
+  { label: 'Awaiting Driver Dispatch', icon: 'forward', rtl: 'md-rtl' },
   { label: 'Awaiting Inventory', icon: 'forward' },
   { label: isEditing ? 'Save' : 'Edit', icon:  isEditing ? 'save' : 'edit' },
   { label: 'Discard', icon: 'delete_forever' },
