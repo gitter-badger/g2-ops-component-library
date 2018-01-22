@@ -84,7 +84,7 @@ const Selector = (props) => {
             onRenderSuffix={onRenderSuffix}
           />
         </span>
-        <span style={{ width: '10%', marginTop: '-9px' }}>
+        <span style={{ width: '10%' }}>
           {onRenderEntityAction()}
         </span>
       </div>

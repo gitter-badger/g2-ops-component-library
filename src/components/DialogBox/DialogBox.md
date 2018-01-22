@@ -12,6 +12,7 @@ initialState = { hideDialog: true };
   <DialogBox
     title={'Are you sure you want to move away from this screen?'}
     hideDialog={state.hideDialog}
+    dialogType="normal"
     onDismiss={() => setState({ hideDialog: true })}
     onRenderFooter={() => (
       <div style={{ display: 'flex', float: 'right' }}>
@@ -27,7 +28,8 @@ initialState = { hideDialog: true };
           label={'No'}
         />
       </div>
-    )}/>
+    )}
+  />
 </div>
 ```
 
@@ -45,6 +47,7 @@ initialState = { hideDialog: true };
   <DialogBox
     title={'Dialog with Content'}
     hideDialog={state.hideDialog}
+    dialogType="largeHeader"
     onDismiss={() => setState({ hideDialog: true })}
     onRenderFooter={() => (
       <div style={{ display: 'flex', float: 'right' }}>
@@ -62,6 +65,6 @@ initialState = { hideDialog: true };
       </div>
     )}>
     <div>Main Dialog Content to be added here</div>
-    </DialogBox>
+  </DialogBox>
 </div>
 ```

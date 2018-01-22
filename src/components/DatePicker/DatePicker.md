@@ -4,7 +4,7 @@ DatePicker Example:
 var moment = require('moment');
 var defaultFormat = 'DD/MM/YYYY'
 
-initialState = { dateValue: moment().toDate() };
+initialState = { dateValue: new Date() };
 <div style={{ maxWidth: '300px' }}>
   <DatePicker
 		autoOk

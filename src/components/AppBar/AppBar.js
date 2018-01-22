@@ -84,7 +84,7 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     <div className="flex-grid">
       <div className="col element">
         {renderIfFlag(
-          onRenderFlag()
+          onRenderFlag({ countryCode, type })
         )}
         {renderIfRole(<div className="text">{role}</div>)}
       </div>
@@ -164,10 +164,10 @@ const AppBar = (props) => {
 AppBar.propTypes = appBarPropTypes
 
 AppBar.defaultProps = {
-  onRenderFlag: () => (
+  onRenderFlag: ({ countryCode, type }) => (
     <Flag
-      countryCode={'de'}
-      type={'cobalt'}
+      countryCode={countryCode}
+      type={type}
     />
   ),
   onRenderLogo: () => (

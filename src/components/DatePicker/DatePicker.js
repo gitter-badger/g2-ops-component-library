@@ -59,9 +59,10 @@ class DatePicker extends Component {
 
   componentWillMount() {
     const { defaultDate, defaultFormat } = this.props
+    const dateValue = this.isControlled() ? this.getControlledDate() : defaultDate
     this.setState({
-      date: this.isControlled() ? this.getControlledDate() : defaultDate,
-      displayDate: this.isControlled() ? moment(this.getControlledDate(), defaultFormat).format(defaultFormat) : ''
+      date: dateValue,
+      displayDate: dateValue ? moment(dateValue).format(defaultFormat) : ''
     })
   }
 
@@ -221,7 +222,6 @@ class DatePicker extends Component {
             <IconButton
               style={{ margin: '-15px' }}
               onTouchTap={this.handleClick}
-              tooltip={'Select Date'}
             >
               <i className="material-icons md-dark md-18">date_range</i>
             </IconButton>
