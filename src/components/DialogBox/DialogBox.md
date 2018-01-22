@@ -47,7 +47,7 @@ initialState = { hideDialog: true };
   <DialogBox
     title={'Dialog with Content'}
     hideDialog={state.hideDialog}
-    dialogType="largeHeader"
+    dialogType="normal"
     onDismiss={() => setState({ hideDialog: true })}
     onRenderFooter={() => (
       <div style={{ display: 'flex', float: 'right' }}>
