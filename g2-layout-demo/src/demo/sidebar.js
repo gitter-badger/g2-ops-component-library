@@ -1,4 +1,5 @@
 import React from 'react'
+import { IconButton } from 'ops-portal-component-library'
 import './style.scss'
 
 const imageStyle = {
@@ -35,8 +36,16 @@ const CommonInfo = () => (
       />
     </div>
     <div className="section">
-      <span>Facility 5001</span>
-      <span style={sectionTextStyle}>COPARTDEMIGROFFSHORE</span>
+      <span>Facility</span>
+      <span style={sectionTextStyle}>
+        5001
+        <IconButton
+          tooltip="Facility Info"
+          style={{ float: 'right', right: '15px', margin: '-18px' }}
+          onTouchTap={() => console.log('Facility info icon clicked')}>
+          <i className="material-icons md-dark md-22">info</i>
+        </IconButton>
+      </span>
     </div>
     <div className="section">
       <span>Vehicle Identification Number</span>

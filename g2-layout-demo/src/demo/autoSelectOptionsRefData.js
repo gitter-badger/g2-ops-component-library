@@ -11,8 +11,8 @@ export const towTypeDescriptions = {
 }
 export const towProviderOptions = [172, 173]
 export const towProviderDescriptions = {
-  172: { code: 172, desc: 'Wolves Autoberging'},
-  173: { code: 173, desc: 'Tow Provider DE' },
+  172: { code: 172, desc: 'Tow Provider' },
+  173: { code: 173, desc: 'Tow Provider 2' },
 }
 export const responsiblePartyOptions = ['S', 'O']
 export const responsiblePartyDescriptions = {
