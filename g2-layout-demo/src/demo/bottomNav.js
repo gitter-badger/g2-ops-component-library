@@ -3,6 +3,7 @@ import { BottomNavigation, BottomNavigationItem, Paper } from 'ops-portal-compon
 import './style.scss'
 
 const bottomNavConfig = (isEditing) => [
+  { label: 'Simulate Pricing', icon: 'attach_money' },
   { label: 'Awaiting Driver Dispatch', icon: 'forward', rtl: 'md-rtl' },
   { label: 'Awaiting Inventory', icon: 'forward' },
   { label: isEditing ? 'Save' : 'Edit', icon:  isEditing ? 'save' : 'edit' },
@@ -17,7 +18,16 @@ const BottomNav = ({ onToggleEdit, isEditing, ...otherProps }) => {
     <Paper zDepth={1}>
       <BottomNavigation className="bottomnav background">
         <div className="notes">
-          <span></span>
+          <div className="notesContainer"> 
+            <span>
+              <i
+                style={{ fontSize: '24px' }}
+                className="material-icons md-light">insert_drive_file
+              </i>
+            </span>
+            <span className="notesText">Notes</span>
+            <span className="notesText" style={{ right: '-10px' }}>F6</span>
+          </div>
         </div>
         {bottomNavConfig(isEditing).map((item) => (
           <BottomNavigationItem

@@ -24,7 +24,7 @@ class TowProvider extends React.Component {
         <div className="header">
           <span style={{ paddingLeft: '10px' }}>Tow Provider</span>
         </div>
-        <div style={{ display: 'table', padding: '0px', backgroundColor: '#f4f4f4', marginTop: '5px' }}>
+        <div style={{ display: 'table', padding: '5px 0 10px 0', backgroundColor: '#f4f4f4', marginTop: '5px' }}>
           <section className="col-1-1" style={{ padding: '0px' }}>
             <div className="col-1-3" style={{ padding: '0 0 0 5px' }}>
               <ComponentWithLabel

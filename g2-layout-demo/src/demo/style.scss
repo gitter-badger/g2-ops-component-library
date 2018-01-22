@@ -101,7 +101,7 @@
   background-color: #E0E0E0 !important;
 }
 .notes {
-  width: 600px;
+  width: 500px;
   flex: none !important;
 }
 .md-rtl {
@@ -139,4 +139,20 @@
       }
     }
   }
+}
+.notesContainer{
+  position: fixed;
+  bottom: 8px;
+  background-color: #1d5ab9;
+  padding: 5px 15px 5px 5px;
+  max-width: 140px;
+  left: 15px;
+  color: white;
+  border-radius: 2px;
+}
+.notesText {
+  position: relative;
+  top: -4px;
+  font-size: 14px;
+  padding: 10px 10px 0px 6px;
 }
