@@ -1,5 +1,5 @@
 import React from 'react'
-import Paper from 'components/Paper/Paper'
+import Paper from 'components/Paper'
 import BottomNavigation, { BottomNavigationItem } from 'components/BottomNavigation/BottomNavigation'
 
 const BottomNavExample = (props) => (

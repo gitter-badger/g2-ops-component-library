@@ -1,25 +1,35 @@
 Confirmation Dialog example:
 
 ```js
-var { PrimaryButton, DefaultButton } = require('office-ui-fabric-react/lib/Button')
+const Button = require('../Button').default;
 initialState = { hideDialog: true };
 <div>
-  <DefaultButton
-    description='Opens the Sample Dialog'
+  <Button
+    type={'primary'}
     onClick={() => setState({ hideDialog: false })}
-    text='Show Dialog'
+    label={'Show Dialog'}
   />
   <DialogBox
     title={'Are you sure you want to move away from this screen?'}
     hideDialog={state.hideDialog}
+    dialogType="normal"
     onDismiss={() => setState({ hideDialog: true })}
     onRenderFooter={() => (
       <div style={{ display: 'flex', float: 'right' }}>
-        <PrimaryButton onClick={() => setState({ hideDialog: true })} text='Yes' />
+        <Button 
+          type={'primary'}
+          onClick={() => setState({ hideDialog: true })}
+          label={'Yes'}
+        />
         <span style={{ width: '10px' }}>{}</span>
-        <DefaultButton onClick={() => setState({ hideDialog: true })} text='No' />
+        <Button 
+          type={'secondary'}
+          onClick={() => setState({ hideDialog: true })}
+          label={'No'}
+        />
       </div>
-    )}/>
+    )}
+  />
 </div>
 ```
 
@@ -29,23 +39,32 @@ Dialog with content:
 var { PrimaryButton, DefaultButton } = require('office-ui-fabric-react/lib/Button')
 initialState = { hideDialog: true };
 <div>
-  <DefaultButton
-    description='Opens the Sample Dialog'
+  <Button
+    type={'primary'}
     onClick={() => setState({ hideDialog: false })}
-    text='Show Dialog'
+    label={'Show Dialog'}
   />
   <DialogBox
     title={'Dialog with Content'}
     hideDialog={state.hideDialog}
+    dialogType="normal"
     onDismiss={() => setState({ hideDialog: true })}
     onRenderFooter={() => (
       <div style={{ display: 'flex', float: 'right' }}>
-        <PrimaryButton onClick={() => setState({ hideDialog: true })} text='Save' />
+        <Button
+          type={'primary'}
+          onClick={() => setState({ hideDialog: true })}
+          label={'Save'}
+        />
         <span style={{ width: '10px' }}>{}</span>
-        <DefaultButton onClick={() => setState({ hideDialog: true })} text='Discard' />
+        <Button
+          type={'secondary'}
+          onClick={() => setState({ hideDialog: true })}
+          label={'Discard'}
+        />
       </div>
     )}>
     <div>Main Dialog Content to be added here</div>
-    </DialogBox>
+  </DialogBox>
 </div>
 ```

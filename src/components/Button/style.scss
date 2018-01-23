@@ -1,0 +1,79 @@
+.copartButton {
+  height: 36px;
+  min-width: 110px!important;
+  button {
+    &:disabled {
+      cursor: not-allowed!important;
+    }
+    span {
+      font-weight: 500!important;
+      text-transform: capitalize!important;
+    }
+  }
+}
+.primaryButton {
+  button {
+    background-color: #1D5AB9!important;
+    &:hover {
+      background-color: darken(#1D5AB9, 15%)!important;
+    }
+    span {
+      color: white!important;
+    }
+  }
+}
+.secondaryButton {
+  button {
+    background-color: white!important;
+    &:hover {
+      background-color: darken(white, 15%)!important;
+    }
+  }
+}
+.inactiveButton {
+  button {
+    background-color: #DFDFDF!important;
+    &:hover {
+      background-color: darken(#DFDFDF, 15%)!important;
+    }
+  }
+}
+.deleteButton {
+  button {
+    background-color: #EE2727!important;
+    &:hover {
+      background-color: darken(#EE2727, 15%)!important;
+    }
+    span {
+      color: white!important;
+    }
+  }
+}
+.addButton, .editButton, .deleteButton {
+  button {
+    svg {
+      margin: 0!important;
+      color: white!important;
+      fill: white!important;
+    }
+    span {
+      padding-left: 3px!important;
+    }
+  }
+}
+.addButton, .deleteButton {
+  button {
+    svg {
+      height: 20px!important;
+      width: 20px!important;
+    }
+  }
+}
+.editButton {
+  button {
+    svg {
+      height: 16px!important;
+      width: 16px!important;
+    }
+  }
+}

@@ -2,7 +2,6 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import renderIf from 'render-if'
 import MuiAppBar from 'material-ui/AppBar'
-import SearchBar from 'components/SearchBar/SearchBar'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { LogoutMenu } from './LogoutMenu'
 import { wrapMuiContext } from '../../wrapMuiContext'
@@ -30,6 +29,10 @@ const appBarPropTypes = {
   onRenderSearchBar: PropTypes.func,
   /** Two digit country code that renders the Flag */
   countryCode: PropTypes.string.isRequired,
+  /** Override default function that renders the Flag */
+  onRenderFlag: PropTypes.func,
+  /** Override default function that renders the Logo */
+  onRenderLogo: PropTypes.func,
   /** Role Text */
   role: PropTypes.string,
   /** Yard number */
@@ -73,16 +76,15 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     showSearchBar,
     logoutItems,
     onLogoutItemClicked,
-    onFeedbackClick
+    onFeedbackClick,
+    onRenderFlag,
+    onRenderLogo
   } = otherProps
   return (
     <div className="flex-grid">
       <div className="col element">
         {renderIfFlag(
-          <Flag
-            countryCode={countryCode}
-            type={type}
-          />
+          onRenderFlag({ countryCode, type })
         )}
         {renderIfRole(<div className="text">{role}</div>)}
       </div>
@@ -112,14 +114,10 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
   )
 }
 
-const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderSearchBar }) => (
+const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, onRenderSearchBar }) => (
   <div className="flex-grid">
     <div className="appBarLeft">
-      <img
-        className="logo"
-        src="./public/assets/images/logo.svg"
-        alt="Copart"
-      />
+      {onRenderLogo()}
       <span className="moduleName">{moduleName}</span>
     </div>
     {showSearchBar &&
@@ -144,6 +142,8 @@ const AppBar = (props) => {
     moduleName,
     onFeedbackClick,
     onRenderSearchBar,
+    onRenderFlag,
+    onRenderLogo,
     ...appBarProps
   } = otherProps
   return (
@@ -162,5 +162,21 @@ const AppBar = (props) => {
 }
 
 AppBar.propTypes = appBarPropTypes
+
+AppBar.defaultProps = {
+  onRenderFlag: ({ countryCode, type }) => (
+    <Flag
+      countryCode={countryCode}
+      type={type}
+    />
+  ),
+  onRenderLogo: () => (
+    <img
+      className="logo"
+      src="./public/assets/images/logo.svg"
+      alt="Copart"
+    />
+  )
+}
 
 export default wrapMuiContext(AppBar)

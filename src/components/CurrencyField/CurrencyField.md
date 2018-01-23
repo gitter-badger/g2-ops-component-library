@@ -7,6 +7,7 @@ CurrencyField Example:
 <div style={{ maxWidth: '300px' }}>
   <CurrencyField
     label={'Currency Field'}
+    disabled
     countryCode={countryCode}
     placeholder={companyCodeMapper(countryCode).placeHolder}
     maxValue={999999999.99}

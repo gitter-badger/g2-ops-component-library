@@ -12,7 +12,10 @@
     "start": "webpack-dev-server",
     "test": "test",
     "styleguide": "styleguidist server",
-    "styleguide:build": "styleguidist build"
+    "styleguide:build": "styleguidist build",
+    "build:dev": "webpack",
+    "build": "NODE_ENV=production BABEL_ENV=production webpack -p",
+    "prepublish": "yarn build"
   },
   "license": "ISC",
   "bugs": {
@@ -36,6 +39,7 @@
     "office-ui-fabric-react": "^5.30.2",
     "path": "^0.12.7",
     "prop-types": "^15.6.0",
+    "ramda": "^0.25.0",
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-tap-event-plugin": "2.0.1",
