@@ -15,7 +15,7 @@
     "styleguide:build": "styleguidist build",
     "build:dev": "webpack",
     "build": "NODE_ENV=production BABEL_ENV=production webpack -p",
-    "prepublish": "yarn build"
+    "prepublish": "npm run build"
   },
   "license": "ISC",
   "bugs": {
