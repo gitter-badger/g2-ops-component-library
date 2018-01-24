@@ -18,6 +18,16 @@
       color: black;
       font-weight: 600;
     }
+    .clearFilters {
+      .clearButton {
+        background-color: black;
+        color: white;
+        height: 25px;
+        width: 50px;
+        border-radius: 11px;
+        cursor: pointer;
+      }
+    }
   }
   .filterSections {
     overflow-x: auto;

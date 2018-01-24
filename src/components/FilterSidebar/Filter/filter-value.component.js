@@ -4,8 +4,8 @@ import type { FilterValueType } from 'types/Filter'
 
 import React from 'react'
 import Checkbox from 'material-ui/Checkbox'
-
 import './filter-value.component.scss'
+
 
 type FilterValuePropType = {
   filterOption: FilterValueType,
@@ -23,7 +23,6 @@ const FilterValue = ({ filterOption, onFilterValueChecked }: FilterValuePropType
       </div>
       <div className="label">{filterOption.label}</div>
     </div>
-    <div className="filterCount">{filterOption.count}</div>
   </div>
 )
 

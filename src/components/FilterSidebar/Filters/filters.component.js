@@ -7,12 +7,18 @@ import './filters.component.scss'
 type FiltersPropType = {
   filters: Array<FilterType>,
   onFilterChange: (Array<string>, string) => void,
+  onFiltersClear: () => void,
 }
 
-const Filters = ({ filters = [], onFilterChange, width }: FiltersPropType) => (
+const Filters = ({ filters = [], onFilterChange, onFiltersClear, width }: FiltersPropType) => (
   <div className="Filters" style={{ width }}>
     <div className="sectionHeading">
       <div className="label">Filters</div>
+      <div className="clearFilters">
+        <button onClick={onFiltersClear} className="clearButton">
+          Clear
+        </button>
+      </div>
     </div>
     <div className="filterSections">
       {filters.map((filter) => <Filter filter={filter} onFilterChange={onFilterChange} />)}

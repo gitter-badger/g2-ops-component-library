@@ -8,6 +8,7 @@ import FilterValue from './filter-value.component'
 
 type FilterValueListPropType = {
   filterOptions: Array<FilterValueType>,
+  selectedFilterLabels: Array<string>,
   onFilterValueChange: (Array<string>, string) => void,
   name: string,
 }
@@ -16,9 +17,25 @@ type FilterValueListStateType = {
   selectedFilterLabels: Array<string>,
 }
 
-class FilterValueList extends Component<FilterValueListPropType, FilterValueListStateType> {
+class FilterValueList extends Component<
+  FilterValueListPropType,
+  FilterValueListStateType
+> {
   state = {
     selectedFilterLabels: [],
+  }
+
+  componentWillMount() {
+    const { selectedFilterLabels } = this.props
+    this.setState(() => ({ selectedFilterLabels: selectedFilterLabels }))
+  }
+
+  componentWillReceiveProps(nextProps: FilterValueListPropType) {
+    if (nextProps.selectedFilterLabels !== this.props.selectedFilterValues) {
+      this.setState(() => ({
+        selectedFilterLabels: nextProps.selectedFilterLabels,
+      }))
+    }
   }
 
   onFilterValueChecked = (isFilterSelected: boolean, filterLabel: string) => {
@@ -39,7 +56,10 @@ class FilterValueList extends Component<FilterValueListPropType, FilterValueList
     return (
       <div className="FilterValueList">
         {filterOptions.map((filterOption) => (
-          <FilterValue filterOption={filterOption} onFilterValueChecked={this.onFilterValueChecked} />
+          <FilterValue
+            filterOption={filterOption}
+            onFilterValueChecked={this.onFilterValueChecked}
+          />
         ))}
       </div>
     )

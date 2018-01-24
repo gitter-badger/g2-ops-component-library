@@ -1,5 +1,6 @@
 // @flow
 import type { QuickFilterType, FilterType } from 'types/Filter'
+import type { Node } from 'react'
 
 import React, { Component } from 'react'
 import renderIf from 'render-if'
@@ -26,17 +27,28 @@ type FilterSidebarComponentStateType = {
 class FilterSidebarComponent extends Component<FilterSidebarComponentPropType, FilterSidebarComponentStateType> {
   static defaultProps = {
     quickFilters: [],
-    selectedQuickFilter: 'lots',
+    selectedQuickFilter: 'lots'
   }
 
   state = { filterDrawerOpen: false }
 
   toggleFilterDrawer = () => {
-    this.setState(({ filterDrawerOpen }) => ({ filterDrawerOpen: !filterDrawerOpen }))
+    this.setState(({ filterDrawerOpen }) => ({
+      filterDrawerOpen: !filterDrawerOpen
+    }))
   }
 
   render() {
-    const { quickFilters, filters, onFilterChange, onQuickFiltersChange, selectedQuickFilter, height, width } = this.props
+    const {
+      quickFilters,
+      filters,
+      onFilterChange,
+      onQuickFiltersChange,
+      selectedQuickFilter,
+      onFiltersClear,
+      height,
+      width
+    } = this.props
     const renderIfFilterDrawerOpen = renderIf(this.state.filterDrawerOpen)
     return (
       <div className="FilterSidebar" style={{ height }}>
@@ -51,9 +63,12 @@ class FilterSidebarComponent extends Component<FilterSidebarComponentPropType, F
               onQuickFiltersChange={onQuickFiltersChange}
             />
           </div>
+          {this.props.children}
         </div>
         <div className={cn('filters', { open: this.state.filterDrawerOpen })}>
-          {renderIfFilterDrawerOpen(<Filters width={width} filters={filters} onFilterChange={onFilterChange} />)}
+          {renderIfFilterDrawerOpen(
+            <Filters width={width} filters={filters} onFilterChange={onFilterChange} onFiltersClear={onFiltersClear} />
+          )}
         </div>
       </div>
     )
