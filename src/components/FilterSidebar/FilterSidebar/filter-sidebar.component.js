@@ -17,7 +17,9 @@ type FilterSidebarComponentPropType = {
   quickFilters: Array<QuickFilterType>,
   filters: Array<FilterType>,
   onFilterChange: (Array<string>, string) => void,
+  onFiltersClear: () => void,
   onQuickFiltersChange: string => void,
+  children: Node,
 }
 
 type FilterSidebarComponentStateType = {
