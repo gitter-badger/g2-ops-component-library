@@ -1,0 +1,26 @@
+.QuickFilter {
+  display: flex;
+  flex-direction: column;
+  cursor: pointer;
+  width: 58px;
+  height: 58px;
+  align-items: center;
+  justify-content: center;
+  .icon {
+    svg {
+      fill: white !important;
+    }
+  }
+  .count {
+    color: #60D1FF;
+    font-size: 12px;
+  }
+  &.active {
+    .icon {
+      svg {
+        fill: #323a49 !important;
+      }
+    }
+    background-color: white;
+  }
+}

@@ -10,7 +10,7 @@
   "author": "Sidharth Mehra",
   "scripts": {
     "start": "webpack-dev-server",
-    "test": "test",
+    "test": "jest --silent",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "build:dev": "webpack",
@@ -43,6 +43,7 @@
     "react": "^15.6.1",
     "react-dom": "^15.6.1",
     "react-tap-event-plugin": "2.0.1",
+    "react-tooltip": "^3.4.0",
     "react-virtualized": "^9.14.1",
     "render-if": "^0.1.1",
     "sass-loader": "^6.0.6",
@@ -56,8 +57,20 @@
     "babel-loader": "^7.1.0",
     "babel-preset-es2017": "^6.24.1",
     "babel-preset-react": "^6.24.1",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.5",
     "eslint-config-airbnb-easy": "^1.0.10",
     "eslint-plugin-import": "^2.8.0",
-    "react-styleguidist": "^6.0.33"
+    "identity-obj-proxy": "3.0.0",
+    "jest": "^22.0.6",
+    "react-styleguidist": "^6.0.33",
+    "react-test-renderer": "^15.4.2",
+    "react-with-context": "1.2.1"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|less|scss)$": "identity-obj-proxy"
+    },
+    "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js"
   }
 }

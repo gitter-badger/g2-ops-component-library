@@ -26,7 +26,7 @@ const IconWithoutBadge = ({ tabClassName = 'tabIcon', tabConfig }) => {
 const getLabelForTab = (label, labelError = label, tabHasError = false) => (tabHasError ? labelError : label)
 
 const Tabs = ({ slideIndex, tabsConfig, onTabActive, tabsWithErrors }) => (
-  <MuiTabs>
+  <MuiTabs className="tabs">
     {tabsConfig && tabsConfig.map((tabConfig, index) => {
       const tabClassName = slideIndex === index ? 'tab active' : 'tab default'
       return (

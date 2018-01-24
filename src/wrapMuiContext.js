@@ -5,7 +5,7 @@ import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import { initializeIcons } from '@uifabric/icons'
 
-const copartBaseTheme = {
+export const copartBaseTheme = {
   ...lightBaseTheme,
   palette: {
     ...lightBaseTheme.palette,

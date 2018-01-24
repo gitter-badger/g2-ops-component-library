@@ -26,7 +26,8 @@ module.exports = {
   resolve: {
     alias: {
       examples: join(src, 'examples'),
-      components: join(src, 'components')
+      components: join(src, 'components'),
+      types: join(root, 'types')
     },
     extensions: [ '.jsx', '.js', '.css' ]
   },
