@@ -20,6 +20,8 @@ type FilterSidebarComponentPropType = {
   onFiltersClear: () => void,
   onQuickFiltersChange: string => void,
   children: Node,
+  width: string,
+  height: string,
 }
 
 type FilterSidebarComponentStateType = {
