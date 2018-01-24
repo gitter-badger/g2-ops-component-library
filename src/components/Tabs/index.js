@@ -1,1 +1,1 @@
-export default './Tabs'
+export default from './Tabs'

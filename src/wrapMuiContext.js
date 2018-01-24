@@ -18,15 +18,15 @@ export const copartBaseTheme = {
   },
   tabs: {
     selectedTextColor: 'rgba(38, 166, 91, 1.0)',
-    textColor: 'rgba(218, 223, 225, 1.0)',
+    textColor: 'rgba(218, 223, 225, 1.0)'
   },
   inkBar: {
-    backgroundColor: '#545A63',
-  },
+    backgroundColor: '#545A63'
+  }
 }
 
-initializeIcons();
-injectTapEventPlugin();
+initializeIcons()
+injectTapEventPlugin()
 
 // a higher order function that provides mui context to the Component being passed.
 export const wrapMuiContext = (Component) => {

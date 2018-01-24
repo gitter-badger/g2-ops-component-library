@@ -1,9 +1,9 @@
-import React from 'react';
+import React from 'react'
 import Stepper, {
   Step,
   StepLabel
-} from 'components/Stepper/Stepper';
-import Button from 'components/Buttons/Button'
+} from 'components/Stepper/Stepper'
+import Button from 'components/Button/Button'
 import { wrapMuiContext } from '../wrapMuiContext'
 
 /**
@@ -16,27 +16,27 @@ class StepperExample extends React.Component {
   state = {
     finished: false,
     stepIndex: 0
-  };
+  }
 
-  getStepContent(stepIndex) {
+  getStepContent = (stepIndex) => {
     switch (stepIndex) {
       case 0:
-        return 'Select campaign settings...';
+        return 'Select campaign settings...'
       case 1:
-        return 'What is an ad group anyways?';
+        return 'What is an ad group anyways?'
       case 2:
-        return 'This is the bit I really care about!';
+        return 'This is the bit I really care about!'
       default:
-        return 'You\'re a long way from home sonny jim!';
+        return 'You\'re a long way from home sonny jim!'
     }
   }
 
   handlePrev = () => {
     const { stepIndex } = this.state
     if (stepIndex > 0) {
-      this.setState({stepIndex: stepIndex - 1})
+      this.setState({ stepIndex: stepIndex - 1 })
     }
-  };
+  }
 
   handleNext = () => {
     const { stepIndex } = this.state
@@ -44,7 +44,7 @@ class StepperExample extends React.Component {
       stepIndex: stepIndex + 1,
       finished: stepIndex >= 2
     })
-  };
+  }
 
   render() {
     const { finished, stepIndex } = this.state
@@ -67,10 +67,9 @@ class StepperExample extends React.Component {
           {finished ? (
             <p>
               <a
-                href="#"
                 onClick={(event) => {
-                  event.preventDefault();
-                  this.setState({stepIndex: 0, finished: false});
+                  event.preventDefault()
+                  this.setState({ stepIndex: 0, finished: false })
                 }}
               >
                 Click here
@@ -79,13 +78,13 @@ class StepperExample extends React.Component {
           ) : (
             <div>
               <p>{this.getStepContent(stepIndex)}</p>
-              <div style={{marginTop: 12}}>
+              <div style={{ marginTop: 12 }}>
                 <Button
                   type="secondary"
                   label="Back"
                   disabled={stepIndex === 0}
                   onClick={this.handlePrev}
-                  style={{marginRight: 12}}
+                  style={{ marginRight: 12 }}
                 />
                 <Button
                   type="primary"
@@ -97,7 +96,7 @@ class StepperExample extends React.Component {
           )}
         </div>
       </div>
-    );
+    )
   }
 }
 

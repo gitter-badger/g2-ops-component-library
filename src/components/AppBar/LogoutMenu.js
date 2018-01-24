@@ -2,17 +2,17 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import { IconButton } from 'office-ui-fabric-react/lib/Button'
 import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
-import { wrapFabricContext } from '../../wrapFabricContext'
 import './style.scss'
+
 export class LogoutMenu extends React.Component {
   static propTypes = {
     items: PropTypes.arrayOf(
       PropTypes.shape({
         key: PropTypes.string,
-        name: PropTypes.string,
+        name: PropTypes.string
       })
     ).isRequired,
-    onItemClick: PropTypes.func,
+    onItemClick: PropTypes.func
   }
   state = {
     directionalHint: DirectionalHint.bottomCenter,
@@ -52,4 +52,4 @@ export class LogoutMenu extends React.Component {
   }
 }
 
-export default wrapFabricContext(LogoutMenu)
+export default LogoutMenu

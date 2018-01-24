@@ -15,12 +15,12 @@ class SearchBar extends React.Component {
     /** Search Type, one of the items of type { key,name } from the searchTypes provided  */
     searchType: PropTypes.shape({
       key: PropTypes.string,
-      name: PropTypes.string,
+      name: PropTypes.string
     }),
     /** Search Types to be rendered in the searchMenu on the left */
     searchTypes: PropTypes.arrayOf(PropTypes.shape({
       key: PropTypes.string,
-      name: PropTypes.string,
+      name: PropTypes.string
     })),
     /** Trigger search handler */
     handleSearch: PropTypes.func.isRequired,
@@ -38,7 +38,7 @@ class SearchBar extends React.Component {
     this.setState({
       searchType: item
     }, () => {
-      if(this.props.onMenuChange) {
+      if (this.props.onMenuChange) {
         this.props.onMenuChange(event, index, item)
       }
     })
@@ -64,8 +64,8 @@ class SearchBar extends React.Component {
   renderSearchIcon = (handleSearch) => (
     <IconButton
       onClick={handleSearch}
-      iconProps={ { iconName: 'search' } }
-      title='Search'
+      iconProps={{ iconName: 'search' }}
+      title={'Search'}
     />
   )
 

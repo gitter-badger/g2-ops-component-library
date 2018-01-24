@@ -1,12 +1,13 @@
-import React, {Component} from 'react'
+import React, { Component } from 'react'
 import PropTypes from 'prop-types'
-import {dateTimeFormat, formatIso, isEqualDate} from 'material-ui/DatePicker/dateUtils'
+import renderIf from 'render-if'
+import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/dateUtils'
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import moment from 'moment'
-import TextField from 'components/TextField/TextField'
-import IconButton from 'components/Buttons/IconButton'
+import TextField from 'components/TextField'
+import { IconButton } from 'components/Button'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
-import { wrapMuiContext } from  '../../wrapMuiContext'
+import { wrapMuiContext } from '../../wrapMuiContext'
 import './style.scss'
 
 class DatePicker extends Component {
@@ -36,7 +37,7 @@ class DatePicker extends Component {
     style: PropTypes.object,
     textFieldStyle: PropTypes.object,
     value: PropTypes.object,
-  };
+  }
 
   static defaultProps = {
     autoOk: false,
@@ -44,139 +45,137 @@ class DatePicker extends Component {
     disabled: false,
     disableYearSelection: false,
     firstDayOfWeek: 1,
-    style: {},
-  };
+    style: {}
+  }
 
   static contextTypes = {
-    muiTheme: PropTypes.object.isRequired,
-  };
+    muiTheme: PropTypes.object.isRequired
+  }
 
   state = {
     date: undefined,
-    displayDate: '',
-  };
+    displayDate: ''
+  }
 
   componentWillMount() {
+    const { defaultDate, defaultFormat } = this.props
+    const dateValue = this.isControlled() ? this.getControlledDate() : defaultDate
     this.setState({
-      date: this.isControlled() ? this.getControlledDate() : this.props.defaultDate,
-    });
+      date: dateValue,
+      displayDate: dateValue ? moment(dateValue).format(defaultFormat) : ''
+    })
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.isControlled()) {
-      const newDate = this.getControlledDate(nextProps);
+    if (this.isControlled() && nextProps.value !== null) {
+      const newDate = this.getControlledDate(nextProps)
       if (!isEqualDate(this.state.date, newDate)) {
         const { defaultFormat } = this.props
         this.setState({
           date: newDate,
           displayDate: moment(newDate, defaultFormat).format(defaultFormat)
-        });
+        })
       }
     }
   }
 
   getDate() {
-    return this.state.date;
+    return this.state.date
   }
 
-  openDialog() {
-    if (this.state.date !== undefined) {
-      this.setState({
-        dialogDate: this.getDate(),
-      }, this.refs.dialogWindow.show);
-    } else {
-      this.setState({
-        dialogDate: new Date(),
-      }, this.refs.dialogWindow.show);
+  getControlledDate(props = this.props) {
+    if (props.value instanceof Date) {
+      return props.value
     }
   }
 
   focus() {
-    this.openDialog();
+    this.openDialog()
   }
 
   handleAccept = (date) => {
     if (!this.isControlled()) {
       this.setState({
-        date: date,
-      });
+        date: date
+      })
     }
     if (this.props.onChange) {
-      this.props.onChange(null, date);
+      this.props.onChange(null, date)
     }
-  };
+  }
 
   handleFocus = (event) => {
-    // event.target.blur();
     if (this.props.onFocus) {
-      this.props.onFocus(event);
+      this.props.onFocus(event)
     }
-  };
+  }
 
-  handleTouchTap = (event) => {
-    // if (this.props.onTouchTap) {
-    //   this.props.onTouchTap(event);
-    // }
+  handleClick = (event) => {
     if (!this.props.disabled) {
       setTimeout(() => {
-        this.openDialog();
-      }, 0);
+        this.openDialog()
+      }, 0)
     }
-  };
-
-  isValidDate = (value) => {
-    return value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
   }
+
+  isValidDate = (value) => value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
 
   handleKeyUp = (event) => {
     const value = this.state.displayDate
-    let displayDate = value.replace(/^(\d\d)(\d)$/g,'$1/$2')
-         .replace(/^(\d\d\/\d\d)(\d+)$/g,'$1/$2')
-         .replace(/[^\d\/]/g,'')
+    let displayDate = value.replace(/^(\d\d)(\d)$/g, '$1/$2')
+      .replace(/^(\d\d\/\d\d)(\d+)$/g, '$1/$2')
+      .replace(/[^\d\/]/g, '')
     const { formatDate, defaultFormat } = this.props
     const isValidDate = this.isValidDate(displayDate)
     if (isValidDate) {
       displayDate = formatDate ? formatDate(displayDate) : this.formatDate(new Date(displayDate))
-      const date = formatDate ? moment(displayDate, defaultFormat).toDate() : this.formatDate(new Date(displayDate))  
+      const date = formatDate ? moment(displayDate, defaultFormat).toDate() : this.formatDate(new Date(displayDate))
       this.setState({
         date,
-        displayDate,
+        displayDate
       })
     } else {
       this.setState({
-        displayDate,
+        displayDate
       })
     }
   }
 
   handleTextFieldChange = (value) => {
     this.setState({
-        displayDate: value
+      displayDate: value
     })
   }
 
   isControlled() {
-    return this.props.hasOwnProperty('value');
+    return this.props.hasOwnProperty('value')
   }
 
-  getControlledDate(props = this.props) {
-    if (props.value instanceof Date) {
-      return props.value;
+
+  openDialog() {
+    if (this.state.date !== undefined) {
+      this.setState({
+        dialogDate: this.getDate()
+      }, this.dialogWindow.show)
+    } else {
+      this.setState({
+        dialogDate: new Date()
+      }, this.dialogWindow.show)
     }
   }
 
   formatDate = (date) => {
     if (this.props.locale) {
-      const DateTimeFormat = this.props.DateTimeFormat || dateTimeFormat;
+      const DateTimeFormat = this.props.DateTimeFormat || dateTimeFormat
       return new DateTimeFormat(this.props.locale, {
         day: 'numeric',
         month: 'numeric',
-        year: 'numeric',
-      }).format(date);
+        year: 'numeric'
+      }).format(date)
     } else {
-      return formatIso(date);
+      return formatIso(date)
     }
-  };
+  }
 
   render() {
     const {
@@ -186,6 +185,7 @@ class DatePicker extends Component {
       className,
       container,
       defaultDate, // eslint-disable-line no-unused-vars
+      disabled,
       dialogContainerStyle,
       disableYearSelection,
       firstDayOfWeek,
@@ -205,39 +205,26 @@ class DatePicker extends Component {
       defaultFormat,
       formatDate: formatDateProp,
       ...other
-    } = this.props;
+    } = this.props
 
-    const {prepareStyles} = this.context.muiTheme;
-    const formatDate = formatDateProp || this.formatDate;
-
-    /*
-    <TextField
-      {...other}
-      onFocus={this.handleFocus}
-      onKeyUp={this.handleKeyUp}
-      onChange={this.handleTextFieldChange}
-      ref="input"
-      style={textFieldStyle}
-      value={this.state.displayDate}
-      floatingLabelStyle={{ color: '#1d5ab9' }}
-      underlineStyle={{ borderColor: '#1d5ab9' }}
-      underlineFocusStyle={{ borderColor: '#1d5ab9' }}
-    />
-    
-    */
-
+    const { prepareStyles } = this.context.muiTheme
+    const formatDate = formatDateProp || this.formatDate
+    const renderDateIcon = renderIf(disabled === false)
     return (
       <div className={className} style={prepareStyles(Object.assign({}, style))}>
         <TextField
           {...other}
           value={this.state.displayDate}
+          disabled={disabled}
           onChanged={this.handleTextFieldChange}
           onKeyUp={this.handleKeyUp}
-          // errorMessage={'This field is Required'}
-          onRenderSuffix={() => (
-            <div onClick={this.handleTouchTap}>
+          onRenderSuffix={() => renderDateIcon(
+            <IconButton
+              style={{ margin: '-15px' }}
+              onTouchTap={this.handleClick}
+            >
               <i className="material-icons md-dark md-18">date_range</i>
-            </div>
+            </IconButton>
           )}
         />
         <DatePickerDialog
@@ -257,13 +244,13 @@ class DatePicker extends Component {
           onAccept={this.handleAccept}
           onShow={onShow}
           onDismiss={onDismiss}
-          ref="dialogWindow"
+          ref={(elem) => { this.dialogWindow = elem }}
           shouldDisableDate={shouldDisableDate}
           wordings={wordings}
         />
       </div>
-    );
+    )
   }
 }
 
-export default wrapMuiContext(DatePicker);
+export default wrapMuiContext(DatePicker)

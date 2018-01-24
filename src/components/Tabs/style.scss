@@ -11,19 +11,17 @@ $default-tab: '';
 .tab {
   text-transform: capitalize !important;
   font-size: 10px !important;
+  color: white !important;
+  height: 64px !important;
   @media (min-width: 1100px) {
     font-size: 11px !important;
   };
 }
-.tabs .default {
+.default {
   background-color: #545A63 !important;
-  border-bottom: 5px solid #0D5DB8 !important;
-  color: white !important;
 }
-.tabs .active {
-  background-color: white !important;
-  border-bottom: 5px solid #545A63 !important;
-  color: #545A63 !important;
+.active {
+  background-color: #3c4656 !important;
 }
 
 @media screen and (max-width: 1000px) {
