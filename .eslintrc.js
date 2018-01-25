@@ -7,7 +7,7 @@ module.exports = {
     node: true,
     mocha: true,
   },
-  plugins: ["react"],
+  plugins: ["react", "flowtype"],
   extends: "eslint-config-airbnb-easy",
   settings: {
     'import/resolver': {
@@ -15,6 +15,9 @@ module.exports = {
         extensions: ['.js'],
         paths: ['node_modules', path.join(__dirname, 'src')],
       },
+    },
+    flowtype: {
+      onlyFilesWithFlowAnnotation: false,
     },
   },
   rules: {

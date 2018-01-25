@@ -9,6 +9,7 @@ import FilterValue from './filter-value.component'
 type FilterValueListPropType = {
   filterOptions: Array<FilterValueType>,
   selectedFilterLabels: Array<string>,
+  selectedFilterValues?: Array<string>,
   onFilterValueChange: (Array<string>, string) => void,
   name: string,
 }

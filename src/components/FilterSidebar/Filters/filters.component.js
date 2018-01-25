@@ -8,6 +8,7 @@ type FiltersPropType = {
   filters: Array<FilterType>,
   onFilterChange: (Array<string>, string) => void,
   onFiltersClear: () => void,
+  width: string
 }
 
 const Filters = ({ filters = [], onFilterChange, onFiltersClear, width }: FiltersPropType) => (
