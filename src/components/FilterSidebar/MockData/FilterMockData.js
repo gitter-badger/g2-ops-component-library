@@ -1,15 +1,15 @@
 import React from 'react'
+import AwaitingDispatchIcon from './AwaitingDispatch.Icon'
+import AwaitingTripConfirmationIcon from './AwaitingTripConfirmation.Icon'
+import AwaitingDriverAssignIcon from './AwaitingDriverAssign.Icon'
 
 export default [
   {
     "label": "Buyer Number",
     "name": "buyerNumber",
-    "filterValuesNameList": [
-      "2597",
-      "91908",
-      "323929"
+    "selectedValues": [
+      "name": "323929",
     ],
-    "selectedValues": [],
     "filterOptions": [
       {
         "name": "2597",
@@ -34,25 +34,6 @@ export default [
   {
     "label": "City",
     "name": "city",
-    "filterValuesNameList": [
-      "ALEKNAGIK",
-      "BAKERSFIELD",
-      "BENICIA",
-      "COLTON",
-      "DALLAS",
-      "FAIRFIELD",
-      "GRASS VALLEY",
-      "HOUSTON",
-      "NULL",
-      "RENO",
-      "SACRAMENTO",
-      "SAN BERNARDINO",
-      "SANTA ANA",
-      "SANTA MONICA",
-      "SONOMA",
-      "SOUTH EL MONTE",
-      "VACAVILLE"
-    ],
     "selectedValues": [],
     "filterOptions": [
       {
@@ -164,8 +145,20 @@ export default [
 export const quickLinks = [
   {
     "count": 25,
-    "icon": <i className="material-icons">build</i>,
-    "name": "lots",
+    "icon": <AwaitingDispatchIcon />,
+    "name": "dispatch",
     "tooltipText": "Awaiting Dispatch"
+  },
+  {
+    "count": 450,
+    "icon": <AwaitingTripConfirmationIcon />,
+    "name": "trip",
+    "tooltipText": "Awaiting Trip Confirmation"
+  },
+  {
+    "count": 5,
+    "icon": <AwaitingDriverAssignIcon />,
+    "name": "driver",
+    "tooltipText": "Awaiting Driver Assign"
   }
 ];
