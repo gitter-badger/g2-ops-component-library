@@ -1,7 +1,7 @@
 Material UI Table Example:
 
 ```js
- var TableExample = require('./TableExample.js').default;
+ var TableExample = require('../../examples/TableExample.js').default;
  <TableExample />
 ```
 

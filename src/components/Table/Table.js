@@ -10,10 +10,6 @@ import {
 } from 'material-ui/Table'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-/**
-*
-* @example ../../examples/Table.md
-*/
 const Table = (props) => (
   <MuiTable {...props}>
     {props.children}

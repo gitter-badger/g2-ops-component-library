@@ -1,7 +1,7 @@
 Stepper Example:
 
 ```js
-var StepperExample = require('./StepperExample.js').default;
+var StepperExample = require('../../examples/StepperExample.js').default;
 <StepperExample />
 ```
 
