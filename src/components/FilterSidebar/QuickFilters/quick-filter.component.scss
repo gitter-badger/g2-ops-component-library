@@ -12,15 +12,15 @@
     }
   }
   .count {
-    color: #60D1FF;
+    color: #60d1ff;
     font-size: 12px;
   }
   &.active {
+    background-color: rgb(222, 222, 222);
     .icon {
       svg {
         fill: #323a49 !important;
       }
     }
-    background-color: white;
   }
 }

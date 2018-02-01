@@ -71,6 +71,7 @@
     "moduleNameMapper": {
       "^.+\\.(css|less|scss)$": "identity-obj-proxy"
     },
-    "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js"
+    "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
+    "testRegex": ".*(jest|spec).js?$"
   }
 }
