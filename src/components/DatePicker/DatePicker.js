@@ -1,13 +1,16 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import renderIf from 'render-if'
-import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/dateUtils'
-import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import moment from 'moment'
+import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
+import CalendarIcon from 'material-ui/svg-icons/action/date-range'
+import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/dateUtils'
+
 import TextField from 'components/TextField'
 import { IconButton } from 'components/Button'
-import CalendarIcon from 'material-ui/svg-icons/action/date-range'
+
 import { wrapMuiContext } from '../../wrapMuiContext'
+
 import './style.scss'
 
 class DatePicker extends Component {
@@ -36,7 +39,7 @@ class DatePicker extends Component {
     shouldDisableDate: PropTypes.func,
     style: PropTypes.object,
     textFieldStyle: PropTypes.object,
-    value: PropTypes.object,
+    value: PropTypes.object
   }
 
   static defaultProps = {
@@ -93,7 +96,7 @@ class DatePicker extends Component {
     this.openDialog()
   }
 
-  handleAccept = (date) => {
+  handleAccept = date => {
     if (!this.isControlled()) {
       this.setState({
         date: date
@@ -104,13 +107,13 @@ class DatePicker extends Component {
     }
   }
 
-  handleFocus = (event) => {
+  handleFocus = event => {
     if (this.props.onFocus) {
       this.props.onFocus(event)
     }
   }
 
-  handleClick = (event) => {
+  handleClick = event => {
     if (!this.props.disabled) {
       setTimeout(() => {
         this.openDialog()
@@ -118,11 +121,12 @@ class DatePicker extends Component {
     }
   }
 
-  isValidDate = (value) => value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
+  isValidDate = value => value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
 
-  handleKeyUp = (event) => {
+  handleKeyUp = event => {
     const value = this.state.displayDate
-    let displayDate = value.replace(/^(\d\d)(\d)$/g, '$1/$2')
+    let displayDate = value
+      .replace(/^(\d\d)(\d)$/g, '$1/$2')
       .replace(/^(\d\d\/\d\d)(\d+)$/g, '$1/$2')
       .replace(/[^\d\/]/g, '')
     const { formatDate, defaultFormat } = this.props
@@ -141,7 +145,7 @@ class DatePicker extends Component {
     }
   }
 
-  handleTextFieldChange = (value) => {
+  handleTextFieldChange = value => {
     this.setState({
       displayDate: value
     })
@@ -151,20 +155,25 @@ class DatePicker extends Component {
     return this.props.hasOwnProperty('value')
   }
 
-
   openDialog() {
     if (this.state.date !== undefined) {
-      this.setState({
-        dialogDate: this.getDate()
-      }, this.dialogWindow.show)
+      this.setState(
+        {
+          dialogDate: this.getDate()
+        },
+        this.dialogWindow.show
+      )
     } else {
-      this.setState({
-        dialogDate: new Date()
-      }, this.dialogWindow.show)
+      this.setState(
+        {
+          dialogDate: new Date()
+        },
+        this.dialogWindow.show
+      )
     }
   }
 
-  formatDate = (date) => {
+  formatDate = date => {
     if (this.props.locale) {
       const DateTimeFormat = this.props.DateTimeFormat || dateTimeFormat
       return new DateTimeFormat(this.props.locale, {
@@ -218,14 +227,13 @@ class DatePicker extends Component {
           disabled={disabled}
           onChanged={this.handleTextFieldChange}
           onKeyUp={this.handleKeyUp}
-          onRenderSuffix={() => renderDateIcon(
-            <IconButton
-              style={{ margin: '-15px' }}
-              onTouchTap={this.handleClick}
-            >
-              <i className="material-icons md-dark md-18">date_range</i>
-            </IconButton>
-          )}
+          onRenderSuffix={() =>
+            renderDateIcon(
+              <IconButton style={{ margin: '-15px' }} onTouchTap={this.handleClick}>
+                <i className="material-icons md-dark md-18">date_range</i>
+              </IconButton>
+            )
+          }
         />
         <DatePickerDialog
           DateTimeFormat={DateTimeFormat}
@@ -244,7 +252,9 @@ class DatePicker extends Component {
           onAccept={this.handleAccept}
           onShow={onShow}
           onDismiss={onDismiss}
-          ref={(elem) => { this.dialogWindow = elem }}
+          ref={elem => {
+            this.dialogWindow = elem
+          }}
           shouldDisableDate={shouldDisableDate}
           wordings={wordings}
         />

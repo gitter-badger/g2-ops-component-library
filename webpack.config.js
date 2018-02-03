@@ -10,7 +10,7 @@ const dest = join(root, '.')
 
 module.exports = {
   devtool: 'source-map',
-  entry: [ join(src, 'index.js') ],
+  entry: [join(src, 'index.js')],
   output: {
     publicPath: '/',
     path: dest,
@@ -29,7 +29,7 @@ module.exports = {
       components: join(src, 'components'),
       types: join(root, 'types')
     },
-    extensions: [ '.jsx', '.js', '.css' ]
+    extensions: ['.js', '.css']
   },
   plugins: [
     new webpack.DefinePlugin({
@@ -38,8 +38,8 @@ module.exports = {
     }),
     new webpack.DefinePlugin({
       'process.env': {
-        'NODE_ENV': JSON.stringify('production'),
-        'BABEL_ENV': JSON.stringify('production')
+        NODE_ENV: JSON.stringify('production'),
+        BABEL_ENV: JSON.stringify('production')
       }
     }),
     new HtmlWebpackPlugin({
@@ -56,27 +56,7 @@ module.exports = {
         exclude: /node_modules/
       },
       {
-        test: /\.jsx$/,
-        loader: 'babel-loader',
-        exclude: /node_modules/
-      },
-      {
-        test: /\.(css|less)/,
-        use: [
-          { loader: 'style-loader' },
-          {
-            loader: 'css-loader',
-            options: {
-              importLoaders: true,
-              sourceMap: true,
-              modules: true,
-              localIdentName: '[name]__[local]___[hash:base64:5]'
-            }
-          }
-        ]
-      },
-      {
-        test: /\.(scss|sass)$/,
+        test: /\.(scss)$/,
         use: [
           {
             loader: 'style-loader' // creates style nodes from JS strings
