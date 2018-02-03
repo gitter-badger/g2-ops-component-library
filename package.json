@@ -15,7 +15,9 @@
     "styleguide:build": "styleguidist build",
     "build:dev": "webpack",
     "build": "NODE_ENV=production BABEL_ENV=production webpack -p",
-    "prepublish": "npm run build"
+    "prepublish": "npm run build",
+    "flow": "flow",
+    "postinstall": "flow-typed install"
   },
   "license": "ISC",
   "bugs": {
@@ -52,6 +54,7 @@
     "babel-core": "^6.25.0",
     "babel-eslint": "^8.1.2",
     "babel-loader": "^7.1.0",
+    "babel-preset-flow": "^6.23.0",
     "babel-preset-react-app": "^3.1.1",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
