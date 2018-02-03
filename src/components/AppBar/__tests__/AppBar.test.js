@@ -7,8 +7,12 @@ import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 import AppBar from '../AppBar'
 
 const getProps = (extraProps = {}) => ({
-  ...extraProps,
-  config: []
+  config: [],
+  type: 'CAS',
+  moduleName: 'CAS Portal',
+  countryCode: 'us',
+  isLoggedOn: false,
+  ...extraProps
 })
 
 describe('<AppBar />', () => {

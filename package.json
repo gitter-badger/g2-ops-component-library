@@ -17,7 +17,9 @@
     "build": "NODE_ENV=production BABEL_ENV=production webpack -p",
     "prepublish": "npm run build",
     "flow": "flow",
-    "postinstall": "flow-typed install"
+    "lint": "eslint src/**/*.js",
+    "flowtype": "flow-typed install",
+    "prepush": "yarn flow"
   },
   "license": "ISC",
   "bugs": {
@@ -59,8 +61,10 @@
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
     "eslint-config-airbnb-easy": "^1.0.10",
+    "eslint-plugin-flowtype": "^2.42.0",
     "eslint-plugin-import": "^2.8.0",
     "flow-bin": "^0.64.0",
+    "husky": "^0.14.3",
     "identity-obj-proxy": "3.0.0",
     "jest": "^22.1.4",
     "react-styleguidist": "^6.0.33",
@@ -74,10 +78,7 @@
       "^components(.*)$": "<rootDir>/src/components/$1",
       "^utils(.*)$": "<rootDir>/src/utils/$1"
     },
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/g2-layout-demo"
-    ],
+    "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "testRegex": "src/.*(jest|test).js"
   }

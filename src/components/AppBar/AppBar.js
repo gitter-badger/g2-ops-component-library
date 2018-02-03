@@ -1,5 +1,5 @@
 // @flow
-import type { Node } from 'react'
+import type { Node, Element } from 'react'
 
 import React from 'react'
 import renderIf from 'render-if'
@@ -19,32 +19,34 @@ type AppBarPropTypes = {
   /** Module Name displayed under the Copart Logo */
   moduleName: string,
   /** Items to be rendered in the logout Menu */
-  logoutItems: Array<{
+  logoutItems?: Array<{
     key: string,
     name: string
   }>,
   /** Two digit country code that renders the Flag */
   countryCode: string,
   /** Role Text */
-  role: string,
+  role?: string,
   /** Yard number */
-  yardNumber: number, // we remove support for string yardNumber,
+  yardNumber?: number, // we remove support for string yardNumber,
   /** Phone number */
-  phoneNumber: number, // it is number
+  phoneNumber?: number, // it is number
   /** To show searchbar component */
-  showSearchBar: boolean,
+  showSearchBar?: boolean,
   /** If isLoggedOn is false, renders just the Feedback button, else everything is rendered. */
   isLoggedOn: boolean,
   /** Action to perform when a logout menu item is clicked */
-  onLogoutItemClicked: (SysthenticMouseEvent<HTMLElement>, { key: string, name: string }) => void,
+  onLogoutItemClicked?: (SyntheticMouseEvent<HTMLElement>, { key: string, name: string }) => void,
   /** Action to perform on feedback button click */
-  onFeedbackClick: (SyntheticMouseEvent<HTMLElement>) => void,
+  onFeedbackClick?: (SyntheticMouseEvent<HTMLElement>) => void,
   /** Render Search Bar */
-  onRenderSearchBar: () => Node,
+  onRenderSearchBar?: () => Node,
   /** Override default function that renders the Flag */
   onRenderFlag: ({ countryCode: string, type: string }) => Node,
   /** Override default function that renders the Logo */
-  onRenderLogo: () => Node
+  onRenderLogo: () => Node,
+  /** Takes children which will be rendered inside AppBar */
+  children: Node
 }
 
 const flagMapper = {
@@ -108,12 +110,12 @@ const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, onRen
       {onRenderLogo()}
       <span className="moduleName">{moduleName}</span>
     </div>
-    {showSearchBar && <div className="searchBar">{onRenderSearchBar()}</div>}
+    {showSearchBar && onRenderSearchBar && <div className="searchBar">{onRenderSearchBar()}</div>}
   </div>
 )
 
-const AppBar = (props): AppBarPropTypes => {
-  const { config, iconElementRight, isLoggedOn, iconStyleRight, children, ...otherProps } = props
+const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
+  const { config, isLoggedOn, children, ...otherProps } = props
   const {
     countryCode,
     role,
