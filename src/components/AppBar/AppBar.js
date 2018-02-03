@@ -1,64 +1,60 @@
+// @flow
+import type { Node } from 'react'
+
 import React from 'react'
-import PropTypes from 'prop-types'
 import renderIf from 'render-if'
 import MuiAppBar from 'material-ui/AppBar'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
+import PropTypes from 'prop-types'
 import { LogoutMenu } from './LogoutMenu'
 import { wrapMuiContext } from '../../wrapMuiContext'
+
 import './style.scss'
 
-const appBarPropTypes = {
+type AppBarPropTypes = {
   /** Type of App bar, currently supports two values 'cas' and 'cobalt' */
-  type: PropTypes.string.isRequired,
+  type: string,
   /** Config that determines elements rendered in right side of the App Bar */
-  config: PropTypes.arrayOf(PropTypes.string).isRequired,
+  config: Array<string>,
   /** Module Name displayed under the Copart Logo */
-  moduleName: PropTypes.string.isRequired,
-  /** Action to perform when a logout menu item is clicked */
-  onLogoutItemClicked: PropTypes.func,
+  moduleName: string,
   /** Items to be rendered in the logout Menu */
-  logoutItems: PropTypes.arrayOf(
-    PropTypes.shape({
-      key: PropTypes.string,
-      name: PropTypes.string
-    })
-  ).isRequired,
-  /** Action to perform on feedback button click */
-  onFeedbackClick: PropTypes.func,
-  /** Render Search Bar */
-  onRenderSearchBar: PropTypes.func,
+  logoutItems: Array<{
+    key: string,
+    name: string
+  }>,
   /** Two digit country code that renders the Flag */
-  countryCode: PropTypes.string.isRequired,
-  /** Override default function that renders the Flag */
-  onRenderFlag: PropTypes.func,
-  /** Override default function that renders the Logo */
-  onRenderLogo: PropTypes.func,
+  countryCode: string,
   /** Role Text */
-  role: PropTypes.string,
+  role: string,
   /** Yard number */
-  yardNumber: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
-  /** phone number */
-  phoneNumber: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
-  /** boolean to show searchbar component */
-  showSearchBar: PropTypes.bool,
+  yardNumber: number, // we remove support for string yardNumber,
+  /** Phone number */
+  phoneNumber: number, // it is number
+  /** To show searchbar component */
+  showSearchBar: boolean,
   /** If isLoggedOn is false, renders just the Feedback button, else everything is rendered. */
-  isLoggedOn: PropTypes.bool.isRequired
+  isLoggedOn: boolean,
+  /** Action to perform when a logout menu item is clicked */
+  onLogoutItemClicked: (SysthenticMouseEvent<HTMLElement>, { key: string, name: string }) => void,
+  /** Action to perform on feedback button click */
+  onFeedbackClick: (SyntheticMouseEvent<HTMLElement>) => void,
+  /** Render Search Bar */
+  onRenderSearchBar: () => Node,
+  /** Override default function that renders the Flag */
+  onRenderFlag: ({ countryCode: string, type: string }) => Node,
+  /** Override default function that renders the Logo */
+  onRenderLogo: () => Node
 }
 
 const flagMapper = {
-  'ca': 'canada'
+  ca: 'canada'
 }
 
 const Flag = ({ countryCode, type }) => {
   const imgProps = type === 'cas' ? { height: '22px' } : { height: '30px' }
   const flagUrl = `./public/assets/flag_icons/flag_${flagMapper[countryCode] || countryCode}.png`
-  return (
-    <img
-      src={flagUrl}
-      alt="Flag"
-      {...imgProps}
-    />
-  )
+  return <img src={flagUrl} alt="Flag" {...imgProps} />
 }
 
 const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
@@ -83,9 +79,7 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
   return (
     <div className="flex-grid">
       <div className="col element">
-        {renderIfFlag(
-          onRenderFlag({ countryCode, type })
-        )}
+        {renderIfFlag(onRenderFlag({ countryCode, type }))}
         {renderIfRole(<div className="text">{role}</div>)}
       </div>
       {renderIfYard(
@@ -100,16 +94,10 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
           <div className="iconText">{phoneNumber}</div>
         </div>
       )}
-      <div className="col">{renderIfLoggedInMenu(
-        <LogoutMenu
-          items={logoutItems}
-          onItemClick={onLogoutItemClicked}
-        />
-      )}</div>
-      <DefaultButton
-        text="Feedback"
-        onClick={onFeedbackClick}
-      />
+      <div className="col">
+        {renderIfLoggedInMenu(<LogoutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />)}
+      </div>
+      <DefaultButton text="Feedback" onClick={onFeedbackClick} />
     </div>
   )
 }
@@ -120,15 +108,11 @@ const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, onRen
       {onRenderLogo()}
       <span className="moduleName">{moduleName}</span>
     </div>
-    {showSearchBar &&
-      <div className="searchBar">
-        {onRenderSearchBar()}
-      </div>
-    }
+    {showSearchBar && <div className="searchBar">{onRenderSearchBar()}</div>}
   </div>
 )
 
-const AppBar = (props) => {
+const AppBar = (props): AppBarPropTypes => {
   const { config, iconElementRight, isLoggedOn, iconStyleRight, children, ...otherProps } = props
   const {
     countryCode,
@@ -161,22 +145,9 @@ const AppBar = (props) => {
   )
 }
 
-AppBar.propTypes = appBarPropTypes
-
 AppBar.defaultProps = {
-  onRenderFlag: ({ countryCode, type }) => (
-    <Flag
-      countryCode={countryCode}
-      type={type}
-    />
-  ),
-  onRenderLogo: () => (
-    <img
-      className="logo"
-      src="./public/assets/images/logo.svg"
-      alt="Copart"
-    />
-  )
+  onRenderFlag: ({ countryCode, type }) => <Flag countryCode={countryCode} type={type} />,
+  onRenderLogo: () => <img className="logo" src="./public/assets/images/logo.svg" alt="Copart" />
 }
 
 export default wrapMuiContext(AppBar)
