@@ -1,11 +1,13 @@
+// @flow
+import type { Node, ChildrenArray } from 'react'
+
 import React from 'react'
 import { BottomNavigation as MuiBottomNavigation, BottomNavigationItem } from 'material-ui/BottomNavigation'
+
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-const BottomNavigation = (props) => (
-  <MuiBottomNavigation {...props}>
-    {props.children}
-  </MuiBottomNavigation>
+const BottomNavigation = <T: { children?: ChildrenArray<Node> }>(props: T) => (
+  <MuiBottomNavigation {...props}>{props.children}</MuiBottomNavigation>
 )
 
 export default wrapMuiContext(BottomNavigation)

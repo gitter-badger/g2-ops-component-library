@@ -13,6 +13,8 @@
  * https://github.com/flowtype/flow-typed
  */
 
+import type { ComponentType } from 'react'
+
 declare module 'material-ui' {
   declare module.exports: any;
 }
@@ -243,11 +245,11 @@ declare module 'material-ui/GridList' {
 }
 
 declare module 'material-ui/IconButton/IconButton' {
-  declare module.exports: any;
+  declare module.exports: ComponentType;
 }
 
 declare module 'material-ui/IconButton' {
-  declare module.exports: any;
+  declare module.exports: ComponentType;
 }
 
 declare module 'material-ui/IconMenu/IconMenu' {

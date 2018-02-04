@@ -1,6 +1,6 @@
 // @flow
 
-import type { Node } from 'react'
+import type { Node, ChildrenArray } from 'react'
 
 import React from 'react'
 import PropTypes from 'prop-types'
@@ -12,7 +12,7 @@ type AvatarPropTypes = {
   /** The backgroundColor of the avatar. Does not apply to image avatars. */
   backgroundColor?: string,
   /** Can be used, for instance, to render a letter inside the avatar. */
-  children?: Node,
+  children?: ChildrenArray<Node>,
   /** The css class name of the root div or img element. */
   className?: string,
   /** The icon or letter's color. */

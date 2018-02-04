@@ -1,3 +1,5 @@
+// @flow
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
@@ -5,20 +7,19 @@ import MuiIconButton from 'material-ui/IconButton'
 import AddIcon from 'material-ui/svg-icons/content/add'
 import EditIcon from 'material-ui/svg-icons/image/edit'
 import DeleteIcon from 'material-ui/svg-icons/action/delete-forever'
-import { wrapMuiContext } from '../../wrapMuiContext'
-import './style.scss'
 
-const buttonPropTypes = {
-  type: PropTypes.oneOf([
-    'primary',
-    'secondary',
-    'inactive',
-    'add',
-    'edit',
-    'delete'
-  ]).isRequired
+import { wrapMuiContext } from '../../wrapMuiContext'
+
+import './Button.scss'
+
+type ButtonPropTypes = {
+  type: 'primary' | 'secondary' | 'inactive' | 'add' | 'edit' | 'delete',
+  primary: boolean,
+  secondary: boolean,
+  buttonProps: { [string]: any },
 }
-const Button = ({ primary, secondary, type, ...buttonProps }) => {
+
+const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) => {
   let typeProps
   switch (type) {
     case 'primary':
@@ -26,7 +27,7 @@ const Button = ({ primary, secondary, type, ...buttonProps }) => {
     case 'inactive': {
       typeProps = {
         ...buttonProps,
-        className: `copartButton ${type}Button`
+        className: `copartButton ${type}Button`,
       }
       break
     }
@@ -35,7 +36,7 @@ const Button = ({ primary, secondary, type, ...buttonProps }) => {
         ...buttonProps,
         label: 'Add',
         className: `copartButton primaryButton ${type}Button`,
-        icon: <AddIcon />
+        icon: <AddIcon />,
       }
       break
     }
@@ -44,7 +45,7 @@ const Button = ({ primary, secondary, type, ...buttonProps }) => {
         ...buttonProps,
         label: 'Edit',
         className: `copartButton primaryButton ${type}Button`,
-        icon: <EditIcon />
+        icon: <EditIcon />,
       }
       break
     }
@@ -53,7 +54,7 @@ const Button = ({ primary, secondary, type, ...buttonProps }) => {
         ...buttonProps,
         label: 'Delete',
         className: `copartButton ${type}Button`,
-        icon: <DeleteIcon />
+        icon: <DeleteIcon />,
       }
       break
     }
@@ -63,8 +64,6 @@ const Button = ({ primary, secondary, type, ...buttonProps }) => {
   }
   return <RaisedButton {...typeProps} />
 }
-
-Button.propTypes = buttonPropTypes
 
 export const IconButton = wrapMuiContext(MuiIconButton)
 export default wrapMuiContext(Button)

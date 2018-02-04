@@ -1,5 +1,5 @@
 // @flow
-import type { Node, Element } from 'react'
+import type { Node, Element, ChildrenArray } from 'react'
 
 import React from 'react'
 import renderIf from 'render-if'
@@ -9,7 +9,7 @@ import PropTypes from 'prop-types'
 import { LogoutMenu } from './LogoutMenu'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-import './style.scss'
+import './AppBar.scss'
 
 type AppBarPropTypes = {
   /** Type of App bar, currently supports two values 'cas' and 'cobalt' */
@@ -46,10 +46,10 @@ type AppBarPropTypes = {
   /** Override default function that renders the Logo */
   onRenderLogo: () => Node,
   /** Takes children which will be rendered inside AppBar */
-  children?: Node,
+  children?: ChildrenArray<Node>,
 }
 
-const flagMapper = {
+const flagMapper: { [string]: string } = {
   ca: 'canada',
 }
 
