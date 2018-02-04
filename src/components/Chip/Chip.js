@@ -1,9 +1,44 @@
+// @flow
+
+import type { Node, ChildrenArray } from 'react'
+
 import React from 'react'
-import PropTypes from 'prop-types'
 import MuiChip from 'material-ui/Chip'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-const Chip = ({ backgroundColor, children, className, labelColor, labelStyle, onRequestDelete, onTouchTap, style }) => (
+type StyleType = {
+  [string]: mixed,
+}
+
+type ChippropTypes = {
+  /** Override the background color of the chip. */
+  backgroundColor: string,
+  /** Used to render elements inside the Chip. */
+  children?: ChildrenArray<Node>,
+  /** CSS className of the root element. */
+  className: string,
+  /** Override the label color. */
+  labelColor: string,
+  /** Override the inline-styles of the label. */
+  labelStyle: StyleType,
+  /** Callback function fired when the delete icon is clicked. If set, the delete icon will be shown. */
+  onRequestDelete: (SyntheticMouseEvent<HTMLInputElement>) => void,
+  /** Callback function fired when the Chip element is touch-tapped. */
+  onTouchTap: (SyntheticMouseEvent<HTMLInputElement>) => void,
+  /** Override the inline-styles of the root element. */
+  style: StyleType,
+}
+
+const Chip = ({
+  backgroundColor,
+  children,
+  className,
+  labelColor,
+  labelStyle,
+  onRequestDelete,
+  onTouchTap,
+  style,
+}: ChippropTypes) => (
   <MuiChip
     backgroundColor={backgroundColor}
     className={className}
@@ -16,24 +51,5 @@ const Chip = ({ backgroundColor, children, className, labelColor, labelStyle, on
     {children}
   </MuiChip>
 )
-
-Chip.propTypes = {
-  /** Override the background color of the chip. */
-  backgroundColor: PropTypes.string,
-  /** Used to render elements inside the Chip. */
-  children: PropTypes.node,
-  /** CSS className of the root element. */
-  className: PropTypes.node,
-  /** Override the label color. */
-  labelColor: PropTypes.string,
-  /** Override the inline-styles of the label. */
-  labelStyle: PropTypes.objectOf(PropTypes.any),
-  /** Callback function fired when the delete icon is clicked. If set, the delete icon will be shown. */
-  onRequestDelete: PropTypes.func,
-  /** Callback function fired when the Chip element is touch-tapped. */
-  onTouchTap: PropTypes.func,
-  /** Override the inline-styles of the root element. */
-  style: PropTypes.shape()
-}
 
 export default wrapMuiContext(Chip)

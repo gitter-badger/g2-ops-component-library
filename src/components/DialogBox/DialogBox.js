@@ -1,29 +1,49 @@
-import * as React from 'react'
-import PropTypes from 'prop-types'
+// @flow
+import type { Node, ChildrenArray } from 'react'
+
+import React from 'react'
 import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog'
-import './style.scss'
+
+import { wrapFabricContext } from '../../wrapFabricContext'
+
+import './DialogBox.scss'
 
 const defaultProps = {
   isBlocking: false,
-  hideDialog: false
-}
-const propTypes = {
-  /** Title to be displayed in the dialog header */
-  title: PropTypes.string,
-  subText: PropTypes.string,
-  /** Default is normal, largeHeader shows blue background */
-  dialogType: PropTypes.oneOf([ 'largeHeader', 'normal' ]),
-  onDismiss: PropTypes.func.isRequired,
-  /** indicates whether the dialog is hidden or displayed */
-  hideDialog: PropTypes.bool,
-  isBlocking: PropTypes.bool,
-  /** Render Function for rendering items in the Footer */
-  onRenderFooter: PropTypes.func,
-  containerClassName: PropTypes.string
+  hideDialog: false,
 }
 
-const DialogBox = (props) => {
-  const { title, subText, dialogType, onDismiss, hideDialog, isBlocking, containerClassName, children, onRenderFooter, ...otherProps } = props
+type DialogBoxPropTypes = {
+  /** Title to be displayed in the dialog header */
+  title: string,
+  subText: string,
+  /** Default is normal, largeHeader shows blue background */
+  dialogType: 'largeHeader' | 'normal',
+  onDismiss: (SyntheticMouseEvent<HTMLInputElement>) => void,
+  /** indicates whether the dialog is hidden or displayed */
+  hideDialog: boolean,
+  isBlocking: boolean,
+  /** Render Function for rendering items in the Footer */
+  footerRenderer?: () => Node,
+  containerClassName: string,
+  children?: ChildrenArray<Node>,
+  containterClassName: string,
+  otherProps: any,
+}
+
+const DialogBox = (props: DialogBoxPropTypes) => {
+  const {
+    title,
+    subText,
+    dialogType,
+    onDismiss,
+    hideDialog,
+    isBlocking,
+    containerClassName,
+    children,
+    footerRenderer,
+    ...otherProps
+  } = props
   const dialogTypeProp = dialogType === 'largeHeader' ? DialogType.largeHeader : DialogType.normal
   return (
     <Dialog
@@ -32,23 +52,19 @@ const DialogBox = (props) => {
       dialogContentProps={{
         type: dialogTypeProp,
         title: title,
-        subText: subText
+        subText: subText,
       }}
       modalProps={{
         isBlocking: isBlocking,
-        containerClassName: `dialogModelContent ${containerClassName}`
+        containerClassName: `dialogModelContent ${containerClassName}`,
       }}
     >
       {children}
-      {onRenderFooter &&
-        <DialogFooter>
-          {onRenderFooter()}
-        </DialogFooter>}
+      {footerRenderer && <DialogFooter>{footerRenderer()}</DialogFooter>}
     </Dialog>
   )
 }
 
-DialogBox.propTypes = propTypes
 DialogBox.defaultProps = defaultProps
 
-export default DialogBox
+export default wrapFabricContext(DialogBox)

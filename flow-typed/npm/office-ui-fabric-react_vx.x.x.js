@@ -13,6 +13,8 @@
  * https://github.com/flowtype/flow-typed
  */
 
+import type { Node } from 'react'
+
 declare module 'office-ui-fabric-react' {
   declare module.exports: any;
 }
@@ -899,7 +901,11 @@ declare module 'office-ui-fabric-react/lib-amd/components/Dialog/Dialog.checklis
 }
 
 declare module 'office-ui-fabric-react/lib-amd/components/Dialog/Dialog' {
-  declare module.exports: any;
+  declare module.exports: {
+    DialogType: string,
+    DialogFooter: Node,
+    Dialog: Node,
+  };
 }
 
 declare module 'office-ui-fabric-react/lib-amd/components/Dialog/Dialog.scss' {
