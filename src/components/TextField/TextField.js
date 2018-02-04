@@ -1,19 +1,30 @@
+// @flow
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { TextField as FabricTextField } from 'office-ui-fabric-react/lib/TextField'
 import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
+
 import { wrapFabricContext } from '../../wrapFabricContext'
+
 import './style.scss'
 
-const propTypes = {
-  text: PropTypes.string,
-  disabled: PropTypes.bool,
-  placeholder: PropTypes.string,
-  className: PropTypes.string,
-  inputClassName: PropTypes.string
+type TextFieldPropTypes = {
+  text: string,
+  disabled: boolean,
+  placeholder?: string,
+  className?: string,
+  inputClassName: string,
+  otherProps?: {
+    [string]: any,
+  },
 }
 
-const TextField = ({ placeholder, disabled, className, inputClassName, ...otherProps }) => (
+const textFieldDefaultProps = {
+  inputClassName: '',
+}
+
+const TextField = ({ placeholder, disabled, className, inputClassName, ...otherProps }: TextFieldPropTypes) => (
   <FabricTextField
     {...otherProps}
     disabled={disabled}
@@ -22,5 +33,7 @@ const TextField = ({ placeholder, disabled, className, inputClassName, ...otherP
     placeholder={disabled ? '' : placeholder}
   />
 )
+
+TextField.defaultProps = textFieldDefaultProps
 
 export default wrapFabricContext(TextField)
