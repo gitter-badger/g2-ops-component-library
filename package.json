@@ -80,6 +80,6 @@
     },
     "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
-    "testRegex": "src/.*(jest|test).js"
+    "testRegex": "src/.*(jest|test).js$"
   }
 }

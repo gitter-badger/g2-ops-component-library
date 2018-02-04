@@ -41,19 +41,24 @@ describe('<AppBar />', () => {
   describe('<SearchBar />', () => {
     test('should render search bar when both showSearchBar=true & searchBarRenderer is defined ', () => {
       const searchBarRenderer = jest.fn(() => () => <div className="searchBar" />)
-      const tree = mount(wrapWithMaterialUIContext(<AppBar {...getProps({ showSearchBar: true, searchBarRenderer })} />))
-      expect(tree.find('div.searchBar').exists()).toBe(true)
-    })
-
-    test('should not render search bar when both showSearchBar=false & searchBarRenderer is defined ', () => {
-      const searchBarRenderer = jest.fn(() => () => <div className="searchBar" />)
-      const tree = mount(wrapWithMaterialUIContext(<AppBar {...getProps({ showSearchBar: false, searchBarRenderer })} />))
-      expect(tree.find('div.searchBar').exists()).toBe(false)
-    })
-
-    test('should not render search bar when both showSearchBar=true & searchBarRenderer is not defined ', () => {
-      const tree = mount(wrapWithMaterialUIContext(<AppBar {...getProps({ showSearchBar: true })} />))
-      expect(tree.find('div.searchBar').exists()).toBe(false)
+      const configsToRender = [
+        {
+          props: { showSearchBar: true, searchBarRenderer },
+          exists: true,
+        },
+        {
+          props: { showSearchBar: false, searchBarRenderer },
+          exists: false,
+        },
+        {
+          props: { showSearchBar: true },
+          exists: false,
+        }
+      ]
+      configsToRender.forEach((config) => {
+        const tree = mount(wrapWithMaterialUIContext(<AppBar {...getProps(config.props)} />))
+        expect(tree.find('div.searchBar').exists()).toBe(config.exists)
+      })
     })
   })
 })
