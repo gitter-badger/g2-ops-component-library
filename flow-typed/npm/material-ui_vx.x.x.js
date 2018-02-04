@@ -495,7 +495,10 @@ declare module 'material-ui/styles/baseThemes/darkBaseTheme' {
 }
 
 declare module 'material-ui/styles/baseThemes/lightBaseTheme' {
-  declare module.exports: any;
+  declare module.exports: {
+    palette: {[string]: any},
+    timepicker: {[string]: any},
+  };
 }
 
 declare module 'material-ui/styles/colors' {
