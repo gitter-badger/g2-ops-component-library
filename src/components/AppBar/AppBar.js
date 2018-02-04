@@ -40,7 +40,7 @@ type AppBarPropTypes = {
   /** Action to perform on feedback button click */
   onFeedbackClick?: (SyntheticMouseEvent<HTMLElement>) => void,
   /** Render Search Bar */
-  onRenderSearchBar?: () => Node,
+  searchBarRenderer?: () => Node,
   /** Override default function that renders the Flag */
   onRenderFlag: ({ countryCode: string, type: string }) => Node,
   /** Override default function that renders the Logo */
@@ -82,18 +82,18 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     <div className="flex-grid">
       <div className="col element">
         {renderIfFlag(onRenderFlag({ countryCode, type }))}
-        {renderIfRole(<div className="text">{role}</div>)}
+        {renderIfRole(<div className="text role">{role}</div>)}
       </div>
       {renderIfYard(
         <div className="col element">
           <i className="material-icons">domain</i>
-          <div className="iconText">{yardNumber}</div>
+          <div className="iconText yardNumber">{yardNumber}</div>
         </div>
       )}
       {renderIfPhone(
         <div className="col element">
           <i className="material-icons">phone</i>
-          <div className="iconText">{phoneNumber}</div>
+          <div className="iconText phoneNumber">{phoneNumber}</div>
         </div>
       )}
       <div className="col">
@@ -104,13 +104,13 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
   )
 }
 
-const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, onRenderSearchBar }) => (
+const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, searchBarRenderer }) => (
   <div className="flex-grid">
     <div className="appBarLeft">
       {onRenderLogo()}
       <span className="moduleName">{moduleName}</span>
     </div>
-    {showSearchBar && onRenderSearchBar && <div className="searchBar">{onRenderSearchBar()}</div>}
+    {showSearchBar && searchBarRenderer && <div className="searchBar">{searchBarRenderer()}</div>}
   </div>
 )
 
@@ -127,7 +127,7 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
     onLogoutItemClicked,
     moduleName,
     onFeedbackClick,
-    onRenderSearchBar,
+    searchBarRenderer,
     onRenderFlag,
     onRenderLogo,
     ...appBarProps

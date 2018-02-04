@@ -47,7 +47,9 @@ exports[`<AppBar /> <AppBar /> renders properly 1`] = `
         />
         <span
           className="moduleName"
-        />
+        >
+          CAS Portal
+        </span>
       </div>
     </div>
   </div>
