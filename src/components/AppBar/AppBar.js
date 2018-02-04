@@ -46,7 +46,7 @@ type AppBarPropTypes = {
   /** Override default function that renders the Logo */
   onRenderLogo: () => Node,
   /** Takes children which will be rendered inside AppBar */
-  children: Node,
+  children?: Node,
 }
 
 const flagMapper = {
@@ -134,13 +134,13 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
   } = otherProps
   return (
     <MuiAppBar
-      iconElementLeft={renderLogoAndSearchBar(props)}
-      iconElementRight={renderAppBarElements(props)}
       iconStyleRight={{
         marginTop: '14px',
         marginRight: '-14px',
       }}
       {...appBarProps}
+      iconElementLeft={renderLogoAndSearchBar(props)}
+      iconElementRight={renderAppBarElements(props)}
     >
       {children}
     </MuiAppBar>
@@ -148,8 +148,10 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
 }
 
 AppBar.defaultProps = {
-  onRenderFlag: ({ countryCode, type }) => <Flag countryCode={countryCode} type={type} />,
-  onRenderLogo: () => <img className="logo" src="./public/assets/images/logo.svg" alt="Copart" />,
+  onRenderFlag: ({ countryCode, type }: { countryCode: string, type: string }): Node => (
+    <Flag countryCode={countryCode} type={type} />
+  ),
+  onRenderLogo: (): Node => <img className="logo" src="./public/assets/images/logo.svg" alt="Copart" />,
 }
 
 export default wrapMuiContext(AppBar)
