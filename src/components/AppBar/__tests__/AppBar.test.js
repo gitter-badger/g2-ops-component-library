@@ -12,7 +12,7 @@ const getProps = (extraProps = {}) => ({
   moduleName: 'CAS Portal',
   countryCode: 'us',
   isLoggedOn: false,
-  ...extraProps
+  ...extraProps,
 })
 
 describe('<AppBar />', () => {
@@ -30,7 +30,7 @@ describe('<AppBar />', () => {
       role: 'div.role',
       yard: 'div.yardNumber',
       phone: 'div.phoneNumber',
-      flag: 'Flag'
+      flag: 'Flag',
     }
     Object.keys(configPropToComponentMap).forEach((config) => {
       const tree = mount(wrapWithMaterialUIContext(<AppBar {...getProps({ config: [ config ], isLoggedOn: true })} />))
@@ -53,7 +53,7 @@ describe('<AppBar />', () => {
         {
           props: { showSearchBar: true },
           exists: false,
-        }
+        },
       ]
       configsToRender.forEach((config) => {
         const tree = mount(wrapWithMaterialUIContext(<AppBar {...getProps(config.props)} />))

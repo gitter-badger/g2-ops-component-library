@@ -12,7 +12,7 @@ import { wrapMuiContext } from '../wrapMuiContext'
 class StepperExample extends React.Component {
   state = {
     finished: false,
-    stepIndex: 0
+    stepIndex: 0,
   }
 
   getStepContent = (stepIndex) => {
@@ -39,7 +39,7 @@ class StepperExample extends React.Component {
     const { stepIndex } = this.state
     this.setState({
       stepIndex: stepIndex + 1,
-      finished: stepIndex >= 2
+      finished: stepIndex >= 2,
     })
   }
 

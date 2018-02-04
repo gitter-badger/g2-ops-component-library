@@ -1,79 +1,82 @@
 .copartButton {
   height: 36px;
-  min-width: 110px!important;
+  min-width: 110px !important;
   button {
     &:disabled {
-      cursor: not-allowed!important;
+      cursor: not-allowed !important;
     }
     span {
-      font-weight: 500!important;
-      text-transform: capitalize!important;
+      font-weight: 500 !important;
+      text-transform: capitalize !important;
     }
   }
 }
 .primaryButton {
   button {
-    background-color: #1D5AB9!important;
+    background-color: #1d5ab9 !important;
     &:hover {
-      background-color: darken(#1D5AB9, 15%)!important;
+      background-color: darken(#1d5ab9, 15%) !important;
     }
     span {
-      color: white!important;
+      color: white !important;
     }
   }
 }
 .secondaryButton {
   button {
-    background-color: white!important;
+    background-color: white !important;
     &:hover {
-      background-color: darken(white, 15%)!important;
+      background-color: darken(white, 15%) !important;
     }
   }
 }
 .inactiveButton {
   button {
-    background-color: #DFDFDF!important;
+    background-color: #dfdfdf !important;
     &:hover {
-      background-color: darken(#DFDFDF, 15%)!important;
+      background-color: darken(#dfdfdf, 15%) !important;
     }
   }
 }
 .deleteButton {
   button {
-    background-color: #EE2727!important;
+    background-color: #ee2727 !important;
     &:hover {
-      background-color: darken(#EE2727, 15%)!important;
+      background-color: darken(#ee2727, 15%) !important;
     }
     span {
-      color: white!important;
+      color: white !important;
     }
   }
 }
-.addButton, .editButton, .deleteButton {
+.addButton,
+.editButton,
+.deleteButton {
   button {
     svg {
-      margin: 0!important;
-      color: white!important;
-      fill: white!important;
+      margin: 0 !important;
+      color: white !important;
+      fill: white !important;
     }
     span {
-      padding-left: 3px!important;
+      padding-left: 3px !important;
     }
   }
 }
-.addButton, .deleteButton {
+.addButton,
+.deleteButton {
   button {
     svg {
-      height: 20px!important;
-      width: 20px!important;
+      height: 20px !important;
+      width: 20px !important;
     }
   }
 }
 .editButton {
   button {
     svg {
-      height: 16px!important;
-      width: 16px!important;
+      height: 16px !important;
+      width: 16px !important;
     }
   }
 }

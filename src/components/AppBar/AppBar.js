@@ -21,7 +21,7 @@ type AppBarPropTypes = {
   /** Items to be rendered in the logout Menu */
   logoutItems?: Array<{
     key: string,
-    name: string
+    name: string,
   }>,
   /** Two digit country code that renders the Flag */
   countryCode: string,
@@ -46,11 +46,11 @@ type AppBarPropTypes = {
   /** Override default function that renders the Logo */
   onRenderLogo: () => Node,
   /** Takes children which will be rendered inside AppBar */
-  children: Node
+  children: Node,
 }
 
 const flagMapper = {
-  ca: 'canada'
+  ca: 'canada',
 }
 
 const Flag = ({ countryCode, type }) => {
@@ -76,7 +76,7 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     onLogoutItemClicked,
     onFeedbackClick,
     onRenderFlag,
-    onRenderLogo
+    onRenderLogo,
   } = otherProps
   return (
     <div className="flex-grid">
@@ -88,13 +88,13 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
         <div className="col element">
           <i className="material-icons">domain</i>
           <div className="iconText yardNumber">{yardNumber}</div>
-        </div>
+        </div>,
       )}
       {renderIfPhone(
         <div className="col element">
           <i className="material-icons">phone</i>
           <div className="iconText phoneNumber">{phoneNumber}</div>
-        </div>
+        </div>,
       )}
       <div className="col">
         {renderIfLoggedInMenu(<LogoutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />)}
@@ -138,7 +138,7 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
       iconElementRight={renderAppBarElements(props)}
       iconStyleRight={{
         marginTop: '14px',
-        marginRight: '-14px'
+        marginRight: '-14px',
       }}
       {...appBarProps}
     >
@@ -149,7 +149,7 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
 
 AppBar.defaultProps = {
   onRenderFlag: ({ countryCode, type }) => <Flag countryCode={countryCode} type={type} />,
-  onRenderLogo: () => <img className="logo" src="./public/assets/images/logo.svg" alt="Copart" />
+  onRenderLogo: () => <img className="logo" src="./public/assets/images/logo.svg" alt="Copart" />,
 }
 
 export default wrapMuiContext(AppBar)

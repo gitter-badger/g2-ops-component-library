@@ -20,7 +20,8 @@
     "lint": "eslint src/**/*.js",
     "flowtype": "flow-typed install",
     "precommit": "lint-staged",
-    "prettier": "prettier-eslint src/**/*.js --trailing-comma es5 --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write"
+    "prettier":
+      "prettier-eslint src/**/{*,*.test}.{js,css,scss,json} --trailing-comma all --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write"
   },
   "license": "ISC",
   "bugs": {
@@ -84,20 +85,14 @@
       "^components(.*)$": "<rootDir>/src/components/$1",
       "^utils(.*)$": "<rootDir>/src/utils/$1"
     },
-    "testPathIgnorePatterns": [
-      "<rootDir>/node_modules/",
-      "<rootDir>/g2-layout-demo"
-    ],
+    "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "testRegex": "src/.*(jest|test).js$"
   },
-  "pre-push": [
-    "test",
-    "flow"
-  ],
+  "pre-push": ["test", "flow"],
   "lint-staged": {
     "src/**/*.{js,css,scss,json}": [
-      "prettier-eslint --trailing-comma es5 --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write",
+      "prettier-eslint --trailing-comma all --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write",
       "git add"
     ]
   }
