@@ -1,46 +1,43 @@
+// @flow
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import MuiToggle from 'material-ui/Toggle'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-const Toggle = (props) => (
-  <MuiToggle {...props} />
-)
-
-Toggle.propTypes = {
+type TogglePropTypes = {
   /** Determines whether the Toggle is initially turned on. */
-  defaultToggled: PropTypes.bool,
+  defaultToggled?: boolean,
   /** Will disable the toggle if true. */
-  disabled: PropTypes.bool,
+  disabled?: boolean,
   /** Overrides the inline-styles of the Toggle element. */
-  elementStyle: PropTypes.object,
+  elementStyle?: { [string]: mixed },
   /** Overrides the inline-styles of the Icon element. */
-  iconStyle: PropTypes.object,
+  iconStyle?: { [string]: mixed },
   /** Overrides the inline-styles of the input element. */
-  inputStyle: PropTypes.object,
+  inputStyle?: { [string]: mixed },
   /** Label for toggle. */
-  label: PropTypes.string,
+  label: string,
   /** Where the label will be placed next to the toggle. */
-  labelPosition: PropTypes.oneOf([
-    'left',
-    'right'
-  ]),
+  labelPosition?: 'left' | 'right',
   /** Overrides the inline-styles of the Toggle element label. */
-  labelStyle: PropTypes.object,
-  /** Callback function that is fired when the toggle switch is toggled. */	
-  onToggle: PropTypes.func,
+  labelStyle?: { [string]: mixed },
+  /** Callback function that is fired when the toggle switch is toggled. */
+  onToggle?: (SyntheticMouseEvent<HTMLInputElement>, boolean) => void,
   /** Override style of ripple. */
-  rippleStyle: PropTypes.object,
+  rippleStyle?: { [string]: mixed },
   /** Override the inline-styles of the root element. */
-  style: PropTypes.object,
+  style?: { [string]: mixed },
   /** Override style for thumb. */
-  thumbStyle: PropTypes.object,
+  thumbStyle?: { [string]: mixed },
   /** Toggled if set to true. */
-  toggled: PropTypes.bool,
+  toggled?: boolean,
   /** Override style for track. */
-  trackStyle: PropTypes.object,
+  trackStyle?: { [string]: mixed },
   /** ValueLink prop for when using controlled toggle. */
-  valueLink: PropTypes.object
+  valueLink?: Object,
 }
+
+const Toggle = (props: TogglePropTypes) => <MuiToggle {...props} />
 
 export default wrapMuiContext(Toggle)

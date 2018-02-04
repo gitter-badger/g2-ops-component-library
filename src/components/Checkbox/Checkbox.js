@@ -10,13 +10,13 @@ type CheckboxPropTypes = {
   /** label to be displayed */
   label: string,
   /** isChecked to indicate checked state */
-  isChecked: boolean,
+  isChecked?: boolean,
   /** Custom render function for rendering Label */
-  labelRenderer: (CheckboxPropTypes, (CheckboxPropTypes) => Node) => Node,
+  labelRenderer?: (CheckboxPropTypes, (CheckboxPropTypes) => Node) => Node,
   /** onChange event handler */
-  handleChange: (SyntheticMouseEvent<HTMLInputElement>, boolean) => void,
+  handleChange?: (SyntheticMouseEvent<HTMLInputElement>, boolean) => void,
   /** Custom styles for Checkbox */
-  styles: { [string]: mixed },
+  styles?: { [string]: mixed },
   /** extra props */
   otherProps?: any,
 }
