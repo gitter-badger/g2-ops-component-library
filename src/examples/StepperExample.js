@@ -1,8 +1,5 @@
 import React from 'react'
-import Stepper, {
-  Step,
-  StepLabel
-} from 'components/Stepper/Stepper'
+import Stepper, { Step, StepLabel } from 'components/Stepper/Stepper'
 import Button from 'components/Button/Button'
 import { wrapMuiContext } from '../wrapMuiContext'
 
@@ -27,7 +24,7 @@ class StepperExample extends React.Component {
       case 2:
         return 'This is the bit I really care about!'
       default:
-        return 'You\'re a long way from home sonny jim!'
+        return "You're a long way from home sonny jim!"
     }
   }
 
@@ -51,7 +48,7 @@ class StepperExample extends React.Component {
     const contentStyle = { margin: '0 16px' }
 
     return (
-      <div style={{width: '100%', maxWidth: 700, margin: 'auto'}}>
+      <div style={{ width: '100%', maxWidth: 700, margin: 'auto' }}>
         <Stepper activeStep={stepIndex}>
           <Step>
             <StepLabel>Select campaign settings</StepLabel>
@@ -73,7 +70,8 @@ class StepperExample extends React.Component {
                 }}
               >
                 Click here
-              </a> to reset the example.
+              </a>{' '}
+              to reset the example.
             </p>
           ) : (
             <div>
@@ -86,11 +84,7 @@ class StepperExample extends React.Component {
                   onClick={this.handlePrev}
                   style={{ marginRight: 12 }}
                 />
-                <Button
-                  type="primary"
-                  label={stepIndex === 2 ? 'Finish' : 'Next'}
-                  onClick={this.handleNext}
-                />
+                <Button type="primary" label={stepIndex === 2 ? 'Finish' : 'Next'} onClick={this.handleNext} />
               </div>
             </div>
           )}
