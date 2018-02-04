@@ -13,10 +13,14 @@ import { wrapMuiContext } from '../../wrapMuiContext'
 import './Button.scss'
 
 type ButtonPropTypes = {
+  /** To indicate type of button {primary, secondary, inactive, add, edit, delete} */
   type: 'primary' | 'secondary' | 'inactive' | 'add' | 'edit' | 'delete',
+  /** This has no effect currently */
   primary: boolean,
+  /** This has no effect currently */
   secondary: boolean,
-  buttonProps: { [string]: any },
+  /** any extra props to be passed to button */
+  buttonProps: any,
 }
 
 const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) => {
