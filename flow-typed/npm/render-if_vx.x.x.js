@@ -15,7 +15,7 @@ import type { Node } from 'react'
  */
 
 declare module 'render-if' {
-  declare module.exports: (boolean) => Node | (() => Node)
+  declare module.exports: (boolean) => (Node | (() => Node)) => Node
 }
 
 /**
@@ -24,7 +24,7 @@ declare module 'render-if' {
  * needed.
  */
 declare module 'render-if/lib/renderIf' {
-  declare module.exports: (boolean) => Node | (() => Node)
+  declare module.exports: (boolean) => (Node | (() => Node)) => Node
 }
 
 declare module 'render-if/test' {
