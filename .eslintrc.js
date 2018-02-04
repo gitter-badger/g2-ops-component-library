@@ -1,11 +1,12 @@
 const path = require('path')
+const customImportResolver = path.resolve('./flow.resolver')
 
 module.exports = {
   parser: 'babel-eslint',
   env: {
     browser: true,
     node: true,
-    mocha: true
+    mocha: true,
   },
   plugins: ['react', 'flowtype'],
   extends: 'eslint-config-airbnb-easy',
@@ -13,16 +14,20 @@ module.exports = {
     'import/resolver': {
       node: {
         extensions: ['.js'],
-        paths: ['node_modules', path.join(__dirname, 'src')]
-      }
+        paths: ['node_modules', path.join(__dirname, 'src')],
+      },
+    },
+    [customImportResolver]: {
+      moduleNameMapper: {
+        '^types/(.*)': './types/$1',
+      },
     },
     flowtype: {
-      onlyFilesWithFlowAnnotation: false
-    }
+      onlyFilesWithFlowAnnotation: false,
+    },
   },
   rules: {
     'array-bracket-spacing': [1, 'always'],
-    'comma-dangle': [1, 'never'],
     eqeqeq: [2, 'smart'],
     'jsx-quotes': [1, 'prefer-double'],
     'no-console': 0,
@@ -33,7 +38,7 @@ module.exports = {
     'react/no-did-mount-set-state': 0,
     'react/prop-types': 0,
     semi: [1, 'never'],
-    'space-before-blocks': [1, 'always']
+    'space-before-blocks': [1, 'always'],
   },
   globals: {
     ReactComponent: false,
@@ -48,6 +53,6 @@ module.exports = {
     SyntheticMouseEvent: false,
     SyntheticDragEvent: false,
     SyntheticWheelEvent: false,
-    SyntheticTouchEvent: false
-  }
+    SyntheticTouchEvent: false,
+  },
 }

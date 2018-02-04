@@ -20,8 +20,7 @@
     "lint": "eslint src/**/*.js",
     "flowtype": "flow-typed install",
     "precommit": "lint-staged",
-    "prettier":
-      "prettier-eslint src/**/*.js --trailing-comma es5 --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write"
+    "prettier": "prettier-eslint src/**/*.js --trailing-comma es5 --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write"
   },
   "license": "ISC",
   "bugs": {
@@ -60,6 +59,7 @@
     "babel-loader": "^7.1.0",
     "babel-preset-flow": "^6.23.0",
     "babel-preset-react-app": "^3.1.1",
+    "debug": "^3.1.0",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-15": "^1.0.5",
     "eslint-config-airbnb-easy": "^1.0.10",
@@ -75,6 +75,7 @@
     "react-styleguidist": "^6.0.33",
     "react-test-renderer": "15.6.1",
     "react-with-context": "1.2.1",
+    "resolve": "^1.5.0",
     "webpack-dev-server": "^2.11.1"
   },
   "jest": {
@@ -83,11 +84,17 @@
       "^components(.*)$": "<rootDir>/src/components/$1",
       "^utils(.*)$": "<rootDir>/src/utils/$1"
     },
-    "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/g2-layout-demo"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "testRegex": "src/.*(jest|test).js$"
   },
-  "pre-push": ["test", "flow"],
+  "pre-push": [
+    "test",
+    "flow"
+  ],
   "lint-staged": {
     "src/**/*.{js,css,scss,json}": [
       "prettier-eslint --trailing-comma es5 --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write",
