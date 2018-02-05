@@ -40,7 +40,7 @@ type AppBarPropTypes = {
   /** Action to perform on feedback button click */
   onFeedbackClick?: (SyntheticMouseEvent<HTMLElement>) => void,
   /** Render Search Bar */
-  searchBarRenderer?: () => Node,
+  renderSearchbar?: () => Node,
   /** Override default function that renders the Flag */
   onRenderFlag: ({ countryCode: string, type: string }) => Node,
   /** Override default function that renders the Logo */
@@ -104,13 +104,13 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
   )
 }
 
-const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, searchBarRenderer }) => (
+const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, renderSearchbar }) => (
   <div className="flex-grid">
     <div className="appBarLeft">
       {onRenderLogo()}
       <span className="moduleName">{moduleName}</span>
     </div>
-    {showSearchBar && searchBarRenderer && <div className="searchBar">{searchBarRenderer()}</div>}
+    {showSearchBar && renderSearchbar && <div className="searchBar">{renderSearchbar()}</div>}
   </div>
 )
 
@@ -127,7 +127,7 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
     onLogoutItemClicked,
     moduleName,
     onFeedbackClick,
-    searchBarRenderer,
+    renderSearchbar,
     onRenderFlag,
     onRenderLogo,
     ...appBarProps

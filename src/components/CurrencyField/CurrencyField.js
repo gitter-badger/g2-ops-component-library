@@ -41,10 +41,10 @@ class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldState
     const { value, countryCode } = props
     const country = countryCode.toUpperCase()
     const companyMapper = companyCodeMapper(country.toUpperCase() || 'US')
-    let errorMessage = '',
-      displayedValue = '0.00',
-      currency = 'USD',
-      locale = 'en-US' // eslint-disable-line
+    let errorMessage = ''
+    let displayedValue = '0.00'
+    let currency = 'USD'
+    let locale = 'en-US' // eslint-disable-line
 
     if (!(GlobalCountry.includes(country) || CASCountry.includes(country))) {
       errorMessage = 'Please enter/send a valid country'

@@ -39,15 +39,15 @@ describe('<AppBar />', () => {
   })
 
   describe('<SearchBar />', () => {
-    test('should render search bar when both showSearchBar=true & searchBarRenderer is defined ', () => {
-      const searchBarRenderer = jest.fn(() => () => <div className="searchBar" />)
+    test('should render search bar when both showSearchBar=true & renderSearchbar is defined ', () => {
+      const renderSearchbar = jest.fn(() => () => <div className="searchBar" />)
       const configsToRender = [
         {
-          props: { showSearchBar: true, searchBarRenderer },
+          props: { showSearchBar: true, renderSearchbar },
           exists: true,
         },
         {
-          props: { showSearchBar: false, searchBarRenderer },
+          props: { showSearchBar: false, renderSearchbar },
           exists: false,
         },
         {

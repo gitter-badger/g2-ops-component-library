@@ -14,7 +14,7 @@ initialState = { hideDialog: true };
     hideDialog={state.hideDialog}
     dialogType="normal"
     onDismiss={() => setState({ hideDialog: true })}
-    footerRenderer={() => (
+    renderFooter={() => (
       <div style={{ display: 'flex', float: 'right' }}>
         <Button 
           type={'primary'}
