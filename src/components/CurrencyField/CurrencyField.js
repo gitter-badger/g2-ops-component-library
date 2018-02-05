@@ -1,3 +1,6 @@
+// @flow
+import type { Node, ComponentType } from 'react'
+
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import TextField from 'components/TextField'
@@ -6,54 +9,62 @@ import companyCodeMapper from './countryMapper'
 
 const getDelimiter = (countryCode) => (countryCode.toUpperCase() === 'IN' ? '.' : ',')
 const isBlank = (val) => val == null || (typeof val === 'string' && !val.trim().length)
-const CASCountry = ['US', 'UK', 'CA', 'IR', 'ME', 'GB']
-const GlobalCountry = ['DE', 'ES', 'IN']
-const formatValue = (country, value, currencyStyle) => formatCurrency(
-  country,
-  value || 0.00,
-  currencyStyle,
-)
+const CASCountry = [ 'US', 'UK', 'CA', 'IR', 'ME', 'GB' ]
+const GlobalCountry = [ 'DE', 'ES', 'IN' ]
+const formatValue = (country, value, currencyStyle) => formatCurrency(country, value || 0.0, currencyStyle)
 
-class CurrencyField extends Component {
-  static propTypes = {
-    name: PropTypes.string,
-    value: PropTypes.oneOfType([
-      PropTypes.number,
-      PropTypes.string
-    ]),
-    label: PropTypes.string,
-    countryCode: PropTypes.string.isRequired,
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
-    onChange: PropTypes.func
-  }
+type CurrencyFieldPropTypes = {
+  name: string,
+  value: number | string,
+  label: string,
+  countryCode: string,
+  disabled: boolean,
+  required: boolean,
+  onChange: (SyntheticKeyboardEvent<HTMLInputElement>, ?string) => void,
+  handleChange: (string) => void,
+  onBlur: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
+  maxValue: number,
+}
 
-  constructor(props) {
+type CurrencyFieldStateType = {
+  errorMessage: string,
+  value: number | string,
+  displayedValue: ?string,
+  currency: string,
+  locale: string,
+}
+
+class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldStateType> {
+  textField: Node // eslint-disable-line
+  constructor(props: CurrencyFieldPropTypes) {
     super(props)
     const { value, countryCode } = props
     const country = countryCode.toUpperCase()
     const companyMapper = companyCodeMapper(country.toUpperCase() || 'US')
-    let errorMessage = '', displayedValue = 0.00, currency = 'USD', locale = 'en-US' // eslint-disable-line
+    let errorMessage = ''
+    let displayedValue = '0.00'
+    let currency = 'USD'
+    let locale = 'en-US' // eslint-disable-line
 
     if (!(GlobalCountry.includes(country) || CASCountry.includes(country))) {
       errorMessage = 'Please enter/send a valid country'
     } else {
       currency = companyMapper && companyMapper.currency
       locale = companyMapper && companyMapper.locale
-      displayedValue = isBlank(value, currency) ? '' : formatCurrency(country, value, currency, locale)
+      displayedValue = isBlank(value) ? '' : formatCurrency(country, value, currency, locale)
     }
 
     this.state = {
       errorMessage,
-      value: value || 0,
+      value,
       displayedValue,
       currency,
-      locale
+      locale,
     }
   }
 
-  onBlur = (e) => {
-    const input = e.target.value
+  onBlur = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    const input = e.currentTarget.value
     const { currency, locale } = this.state
     const { countryCode, maxValue } = this.props
     const country = countryCode.toUpperCase()
@@ -79,7 +90,7 @@ class CurrencyField extends Component {
       replacedValue = inputFieldIsBlank ? '' : Number(serialize(country, input)).toFixed(2)
       this.setState({
         displayedValue: inputFieldIsBlank ? null : formatCurrency(country, replacedValue, currency, locale),
-        value: replacedValue
+        value: replacedValue,
       })
       if (this.props.onChange) {
         this.props.onChange(e, replacedValue)
@@ -87,7 +98,7 @@ class CurrencyField extends Component {
     }
   }
 
-  handleChange = (input) => {
+  handleChange = (input: string) => {
     const { countryCode, maxValue } = this.props
     const country = countryCode.toUpperCase()
 
@@ -107,37 +118,30 @@ class CurrencyField extends Component {
       this.setState({ displayedValue })
       // calling handle change from props if its there
       if (this.props.handleChange) {
-        this.props.handleChange(event, displayedValue)
+        this.props.handleChange(displayedValue || '')
       }
     } else {
-      this.setState({ errorMessage: `Max Limit $${maxValue}` })
+      this.setState({ errorMessage: `Max Limit ${formatCurrency(countryCode, maxValue, this.state.currency)}` })
     }
   }
 
   render() {
-    const {
-      onChange,
-      disabled,
-      ...restProps
-    } = this.props
+    const { onChange, disabled, ...restProps } = this.props
     return (
       <div>
         <TextField
           {...restProps}
           disabled={disabled}
-          ref={(elem) => { this.textField = elem }}
+          ref={(elem) => {
+            this.textField = elem
+          }}
           value={this.state.displayedValue}
           onChanged={this.handleChange}
           onBlur={this.onBlur}
           onFocus={(e) => this.handleChange(e.target.value)}
           errorMessage={this.state.errorMessage}
         />
-        <input
-          type="hidden"
-          name={this.props.name}
-          required={this.props.required}
-          value={this.state.value}
-        />
+        <input type="hidden" name={this.props.name} required={this.props.required} value={this.state.value} />
       </div>
     )
   }

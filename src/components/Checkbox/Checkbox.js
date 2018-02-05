@@ -1,27 +1,35 @@
+// @flow
+
+import type { Node } from 'react'
+
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Checkbox as FabricCheckbox } from 'office-ui-fabric-react/lib/Checkbox'
 
-const checkBoxPropTypes = {
-  label: PropTypes.string.isRequired,
-  isChecked: PropTypes.bool,
+type CheckboxPropTypes = {
+  /** label to be displayed */
+  label: string,
+  /** isChecked to indicate checked state */
+  isChecked?: boolean,
   /** Custom render function for rendering Label */
-  onRenderLabel: PropTypes.func,
-  handleChange: PropTypes.func,
-  styles: PropTypes.object
+  labelRenderer?: (CheckboxPropTypes, (CheckboxPropTypes) => Node) => Node,
+  /** onChange event handler */
+  handleChange?: (SyntheticMouseEvent<HTMLInputElement>, boolean) => void,
+  /** Custom styles for Checkbox */
+  styles?: { [string]: mixed },
+  /** extra props */
+  otherProps?: any,
 }
 
-const Checkbox = ({ label, isChecked, handleChange, onRenderLabel, styles, ...otherProps }) => (
+const Checkbox = ({ label, isChecked, handleChange, labelRenderer, styles, ...otherProps }: CheckboxPropTypes) => (
   <FabricCheckbox
     label={label}
     checked={isChecked}
     onChange={handleChange}
     styles={styles}
-    onRenderLabel={onRenderLabel}
+    onRenderLabel={labelRenderer}
     {...otherProps}
   />
 )
-
-Checkbox.propTypes = checkBoxPropTypes
 
 export default Checkbox

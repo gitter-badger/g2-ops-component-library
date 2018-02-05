@@ -2,17 +2,18 @@ import * as React from 'react'
 import PropTypes from 'prop-types'
 import { IconButton } from 'office-ui-fabric-react/lib/Button'
 import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
-import './style.scss'
+
+import './AppBar.scss'
 
 export class LogoutMenu extends React.Component {
   static propTypes = {
     items: PropTypes.arrayOf(
       PropTypes.shape({
         key: PropTypes.string,
-        name: PropTypes.string
-      })
+        name: PropTypes.string,
+      }),
     ).isRequired,
-    onItemClick: PropTypes.func
+    onItemClick: PropTypes.func,
   }
   state = {
     directionalHint: DirectionalHint.bottomCenter,
@@ -20,7 +21,7 @@ export class LogoutMenu extends React.Component {
     useDirectionalHintForRtl: false,
     gapSpace: 0,
     beakWidth: 20,
-    edgeFixed: false
+    edgeFixed: false,
   }
   onRenderIcon = () => <i className="material-icons md-light">account_circle</i>
   onRenderMenuIcon = () => {}
@@ -31,7 +32,7 @@ export class LogoutMenu extends React.Component {
       directionalHintForRTL,
       edgeFixed,
       gapSpace,
-      useDirectionalHintForRtl
+      useDirectionalHintForRtl,
     } = this.state
     return (
       <IconButton
@@ -45,7 +46,7 @@ export class LogoutMenu extends React.Component {
           beakWidth: beakWidth,
           directionalHintFixed: edgeFixed,
           onItemClick: this.props.onItemClick,
-          items: this.props.items
+          items: this.props.items,
         }}
       />
     )
