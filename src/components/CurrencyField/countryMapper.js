@@ -1,6 +1,8 @@
+// @flow
+
 const countryCode = 'DE'
 
-export const currencyDisplayMap = (currency) =>
+export const currencyDisplayMap = (currency: string) =>
   ({
     USD: 'symbol',
     CAD: 'code',
@@ -11,7 +13,7 @@ export const currencyDisplayMap = (currency) =>
     BHD: 'symbol',
   }[currency])
 
-const companyCodeMapper = (country) =>
+const companyCodeMapper = (country: string) =>
   ({
     US: {
       companyCode: 'COPART',
@@ -22,6 +24,7 @@ const companyCodeMapper = (country) =>
       currency: 'USD',
       name: 'USA',
       placeHolder: '$00,000,000.00',
+      delimiter: '.',
     },
     UK: {
       companyCode: 'COPARTUK',
@@ -32,6 +35,7 @@ const companyCodeMapper = (country) =>
       currency: 'GBP',
       name: 'UK',
       placeHolder: '£00,000,000.00',
+      delimiter: '.',
     },
     IR: {
       // need more clarity on the details for this country
@@ -43,6 +47,7 @@ const companyCodeMapper = (country) =>
       currency: 'EUR',
       name: 'IR',
       placeHolder: '€00,000,000.00',
+      delimiter: '.',
     },
     ME: {
       // need more clarity on the details for this country
@@ -54,6 +59,7 @@ const companyCodeMapper = (country) =>
       currency: 'AED',
       name: 'MEA',
       placeHolder: 'AED00,000,000.00',
+      delimiter: '.',
     },
     CA: {
       companyCode: 'COPART',
@@ -64,6 +70,7 @@ const companyCodeMapper = (country) =>
       currency: 'CAD',
       name: 'CANADA',
       placeHolder: 'CAD00,000,000.00',
+      delimiter: '.',
     },
     DE: {
       companyCode: 'COPART',
@@ -74,6 +81,7 @@ const companyCodeMapper = (country) =>
       currency: 'EUR',
       name: 'GERMANY',
       placeHolder: '00.000.000,00 €',
+      delimiter: ',',
     },
     ES: {
       companyCode: 'COPART',
@@ -84,6 +92,7 @@ const companyCodeMapper = (country) =>
       currency: 'EUR',
       name: 'SPAIN',
       placeHolder: '00.000.000,00 €',
+      delimiter: ',',
     },
     IN: {
       companyCode: 'COPART',
@@ -94,6 +103,7 @@ const companyCodeMapper = (country) =>
       currency: 'INR',
       name: 'INDIA',
       placeHolder: '₹ 00,00,000.00',
+      delimiter: '.',
     },
     GB: {
       companyCode: 'COPARTUK',
@@ -104,6 +114,7 @@ const companyCodeMapper = (country) =>
       currency: 'GBP',
       name: 'GB',
       placeHolder: '£00,000,000.00',
+      delimiter: '.',
     },
   }[country || countryCode])
 

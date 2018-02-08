@@ -18,8 +18,8 @@ export const getItem = (key) => {
   return value && JSON.parse(value)
 }
 
-export const CURRENCY_STRIP_DOWN_REGEX_UK = /[^0-9\.]+/g
-export const CURRENCY_STRIP_DOWN_REGEX_US = /^[\$-]?(\d+)[,]?(\d{0,3}\.?\d*)/
+export const CURRENCY_STRIP_DOWN_REGEX_UK = /[^0-9.]+/g
+export const CURRENCY_STRIP_DOWN_REGEX_US = /^[$-]?(\d+)[,]?(\d{0,3}\.?\d*)/
 export const CURRENCY_STRIP_DOWN_REGEX = (countryCode) =>
   ({
     US: CURRENCY_STRIP_DOWN_REGEX_US,
@@ -33,7 +33,7 @@ export const countryLocaleMapper = (cntryCode) =>
     IND: 'en-IN',
   }[cntryCode])
 
-export const currencyReplaceValue = (countryCode) => 
+export const currencyReplaceValue = (countryCode) =>
   ({
     US: '$1$2',
     UK: '',
