@@ -28,17 +28,21 @@ yarn install or npm install
 
 ### Scripts
 
-- `yarn install` to install dependencies
-- `yarn styleguide` to generate and serve style guide
-- `yarn test` to run tests
-- `yarn run build` to build for production
-- `yarn run styleguide:build` to build a static version of the styleguide for deployment
+* `yarn install` to install dependencies
+* `yarn styleguide` to generate and serve style guide
+* `yarn test` to run tests
+* `yarn run build` to build for production
+* `yarn run styleguide:build` to build a static version of the styleguide for deployment
 
 ### Tests
 
 We are aiming to build from the ground up with tests where appropriate, using Mocha, Chai and Enzyme.
 
 To execute the tests, simply run `yarn test`.
+
+## Deploments
+
+To deploy follow the instructions on [Deploy.md](https://github.com/copartit/g2-ops-component-library/blob/master/Deploy.md)
 
 ## Contributing
 
