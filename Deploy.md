@@ -3,11 +3,9 @@
 ### Deploy to Jenkins
 To deplpoy a static Styleguist build to jenkins:
 
-Jenkins Job:
-https://jenkins.copart.com/view/G1-Ops/job/G2_Ops_Styleguide_Static/
+Use this to deploy the build - [Jenkins Job](https://jenkins.copart.com/view/G1-Ops/job/G2_Ops_Styleguide_Static/)
 
-Jenkins build: 
-https://jenkins.copart.com/view/G1-Ops/job/G2-Ops-Styleguide/ 
+Use this to create the build - [Jenkins build](https://jenkins.copart.com/view/G1-Ops/job/G2-Ops-Styleguide/)
 
 * `Login to Jenkins.`
 * `Go to Jenkins build link specified.`
