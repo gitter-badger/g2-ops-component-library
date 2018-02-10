@@ -3,12 +3,12 @@ module.exports = {
   assetsDir: './docs-styleguidist',
   sections: [
     {
-      name: 'UI Components',
-      components: 'src/components/**/[A-Z]*.js',
+      name: 'Demo',
+      content: 'g2-layout-demo/src/demo/demo.md',
     },
     {
-      name: 'Demo',
-      components: 'g2-layout-demo/src/demo/demo.js',
+      name: 'UI Components',
+      components: 'src/components/**/[A-Z]*.js',
     },
   ],
 }
