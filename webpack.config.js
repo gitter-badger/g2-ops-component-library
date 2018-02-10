@@ -10,64 +10,64 @@ const dest = join(root, '.')
 
 module.exports = {
   devtool: 'source-map',
-  entry: [join(src, 'index.js')],
+  entry: [ join(src, 'index.js') ],
   output: {
     publicPath: '/',
     path: dest,
     filename: 'index.js',
-    libraryTarget: 'commonjs2'
+    libraryTarget: 'commonjs2',
   },
   externals: {
     react: { commonjs: 'react', commonjs2: 'react' },
     'react-dom': { commonjs: 'react-dom', commonjs2: 'react-dom' },
     'material-ui': { commonjs: 'material-ui', commonjs2: 'material-ui' },
-    'office-ui-fabric-react': { commonjs: 'office-ui-fabric-react', commonjs2: 'office-ui-fabric-react' }
+    'office-ui-fabric-react': { commonjs: 'office-ui-fabric-react', commonjs2: 'office-ui-fabric-react' },
   },
   resolve: {
     alias: {
       examples: join(src, 'examples'),
       components: join(src, 'components'),
-      types: join(root, 'types')
+      types: join(root, 'types'),
     },
-    extensions: ['.js', '.css']
+    extensions: [ '.js', '.css' ],
   },
   plugins: [
     new webpack.DefinePlugin({
       __DEVELOPMENT__: false,
-      __DEVTOOLS__: false
+      __DEVTOOLS__: false,
     }),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
-        BABEL_ENV: JSON.stringify('production')
-      }
+        BABEL_ENV: JSON.stringify('production'),
+      },
     }),
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
-      inject: 'body'
-    })
+      inject: 'body',
+    }),
   ],
   module: {
     loaders: [
       {
         test: /\.js$/,
         loader: 'babel-loader',
-        exclude: /node_modules/
+        exclude: /node_modules/,
       },
       {
         test: /\.(scss)$/,
         use: [
           {
-            loader: 'style-loader' // creates style nodes from JS strings
+            loader: 'style-loader', // creates style nodes from JS strings
           },
           {
-            loader: 'css-loader' // translates CSS into CommonJS
+            loader: 'css-loader', // translates CSS into CommonJS
           },
           {
-            loader: 'sass-loader' // compiles Sass to CSS
-          }
-        ]
+            loader: 'sass-loader', // compiles Sass to CSS
+          },
+        ],
       },
       {
         test: /\.(png|jpg|gif|svg|eot|ttf|woff|woff2)$/,
@@ -75,11 +75,11 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 10000
-            }
-          }
-        ]
-      }
-    ]
-  }
+              limit: 10000,
+            },
+          },
+        ],
+      },
+    ],
+  },
 }
