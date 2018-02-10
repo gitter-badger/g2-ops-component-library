@@ -1,7 +1,14 @@
 module.exports = {
   template: './docs-styleguidist/template.html',
-  skipComponentsWithoutExample: true,
-  title: 'G2 Ops UI Styleguide',
-  showCode: false,
-  assetsDir: './docs-styleguidist'
+  assetsDir: './docs-styleguidist',
+  sections: [
+    {
+      name: 'UI Components',
+      components: 'src/components/**/[A-Z]*.js',
+    },
+    {
+      name: 'Demo',
+      components: 'g2-layout-demo/src/demo/demo.js',
+    },
+  ],
 }
