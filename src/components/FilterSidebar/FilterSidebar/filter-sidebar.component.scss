@@ -1,0 +1,17 @@
+.FilterSidebar {
+  display: flex;
+  flex-direction: row;
+  height: 84.5vh;
+  .filtersOptions {
+    display: flex;
+    flex-direction: column;
+    background-color: #343c4b;
+  }
+  .filters {
+    width: 0%;
+    transition: all 0s ease-in;
+    &.open {
+      width: 100%;
+    }
+  }
+}

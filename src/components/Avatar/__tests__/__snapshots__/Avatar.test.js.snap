@@ -1,0 +1,51 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Avatar /> <Avatar /> should render children 1`] = `
+<div
+  className={undefined}
+  color={undefined}
+  size={40}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "rgb(188, 188, 188)",
+      "borderRadius": "50%",
+      "color": "#ffffff",
+      "display": "inline-flex",
+      "fontSize": 20,
+      "height": 40,
+      "justifyContent": "center",
+      "muiPrepared": true,
+      "userSelect": "none",
+      "width": 40,
+    }
+  }
+>
+  <div
+    className="avatarChild"
+  />
+</div>
+`;
+
+exports[`<Avatar /> <Avatar /> should render properly 1`] = `
+<div
+  className={undefined}
+  color={undefined}
+  size={40}
+  style={
+    Object {
+      "alignItems": "center",
+      "backgroundColor": "rgb(188, 188, 188)",
+      "borderRadius": "50%",
+      "color": "#ffffff",
+      "display": "inline-flex",
+      "fontSize": 20,
+      "height": 40,
+      "justifyContent": "center",
+      "muiPrepared": true,
+      "userSelect": "none",
+      "width": 40,
+    }
+  }
+/>
+`;

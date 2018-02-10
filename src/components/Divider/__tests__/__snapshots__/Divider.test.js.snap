@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Divider /> should render properly 1`] = `
+<hr
+  style={
+    Object {
+      "backgroundColor": "#e0e0e0",
+      "border": "none",
+      "height": 1,
+      "margin": 0,
+      "marginLeft": 0,
+      "marginTop": -1,
+      "muiPrepared": true,
+    }
+  }
+/>
+`;

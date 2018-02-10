@@ -1,0 +1,158 @@
+.breadcrumbsContainer {
+  clear: both;
+  font-size: 12px;
+  padding: 10px;
+  background-color: #3c4656;
+  color: white;
+  font-weight: 100;
+}
+.breadcrumbsContainer a,
+.breadcrumbsContainer a:visited,
+.breadcrumbsContainer a:link {
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+}
+.container {
+  display: flex;
+  overflow-y: auto;
+  padding-bottom: 30px;
+  .sidebar {
+    min-width: 250px;
+    width: 250px;
+    margin-bottom: 20px;
+    overflow-y: auto;
+    margin-right: 5px;
+    background-color: #f4f4f4;
+  }
+  .tabs {
+    flex: 1;
+  }
+}
+.tabBody {
+  padding: 0px;
+}
+.pickup {
+  padding: 0px;
+}
+.charges {
+  padding: 0 0 0 5px;
+}
+.commoninfo {
+  min-height: 72px;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  background-color: #545a63;
+  .lotandviewers {
+    display: flex;
+    padding: 10px 0px 0px 10px;
+    .lot {
+      font-size: 24px;
+    }
+  }
+  .stage {
+    color: white;
+    background-color: rgb(75, 157, 79);
+    height: 36px;
+    padding-top: 10px;
+    text-align: center;
+  }
+  .description {
+    font-size: 14px;
+    padding: 10px;
+  }
+  .image {
+    width: 250px;
+    height: 200px;
+    cursor: pointer;
+    padding: 0px;
+  }
+  .section {
+    margin-top: 0px;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    color: #1d5ab9;
+    padding: 10px;
+    font-weight: 500;
+    border-bottom: 1px dotted rgb(153, 153, 153);
+  }
+}
+.viewers {
+  color: #545a63;
+  height: max-content;
+  background-color: white;
+  border-radius: 2px;
+  margin-left: 30%;
+  padding: 0px 10px;
+}
+.bottomnav {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  button {
+    padding: 5px !important;
+    min-width: 100px !important;
+  }
+}
+.bottomnav .background {
+  background-color: #E0E0E0 !important;
+}
+.notes {
+  width: 500px;
+  flex: none !important;
+}
+.md-rtl {
+  transform: scaleX(-1);
+}
+.header {
+  margin-top: 5px;
+  background-color: rgb(29, 90, 185);
+  text-transform: capitalize;
+  color: #fff;
+  padding: 5px 0 5px 0;
+  font-size: 14px;
+  max-height: 40px;
+  width: 100%;
+}
+.locationDialogContainer {
+  min-width: 60% !important;
+}
+.ms-Dialog-header {
+  background-color: #1d5ab9;
+}
+.ms-Dialog-title {
+  color: white;
+  font-weight: 600;
+  font-size: 18px;
+  padding: 15px;
+}
+.ms-Dialog-topButton{
+  button {
+    div {
+      i {
+        color: white;
+        font-weight: 600;
+        font-size: 18px;
+      }
+    }
+  }
+}
+.notesContainer{
+  position: fixed;
+  bottom: 8px;
+  background-color: #1d5ab9;
+  padding: 5px 15px 5px 5px;
+  max-width: 140px;
+  left: 15px;
+  color: white;
+  border-radius: 2px;
+}
+.notesText {
+  position: relative;
+  top: -4px;
+  font-size: 14px;
+  padding: 10px 10px 0px 6px;
+}

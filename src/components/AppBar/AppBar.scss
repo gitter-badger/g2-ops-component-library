@@ -1,0 +1,53 @@
+.flex-grid {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.flex-grid .col {
+  display: flex;
+  color: white;
+  font-size: 13px;
+  margin-right: 0.5em;
+}
+.element img {
+  margin-right: 5px;
+}
+
+.appBarLeft {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.flex-grid .col svg {
+  color: white;
+}
+
+.logo {
+  width: 6em;
+  margin-top: 0em;
+}
+
+.moduleName {
+  font-size: 10px;
+  font-style: italic;
+  color: white;
+}
+
+.text {
+  margin-top: 0.6em;
+}
+
+.iconText {
+  margin-top: 0.4em;
+}
+
+.searchBar {
+  margin-top: -0.2em;
+  margin-left: 2em;
+}
+
+.md-light {
+  font-size: 30px;
+  color: rgba(255, 255, 255, 1);
+}
