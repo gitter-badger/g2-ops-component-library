@@ -8,7 +8,7 @@ module.exports = {
     },
     {
       name: 'UI Components',
-      components: 'src/components/**/[A-Z]*.js',
+      components: 'src/components/*/[A-Z]*.js',
     },
   ],
 }
