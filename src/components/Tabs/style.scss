@@ -1,0 +1,31 @@
+$default-tab: '';
+
+.tabIcon {
+  font-size: 24px;
+  margin-bottom: 5px;
+}
+.tabIconDispatch {
+  font-size: 16px;
+}
+
+.tab {
+  text-transform: capitalize !important;
+  font-size: 10px !important;
+  color: white !important;
+  height: 64px !important;
+  @media (min-width: 1100px) {
+    font-size: 11px !important;
+  }
+}
+.tabs .default {
+  background-color: #545a63 !important;
+}
+.tabs .active {
+  background-color: #3c4656 !important;
+}
+
+@media screen and (max-width: 1000px) {
+  .tabLabel {
+    display: none;
+  }
+}
