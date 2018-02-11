@@ -15,7 +15,7 @@
     "styleguide:build": "styleguidist build",
     "build:dev": "webpack",
     "build": "NODE_ENV=production BABEL_ENV=production webpack -p",
-    "prepublish": "npm run build",
+    "prepublishOnly": "npm run build",
     "flow": "flow",
     "lint": "eslint src/**/*.js",
     "flowtype": "flow-typed install",
