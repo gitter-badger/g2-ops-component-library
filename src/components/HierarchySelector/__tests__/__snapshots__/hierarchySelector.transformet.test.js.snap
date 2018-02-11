@@ -1,0 +1,128 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Handle Transformation handle empty options 1`] = `
+Array [
+  Object {
+    "haveChildren": true,
+    "label": "Asia",
+    "name": "asia",
+    "path": Array [
+      "asia",
+    ],
+  },
+]
+`;
+
+exports[`Handle Transformation properly transform nested option 1`] = `
+Array [
+  Object {
+    "haveChildren": true,
+    "label": "Asia",
+    "name": "asia",
+    "path": Array [
+      "asia",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "label": "India",
+    "name": "india",
+    "path": Array [
+      "asia",
+      "india",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "label": "Telangana",
+    "name": "telangana",
+    "path": Array [
+      "asia",
+      "india",
+      "telangana",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "label": "China",
+    "name": "china",
+    "path": Array [
+      "asia",
+      "china",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "label": "Beijing",
+    "name": "beijing",
+    "path": Array [
+      "asia",
+      "china",
+      "beijing",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "label": "North America",
+    "name": "northAmerica",
+    "path": Array [
+      "northAmerica",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "label": "USA",
+    "name": "usa",
+    "path": Array [
+      "northAmerica",
+      "usa",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "label": "Texas",
+    "name": "texas",
+    "path": Array [
+      "northAmerica",
+      "usa",
+      "texas",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "label": "Arkansas",
+    "name": "arkansas",
+    "path": Array [
+      "northAmerica",
+      "usa",
+      "arkansas",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "label": "Africa",
+    "name": "africa",
+    "path": Array [
+      "africa",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "label": "Egypt",
+    "name": "egypt",
+    "path": Array [
+      "africa",
+      "egypt",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "label": "Libya",
+    "name": "libya",
+    "path": Array [
+      "africa",
+      "libya",
+    ],
+  },
+]
+`;

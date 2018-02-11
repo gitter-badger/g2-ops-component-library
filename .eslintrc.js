@@ -16,10 +16,10 @@ module.exports = {
         extensions: ['.js'],
         paths: ['node_modules', path.join(__dirname, 'src')],
       },
-    },
-    [customImportResolver]: {
-      moduleNameMapper: {
-        '^types/(.*)': './types/$1',
+      [customImportResolver]: {
+        moduleNameMapper: {
+          '^types/(.*)': './types/$1',
+        },
       },
     },
     flowtype: {

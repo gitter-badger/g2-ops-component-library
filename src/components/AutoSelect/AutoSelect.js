@@ -5,11 +5,11 @@ import { isNil, identity } from './autoSelectUtils'
 import Options from './AutoSelectOptions'
 
 const KeyCode = {
-  'enter': 13,
-  'tab': 9,
-  'esc': 27,
-  'down': 40,
-  'up': 38,
+  enter: 13,
+  tab: 9,
+  esc: 27,
+  down: 40,
+  up: 38,
 }
 // TODO get rid of serializeOption prop, take options always as array of strings
 
@@ -71,7 +71,8 @@ const firstMatchingOption = (props) => {
   return options.find(
     (o) =>
       String(value).trim() &&
-      startsWithIgnoringCase(String((displaySelectedOption || displayOption)(o)), getDisplayValue(props)))
+      startsWithIgnoringCase(String((displaySelectedOption || displayOption)(o)), getDisplayValue(props)),
+  )
 }
 
 const UP = -1
@@ -80,7 +81,7 @@ const DOWN = 1
 class AutoSelect extends Component {
   static propTypes = {
     name: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+    value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
     disabled: PropTypes.bool,
     required: PropTypes.bool,
     errorText: PropTypes.string.isRequired,
@@ -142,7 +143,10 @@ class AutoSelect extends Component {
     }
   }
 
-  selectedOption = () => this.state.highlightedOption || (this.props.searchThroughOptions && this.props.searchThroughOptions(this.props)) || firstMatchingOption(this.props)
+  selectedOption = () =>
+    this.state.highlightedOption ||
+    (this.props.searchThroughOptions && this.props.searchThroughOptions(this.props)) ||
+    firstMatchingOption(this.props)
 
   handleFocus = (e) => {
     this.props.onFocus(e)
@@ -275,7 +279,7 @@ class AutoSelect extends Component {
       onFocus: this.handleFocus,
       onBlur: this.handleBlur,
       autoComplete: 'off',
-      errorMessage:  errorText,
+      errorMessage: errorText,
       errorStyle,
       hintStyle: { overflow: 'hidden', whiteSpace: 'nowrap' },
       ...otherProps,
@@ -300,10 +304,12 @@ class AutoSelect extends Component {
           name={`${name}-txtField`}
           {...textFieldProps}
           type="text"
-          componentRef={(c) => { this.textField = c }}
+          componentRef={(c) => {
+            this.textField = c
+          }}
           onKeyDown={this.handleKeyDown}
         />
-        {active && (
+        {true && (
           <div style={{ width: 'auto' }} onMouseDown={(e) => e.preventDefault()}>
             <OptionsComponent name={name} {...optionsProps} />
           </div>
