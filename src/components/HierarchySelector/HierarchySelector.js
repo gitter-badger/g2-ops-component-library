@@ -46,12 +46,22 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
   renderOption = (option: FlattenedOptionType) => {
     const numberOfSpaces = option.path.length
     const renderIfHaveChildren = renderIf(option.haveChildren)
+    const { filteredOptions, flattenedOptions } = this.state
+    const isFilteringDone = filteredOptions.length < flattenedOptions.length
+    const renderIfFilteringIsDone = renderIf(isFilteringDone)
+    const paddingLeft = isFilteringDone ? '0px' : `${(numberOfSpaces - 1) * 30}px`
+    const displayTitle = option.path.slice(0, numberOfSpaces - 1).join(' - ')
     return (
-      <div style={{ display: 'flex', flexDirection: 'row', paddingLeft: `${(numberOfSpaces - 1) * 30}px` }}>
+      <div style={{ display: 'flex', flexDirection: 'row', paddingLeft }}>
         <div style={{ width: '15px', height: '15px', display: 'flex', alignItems: 'center', paddingRight: '10px' }}>
           {renderIfHaveChildren(<i className="material-icons">arrow_drop_down</i>)}
         </div>
-        <div>{option.label}</div>
+        <div style={{ display: 'flex', flexDirection: 'row' }}>
+          {renderIfFilteringIsDone(<div style={{ color: 'gray', paddingRight: '10px' }}>{displayTitle}</div>)}
+          <div style={{ color: 'black' }} title={`${displayTitle} - ${option.label}`}>
+            {option.label}
+          </div>
+        </div>
       </div>
     )
   }
@@ -75,6 +85,7 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
         <AutoSelect
           {...this.props}
           options={filteredOptions}
+          serializeOption={(o) => o.label}
           displayOption={this.renderOption}
           displaySelectedOption={this.renderSelectedOption}
           onChange={this.onChange}

@@ -14,14 +14,14 @@ initialState = { value: '' };
 
 <div style={{ maxWidth: '400px' }}>
   <AutoSelect
-    name="AutoSelect Field"
-    options={options}
-    selectedOption="C"
-    value={state.value}
-    onChange={(value) => setState({ value })}
-    displayOption={(code) => descriptions[code].desc}
-    optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
-    width={200}
-  />
+        name="AutoSelect Field"
+        options={options}
+        selectedOption="C"
+        value={state.value}
+        onChange={(value) => setState({ value })}
+        displayOption={(code) => descriptions[code].desc}
+        optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+        width={200}
+      />
 </div>
 ```
