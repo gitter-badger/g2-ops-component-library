@@ -309,7 +309,7 @@ class AutoSelect extends Component {
           }}
           onKeyDown={this.handleKeyDown}
         />
-        {true && (
+        {active && (
           <div style={{ width: 'auto' }} onMouseDown={(e) => e.preventDefault()}>
             <OptionsComponent name={name} {...optionsProps} />
           </div>

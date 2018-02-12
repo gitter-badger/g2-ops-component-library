@@ -15,6 +15,8 @@ type HierarchySelectorPropType = {
 
 type HierarchySelectorStateType = {
   flattenedOptions: Array<FlattenedOptionType>,
+  filteredOptions: Array<FlattenedOptionType>,
+  selectedValue?: FlattenedOptionType,
 }
 
 const DownArrowIcon = wrapMuiContext(DownArrow)
@@ -23,16 +25,20 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
   constructor(props: HierarchySelectorPropType) {
     super(props)
     const { options } = props
+    const flattenedOptions = flattenNestedOptions(options)
     this.state = {
-      flattenedOptions: flattenNestedOptions(options),
+      flattenedOptions,
+      filteredOptions: flattenedOptions,
     }
   }
 
   componentWillReceiveProps(nextProps: HierarchySelectorPropType) {
     if (nextProps.options !== this.props.options) {
+      const flattenedOptions = flattenNestedOptions(nextProps.options)
       this.setState((prevState) => ({
         ...prevState,
-        flattenedOptions: flattenNestedOptions(nextProps.options),
+        flattenedOptions,
+        filteredOptions: flattenedOptions,
       }))
     }
   }
@@ -50,11 +56,29 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
     )
   }
 
+  renderSelectedOption = (option: FlattenedOptionType) => option.path.join(' - ')
+
+  onChange = (changedOption: FlattenedOptionType | string) => {
+    const text: string = typeof changedOption === 'string' ? changedOption : changedOption.label
+    this.setState((prevState) => ({
+      ...prevState,
+      filteredOptions: prevState.flattenedOptions.filter((option: FlattenedOptionType) =>
+        option.label.toLowerCase().startsWith(text.toLowerCase()),
+      ),
+    }))
+  }
+
   render() {
-    const { flattenedOptions } = this.state
+    const { filteredOptions } = this.state
     return (
       <div className="HierarchySelector">
-        <AutoSelect {...this.props} options={flattenedOptions} displayOption={this.renderOption} />
+        <AutoSelect
+          {...this.props}
+          options={filteredOptions}
+          displayOption={this.renderOption}
+          displaySelectedOption={this.renderSelectedOption}
+          onChange={this.onChange}
+        />
       </div>
     )
   }

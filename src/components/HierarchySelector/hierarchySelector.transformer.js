@@ -4,13 +4,13 @@ import type { OptionType, FlattenedOptionType } from 'types/HierarchySelector'
 
 import { isEmpty, isNil, or } from 'ramda'
 
-const isBlank = or(isNil, isEmpty)
+const isBlank: (any) => boolean = or(isNil, isEmpty)
 
 const flattenOption = (option: OptionType, path: Array<string> = []): Array<FlattenedOptionType> => {
   if (isEmpty(option)) {
     return []
   }
-  const currentPath = [ ...path, option.name ]
+  const currentPath = [ ...path, option.label ]
   const flattenedOption = [
     { name: option.name, label: option.label, path: currentPath, haveChildren: !isBlank(option.options) },
   ]
