@@ -1,0 +1,91 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<HierarchySelector /> should filter options available based on entered text 1`] = `
+Array [
+  Object {
+    "haveChildren": false,
+    "label": "Telangana",
+    "name": "telangana",
+    "path": Array [
+      "Asia",
+      "India",
+      "Telangana",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "label": "Texas",
+    "name": "texas",
+    "path": Array [
+      "North America",
+      "USA",
+      "Texas",
+    ],
+  },
+]
+`;
+
+exports[`<HierarchySelector /> should render nested options properly 1`] = `
+<div
+  className="HierarchySelector"
+>
+  <div>
+    <div
+      className="ms-Fabric css-32"
+    >
+      <div
+        className="ms-TextField root"
+      >
+        <div
+          className="ms-TextField-wrapper wrapper"
+        >
+          <div
+            className="ms-TextField-fieldGroup fieldGroup"
+          >
+            <input
+              aria-describedby={null}
+              aria-invalid={false}
+              aria-label={undefined}
+              autoComplete="off"
+              className="ms-TextField-field field input "
+              disabled={undefined}
+              id="TextField0"
+              name="AutoSelect Field-txtField"
+              onBlur={[Function]}
+              onChange={[Function]}
+              onClick={[Function]}
+              onFocus={[Function]}
+              onInput={[Function]}
+              onKeyDown={[Function]}
+              placeholder={undefined}
+              title=""
+              type="text"
+              value=""
+              width={200}
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <input
+      data-uname={undefined}
+      name="AutoSelect Field"
+      type="hidden"
+      value=""
+    />
+  </div>
+</div>
+`;
+
+exports[`<HierarchySelector /> should save selected value when value is selected from dropdown 1`] = `
+Object {
+  "haveChildren": false,
+  "label": "Telangana",
+  "name": "telangana",
+  "path": Array [
+    "Asia",
+    "India",
+    "Telangana",
+  ],
+}
+`;

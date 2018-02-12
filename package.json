@@ -20,8 +20,7 @@
     "lint": "eslint src/**/*.js",
     "flowtype": "flow-typed install",
     "precommit": "lint-staged",
-    "prettier":
-      "prettier-eslint src/**/{*,*.test}.{js,css,scss,json} --trailing-comma all --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write"
+    "prettier": "prettier-eslint src/**/{*,*.test}.{js,css,scss,json} --trailing-comma all --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write"
   },
   "license": "ISC",
   "bugs": {
@@ -48,7 +47,7 @@
     "react-dom": "15.6.1",
     "react-tap-event-plugin": "2.0.1",
     "react-tooltip": "^3.4.0",
-    "react-virtualized": "^9.14.1",
+    "react-virtualized": "^9.18.5",
     "render-if": "^0.1.1",
     "sass-loader": "^6.0.6",
     "style-loader": "^0.19.0",
@@ -85,11 +84,17 @@
       "^components(.*)$": "<rootDir>/src/components/$1",
       "^utils(.*)$": "<rootDir>/src/utils/$1"
     },
-    "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/g2-layout-demo"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "testRegex": "src/.*(jest|test).js$"
   },
-  "pre-push": ["test", "flow"],
+  "pre-push": [
+    "test",
+    "flow"
+  ],
   "lint-staged": {
     "src/**/*.{js,css,scss,json}": [
       "prettier-eslint --trailing-comma all --single-quote --eslint-config-path .eslintrc.js --no-semi --print-width 120 --write",

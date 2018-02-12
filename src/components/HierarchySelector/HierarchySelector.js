@@ -5,7 +5,8 @@ import React, { PureComponent } from 'react'
 import DownArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-down'
 import renderIf from 'render-if'
 
-import Autoselect from '../AutoSelect'
+import AutoSelect from 'components/AutoSelect'
+
 import { wrapMuiContext } from '../../wrapMuiContext'
 import { flattenNestedOptions } from './hierarchySelector.transformer'
 
@@ -69,17 +70,23 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
   renderSelectedOption = (option: FlattenedOptionType) => option.path.join(' - ')
 
   onChange = (changedOption: FlattenedOptionType | string) => {
-    const text: string = typeof changedOption === 'string' ? changedOption : changedOption.label
-    this.setState((prevState) => ({
-      ...prevState,
-      filteredOptions: prevState.flattenedOptions.filter((option: FlattenedOptionType) =>
-        option.label.toLowerCase().startsWith(text.toLowerCase()),
-      ),
-    }))
+    if (typeof changedOption === 'string') {
+      this.setState((prevState) => ({
+        ...prevState,
+        filteredOptions: prevState.flattenedOptions.filter((option: FlattenedOptionType) =>
+          option.label.toLowerCase().startsWith(changedOption.toLowerCase()),
+        ),
+      }))
+    } else {
+      this.setState((prevState) => ({
+        ...prevState,
+        selectedValue: changedOption,
+      }))
+    }
   }
 
   render() {
-    const { filteredOptions } = this.state
+    const { filteredOptions, selectedValue } = this.state
     return (
       <div className="HierarchySelector">
         <AutoSelect
@@ -89,6 +96,7 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
           displayOption={this.renderOption}
           displaySelectedOption={this.renderSelectedOption}
           onChange={this.onChange}
+          value={selectedValue}
         />
       </div>
     )

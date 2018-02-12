@@ -1,1 +1,4 @@
-export default from './AutoSelect'
+// @flow
+import AutoSelect from './AutoSelect'
+
+export default AutoSelect
