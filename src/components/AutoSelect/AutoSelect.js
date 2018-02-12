@@ -1,4 +1,4 @@
-import React, { Component, isValidElement } from 'react'
+import React, { PureComponent, isValidElement } from 'react'
 import PropTypes from 'prop-types'
 import TextField from 'components/TextField'
 import { isNil, identity } from './autoSelectUtils'
@@ -78,7 +78,7 @@ const firstMatchingOption = (props) => {
 const UP = -1
 const DOWN = 1
 
-class AutoSelect extends Component {
+class AutoSelect extends PureComponent {
   static propTypes = {
     name: PropTypes.string.isRequired,
     value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
@@ -134,6 +134,11 @@ class AutoSelect extends Component {
         ...(!this.props.disabled && displayValue === '' && nextDisplayValue.length > 0 ? { active: true } : {}),
       })
     }
+    if (nextProps.options !== this.props.options) {
+      this.setState({
+        highlightedOption: null,
+      })
+    }
     let inputElem
     if (this.textField) {
       inputElem = this.textField._textElement
@@ -165,7 +170,10 @@ class AutoSelect extends Component {
 
     switch (e.keyCode) {
       case KeyCode.enter: {
-        const selectedOption = this.selectedOption()
+        let selectedOption = this.selectedOption()
+        if (options && options.length === 1) {
+          selectedOption = options[0]
+        }
         if (active && selectedOption) {
           e.stopPropagation()
           e.preventDefault()
@@ -177,7 +185,10 @@ class AutoSelect extends Component {
       }
       case KeyCode.tab: {
         // eslint-disable-line no-fallthrough
-        const selectedOption = this.selectedOption()
+        let selectedOption = this.selectedOption()
+        if (options && options.length === 1) {
+          selectedOption = options[0]
+        }
         if (!active || !selectedOption || serializeOption(selectedOption) === value) {
           return
         }
