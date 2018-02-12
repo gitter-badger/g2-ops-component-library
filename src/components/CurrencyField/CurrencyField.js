@@ -2,8 +2,8 @@
 import type { Node, ComponentType } from 'react'
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import TextField from 'components/TextField'
+import { pick, equals } from 'ramda'
 
 import formatCurrency, { stripDownCurrency, serialize } from './currencyUtils'
 import companyCodeMapper from './countryMapper'
@@ -57,12 +57,12 @@ const validateInputValueAndReturnErrorMessage = (
         ? stripDownCurrency(countryCode, value).replace(/[a-zA-Z,$#^&*()@!]+/, '') || 0
         : serialize(countryCode, value)
     }
-    const formattedCurrency = formatCurrency(countryCode, currencyValue, country.currency)
+    const formattedCurrency = formatCurrency(countryCode, currencyValue.toString(), country.currency)
     if (Number(currencyValue) > maxValue) {
       return {
         formattedValue: formattedCurrency,
         displayedValue: currencyValue.toString(),
-        errorMessage: `Max Limit ${formatCurrency(countryCode, maxValue, country.currency)}`,
+        errorMessage: `Max Limit ${formatCurrency(countryCode, maxValue.toString(), country.currency)}`,
       }
     } else {
       return {
@@ -74,6 +74,12 @@ const validateInputValueAndReturnErrorMessage = (
   }
 }
 
+const arePropValuesEqual = (
+  nextProps: any,
+  props: any,
+  properties: Array<string> = [ 'maxValue', 'countryCode', 'value' ],
+): boolean => !equals(pick(properties, nextProps), pick(properties, props))
+
 class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldStateType> {
   static defaultProps = {
     countryCode: 'US',
@@ -84,6 +90,16 @@ class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldState
     super(props)
     const { value, countryCode, maxValue } = props
     this.state = validateInputValueAndReturnErrorMessage(value.toString(), countryCode, maxValue)
+  }
+
+  componentWillReceiveProps(nextProps: CurrencyFieldPropTypes) {
+    if (arePropValuesEqual(nextProps, this.props)) {
+      const { value, countryCode, maxValue } = nextProps
+      this.setState((prevState) => ({
+        ...prevState,
+        ...validateInputValueAndReturnErrorMessage(value.toString(), countryCode, maxValue),
+      }))
+    }
   }
 
   onBlur = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
