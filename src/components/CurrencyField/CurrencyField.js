@@ -21,24 +21,28 @@ type CurrencyFieldPropTypes = {
   countryCode: 'US' | 'UK' | 'CA' | 'IR' | 'ME' | 'GB' | 'DE' | 'ES' | 'IN',
   disabled: boolean,
   required: boolean,
-  onChange: (string) => void,
-  onBlur: (SyntheticKeyboardEvent<HTMLInputElement>, string) => void,
+  onChange: (string, string) => void,
+  onBlur: (string, string) => void,
   maxValue: number,
 }
 
 type CurrencyFieldValidationType = {
   errorMessage: string,
-  formattedValue: number | string,
-  displayedValue: ?string,
+  formattedValue: string,
+  displayedValue: string,
 }
 
 type CurrencyFieldStateType = {
   errorMessage: string,
-  formattedValue: number | string,
-  displayedValue: ?string,
+  formattedValue: string,
+  displayedValue: string,
 }
 
-const validateInputValueAndReturnErrorMessage = (value: string, countryCode: string, maxValue: number) => {
+const validateInputValueAndReturnErrorMessage = (
+  value: string,
+  countryCode: string,
+  maxValue: number,
+): CurrencyFieldStateType => {
   if (!countriesSupported.includes(countryCode)) {
     return {
       formattedValue: value,
@@ -57,13 +61,13 @@ const validateInputValueAndReturnErrorMessage = (value: string, countryCode: str
     if (Number(currencyValue) > maxValue) {
       return {
         formattedValue: formattedCurrency,
-        displayedValue: currencyValue,
+        displayedValue: currencyValue.toString(),
         errorMessage: `Max Limit ${formatCurrency(countryCode, maxValue, country.currency)}`,
       }
     } else {
       return {
         formattedValue: formattedCurrency,
-        displayedValue: currencyValue,
+        displayedValue: currencyValue.toString(),
         errorMessage: '',
       }
     }
@@ -73,12 +77,13 @@ const validateInputValueAndReturnErrorMessage = (value: string, countryCode: str
 class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldStateType> {
   static defaultProps = {
     countryCode: 'US',
+    value: '',
   }
 
   constructor(props: CurrencyFieldPropTypes) {
     super(props)
     const { value, countryCode, maxValue } = props
-    this.state = validateInputValueAndReturnErrorMessage(value, countryCode, maxValue)
+    this.state = validateInputValueAndReturnErrorMessage(value.toString(), countryCode, maxValue)
   }
 
   onBlur = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
@@ -129,7 +134,7 @@ class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldState
           onFocus={(e) => this.onChange(e.target.value)}
           errorMessage={this.state.errorMessage}
         />
-        <input type="hidden" name={this.props.name} required={this.props.required} value={this.state.value} />
+        <input type="hidden" name={this.props.name} required={this.props.required} value={this.state.formattedValue} />
       </div>
     )
   }
