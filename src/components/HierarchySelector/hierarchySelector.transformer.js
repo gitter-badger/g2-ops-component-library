@@ -2,9 +2,9 @@
 
 import type { OptionType, FlattenedOptionType } from 'types/HierarchySelector'
 
-import { isEmpty, isNil, or } from 'ramda'
+import { isEmpty } from 'ramda'
 
-const isBlank: (any) => boolean = or(isNil, isEmpty)
+const isBlank = (value: OptionType) => !value || isEmpty(value)
 
 const flattenOption = (option: OptionType, path: Array<string> = []): Array<FlattenedOptionType> => {
   if (isEmpty(option)) {
@@ -18,12 +18,15 @@ const flattenOption = (option: OptionType, path: Array<string> = []): Array<Flat
     return flattenedOption
   }
   return option.options.reduce(
-    (accu, childOption) => [ ...accu, ...flattenOption(childOption, [ ...currentPath ]) ],
+    (accu: Array<FlattenedOptionType>, childOption: OptionType) => [
+      ...accu,
+      ...flattenOption(childOption, [ ...currentPath ]),
+    ],
     flattenedOption,
   )
 }
 
 export const flattenNestedOptions = (options: Array<OptionType>): Array<FlattenedOptionType> =>
-  options.reduce((flattenedOptions, option) => [ ...flattenedOptions, ...flattenOption(option) ], [])
+  options.reduce((flattenedOptions, option: OptionType) => [ ...flattenedOptions, ...flattenOption(option) ], [])
 
 export default flattenNestedOptions

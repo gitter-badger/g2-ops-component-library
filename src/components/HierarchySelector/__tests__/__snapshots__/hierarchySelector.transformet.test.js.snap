@@ -3,11 +3,11 @@
 exports[`Handle Transformation handle empty options 1`] = `
 Array [
   Object {
-    "haveChildren": true,
+    "haveChildren": false,
     "label": "Asia",
     "name": "asia",
     "path": Array [
-      "asia",
+      "Asia",
     ],
   },
 ]
@@ -20,7 +20,7 @@ Array [
     "label": "Asia",
     "name": "asia",
     "path": Array [
-      "asia",
+      "Asia",
     ],
   },
   Object {
@@ -28,8 +28,8 @@ Array [
     "label": "India",
     "name": "india",
     "path": Array [
-      "asia",
-      "india",
+      "Asia",
+      "India",
     ],
   },
   Object {
@@ -37,9 +37,9 @@ Array [
     "label": "Telangana",
     "name": "telangana",
     "path": Array [
-      "asia",
-      "india",
-      "telangana",
+      "Asia",
+      "India",
+      "Telangana",
     ],
   },
   Object {
@@ -47,8 +47,8 @@ Array [
     "label": "China",
     "name": "china",
     "path": Array [
-      "asia",
-      "china",
+      "Asia",
+      "China",
     ],
   },
   Object {
@@ -56,9 +56,9 @@ Array [
     "label": "Beijing",
     "name": "beijing",
     "path": Array [
-      "asia",
-      "china",
-      "beijing",
+      "Asia",
+      "China",
+      "Beijing",
     ],
   },
   Object {
@@ -66,7 +66,7 @@ Array [
     "label": "North America",
     "name": "northAmerica",
     "path": Array [
-      "northAmerica",
+      "North America",
     ],
   },
   Object {
@@ -74,8 +74,8 @@ Array [
     "label": "USA",
     "name": "usa",
     "path": Array [
-      "northAmerica",
-      "usa",
+      "North America",
+      "USA",
     ],
   },
   Object {
@@ -83,9 +83,9 @@ Array [
     "label": "Texas",
     "name": "texas",
     "path": Array [
-      "northAmerica",
-      "usa",
-      "texas",
+      "North America",
+      "USA",
+      "Texas",
     ],
   },
   Object {
@@ -93,9 +93,9 @@ Array [
     "label": "Arkansas",
     "name": "arkansas",
     "path": Array [
-      "northAmerica",
-      "usa",
-      "arkansas",
+      "North America",
+      "USA",
+      "Arkansas",
     ],
   },
   Object {
@@ -103,7 +103,7 @@ Array [
     "label": "Africa",
     "name": "africa",
     "path": Array [
-      "africa",
+      "Africa",
     ],
   },
   Object {
@@ -111,8 +111,8 @@ Array [
     "label": "Egypt",
     "name": "egypt",
     "path": Array [
-      "africa",
-      "egypt",
+      "Africa",
+      "Egypt",
     ],
   },
   Object {
@@ -120,8 +120,8 @@ Array [
     "label": "Libya",
     "name": "libya",
     "path": Array [
-      "africa",
-      "libya",
+      "Africa",
+      "Libya",
     ],
   },
 ]
