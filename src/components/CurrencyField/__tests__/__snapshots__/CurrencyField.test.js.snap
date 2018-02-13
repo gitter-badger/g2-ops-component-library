@@ -43,7 +43,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 1`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="$0.00"
   />
 </div>
 `;
@@ -91,7 +91,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 2`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="£0.00"
   />
 </div>
 `;
@@ -139,7 +139,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 3`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="€0.00"
   />
 </div>
 `;
@@ -187,7 +187,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 4`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="AED0.00"
   />
 </div>
 `;
@@ -235,7 +235,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 5`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="CAD0.00"
   />
 </div>
 `;
@@ -283,7 +283,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 6`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="€ 0.00"
   />
 </div>
 `;
@@ -331,7 +331,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 7`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="€ 0.00"
   />
 </div>
 `;
@@ -379,7 +379,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 8`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="₹0.00"
   />
 </div>
 `;
@@ -427,7 +427,7 @@ exports[`<CurrencyField /> should render properly: [object Object] 9`] = `
     name={undefined}
     required={undefined}
     type="hidden"
-    value={undefined}
+    value="£0.00"
   />
 </div>
 `;

@@ -54,5 +54,6 @@ module.exports = {
     SyntheticDragEvent: false,
     SyntheticWheelEvent: false,
     SyntheticTouchEvent: false,
+    Intl: false,
   },
 }
