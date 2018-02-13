@@ -4,6 +4,7 @@ exports[`<HierarchySelector /> should filter options available based on entered 
 Array [
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Telangana",
     "name": "telangana",
     "path": Array [
@@ -14,6 +15,7 @@ Array [
   },
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Texas",
     "name": "texas",
     "path": Array [
@@ -80,6 +82,7 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
 exports[`<HierarchySelector /> should save selected value when value is selected from dropdown 1`] = `
 Object {
   "haveChildren": false,
+  "isDisabled": false,
   "label": "Telangana",
   "name": "telangana",
   "path": Array [

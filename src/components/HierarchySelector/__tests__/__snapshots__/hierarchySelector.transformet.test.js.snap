@@ -4,6 +4,7 @@ exports[`Handle Transformation handle empty options 1`] = `
 Array [
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Asia",
     "name": "asia",
     "path": Array [
@@ -17,6 +18,7 @@ exports[`Handle Transformation properly transform nested option 1`] = `
 Array [
   Object {
     "haveChildren": true,
+    "isDisabled": false,
     "label": "Asia",
     "name": "asia",
     "path": Array [
@@ -25,6 +27,7 @@ Array [
   },
   Object {
     "haveChildren": true,
+    "isDisabled": false,
     "label": "India",
     "name": "india",
     "path": Array [
@@ -34,6 +37,7 @@ Array [
   },
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Telangana",
     "name": "telangana",
     "path": Array [
@@ -44,6 +48,7 @@ Array [
   },
   Object {
     "haveChildren": true,
+    "isDisabled": false,
     "label": "China",
     "name": "china",
     "path": Array [
@@ -53,6 +58,7 @@ Array [
   },
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Beijing",
     "name": "beijing",
     "path": Array [
@@ -63,6 +69,7 @@ Array [
   },
   Object {
     "haveChildren": true,
+    "isDisabled": false,
     "label": "North America",
     "name": "northAmerica",
     "path": Array [
@@ -71,6 +78,7 @@ Array [
   },
   Object {
     "haveChildren": true,
+    "isDisabled": false,
     "label": "USA",
     "name": "usa",
     "path": Array [
@@ -80,6 +88,7 @@ Array [
   },
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Texas",
     "name": "texas",
     "path": Array [
@@ -90,6 +99,7 @@ Array [
   },
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Arkansas",
     "name": "arkansas",
     "path": Array [
@@ -100,6 +110,7 @@ Array [
   },
   Object {
     "haveChildren": true,
+    "isDisabled": false,
     "label": "Africa",
     "name": "africa",
     "path": Array [
@@ -108,6 +119,7 @@ Array [
   },
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Egypt",
     "name": "egypt",
     "path": Array [
@@ -117,6 +129,7 @@ Array [
   },
   Object {
     "haveChildren": false,
+    "isDisabled": false,
     "label": "Libya",
     "name": "libya",
     "path": Array [
