@@ -1,4 +1,5 @@
 // @flow
+import type { Node } from 'react'
 import type { OptionsType, FlattenedOptionType } from 'types/HierarchySelector'
 
 import React, { PureComponent } from 'react'
@@ -12,6 +13,7 @@ import { flattenNestedOptions } from './hierarchySelector.transformer'
 
 type HierarchySelectorPropType = {
   options: OptionsType,
+  onFocus: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
 }
 
 type HierarchySelectorStateType = {
@@ -23,6 +25,7 @@ type HierarchySelectorStateType = {
 const DownArrowIcon = wrapMuiContext(DownArrow)
 
 class HierarchySelector extends PureComponent<HierarchySelectorPropType, HierarchySelectorStateType> {
+  autoSelect: Node // eslint-disable-line
   constructor(props: HierarchySelectorPropType) {
     super(props)
     const { options } = props
@@ -41,6 +44,29 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
         flattenedOptions,
         filteredOptions: flattenedOptions,
       }))
+    }
+  }
+
+  onChange = (changedOption: FlattenedOptionType | string) => {
+    if (typeof changedOption === 'string') {
+      this.setState((prevState) => ({
+        ...prevState,
+        filteredOptions: prevState.flattenedOptions.filter((option: FlattenedOptionType) =>
+          option.label.toLowerCase().startsWith(changedOption.toLowerCase()),
+        ),
+      }))
+    } else if (!changedOption.isDisabled) {
+      this.setState((prevState) => ({
+        ...prevState,
+        selectedValue: changedOption,
+      }))
+    }
+  }
+
+  onFocus = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
+    this.autoSelect.select()
+    if (this.props.onFocus) {
+      this.props.onFocus(e)
     }
   }
 
@@ -69,27 +95,14 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
 
   renderSelectedOption = (option: FlattenedOptionType) => option.path.join(' - ')
 
-  onChange = (changedOption: FlattenedOptionType | string) => {
-    if (typeof changedOption === 'string') {
-      this.setState((prevState) => ({
-        ...prevState,
-        filteredOptions: prevState.flattenedOptions.filter((option: FlattenedOptionType) =>
-          option.label.toLowerCase().startsWith(changedOption.toLowerCase()),
-        ),
-      }))
-    } else {
-      this.setState((prevState) => ({
-        ...prevState,
-        selectedValue: changedOption,
-      }))
-    }
-  }
-
   render() {
     const { filteredOptions, selectedValue } = this.state
     return (
       <div className="HierarchySelector">
         <AutoSelect
+          ref={(n) => {
+            this.autoSelect = n
+          }}
           {...this.props}
           options={filteredOptions}
           serializeOption={(o) => o.label}
@@ -97,6 +110,7 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
           displaySelectedOption={this.renderSelectedOption}
           onChange={this.onChange}
           value={selectedValue}
+          onFocus={this.onFocus}
         />
       </div>
     )

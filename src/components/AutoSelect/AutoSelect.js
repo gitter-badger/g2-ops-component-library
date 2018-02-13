@@ -258,6 +258,10 @@ class AutoSelect extends PureComponent {
     this.setState({ active: false })
   }
 
+  select = () => {
+    this.textField.select()
+  }
+
   render() {
     const {
       value,

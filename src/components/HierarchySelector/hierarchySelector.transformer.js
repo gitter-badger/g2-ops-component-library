@@ -12,7 +12,13 @@ const flattenOption = (option: OptionType, path: Array<string> = []): Array<Flat
   }
   const currentPath = [ ...path, option.label ]
   const flattenedOption = [
-    { name: option.name, label: option.label, path: currentPath, haveChildren: !isBlank(option.options) },
+    {
+      name: option.name,
+      label: option.label,
+      isDisabled: !!option.isDisabled,
+      path: currentPath,
+      haveChildren: !isBlank(option.options),
+    },
   ]
   if (!option.options || isEmpty(option.options)) {
     return flattenedOption
