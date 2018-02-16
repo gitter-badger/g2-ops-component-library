@@ -1,0 +1,649 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Tabs /> should render properly 1`] = `
+<div
+  className="tabs"
+  onChange={[Function]}
+  style={
+    Object {
+      "muiPrepared": true,
+    }
+  }
+>
+  <div
+    style={
+      Object {
+        "backgroundColor": "#1d5ab9",
+        "muiPrepared": true,
+        "whiteSpace": "nowrap",
+        "width": "100%",
+      }
+    }
+  >
+    <button
+      className="tab default undefined"
+      disabled={undefined}
+      href={undefined}
+      name={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+          "background": "none",
+          "border": 10,
+          "boxSizing": "border-box",
+          "color": "rgba(38, 166, 91, 1.0)",
+          "cursor": "pointer",
+          "display": "inline-block",
+          "fontFamily": "Roboto, sans-serif",
+          "fontSize": 14,
+          "fontWeight": 500,
+          "margin": 0,
+          "muiPrepared": true,
+          "outline": "none",
+          "padding": 0,
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+          "transform": "translate(0, 0)",
+          "verticalAlign": null,
+          "width": "12.5%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 72,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            assignment_turned_in
+          </i>
+          <span
+            className="tabLabel"
+          >
+            Seller And Contact
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="tab active undefined"
+      disabled={undefined}
+      href={undefined}
+      name={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+          "background": "none",
+          "border": 10,
+          "boxSizing": "border-box",
+          "color": "rgba(218, 223, 225, 1.0)",
+          "cursor": "pointer",
+          "display": "inline-block",
+          "fontFamily": "Roboto, sans-serif",
+          "fontSize": 14,
+          "fontWeight": 500,
+          "margin": 0,
+          "muiPrepared": true,
+          "outline": "none",
+          "padding": 0,
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+          "transform": "translate(0, 0)",
+          "verticalAlign": null,
+          "width": "12.5%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 72,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            assignment
+          </i>
+          <span
+            className="tabLabel"
+          >
+            Lot Information
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="tab default undefined"
+      disabled={undefined}
+      href={undefined}
+      name={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+          "background": "none",
+          "border": 10,
+          "boxSizing": "border-box",
+          "color": "rgba(218, 223, 225, 1.0)",
+          "cursor": "pointer",
+          "display": "inline-block",
+          "fontFamily": "Roboto, sans-serif",
+          "fontSize": 14,
+          "fontWeight": 500,
+          "margin": 0,
+          "muiPrepared": true,
+          "outline": "none",
+          "padding": 0,
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+          "transform": "translate(0, 0)",
+          "verticalAlign": null,
+          "width": "12.5%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 72,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            attach_money
+          </i>
+          <span
+            className="tabLabel"
+          >
+            Billing And Pickup
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="tab default undefined"
+      disabled={undefined}
+      href={undefined}
+      name={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+          "background": "none",
+          "border": 10,
+          "boxSizing": "border-box",
+          "color": "rgba(218, 223, 225, 1.0)",
+          "cursor": "pointer",
+          "display": "inline-block",
+          "fontFamily": "Roboto, sans-serif",
+          "fontSize": 14,
+          "fontWeight": 500,
+          "margin": 0,
+          "muiPrepared": true,
+          "outline": "none",
+          "padding": 0,
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+          "transform": "translate(0, 0)",
+          "verticalAlign": null,
+          "width": "12.5%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 72,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            receipt
+          </i>
+          <span
+            className="tabLabel"
+          >
+            Service Order
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="tab default undefined"
+      disabled={undefined}
+      href={undefined}
+      name={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+          "background": "none",
+          "border": 10,
+          "boxSizing": "border-box",
+          "color": "rgba(218, 223, 225, 1.0)",
+          "cursor": "pointer",
+          "display": "inline-block",
+          "fontFamily": "Roboto, sans-serif",
+          "fontSize": 14,
+          "fontWeight": 500,
+          "margin": 0,
+          "muiPrepared": true,
+          "outline": "none",
+          "padding": 0,
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+          "transform": "translate(0, 0)",
+          "verticalAlign": null,
+          "width": "12.5%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 72,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            work
+          </i>
+          <span
+            className="tabLabel"
+          >
+            Ownership Documents
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="tab default undefined"
+      disabled={undefined}
+      href={undefined}
+      name={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+          "background": "none",
+          "border": 10,
+          "boxSizing": "border-box",
+          "color": "rgba(218, 223, 225, 1.0)",
+          "cursor": "pointer",
+          "display": "inline-block",
+          "fontFamily": "Roboto, sans-serif",
+          "fontSize": 14,
+          "fontWeight": 500,
+          "margin": 0,
+          "muiPrepared": true,
+          "outline": "none",
+          "padding": 0,
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+          "transform": "translate(0, 0)",
+          "verticalAlign": null,
+          "width": "12.5%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 72,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            event
+          </i>
+          <span
+            className="tabLabel"
+          >
+            Critical Dates
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="tab default undefined"
+      disabled={undefined}
+      href={undefined}
+      name={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+          "background": "none",
+          "border": 10,
+          "boxSizing": "border-box",
+          "color": "rgba(218, 223, 225, 1.0)",
+          "cursor": "pointer",
+          "display": "inline-block",
+          "fontFamily": "Roboto, sans-serif",
+          "fontSize": 14,
+          "fontWeight": 500,
+          "margin": 0,
+          "muiPrepared": true,
+          "outline": "none",
+          "padding": 0,
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+          "transform": "translate(0, 0)",
+          "verticalAlign": null,
+          "width": "12.5%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 72,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            gavel
+          </i>
+          <span
+            className="tabLabel"
+          >
+            Auction
+          </span>
+        </div>
+      </div>
+    </button>
+    <button
+      className="tab default undefined"
+      disabled={undefined}
+      href={undefined}
+      name={undefined}
+      onBlur={[Function]}
+      onClick={[Function]}
+      onFocus={[Function]}
+      onKeyDown={[Function]}
+      onKeyUp={[Function]}
+      onMouseDown={[Function]}
+      onMouseEnter={[Function]}
+      onMouseLeave={[Function]}
+      onMouseUp={[Function]}
+      onTouchEnd={[Function]}
+      onTouchStart={[Function]}
+      onTouchTap={[Function]}
+      style={
+        Object {
+          "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+          "background": "none",
+          "border": 10,
+          "boxSizing": "border-box",
+          "color": "rgba(218, 223, 225, 1.0)",
+          "cursor": "pointer",
+          "display": "inline-block",
+          "fontFamily": "Roboto, sans-serif",
+          "fontSize": 14,
+          "fontWeight": 500,
+          "margin": 0,
+          "muiPrepared": true,
+          "outline": "none",
+          "padding": 0,
+          "textDecoration": "none",
+          "textTransform": "uppercase",
+          "transform": "translate(0, 0)",
+          "verticalAlign": null,
+          "width": "12.5%",
+        }
+      }
+      tabIndex={0}
+      type="button"
+    >
+      <div
+        onMouseDown={[Function]}
+        onMouseLeave={[Function]}
+        onMouseUp={[Function]}
+        onTouchEnd={[Function]}
+        onTouchStart={[Function]}
+      >
+        <div
+          style={
+            Object {
+              "alignItems": "center",
+              "display": "flex",
+              "flexDirection": "column",
+              "height": 72,
+              "justifyContent": "center",
+            }
+          }
+        >
+          <i
+            className="material-icons"
+          >
+            shopping_basket
+          </i>
+          <span
+            className="tabLabel"
+          >
+            Sale To Member
+          </span>
+        </div>
+      </div>
+    </button>
+  </div>
+  <div
+    style={
+      Object {
+        "width": "100%",
+      }
+    }
+  >
+    <div
+      style={
+        Object {
+          "backgroundColor": "#545A63",
+          "bottom": 0,
+          "display": "block",
+          "height": 2,
+          "left": "0%",
+          "marginTop": -2,
+          "muiPrepared": true,
+          "position": "relative",
+          "transition": "left 1s cubic-bezier(0.23, 1, 0.32, 1) 0ms",
+          "width": "12.5%",
+        }
+      }
+    />
+  </div>
+  <div
+    className={undefined}
+    style={
+      Object {
+        "muiPrepared": true,
+      }
+    }
+  />
+</div>
+`;

@@ -1,46 +1,55 @@
-import React from 'react'
+// @flow
+
+import React, { PureComponent } from 'react'
 import PropTypes from 'prop-types'
-import { wrapMuiContext } from '../../wrapMuiContext'
 import Snackbar from 'material-ui/Snackbar'
+
+import { wrapMuiContext } from '../../wrapMuiContext'
+
 import './SnackBar.scss'
 
-const buttonPropTypes = {
-  showSnackBar: PropTypes.bool.isRequired,
-  message: PropTypes.string.isRequired,
-  error: PropTypes.Bool,
+type ButtonPropType = {
+  showSnackBar: boolean,
+  message: string,
+  showOKButton: boolean,
+  isError: boolean,
 }
 
-class SnackBar extends React.Component {
+type ButtonStateType = {
+  open: boolean,
+}
 
-  constructor(props) {
-    super(props)
-    this.state = {
-      open: this.props.showSnackBar || false,
-    };
+class SnackBar extends PureComponent<ButtonPropType, ButtonStateType> {
+  static defaultProps = {
+    showSnackBar: false,
+    showOKButton: false,
   }
+
+  state = { open: this.props.showSnackBar }
 
   handleRequestClose = () => {
     this.setState({
       open: false,
-    });
-  };
+    })
+  }
 
   render() {
+    const { showOKButton, showSnackBar, isError, message } = this.props
     return (
       <div>
         <Snackbar
           open={this.state.open}
-          message={this.props.message}
+          message={message}
           autoHideDuration={4000000}
-          action={this.props.showOKButton ? 'OK' : null}
+          action={showOKButton ? 'OK' : null}
           onActionTouchTap={this.handleRequestClose}
           onRequestClose={this.handleRequestClose}
           style={{ left: 'auto', bottom: '5px', right: '5px' }}
-          bodyStyle={{ maxWidth: '800px', backgroundColor: this.props.error ? '#EE2727' : '#92D04E' }}
+          bodyStyle={{ maxWidth: '800px', backgroundColor: isError ? '#EE2727' : '#92D04E' }}
           className="CopartSnackBar"
         />
       </div>
-    );
+    )
   }
 }
 
