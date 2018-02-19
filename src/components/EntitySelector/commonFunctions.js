@@ -3,7 +3,7 @@ import React from 'react'
 export const booleanHumanMap = (value) =>
   ({
     true: 'Yes',
-    false: 'No'
+    false: 'No',
   }[value])
 
 export const primaryTextStyle = {
@@ -11,7 +11,7 @@ export const primaryTextStyle = {
   lineHeight: '14px',
   whiteSpace: 'nowrap',
   overflow: 'hidden',
-  textOverflow: 'ellipsis'
+  textOverflow: 'ellipsis',
 }
 
 export const Row = ({ value }) => (
