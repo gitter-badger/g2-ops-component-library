@@ -1,20 +1,29 @@
-import * as React from 'react'
-import PropTypes from 'prop-types'
+// @flow
+
+import React, { Component } from 'react'
 import { IconButton } from 'office-ui-fabric-react/lib/Button'
 import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
 
 import './AppBar.scss'
 
-export class LogoutMenu extends React.Component {
-  static propTypes = {
-    items: PropTypes.arrayOf(
-      PropTypes.shape({
-        key: PropTypes.string,
-        name: PropTypes.string,
-      }),
-    ).isRequired,
-    onItemClick: PropTypes.func,
-  }
+type LogoutMenuPropTypes = {
+  items?: Array<{
+    key: string,
+    name: string,
+  }>,
+  onItemClick?: (SyntheticMouseEvent<HTMLElement>, { key: string, name: string }) => void,
+}
+
+type LogoutMenuState = {
+  directionalHint: DirectionalHint,
+  directionalHintForRTL: DirectionalHint,
+  useDirectionalHintForRtl: boolean,
+  gapSpace: number,
+  beakWidth: number,
+  edgeFixed: boolean,
+}
+
+export class LogoutMenu extends Component<LogoutMenuPropTypes, LogoutMenuState> {
   state = {
     directionalHint: DirectionalHint.bottomCenter,
     directionalHintForRTL: DirectionalHint.bottomCenter,

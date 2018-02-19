@@ -1,6 +1,9 @@
+// @flow
+import type { Node } from 'react'
+
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import renderIf from 'render-if'
+
 import moment from 'moment'
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
@@ -9,55 +12,78 @@ import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/d
 import TextField from 'components/TextField'
 import { IconButton } from 'components/Button'
 
+import { getDateObject, getDefaultMinDate, getDefaultMaxDate, validateDateAndGetErrorMesssage } from './dateUtils'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
 import './style.scss'
 
-class DatePicker extends Component {
-  static propTypes = {
-    DateTimeFormat: PropTypes.func,
-    autoOk: PropTypes.bool,
-    cancelLabel: PropTypes.node,
-    className: PropTypes.string,
-    container: PropTypes.oneOf(['dialog', 'inline']),
-    defaultDate: PropTypes.object,
-    dialogContainerStyle: PropTypes.object,
-    disableYearSelection: PropTypes.bool,
-    disabled: PropTypes.bool,
-    firstDayOfWeek: PropTypes.number,
-    formatDate: PropTypes.func,
-    locale: PropTypes.string,
-    maxDate: PropTypes.object,
-    minDate: PropTypes.object,
-    mode: PropTypes.oneOf(['portrait', 'landscape']),
-    okLabel: PropTypes.node,
-    onChange: PropTypes.func,
-    onDismiss: PropTypes.func,
-    onFocus: PropTypes.func,
-    onShow: PropTypes.func,
-    onTouchTap: PropTypes.func,
-    shouldDisableDate: PropTypes.func,
-    style: PropTypes.object,
-    textFieldStyle: PropTypes.object,
-    value: PropTypes.object
-  }
+type DateTimeFormatObj = {
+  day: string,
+  month: string,
+  year: string,
+}
 
+type DateTimeFormatType = {
+  locale?: string,
+  ...DateTimeFormatObj,
+}
+
+type DatePickerProps = {
+  autoOk?: boolean,
+  cancelLabel: Node,
+  className: string,
+  container: 'dialog' | 'inline',
+  defaultDate: Date,
+  defaultFormat: string,
+  DateTimeFormat: (string, DateTimeFormatType) => string,
+  dialogContainerStyle: Node,
+  disableYearSelection: boolean,
+  disabled: boolean,
+  firstDayOfWeek: number,
+  formatDate: (string | Date) => string,
+  locale?: string,
+  maxDate: Date,
+  minDate: Date,
+  mode: 'portrait' | 'landscape',
+  okLabel: Node,
+  onChange: (string, Date | null, string) => void,
+  onDismiss: (SyntheticEvent<HTMLInputElement>) => void,
+  onFocus: (SyntheticFocusEvent<HTMLInputElement>) => void,
+  onShow: (any) => void,
+  onTouchTap: (SyntheticUIEvent<HTMLInputElement>) => void,
+  shouldDisableDate: (Date) => boolean,
+  style: Node,
+  value: Date,
+}
+
+type DatePickerState = {
+  date: Date | null,
+  displayDate: string,
+  dialogDate: Date | null,
+  errorMessage: ?string,
+}
+
+class DatePicker extends Component<DatePickerProps, DatePickerState> {
   static defaultProps = {
     autoOk: false,
     container: 'dialog',
     disabled: false,
+    minDate: getDefaultMinDate(),
+    maxDate: getDefaultMaxDate(),
     disableYearSelection: false,
     firstDayOfWeek: 1,
-    style: {}
+    style: {},
   }
 
   static contextTypes = {
-    muiTheme: PropTypes.object.isRequired
+    muiTheme: React.PropTypes.object.isRequired,
   }
 
   state = {
-    date: undefined,
-    displayDate: ''
+    date: null,
+    displayDate: '',
+    dialogDate: null,
+    errorMessage: '',
   }
 
   componentWillMount() {
@@ -65,18 +91,18 @@ class DatePicker extends Component {
     const dateValue = this.isControlled() ? this.getControlledDate() : defaultDate
     this.setState({
       date: dateValue,
-      displayDate: dateValue ? moment(dateValue).format(defaultFormat) : ''
+      displayDate: dateValue ? moment(dateValue).format(defaultFormat) : '',
     })
   }
 
-  componentWillReceiveProps(nextProps) {
+  componentWillReceiveProps(nextProps: DatePickerProps) {
     if (this.isControlled() && nextProps.value !== null) {
       const newDate = this.getControlledDate(nextProps)
       if (!isEqualDate(this.state.date, newDate)) {
         const { defaultFormat } = this.props
         this.setState({
           date: newDate,
-          displayDate: moment(newDate, defaultFormat).format(defaultFormat)
+          displayDate: newDate ? moment(newDate).format(defaultFormat) : '',
         })
       }
     }
@@ -86,34 +112,35 @@ class DatePicker extends Component {
     return this.state.date
   }
 
-  getControlledDate(props = this.props) {
+  getControlledDate(props: DatePickerProps = this.props) {
     if (props.value instanceof Date) {
       return props.value
     }
   }
+  dialogWindow: ?Node
 
   focus() {
     this.openDialog()
   }
 
-  handleAccept = date => {
+  handleAccept = (date: Date) => {
     if (!this.isControlled()) {
       this.setState({
-        date: date
+        date: date,
       })
     }
     if (this.props.onChange) {
-      this.props.onChange(null, date)
+      this.props.onChange('', date, '')
     }
   }
 
-  handleFocus = event => {
+  handleFocus = (event: SyntheticFocusEvent<HTMLInputElement>) => {
     if (this.props.onFocus) {
       this.props.onFocus(event)
     }
   }
 
-  handleClick = event => {
+  handleClick = (event: SyntheticUIEvent<HTMLInputElement>) => {
     if (!this.props.disabled) {
       setTimeout(() => {
         this.openDialog()
@@ -121,65 +148,54 @@ class DatePicker extends Component {
     }
   }
 
-  isValidDate = value => value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) && moment(value, this.props.defaultFormat).isValid()
-
-  handleKeyUp = event => {
-    const value = this.state.displayDate
-    let displayDate = value
-      .replace(/^(\d\d)(\d)$/g, '$1/$2')
-      .replace(/^(\d\d\/\d\d)(\d+)$/g, '$1/$2')
-      .replace(/[^\d\/]/g, '')
-    const { formatDate, defaultFormat } = this.props
-    const isValidDate = this.isValidDate(displayDate)
-    if (isValidDate) {
-      displayDate = formatDate ? formatDate(displayDate) : this.formatDate(new Date(displayDate))
-      const date = formatDate ? moment(displayDate, defaultFormat).toDate() : this.formatDate(new Date(displayDate))
-      this.setState({
-        date,
-        displayDate
-      })
-    } else {
-      this.setState({
-        displayDate
-      })
-    }
-  }
-
-  handleTextFieldChange = value => {
+  handleTextFieldChange = (value: string) => {
+    const prevState = this.state
+    const { minDate, maxDate, formatDate, defaultFormat, onChange } = this.props
+    const { displayDate, date = prevState.date, errorMessage } = validateDateAndGetErrorMesssage(
+      value,
+      minDate,
+      maxDate,
+      formatDate || this.formatDate,
+      defaultFormat,
+    )
     this.setState({
-      displayDate: value
+      ...prevState,
+      date,
+      displayDate,
+      errorMessage,
     })
+    onChange && onChange(displayDate, date, errorMessage)
   }
-
   isControlled() {
     return this.props.hasOwnProperty('value')
   }
 
   openDialog() {
-    if (this.state.date !== undefined) {
+    const dialogDate = this.getDate()
+    if (dialogDate !== null) {
       this.setState(
         {
-          dialogDate: this.getDate()
+          dialogDate,
         },
-        this.dialogWindow.show
+        () => this.dialogWindow && this.dialogWindow.show(),
       )
     } else {
       this.setState(
         {
-          dialogDate: new Date()
+          dialogDate: new Date(),
         },
-        this.dialogWindow.show
+        () => this.dialogWindow && this.dialogWindow.show(),
       )
     }
   }
 
-  formatDate = date => {
+  formatDate = (date) => {
     if (this.props.locale) {
       const DateTimeFormat = this.props.DateTimeFormat || dateTimeFormat
       return new DateTimeFormat(this.props.locale, {
         day: 'numeric',
         month: 'numeric',
-        year: 'numeric'
+        year: 'numeric',
       }).format(date)
     } else {
       return formatIso(date)
@@ -209,8 +225,6 @@ class DatePicker extends Component {
       onTouchTap, // eslint-disable-line no-unused-vars
       shouldDisableDate,
       style,
-      textFieldStyle,
-      wordings,
       defaultFormat,
       formatDate: formatDateProp,
       ...other
@@ -220,18 +234,18 @@ class DatePicker extends Component {
     const formatDate = formatDateProp || this.formatDate
     const renderDateIcon = renderIf(disabled === false)
     return (
-      <div className={className} style={prepareStyles(Object.assign({}, style))}>
+      <div className={className} style={prepareStyles(style)}>
         <TextField
           {...other}
+          errorMessage={this.state.errorMessage}
           value={this.state.displayDate}
           disabled={disabled}
           onChanged={this.handleTextFieldChange}
-          onKeyUp={this.handleKeyUp}
           onRenderSuffix={() =>
             renderDateIcon(
               <IconButton style={{ margin: '-15px' }} onTouchTap={this.handleClick}>
                 <i className="material-icons md-dark md-18">date_range</i>
-              </IconButton>
+              </IconButton>,
             )
           }
         />
@@ -252,11 +266,10 @@ class DatePicker extends Component {
           onAccept={this.handleAccept}
           onShow={onShow}
           onDismiss={onDismiss}
-          ref={elem => {
+          ref={(elem) => {
             this.dialogWindow = elem
           }}
           shouldDisableDate={shouldDisableDate}
-          wordings={wordings}
         />
       </div>
     )
