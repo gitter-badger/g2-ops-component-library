@@ -14,7 +14,9 @@ type FilterSwitcherPropType = {
 
 const FilterSwitcher = ({ open = false, onFilterOpen }: FilterSwitcherPropType) => (
   <div className={cn('FilterSwitcher', { active: open })}>
-    <IconButton onClick={onFilterOpen}><FilterSwitcherIcon /></IconButton>
+    <IconButton onClick={onFilterOpen}>
+      <FilterSwitcherIcon />
+    </IconButton>
   </div>
 )
 

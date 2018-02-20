@@ -10,7 +10,7 @@ import './quick-filter.component.scss'
 
 type QuickFilterPropType = {
   quickFilter: QuickFilterType,
-  onQuickFiltersChange: string => void,
+  onQuickFiltersChange: (string) => void,
   isSelected: boolean,
 }
 

@@ -44,7 +44,7 @@ describe('<QuickFilters />', () => {
       tree
         .find('QuickFilter')
         .at(1)
-        .prop('onQuickFiltersChange')('quickFilterTwo')
+        .prop('onQuickFiltersChange')('quickFilterTwo'),
     )
     expect(tree.state('selectedQuickFilter')).toBe('quickFilterTwo')
   })

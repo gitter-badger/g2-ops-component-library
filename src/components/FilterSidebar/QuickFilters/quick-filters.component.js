@@ -9,7 +9,7 @@ import QuickFilter from './quick-filter.component'
 type QuickFiltersPropType = {
   quickFilters: Array<QuickFilterType>,
   selectedQuickFilter: string,
-  onQuickFiltersChange?: string => void,
+  onQuickFiltersChange?: (string) => void,
 }
 
 type QuickFiltersStateType = {

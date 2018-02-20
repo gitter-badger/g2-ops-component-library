@@ -291,7 +291,7 @@ class AutoSelect extends Component {
       selectedOption: this.selectedOption(),
       afterClickOption: this.afterSelectOption,
       scrollToIndex,
-      optionStyleProps,
+      optionStyleProps
     }
 
     return (
