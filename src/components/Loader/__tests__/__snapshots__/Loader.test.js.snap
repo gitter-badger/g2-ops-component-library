@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Loader /> should render properly 1`] = `
+<div
+  className="ms-Spinner root spinner"
+>
+  <div
+    className="ms-Spinner-circle circle ms-Spinner--medium circleIsMedium"
+  />
+</div>
+`;

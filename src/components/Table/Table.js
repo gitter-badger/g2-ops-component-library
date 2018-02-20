@@ -1,3 +1,7 @@
+// @flow
+
+import type { Node } from 'react'
+
 import React from 'react'
 import {
   Table as MuiTable,
@@ -6,22 +10,11 @@ import {
   TableHeader,
   TableHeaderColumn,
   TableRow,
-  TableRowColumn
+  TableRowColumn,
 } from 'material-ui/Table'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-const Table = (props) => (
-  <MuiTable {...props}>
-    {props.children}
-  </MuiTable>
-)
+const Table = <T: { children: Node }>(props: T) => <MuiTable {...props}>{props.children}</MuiTable>
 
 export default wrapMuiContext(Table)
-export {
-  TableBody,
-  TableFooter,
-  TableHeader,
-  TableHeaderColumn,
-  TableRow,
-  TableRowColumn
-}
+export { TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn }
