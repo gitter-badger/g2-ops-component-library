@@ -6,7 +6,6 @@ import React from 'react'
 import Checkbox from 'material-ui/Checkbox'
 import './filter-value.component.scss'
 
-
 type FilterValuePropType = {
   filterOption: FilterValueType,
   onFilterValueChecked: (boolean, string) => void,

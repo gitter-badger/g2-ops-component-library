@@ -18,10 +18,7 @@ type FilterValueListStateType = {
   selectedFilterLabels: Array<string>,
 }
 
-class FilterValueList extends Component<
-  FilterValueListPropType,
-  FilterValueListStateType
-> {
+class FilterValueList extends Component<FilterValueListPropType, FilterValueListStateType> {
   state = {
     selectedFilterLabels: [],
   }
@@ -41,10 +38,10 @@ class FilterValueList extends Component<
 
   onFilterValueChecked = (isFilterSelected: boolean, filterLabel: string) => {
     const filteredSelectedFilterLabels = this.state.selectedFilterLabels.filter(
-      (selectedFilter) => selectedFilter !== filterLabel
+      (selectedFilter) => selectedFilter !== filterLabel,
     )
     const modifiedFilterLabels = isFilterSelected
-      ? [...filteredSelectedFilterLabels, filterLabel]
+      ? [ ...filteredSelectedFilterLabels, filterLabel ]
       : filteredSelectedFilterLabels
     this.setState(() => ({ selectedFilterLabels: modifiedFilterLabels }))
     if (this.props.onFilterValueChange) {
@@ -57,10 +54,7 @@ class FilterValueList extends Component<
     return (
       <div className="FilterValueList">
         {filterOptions.map((filterOption) => (
-          <FilterValue
-            filterOption={filterOption}
-            onFilterValueChecked={this.onFilterValueChecked}
-          />
+          <FilterValue filterOption={filterOption} onFilterValueChecked={this.onFilterValueChecked} />
         ))}
       </div>
     )

@@ -1,8 +1,8 @@
 CurrencyField Example:
 
 ```js
-  const companyCodeMapper = require('./countryMapper').default;
-  const countryCode = 'DE';
+const companyCodeMapper = require('./countryMapper').default;
+const countryCode = 'DE';
 
 <div style={{ maxWidth: '300px' }}>
   <CurrencyField

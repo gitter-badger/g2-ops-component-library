@@ -10,9 +10,9 @@ initialState = { hideDialog: true };
     label={'Show Dialog'}
   />
   <DialogBox
-    title={'Are you sure you want to move away from this screen?'}
     hideDialog={state.hideDialog}
-    dialogType="normal"
+    dialogType="confirmation"
+    isBlocking={false}
     onDismiss={() => setState({ hideDialog: true })}
     renderFooter={() => (
       <div style={{ display: 'flex', float: 'right' }}>
@@ -29,7 +29,9 @@ initialState = { hideDialog: true };
         />
       </div>
     )}
-  />
+    >
+    Are you sure you want to move away from this screen?
+  </DialogBox>
 </div>
 ```
 
@@ -47,7 +49,7 @@ initialState = { hideDialog: true };
   <DialogBox
     title={'Dialog with Content'}
     hideDialog={state.hideDialog}
-    dialogType="normal"
+    isBlocking={false}
     onDismiss={() => setState({ hideDialog: true })}
     footerRenderer={() => (
       <div style={{ display: 'flex', float: 'right' }}>

@@ -21,13 +21,7 @@ const filterDefaultProps = {
   filterStyle: {},
 }
 
-const Filter = ({
-  filter,
-  filterStyle,
-  filterHeaderStyle,
-  filterContentStyle,
-  onFilterChange,
-}: FilterPropType) => (
+const Filter = ({ filter, filterStyle, filterHeaderStyle, filterContentStyle, onFilterChange }: FilterPropType) => (
   <Card containerStyle={{ ...filterStyles.filterStyle, ...filterStyle }}>
     <CardHeader
       title={filter.label}
@@ -36,10 +30,7 @@ const Filter = ({
       showExpandableButton
       style={{ ...filterStyles.filterHeaderStyle, ...filterHeaderStyle }}
     />
-    <CardText
-      expandable
-      style={{ ...filterStyles.filterContentStyle, ...filterContentStyle }}
-    >
+    <CardText expandable style={{ ...filterStyles.filterContentStyle, ...filterContentStyle }}>
       <FilterValueList
         filterOptions={filter.filterOptions}
         name={filter.name}
