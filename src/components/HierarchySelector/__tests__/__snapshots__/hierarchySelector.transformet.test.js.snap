@@ -1,0 +1,141 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Handle Transformation handle empty options 1`] = `
+Array [
+  Object {
+    "haveChildren": false,
+    "isDisabled": false,
+    "label": "Asia",
+    "name": "asia",
+    "path": Array [
+      "Asia",
+    ],
+  },
+]
+`;
+
+exports[`Handle Transformation properly transform nested option 1`] = `
+Array [
+  Object {
+    "haveChildren": true,
+    "isDisabled": false,
+    "label": "Asia",
+    "name": "asia",
+    "path": Array [
+      "Asia",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "isDisabled": false,
+    "label": "India",
+    "name": "india",
+    "path": Array [
+      "Asia",
+      "India",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "isDisabled": false,
+    "label": "Telangana",
+    "name": "telangana",
+    "path": Array [
+      "Asia",
+      "India",
+      "Telangana",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "isDisabled": false,
+    "label": "China",
+    "name": "china",
+    "path": Array [
+      "Asia",
+      "China",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "isDisabled": false,
+    "label": "Beijing",
+    "name": "beijing",
+    "path": Array [
+      "Asia",
+      "China",
+      "Beijing",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "isDisabled": false,
+    "label": "North America",
+    "name": "northAmerica",
+    "path": Array [
+      "North America",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "isDisabled": false,
+    "label": "USA",
+    "name": "usa",
+    "path": Array [
+      "North America",
+      "USA",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "isDisabled": false,
+    "label": "Texas",
+    "name": "texas",
+    "path": Array [
+      "North America",
+      "USA",
+      "Texas",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "isDisabled": false,
+    "label": "Arkansas",
+    "name": "arkansas",
+    "path": Array [
+      "North America",
+      "USA",
+      "Arkansas",
+    ],
+  },
+  Object {
+    "haveChildren": true,
+    "isDisabled": false,
+    "label": "Africa",
+    "name": "africa",
+    "path": Array [
+      "Africa",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "isDisabled": false,
+    "label": "Egypt",
+    "name": "egypt",
+    "path": Array [
+      "Africa",
+      "Egypt",
+    ],
+  },
+  Object {
+    "haveChildren": false,
+    "isDisabled": false,
+    "label": "Libya",
+    "name": "libya",
+    "path": Array [
+      "Africa",
+      "Libya",
+    ],
+  },
+]
+`;
