@@ -7,6 +7,7 @@ type validateReturnValue = {
   date: Date | null,
   errorMessage: string,
 }
+export const US_DATE_FORMAT = 'MM/DD/YYYY'
 
 export function isValidDateRegex(value: string, defaultFormat: string): Array<any> {
   return value.match(/^\d{1,2}\/\d{1,2}\/\d{4}$/) || []
@@ -76,4 +77,15 @@ export function validateDateAndGetErrorMesssage(
     }
   }
   return { displayDate, date, errorMessage }
+}
+
+export function formatDate(date: string, currentFormat: string, format: string = US_DATE_FORMAT): string {
+  return moment(date, currentFormat).format(format)
+}
+
+export const daysElapsedUntilToday = (givenDate: string, defaultFormat: string = US_DATE_FORMAT) => {
+  // get number of days between given date and today's date
+  const givenDateTime = moment.utc(givenDate, defaultFormat)
+  const todayDateTime = moment.utc()
+  return todayDateTime.diff(givenDateTime, 'days') + 1
 }

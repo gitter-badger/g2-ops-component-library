@@ -1,14 +1,20 @@
 export type OptionType = {
-  name: string,
+  id: string,
   label: string,
-  isDisabled?: boolean,
+  level: string,
   options: Array<OptionType>,
+  isDisabled?: boolean,
+  display: any,
 }
 
 export type FlattenedOptionType = {
-  name: string,
+  id: string,
   label: string,
-  isDisabled: boolean,
+  level: string,
+  isDisabled?: boolean,
+  display: any,
   path: Array<string>,
+  isExpired?: boolean,
   haveChildren: boolean,
+  hierarchy: Object,
 }

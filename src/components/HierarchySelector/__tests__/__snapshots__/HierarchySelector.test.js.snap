@@ -3,8 +3,24 @@
 exports[`<HierarchySelector /> should filter options available based on entered text 1`] = `
 Array [
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Telangana
+      </span>
+    </div>,
     "haveChildren": false,
-    "isDisabled": false,
+    "hierarchy": Object {
+      "undefined": undefined,
+    },
+    "isExpired": false,
     "label": "Telangana",
     "name": "telangana",
     "path": Array [
@@ -14,8 +30,24 @@ Array [
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Texas
+      </span>
+    </div>,
     "haveChildren": false,
-    "isDisabled": false,
+    "hierarchy": Object {
+      "undefined": undefined,
+    },
+    "isExpired": false,
     "label": "Texas",
     "name": "texas",
     "path": Array [
@@ -60,9 +92,9 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
               onInput={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
-              title=""
+              title="Asia"
               type="text"
-              value=""
+              value="Asia"
               width={200}
             />
           </div>
@@ -73,7 +105,7 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
       data-uname={undefined}
       name="AutoSelect Field"
       type="hidden"
-      value=""
+      value="Asia"
     />
   </div>
 </div>
@@ -81,8 +113,24 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
 
 exports[`<HierarchySelector /> should save selected value when value is selected from dropdown 1`] = `
 Object {
+  "display": <div
+    className="hierarchyOption"
+  >
+    <span
+      style={
+        Object {
+          "color": "black",
+        }
+      }
+    >
+      Telangana
+    </span>
+  </div>,
   "haveChildren": false,
-  "isDisabled": false,
+  "hierarchy": Object {
+    "undefined": undefined,
+  },
+  "isExpired": false,
   "label": "Telangana",
   "name": "telangana",
   "path": Array [

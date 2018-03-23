@@ -3,12 +3,29 @@
 exports[`Handle Transformation handle empty options 1`] = `
 Array [
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        company1
+      </span>
+    </div>,
     "haveChildren": false,
-    "isDisabled": false,
-    "label": "Asia",
-    "name": "asia",
+    "hierarchy": Object {
+      "undefined": undefined,
+    },
+    "isExpired": false,
+    "label": "company1",
+    "name": "company1",
+    "options": Array [],
     "path": Array [
-      "Asia",
+      "company1",
     ],
   },
 ]
@@ -17,124 +34,675 @@ Array [
 exports[`Handle Transformation properly transform nested option 1`] = `
 Array [
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Cecy's Towing Company
+      </span>
+    </div>,
+    "expiresOn": "04/15/2018",
     "haveChildren": true,
-    "isDisabled": false,
-    "label": "Asia",
-    "name": "asia",
+    "hierarchy": Object {
+      "0": undefined,
+    },
+    "isExpired": false,
+    "label": "Cecy's Towing Company",
+    "level": 0,
+    "name": "company1",
+    "options": Array [
+      Object {
+        "label": "Cecy's Group",
+        "level": 1,
+        "name": "group1",
+        "options": Array [
+          Object {
+            "hasPcard": true,
+            "isDispatchable": true,
+            "label": "Manuel R Cero fgfg jhjh kjkj hjhj hjh jhjhj jh jh jhj j j hj jh jh j hj hj j jh jh jh j hj4",
+            "level": 2,
+            "name": "driver1",
+          },
+          Object {
+            "label": "Driver 2",
+            "level": 2,
+            "name": "driver2",
+          },
+          Object {
+            "hasPcard": true,
+            "label": "Driver 3",
+            "level": 2,
+            "name": "driver2",
+          },
+        ],
+      },
+      Object {
+        "isDisabled": true,
+        "label": "Cecy's Group2",
+        "level": 1,
+        "name": "group2",
+        "options": Array [
+          Object {
+            "label": "Marc Jacobs",
+            "level": 2,
+            "name": "driver1",
+          },
+        ],
+      },
+    ],
     "path": Array [
-      "Asia",
+      "Cecy's Towing Company",
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Cecy's Group
+      </span>
+    </div>,
     "haveChildren": true,
-    "isDisabled": false,
-    "label": "India",
-    "name": "india",
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+    },
+    "isExpired": false,
+    "label": "Cecy's Group",
+    "level": 1,
+    "name": "group1",
+    "options": Array [
+      Object {
+        "hasPcard": true,
+        "isDispatchable": true,
+        "label": "Manuel R Cero fgfg jhjh kjkj hjhj hjh jhjhj jh jh jhj j j hj jh jh j hj hj j jh jh jh j hj4",
+        "level": 2,
+        "name": "driver1",
+      },
+      Object {
+        "label": "Driver 2",
+        "level": 2,
+        "name": "driver2",
+      },
+      Object {
+        "hasPcard": true,
+        "label": "Driver 3",
+        "level": 2,
+        "name": "driver2",
+      },
+    ],
     "path": Array [
-      "Asia",
-      "India",
+      "Cecy's Towing Company",
+      "Cecy's Group",
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Manuel R Cero fgfg jhjh kjkj hjhj hjh jhjhj jh jh jhj j j hj jh jh j hj hj j jh jh jh j hj4
+      </span>
+    </div>,
+    "hasPcard": true,
     "haveChildren": false,
-    "isDisabled": false,
-    "label": "Telangana",
-    "name": "telangana",
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+      "2": undefined,
+    },
+    "isDispatchable": true,
+    "isExpired": false,
+    "label": "Manuel R Cero fgfg jhjh kjkj hjhj hjh jhjhj jh jh jhj j j hj jh jh j hj hj j jh jh jh j hj4",
+    "level": 2,
+    "name": "driver1",
     "path": Array [
-      "Asia",
-      "India",
-      "Telangana",
+      "Cecy's Towing Company",
+      "Cecy's Group",
+      "Manuel R Cero fgfg jhjh kjkj hjhj hjh jhjhj jh jh jhj j j hj jh jh j hj hj j jh jh jh j hj4",
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Driver 2
+      </span>
+    </div>,
+    "haveChildren": false,
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+      "2": undefined,
+    },
+    "isExpired": false,
+    "label": "Driver 2",
+    "level": 2,
+    "name": "driver2",
+    "path": Array [
+      "Cecy's Towing Company",
+      "Cecy's Group",
+      "Driver 2",
+    ],
+  },
+  Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Driver 3
+      </span>
+    </div>,
+    "hasPcard": true,
+    "haveChildren": false,
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+      "2": undefined,
+    },
+    "isExpired": false,
+    "label": "Driver 3",
+    "level": 2,
+    "name": "driver2",
+    "path": Array [
+      "Cecy's Towing Company",
+      "Cecy's Group",
+      "Driver 3",
+    ],
+  },
+  Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "grey",
+          }
+        }
+      >
+        Cecy's Group2
+      </span>
+    </div>,
     "haveChildren": true,
-    "isDisabled": false,
-    "label": "China",
-    "name": "china",
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+    },
+    "isDisabled": true,
+    "isExpired": false,
+    "label": "Cecy's Group2",
+    "level": 1,
+    "name": "group2",
+    "options": Array [
+      Object {
+        "label": "Marc Jacobs",
+        "level": 2,
+        "name": "driver1",
+      },
+    ],
     "path": Array [
-      "Asia",
-      "China",
+      "Cecy's Towing Company",
+      "Cecy's Group2",
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Marc Jacobs
+      </span>
+    </div>,
     "haveChildren": false,
-    "isDisabled": false,
-    "label": "Beijing",
-    "name": "beijing",
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+      "2": undefined,
+    },
+    "isExpired": false,
+    "label": "Marc Jacobs",
+    "level": 2,
+    "name": "driver1",
     "path": Array [
-      "Asia",
-      "China",
-      "Beijing",
+      "Cecy's Towing Company",
+      "Cecy's Group2",
+      "Marc Jacobs",
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Haul O Way
+      </span>
+    </div>,
+    "expiresOn": "04/15/2018",
     "haveChildren": true,
-    "isDisabled": false,
-    "label": "North America",
-    "name": "northAmerica",
+    "hierarchy": Object {
+      "0": undefined,
+    },
+    "isExpired": false,
+    "label": "Haul O Way",
+    "level": 0,
+    "name": "company2",
+    "options": Array [
+      Object {
+        "label": "Haul O' Way",
+        "level": 1,
+        "name": "group1",
+        "options": Array [
+          Object {
+            "label": "Jason",
+            "level": 2,
+            "name": "driver1",
+          },
+        ],
+      },
+      Object {
+        "label": "Haul O' Way Group",
+        "level": 1,
+        "name": "group2",
+        "options": Array [
+          Object {
+            "isDisabled": true,
+            "label": "Anderson",
+            "level": 2,
+            "name": "driver2",
+          },
+        ],
+      },
+    ],
     "path": Array [
-      "North America",
+      "Haul O Way",
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Haul O' Way
+      </span>
+    </div>,
     "haveChildren": true,
-    "isDisabled": false,
-    "label": "USA",
-    "name": "usa",
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+    },
+    "isExpired": false,
+    "label": "Haul O' Way",
+    "level": 1,
+    "name": "group1",
+    "options": Array [
+      Object {
+        "label": "Jason",
+        "level": 2,
+        "name": "driver1",
+      },
+    ],
     "path": Array [
-      "North America",
-      "USA",
+      "Haul O Way",
+      "Haul O' Way",
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Jason
+      </span>
+    </div>,
     "haveChildren": false,
-    "isDisabled": false,
-    "label": "Texas",
-    "name": "texas",
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+      "2": undefined,
+    },
+    "isExpired": false,
+    "label": "Jason",
+    "level": 2,
+    "name": "driver1",
     "path": Array [
-      "North America",
-      "USA",
-      "Texas",
+      "Haul O Way",
+      "Haul O' Way",
+      "Jason",
     ],
   },
   Object {
-    "haveChildren": false,
-    "isDisabled": false,
-    "label": "Arkansas",
-    "name": "arkansas",
-    "path": Array [
-      "North America",
-      "USA",
-      "Arkansas",
-    ],
-  },
-  Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Haul O' Way Group
+      </span>
+    </div>,
     "haveChildren": true,
-    "isDisabled": false,
-    "label": "Africa",
-    "name": "africa",
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+    },
+    "isExpired": false,
+    "label": "Haul O' Way Group",
+    "level": 1,
+    "name": "group2",
+    "options": Array [
+      Object {
+        "isDisabled": true,
+        "label": "Anderson",
+        "level": 2,
+        "name": "driver2",
+      },
+    ],
     "path": Array [
-      "Africa",
+      "Haul O Way",
+      "Haul O' Way Group",
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "grey",
+          }
+        }
+      >
+        Anderson
+      </span>
+    </div>,
     "haveChildren": false,
-    "isDisabled": false,
-    "label": "Egypt",
-    "name": "egypt",
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+      "2": undefined,
+    },
+    "isDisabled": true,
+    "isExpired": false,
+    "label": "Anderson",
+    "level": 2,
+    "name": "driver2",
     "path": Array [
-      "Africa",
-      "Egypt",
+      "Haul O Way",
+      "Haul O' Way Group",
+      "Anderson",
     ],
   },
   Object {
-    "haveChildren": false,
-    "isDisabled": false,
-    "label": "Libya",
-    "name": "libya",
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        ABC Company
+      </span>
+    </div>,
+    "expiresOn": "04/15/2018",
+    "haveChildren": true,
+    "hierarchy": Object {
+      "0": undefined,
+    },
+    "isExpired": false,
+    "label": "ABC Company",
+    "level": 0,
+    "name": "company3",
+    "options": Array [
+      Object {
+        "label": "ABC Group",
+        "level": 1,
+        "name": "group1",
+        "options": Array [
+          Object {
+            "label": "Jason",
+            "level": 2,
+            "name": "driver1",
+          },
+        ],
+      },
+    ],
     "path": Array [
-      "Africa",
-      "Libya",
+      "ABC Company",
+    ],
+  },
+  Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        ABC Group
+      </span>
+    </div>,
+    "haveChildren": true,
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+    },
+    "isExpired": false,
+    "label": "ABC Group",
+    "level": 1,
+    "name": "group1",
+    "options": Array [
+      Object {
+        "label": "Jason",
+        "level": 2,
+        "name": "driver1",
+      },
+    ],
+    "path": Array [
+      "ABC Company",
+      "ABC Group",
+    ],
+  },
+  Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Jason
+      </span>
+    </div>,
+    "haveChildren": false,
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+      "2": undefined,
+    },
+    "isExpired": false,
+    "label": "Jason",
+    "level": 2,
+    "name": "driver1",
+    "path": Array [
+      "ABC Company",
+      "ABC Group",
+      "Jason",
+    ],
+  },
+  Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        XYZ Company
+      </span>
+    </div>,
+    "expiresOn": "01/15/2018",
+    "haveChildren": true,
+    "hierarchy": Object {
+      "0": undefined,
+    },
+    "isExpired": false,
+    "label": "XYZ Company",
+    "level": 0,
+    "name": "company4",
+    "options": Array [
+      Object {
+        "label": "XYZ Group",
+        "level": 1,
+        "name": "group1",
+        "options": Array [
+          Object {
+            "label": "Jason",
+            "level": 2,
+            "name": "driver1",
+          },
+        ],
+      },
+    ],
+    "path": Array [
+      "XYZ Company",
+    ],
+  },
+  Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        XYZ Group
+      </span>
+    </div>,
+    "haveChildren": true,
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+    },
+    "isExpired": false,
+    "label": "XYZ Group",
+    "level": 1,
+    "name": "group1",
+    "options": Array [
+      Object {
+        "label": "Jason",
+        "level": 2,
+        "name": "driver1",
+      },
+    ],
+    "path": Array [
+      "XYZ Company",
+      "XYZ Group",
+    ],
+  },
+  Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "black",
+          }
+        }
+      >
+        Jason
+      </span>
+    </div>,
+    "haveChildren": false,
+    "hierarchy": Object {
+      "0": undefined,
+      "1": undefined,
+      "2": undefined,
+    },
+    "isExpired": false,
+    "label": "Jason",
+    "level": 2,
+    "name": "driver1",
+    "path": Array [
+      "XYZ Company",
+      "XYZ Group",
+      "Jason",
     ],
   },
 ]

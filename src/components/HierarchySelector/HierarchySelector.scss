@@ -1,1 +1,48 @@
+.hierarchyOption {
+  display: flex;
+  flex-direction: row;
+  font-size: 12px;
+  font-weight: 600;
+  padding-left: 0em;
+  span {
+    padding-right: 0.5em;
+  }
+  .separator {
+    padding-left: 0.5em;
+    border-left: 1px solid;
+  }
+  .material-icons {
+    font-size: 15px;
+  }
+  text-overflow: ellipsis;
+}
+.filtered {
+  color: gray;
+  padding-right: 10px;
+  font-size: 12px;
+  font-weight: 600;
+}
 
+.Icon {
+  width: 24px;
+  height: 24px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  margin: 0 3px;
+  &.CardIcon {
+    height: 15px;
+    width: 30px;
+    background-color: #e6e6e5;
+    .circle {
+      border-radius: 20px;
+      width: 10px;
+      height: 10px;
+      background-color: red;
+      &.orange {
+        background-color: orange;
+      }
+    }
+  }
+}

@@ -7,6 +7,8 @@ exports[`<Checkbox /> should render properly 1`] = `
   aria-disabled={undefined}
   aria-label={undefined}
   aria-labelledby={undefined}
+  aria-posinset={undefined}
+  aria-setsize={undefined}
   className="ms-Checkbox is-enabled css-32"
   disabled={undefined}
   id="checkbox-0"
@@ -26,7 +28,6 @@ exports[`<Checkbox /> should render properly 1`] = `
     >
       <i
         aria-hidden={true}
-        aria-label={undefined}
         className="root-37 css-35"
         data-icon-name="CheckMark"
         role="presentation"
