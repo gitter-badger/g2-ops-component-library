@@ -11,12 +11,11 @@ import AutoSelect from 'components/AutoSelect'
 
 import { wrapMuiContext } from '../../wrapMuiContext'
 import { flattenNestedOptions } from './hierarchySelector.transformer'
-import { HierarchyType } from '../../../types/HierarchySelector'
 
 type HierarchySelectorPropType = {
   options: OptionsType,
   onFocus: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
-  value: HierarchyType,
+  value: number,
   renderMethod: Function,
   onChange: Function,
 }
