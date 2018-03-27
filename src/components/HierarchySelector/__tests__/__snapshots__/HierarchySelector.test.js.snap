@@ -9,7 +9,7 @@ Array [
       <span
         style={
           Object {
-            "color": "black",
+            "color": "grey",
           }
         }
       >
@@ -21,6 +21,7 @@ Array [
       "undefined": undefined,
     },
     "isExpired": false,
+    "isSelectable": false,
     "label": "Telangana",
     "name": "telangana",
     "path": Array [
@@ -36,7 +37,7 @@ Array [
       <span
         style={
           Object {
-            "color": "black",
+            "color": "grey",
           }
         }
       >
@@ -48,6 +49,7 @@ Array [
       "undefined": undefined,
     },
     "isExpired": false,
+    "isSelectable": false,
     "label": "Texas",
     "name": "texas",
     "path": Array [

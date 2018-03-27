@@ -25,6 +25,7 @@ const flattenOption = (
     {
       ...option,
       isExpired: isOptionExpired,
+      isSelectable: !isOptionExpired && option.dispatch_flag === true,
       path: currentPath,
       hierarchy: currHierarchy,
       haveChildren: !isBlank(option.options),

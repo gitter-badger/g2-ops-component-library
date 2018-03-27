@@ -4,7 +4,7 @@ import renderIf from 'render-if'
 import { formatDate, daysElapsedUntilToday } from '../DatePicker/dateUtils'
 import HierarchySelector from './HierarchySelector'
 import './HierarchySelector.scss'
-import { FlattenedOptionType, HierarchyType } from '../../../types/HierarchySelector'
+import { FlattenedOptionType, OptionType } from '../../../types/HierarchySelector'
 import towProvidersJson from './towProviders.json'
 
 // G/RTOW - G/RTOWDG - ALLEN MARQUEZ
@@ -27,7 +27,7 @@ export const CardIcon = () => (
 
 export const renderMethod = (option, isExpired) => {
   const renderIfCompany = renderIf(option.level === 'company' && option.expiresOn)
-  const labelColor = option.isDisabled ? 'grey' : 'black'
+  const labelColor = option.dispatch_flag === true ? 'black' : 'grey'
   const expiryDateColor = isExpired ? 'red' : 'black'
   const renderIfCard = renderIf(option.p_card_flag === 'Y')
   return (
@@ -51,22 +51,22 @@ export const renderMethod = (option, isExpired) => {
 const isExceeded = (givenDate: string, numberOfDays: number) => daysElapsedUntilToday(givenDate) > numberOfDays
 
 function transformPersonnelOption(option) {
-  const componentOption = {
+  const componentOption: OptionType = {
     id: option.vendor_personnel_id,
     level: 'driver',
     label: `${option.first_name} ${option.last_name}`,
-    isDisabled: option.dispatch_flag === false || false,
+    dispatch_flag: option.dispatch_flag,
     p_card_flag: option.p_card_flag,
   }
   return componentOption
 }
 
 function transformGroupOption(option) {
-  const componentOption = {
+  const componentOption: OptionType = {
     id: option.dispatch_group_id,
     level: 'group',
     label: option.dispatch_group_name,
-    isDisabled: option.dispatch_flag === false || false,
+    dispatch_flag: option.dispatch_flag,
     p_card_flag: option.p_card_flag,
     options: option.personnel.map(transformPersonnelOption),
   }
@@ -74,16 +74,16 @@ function transformGroupOption(option) {
 }
 
 function transformVendorOption(option) {
-  const formattedDate =
+  const formattedDate: OptionType =
     option.insurance_expiration_date && formatDate(option.insurance_expiration_date, 'YYYY-MM-DDTHH:mm:sss Z')
   const isVendorExpired = formattedDate && isExceeded(formattedDate, 30)
   const componentOption = {
     id: option.vendor_id,
     level: 'company',
     label: option.vendor_short_name,
+    dispatch_flag: option.dispatch_flag,
     expiresOn: formattedDate,
     isExpired: !!isVendorExpired,
-    isDisabled: option.dispatch_flag === false || false,
     p_card_flag: option.p_card_flag,
     options: option.dispatch_groups.map(transformGroupOption),
   }

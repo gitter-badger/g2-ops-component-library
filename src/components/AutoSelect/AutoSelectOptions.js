@@ -26,7 +26,8 @@ let AutoSelectOption = ({
     onMouseEnter={() => onMouseEnter(option)}
     onMouseLeave={onMouseLeave}
     onClick={() => {
-      if (option && !option.isDisabled && !option.isExpired) {
+      const isOptionSelectable = option.hasOwnProperty('isSelectable') ? option.isSelectable : true
+      if (option && isOptionSelectable) {
         onClick(serializeOption(option))
         setTimeout(afterClickOption, 60)
       }

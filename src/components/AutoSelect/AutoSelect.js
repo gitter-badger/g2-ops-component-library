@@ -174,7 +174,8 @@ class AutoSelect extends PureComponent {
         if (options && options.length === 1) {
           selectedOption = options[0]
         }
-        if (active && selectedOption && !selectedOption.isDisabled && !selectedOption.isExpired) {
+        const isOptionSelectable = selectedOption.hasOwnProperty('isSelectable') ? selectedOption.isSelectable : true
+        if (active && selectedOption && isOptionSelectable) {
           e.stopPropagation()
           e.preventDefault()
           this.handleClickOption(serializeOption(selectedOption))
@@ -189,13 +190,8 @@ class AutoSelect extends PureComponent {
         if (options && options.length === 1) {
           selectedOption = options[0]
         }
-        if (
-          !active ||
-          !selectedOption ||
-          serializeOption(selectedOption) === value ||
-          selectedOption.isDisabled ||
-          selectedOption.isExpired
-        ) {
+        const isOptionSelectable = selectedOption.hasOwnProperty('isSelectable') ? selectedOption.isSelectable : true
+        if (!active || !selectedOption || serializeOption(selectedOption) === value || !isOptionSelectable) {
           return
         }
         e.stopPropagation()
