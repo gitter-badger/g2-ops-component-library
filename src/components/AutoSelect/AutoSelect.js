@@ -327,6 +327,7 @@ class AutoSelect extends PureComponent {
             this.textField = c
           }}
           onKeyDown={this.handleKeyDown}
+          // onRenderSuffix={() => <i className="material-icons">ic_arrow_drop_down</i>}
         />
         {active && (
           <div style={{ width: 'auto' }} onMouseDown={(e) => e.preventDefault()}>
