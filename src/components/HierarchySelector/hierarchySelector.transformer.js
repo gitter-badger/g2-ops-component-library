@@ -13,23 +13,19 @@ const flattenOption = (
   renderMethod: Function,
   path: Array<string> = [],
   hierarchy: Object = {},
-  parentOption = {},
 ): Array<FlattenedOptionType> => {
   if (isEmpty(option)) {
     return []
   }
   const currentPath = [ ...path, option.label ]
   const currHierarchy = { ...hierarchy, [option.level]: option.id }
-  const isOptionExpired = parentOption.isExpired ? true : !!option.isExpired
   const flattenedOption = [
     {
       ...option,
-      isExpired: isOptionExpired,
-      isSelectable: !isOptionExpired && option.dispatch_flag === true,
       path: currentPath,
       hierarchy: currHierarchy,
       haveChildren: !isBlank(option.options),
-      display: renderMethod(option, isOptionExpired),
+      display: renderMethod(option),
     },
   ]
   if (!option.options || isEmpty(option.options)) {
@@ -38,7 +34,7 @@ const flattenOption = (
   return option.options.reduce(
     (accu: Array<FlattenedOptionType>, childOption: OptionType) => [
       ...accu,
-      ...flattenOption(childOption, renderMethod, [ ...currentPath ], currHierarchy, flattenedOption[0]),
+      ...flattenOption(childOption, renderMethod, [ ...currentPath ], currHierarchy),
     ],
     flattenedOption,
   )

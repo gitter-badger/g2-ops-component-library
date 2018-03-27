@@ -1,5 +1,6 @@
 import React from 'react'
 import renderIf from 'render-if'
+import { prop } from 'ramda'
 
 import { formatDate, daysElapsedUntilToday } from '../DatePicker/dateUtils'
 import HierarchySelector from './HierarchySelector'
@@ -14,6 +15,8 @@ const initialUser = {
   driver: 1000,
 }
 
+const initialOptionId = prop('driver', initialUser) || prop('group', initialUser) || prop('company', initialUser)
+
 const handleSelectSubhauler = (selectedOption: FlattenedOptionType) => {
   const selectedSubhauler = { user: selectedOption.hierarchy }
   console.log('handleSelectSubhauler called for newly selected value: ', selectedSubhauler)
@@ -25,10 +28,10 @@ export const CardIcon = () => (
   </div>
 )
 
-export const renderMethod = (option, isExpired) => {
+export const renderMethod = (option) => {
   const renderIfCompany = renderIf(option.level === 'company' && option.expiresOn)
   const labelColor = option.dispatch_flag === true ? 'black' : 'grey'
-  const expiryDateColor = isExpired ? 'red' : 'black'
+  const expiryDateColor = option.isExpired ? 'red' : 'black'
   const renderIfCard = renderIf(option.p_card_flag === 'Y')
   return (
     <div className="hierarchyOption">
@@ -50,25 +53,29 @@ export const renderMethod = (option, isExpired) => {
 }
 const isExceeded = (givenDate: string, numberOfDays: number) => daysElapsedUntilToday(givenDate) > numberOfDays
 
-function transformPersonnelOption(option) {
+function transformPersonnelOption(option, isVendorExpired) {
   const componentOption: OptionType = {
     id: option.vendor_personnel_id,
     level: 'driver',
     label: `${option.first_name} ${option.last_name}`,
     dispatch_flag: option.dispatch_flag,
     p_card_flag: option.p_card_flag,
+    isExpired: isVendorExpired,
+    isSelectable: !isVendorExpired && option.dispatch_flag === true,
   }
   return componentOption
 }
 
-function transformGroupOption(option) {
+function transformGroupOption(option, isVendorExpired) {
   const componentOption: OptionType = {
     id: option.dispatch_group_id,
     level: 'group',
     label: option.dispatch_group_name,
     dispatch_flag: option.dispatch_flag,
     p_card_flag: option.p_card_flag,
-    options: option.personnel.map(transformPersonnelOption),
+    isExpired: isVendorExpired,
+    isSelectable: !isVendorExpired && option.dispatch_flag === true,
+    options: option.personnel.map((personnelOption) => transformPersonnelOption(personnelOption, isVendorExpired)),
   }
   return componentOption
 }
@@ -83,16 +90,16 @@ function transformVendorOption(option) {
     label: option.vendor_short_name,
     dispatch_flag: option.dispatch_flag,
     expiresOn: formattedDate,
-    isExpired: !!isVendorExpired,
     p_card_flag: option.p_card_flag,
-    options: option.dispatch_groups.map(transformGroupOption),
+    isExpired: isVendorExpired,
+    isSelectable: !isVendorExpired && option.dispatch_flag === true,
+    options: option.dispatch_groups.map((groupOption) => transformGroupOption(groupOption, isVendorExpired)),
   }
   return componentOption
 }
 const towProviders = towProvidersJson.data
 const componentOptions = towProviders.map(transformVendorOption)
 
-console.log('component: ', componentOptions)
 const Example = () => (
   <div style={{ maxWidth: '400px' }}>
     <HierarchySelector
@@ -100,7 +107,7 @@ const Example = () => (
       options={componentOptions}
       width={200}
       optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200, fontSize: '12px' }}
-      value={initialUser}
+      value={initialOptionId}
       renderMethod={renderMethod}
       onChange={handleSelectSubhauler}
     />

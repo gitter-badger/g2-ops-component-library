@@ -1,6 +1,5 @@
 // @flow
 import type { Node } from 'react'
-import { prop } from 'ramda'
 
 import type { OptionsType, FlattenedOptionType } from 'types/HierarchySelector'
 
@@ -34,9 +33,9 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
   autoSelect: Node // eslint-disable-line
   constructor(props: HierarchySelectorPropType) {
     super(props)
-    const { options, value: user, renderMethod } = props
+    const { options, value: optionId, renderMethod } = props
     const flattenedOptions = flattenNestedOptions(options, renderMethod)
-    const renderedPath = this.convertUserObjToPath(user, flattenedOptions)
+    const renderedPath = this.convertIdToPath(optionId, flattenedOptions)
     this.state = {
       flattenedOptions,
       filteredOptions: flattenedOptions,
@@ -91,8 +90,7 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
     }
   }
 
-  convertUserObjToPath = (user: HierarchyType, options: Array<FlattenedOptionType>) => {
-    const lookupId = prop('driver', user) || prop('group', user) || prop('company', user)
+  convertIdToPath = (lookupId: number, options: Array<FlattenedOptionType>) => {
     const valueAmongOptions = options.find((o) => o.id === lookupId)
     const displayMethod = this.renderSelectedOption || this.renderOption
     const result = valueAmongOptions ? displayMethod(valueAmongOptions) : ''
