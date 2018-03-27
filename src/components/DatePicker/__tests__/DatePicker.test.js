@@ -68,8 +68,8 @@ describe('Sets state when user enters date', () => {
   })
 
   test('should set errorMessage when user enters date after Max Date', () => {
-    textField.prop('onChanged')('02/03/2118')
-    expect(datePicker.state.displayDate).toBe('02/03/2118')
+    textField.prop('onChanged')('02/03/2128')
+    expect(datePicker.state.displayDate).toBe('02/03/2128')
     expect(datePicker.state.errorMessage).toContain('Date cannot be after')
   })
 

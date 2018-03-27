@@ -26,18 +26,20 @@ let AutoSelectOption = ({
     onMouseEnter={() => onMouseEnter(option)}
     onMouseLeave={onMouseLeave}
     onClick={() => {
-      onClick(serializeOption(option))
-      setTimeout(afterClickOption, 60)
+      const isOptionSelectable = option.hasOwnProperty('isSelectable') ? option.isSelectable : true
+      if (option && isOptionSelectable) {
+        onClick(serializeOption(option))
+        setTimeout(afterClickOption, 60)
+      }
     }} // allow animation to finish
     className={cn(
-      { "selectedOption": option === selected },
-      "option",
+      { selectedOption: option === selected },
+      'option',
       'mdl-button',
       'mdl-js-button',
-      'mdl-js-ripple-effect'
+      'mdl-js-ripple-effect',
     )}
     style={{ ...style }}
-    title={displayOption(option)}
   >
     {displayOption(option)}
   </div>
@@ -61,7 +63,7 @@ export const AutoSelectOptions = ({
   <List
     name={name}
     scrollToIndex={scrollToIndex}
-    width={Math.max((optionStyleProps.width || width), 190)}
+    width={Math.max(optionStyleProps.width || width, 190)}
     height={Math.min(options.length * optionStyleProps.rowHeight, optionStyleProps.optionsMinHeight)}
     rowCount={options.length}
     rowHeight={optionStyleProps.rowHeight || OPTIONS_ROW_HEIGHT}
@@ -93,7 +95,7 @@ AutoSelectOptions.propTypes = {
   afterClickOption: PropTypes.func,
   serializeOption: PropTypes.func,
   selectedOption: PropTypes.any,
-  scrollToIndex: PropTypes.func,
+  scrollToIndex: PropTypes.number,
   width: PropTypes.number, // DEFAULT WIDTH FOR TESTING
   optionStyleProps: PropTypes.shape({
     rowHeight: PropTypes.number,
@@ -116,9 +118,7 @@ AutoSelectOptions.defaultProps = {
 }
 
 const AutoSizedAutoSelectOptions = (props) => (
-  <AutoSizer>
-    {({ width }) => <AutoSelectOptions {...props} width={width} />}
-  </AutoSizer>
+  <AutoSizer>{({ width }) => <AutoSelectOptions {...props} width={width} />}</AutoSizer>
 )
 
 export default AutoSizedAutoSelectOptions

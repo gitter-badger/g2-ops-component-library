@@ -24,7 +24,7 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
             aria-labelledby={null}
             aria-owns={null}
             aria-pressed={undefined}
-            className="ms-Button ms-Button--default searchTypesMenuButton root-32"
+            className="ms-Button searchTypesMenuButton ms-Button--default root-36"
             data-is-focusable={true}
             disabled={undefined}
             onClick={[Function]}
@@ -32,13 +32,13 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
             type="button"
           >
             <div
-              className="ms-Button-flexContainer flexContainer-33"
+              className="ms-Button-flexContainer flexContainer-37"
             >
               <div
-                className="ms-Button-textContainer textContainer-34"
+                className="ms-Button-textContainer textContainer-38"
               >
                 <div
-                  className="ms-Button-label label-36"
+                  className="ms-Button-label label-40"
                   id="id__10"
                 >
                   Lot
@@ -46,8 +46,7 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
               </div>
               <i
                 aria-hidden={true}
-                aria-label={undefined}
-                className="root-40 ms-Button-menuIcon menuIcon-37"
+                className="root-44 ms-Button-menuIcon menuIcon-41"
                 data-icon-name="ChevronDown"
                 role="presentation"
               />
@@ -76,7 +75,7 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
             aria-label={undefined}
             aria-labelledby={null}
             aria-pressed={undefined}
-            className="ms-Button ms-Button--icon root-43"
+            className="ms-Button ms-Button--icon root-47"
             data-is-focusable={true}
             disabled={undefined}
             onClick={[Function]}
@@ -84,12 +83,11 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
             type="button"
           >
             <div
-              className="ms-Button-flexContainer flexContainer-33"
+              className="ms-Button-flexContainer flexContainer-37"
             >
               <i
                 aria-hidden={true}
-                aria-label={undefined}
-                className="root-40 ms-Button-icon icon-35"
+                className="root-44 ms-Button-icon icon-39"
                 data-icon-name="search"
                 role="presentation"
               />
@@ -126,7 +124,7 @@ exports[`<SearchBar /> should render properly 1`] = `
             aria-labelledby={null}
             aria-owns={null}
             aria-pressed={undefined}
-            className="ms-Button ms-Button--default searchTypesMenuButton root-32"
+            className="ms-Button searchTypesMenuButton ms-Button--default root-36"
             data-is-focusable={true}
             disabled={undefined}
             onClick={[Function]}
@@ -134,13 +132,13 @@ exports[`<SearchBar /> should render properly 1`] = `
             type="button"
           >
             <div
-              className="ms-Button-flexContainer flexContainer-33"
+              className="ms-Button-flexContainer flexContainer-37"
             >
               <div
-                className="ms-Button-textContainer textContainer-34"
+                className="ms-Button-textContainer textContainer-38"
               >
                 <div
-                  className="ms-Button-label label-36"
+                  className="ms-Button-label label-40"
                   id="id__2"
                 >
                   Lot
@@ -148,8 +146,7 @@ exports[`<SearchBar /> should render properly 1`] = `
               </div>
               <i
                 aria-hidden={true}
-                aria-label={undefined}
-                className="root-40 ms-Button-menuIcon menuIcon-37"
+                className="root-44 ms-Button-menuIcon menuIcon-41"
                 data-icon-name="ChevronDown"
                 role="presentation"
               />
@@ -178,7 +175,7 @@ exports[`<SearchBar /> should render properly 1`] = `
             aria-label={undefined}
             aria-labelledby={null}
             aria-pressed={undefined}
-            className="ms-Button ms-Button--icon root-43"
+            className="ms-Button ms-Button--icon root-47"
             data-is-focusable={true}
             disabled={undefined}
             onClick={[Function]}
@@ -186,12 +183,11 @@ exports[`<SearchBar /> should render properly 1`] = `
             type="button"
           >
             <div
-              className="ms-Button-flexContainer flexContainer-33"
+              className="ms-Button-flexContainer flexContainer-37"
             >
               <i
                 aria-hidden={true}
-                aria-label={undefined}
-                className="root-40 ms-Button-icon icon-35"
+                className="root-44 ms-Button-icon icon-39"
                 data-icon-name="search"
                 role="presentation"
               />

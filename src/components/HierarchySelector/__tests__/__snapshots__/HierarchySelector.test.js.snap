@@ -3,8 +3,23 @@
 exports[`<HierarchySelector /> should filter options available based on entered text 1`] = `
 Array [
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "grey",
+          }
+        }
+      >
+        Telangana
+      </span>
+    </div>,
     "haveChildren": false,
-    "isDisabled": false,
+    "hierarchy": Object {
+      "undefined": undefined,
+    },
     "label": "Telangana",
     "name": "telangana",
     "path": Array [
@@ -14,8 +29,23 @@ Array [
     ],
   },
   Object {
+    "display": <div
+      className="hierarchyOption"
+    >
+      <span
+        style={
+          Object {
+            "color": "grey",
+          }
+        }
+      >
+        Texas
+      </span>
+    </div>,
     "haveChildren": false,
-    "isDisabled": false,
+    "hierarchy": Object {
+      "undefined": undefined,
+    },
     "label": "Texas",
     "name": "texas",
     "path": Array [
@@ -79,16 +109,4 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
 </div>
 `;
 
-exports[`<HierarchySelector /> should save selected value when value is selected from dropdown 1`] = `
-Object {
-  "haveChildren": false,
-  "isDisabled": false,
-  "label": "Telangana",
-  "name": "telangana",
-  "path": Array [
-    "Asia",
-    "India",
-    "Telangana",
-  ],
-}
-`;
+exports[`<HierarchySelector /> should save selected value when value is selected from dropdown 1`] = `"Asia - India - Telangana"`;

@@ -1,10 +1,12 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
+import renderIf from 'render-if'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
 import HierarchySelector from '../HierarchySelector'
+import { CardIcon, renderMethod } from '../HierarchySelectorExample'
 
 const nestedOptions = [
   {
@@ -69,6 +71,8 @@ const nestedOptions = [
   },
 ]
 
+const initialValue = "Haul O Way - Haul O' Way - Jason"
+
 describe('<HierarchySelector />', () => {
   test('should render nested options properly', () => {
     const tree = renderer.create(
@@ -77,6 +81,8 @@ describe('<HierarchySelector />', () => {
         options={nestedOptions}
         width={200}
         optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+        value={initialValue}
+        renderMethod={renderMethod}
       />,
     )
     expect(tree).toMatchSnapshot()
@@ -89,6 +95,8 @@ describe('<HierarchySelector />', () => {
         options={nestedOptions}
         width={200}
         optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+        value={initialValue}
+        renderMethod={renderMethod}
       />,
     )
     expect(tree.state('filteredOptions')).toEqual(tree.state('flattenedOptions'))
@@ -103,6 +111,8 @@ describe('<HierarchySelector />', () => {
         options={nestedOptions}
         width={200}
         optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+        value={initialValue}
+        renderMethod={renderMethod}
       />,
     )
     tree.find('AutoSelect').prop('onChange')('Te')
