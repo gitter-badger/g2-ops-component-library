@@ -65,6 +65,7 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
     if (typeof changedOption === 'string') {
       this.setState((prevState) => ({
         ...prevState,
+        selectedValue: changedOption,
         filteredOptions: prevState.flattenedOptions.filter((option: FlattenedOptionType) =>
           option.label.toLowerCase().startsWith(changedOption.toLowerCase()),
         ),
