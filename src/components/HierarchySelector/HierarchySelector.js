@@ -75,7 +75,7 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
       )
       this.setState((prevState) => ({
         ...prevState,
-        selectedValue: changedOption,
+        selectedValue: this.renderSelectedOption(changedOption),
         filteredOptions: filteredOptions,
       }))
       // invokes parent's onChange method
