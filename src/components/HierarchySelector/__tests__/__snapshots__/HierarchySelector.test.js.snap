@@ -20,8 +20,6 @@ Array [
     "hierarchy": Object {
       "undefined": undefined,
     },
-    "isExpired": false,
-    "isSelectable": false,
     "label": "Telangana",
     "name": "telangana",
     "path": Array [
@@ -48,8 +46,6 @@ Array [
     "hierarchy": Object {
       "undefined": undefined,
     },
-    "isExpired": false,
-    "isSelectable": false,
     "label": "Texas",
     "name": "texas",
     "path": Array [
@@ -94,9 +90,9 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
               onInput={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
-              title="Asia"
+              title=""
               type="text"
-              value="Asia"
+              value=""
               width={200}
             />
           </div>
@@ -107,7 +103,7 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
       data-uname={undefined}
       name="AutoSelect Field"
       type="hidden"
-      value="Asia"
+      value=""
     />
   </div>
 </div>
