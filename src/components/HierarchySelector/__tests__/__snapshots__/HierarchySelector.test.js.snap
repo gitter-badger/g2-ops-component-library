@@ -111,32 +111,4 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
 </div>
 `;
 
-exports[`<HierarchySelector /> should save selected value when value is selected from dropdown 1`] = `
-Object {
-  "display": <div
-    className="hierarchyOption"
-  >
-    <span
-      style={
-        Object {
-          "color": "black",
-        }
-      }
-    >
-      Telangana
-    </span>
-  </div>,
-  "haveChildren": false,
-  "hierarchy": Object {
-    "undefined": undefined,
-  },
-  "isExpired": false,
-  "label": "Telangana",
-  "name": "telangana",
-  "path": Array [
-    "Asia",
-    "India",
-    "Telangana",
-  ],
-}
-`;
+exports[`<HierarchySelector /> should save selected value when value is selected from dropdown 1`] = `"Asia - India - Telangana"`;

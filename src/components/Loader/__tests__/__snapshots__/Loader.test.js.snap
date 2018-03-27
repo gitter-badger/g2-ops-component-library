@@ -2,10 +2,10 @@
 
 exports[`<Loader /> should render properly 1`] = `
 <div
-  className="ms-Spinner root spinner"
+  className="ms-Spinner spinner root-33"
 >
   <div
-    className="ms-Spinner-circle circle ms-Spinner--medium circleIsMedium"
+    className="ms-Spinner-circle ms-Spinner--medium circle-34"
   />
 </div>
 `;
