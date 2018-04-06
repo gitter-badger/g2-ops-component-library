@@ -4,7 +4,7 @@
     "type": "git",
     "url": "git+https://github.com/copartit/g2-ops-component-library.git"
   },
-  "version": "0.0.4",
+  "version": "0.0.5",
   "main": "index.js",
   "description": "G2 Ops Component Library",
   "author": "Sidharth Mehra",
