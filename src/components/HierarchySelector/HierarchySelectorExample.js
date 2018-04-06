@@ -1,11 +1,9 @@
 import React from 'react'
 import renderIf from 'render-if'
 import { prop } from 'ramda'
-
 import { formatDate, daysElapsedUntilToday } from '../DatePicker/dateUtils'
-import HierarchySelector from './HierarchySelector'
-import './HierarchySelector.scss'
 import { FlattenedOptionType, OptionType } from '../../../types/HierarchySelector'
+import HierarchySelector from './HierarchySelector'
 import towProvidersJson from './towProviders.json'
 
 // G/RTOW - G/RTOWDG - ALLEN MARQUEZ
@@ -103,13 +101,15 @@ const componentOptions = towProviders.map(transformVendorOption)
 const Example = () => (
   <div style={{ maxWidth: '400px' }}>
     <HierarchySelector
-      name="HierarchySelector Field"
+      name="Tow Provider"
+      label="Tow Provider"
       options={componentOptions}
       width={200}
       optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200, fontSize: '12px' }}
       value={initialOptionId}
       renderMethod={renderMethod}
       onChange={handleSelectSubhauler}
+      onRenderSuffix={() => <i className="material-icons">arrow_drop_down</i>}
     />
   </div>
 )

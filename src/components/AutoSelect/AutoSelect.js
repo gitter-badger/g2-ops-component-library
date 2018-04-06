@@ -285,8 +285,6 @@ class AutoSelect extends PureComponent {
       ...otherProps // eslint-disable-line no-unused-vars
     } = this.props
     const { active } = this.state
-    // Use for testing styles - keep dropdown open
-    // const active = true
     const display = displaySelectedOption || displayOption
     const scrollToIndex = this.state.highlightedOption
       ? options.indexOf(this.state.highlightedOption)
@@ -327,7 +325,6 @@ class AutoSelect extends PureComponent {
             this.textField = c
           }}
           onKeyDown={this.handleKeyDown}
-          // onRenderSuffix={() => <i className="material-icons">ic_arrow_drop_down</i>}
         />
         {active && (
           <div style={{ width: 'auto' }} onMouseDown={(e) => e.preventDefault()}>

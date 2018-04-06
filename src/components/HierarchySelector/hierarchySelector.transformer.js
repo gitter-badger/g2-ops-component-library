@@ -24,7 +24,7 @@ const flattenOption = (
       ...option,
       path: currentPath,
       hierarchy: currHierarchy,
-      haveChildren: !isBlank(option.options),
+      hasChildren: !isBlank(option.options),
       display: renderMethod(option),
     },
   ]
