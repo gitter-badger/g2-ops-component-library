@@ -16,7 +16,7 @@ Array [
         Telangana
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "undefined": undefined,
     },
@@ -42,7 +42,7 @@ Array [
         Texas
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "undefined": undefined,
     },
