@@ -12,6 +12,8 @@ import AutoSelect from 'components/AutoSelect'
 import { wrapMuiContext } from '../../wrapMuiContext'
 import { flattenNestedOptions } from './hierarchySelector.transformer'
 
+import './HierarchySelector.scss'
+
 type HierarchySelectorPropType = {
   options: OptionsType,
   onFocus: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
@@ -58,7 +60,7 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
     return this.props.hasOwnProperty('value')
   }
 
-  onChange = (changedOption: FlattenedOptionType | string) => {
+  onChange = (changedOption: FlattenedOptionType) => {
     const { onChange: onChangeMethod } = this.props
     if (typeof changedOption === 'string') {
       this.setState((prevState) => ({
@@ -98,16 +100,16 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
 
   renderOption = (option: FlattenedOptionType) => {
     const numberOfSpaces = option.path.length
-    const renderIfHaveChildren = renderIf(option.haveChildren)
+    const renderIfHasChildren = renderIf(option.hasChildren)
     const { filteredOptions, flattenedOptions } = this.state
     const isFilteringDone = filteredOptions.length < flattenedOptions.length
     const renderIfFilteringIsDone = renderIf(isFilteringDone)
-    const paddingLeft = isFilteringDone ? '0px' : `${(numberOfSpaces - 1) * 30}px`
+    const paddingLeft = isFilteringDone ? '0px' : `${(numberOfSpaces - 1) * 25}px`
     const displayTitle = option.path.slice(0, numberOfSpaces - 1).join(' - ')
     return (
       <div style={{ display: 'flex', flexDirection: 'row', paddingLeft }}>
-        <div style={{ width: '15px', height: '15px', display: 'flex', alignItems: 'center', paddingRight: '10px' }}>
-          {renderIfHaveChildren(<i className="material-icons">arrow_drop_down</i>)}
+        <div style={{ marginTop: '-5px', display: 'flex', alignItems: 'center' }}>
+          {renderIfHasChildren(<i className="material-icons">arrow_drop_down</i>)}
         </div>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           {renderIfFilteringIsDone(<div className="filtered">{displayTitle}</div>)}

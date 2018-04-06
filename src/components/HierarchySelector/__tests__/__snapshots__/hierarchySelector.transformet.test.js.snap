@@ -16,7 +16,7 @@ Array [
         company1
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "undefined": undefined,
     },
@@ -47,7 +47,7 @@ Array [
       </span>
     </div>,
     "expiresOn": "04/15/2018",
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
     },
@@ -112,7 +112,7 @@ Array [
         Cecy's Group
       </span>
     </div>,
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -159,8 +159,8 @@ Array [
         Manuel R Cero fgfg jhjh kjkj hjhj hjh jhjhj jh jh jhj j j hj jh jh j hj hj j jh jh jh j hj4
       </span>
     </div>,
+    "hasChildren": false,
     "hasPcard": true,
-    "haveChildren": false,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -190,7 +190,7 @@ Array [
         Driver 2
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -219,8 +219,8 @@ Array [
         Driver 3
       </span>
     </div>,
+    "hasChildren": false,
     "hasPcard": true,
-    "haveChildren": false,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -249,7 +249,7 @@ Array [
         Cecy's Group2
       </span>
     </div>,
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -284,7 +284,7 @@ Array [
         Marc Jacobs
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -314,7 +314,7 @@ Array [
       </span>
     </div>,
     "expiresOn": "04/15/2018",
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
     },
@@ -366,7 +366,7 @@ Array [
         Haul O' Way
       </span>
     </div>,
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -400,7 +400,7 @@ Array [
         Jason
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -429,7 +429,7 @@ Array [
         Haul O' Way Group
       </span>
     </div>,
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -464,7 +464,7 @@ Array [
         Anderson
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -495,7 +495,7 @@ Array [
       </span>
     </div>,
     "expiresOn": "04/15/2018",
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
     },
@@ -534,7 +534,7 @@ Array [
         ABC Group
       </span>
     </div>,
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -568,7 +568,7 @@ Array [
         Jason
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -598,7 +598,7 @@ Array [
       </span>
     </div>,
     "expiresOn": "01/15/2018",
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
     },
@@ -637,7 +637,7 @@ Array [
         XYZ Group
       </span>
     </div>,
-    "haveChildren": true,
+    "hasChildren": true,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
@@ -671,7 +671,7 @@ Array [
         Jason
       </span>
     </div>,
-    "haveChildren": false,
+    "hasChildren": false,
     "hierarchy": Object {
       "0": undefined,
       "1": undefined,
