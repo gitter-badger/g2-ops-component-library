@@ -48,7 +48,7 @@ class StepperExample extends React.Component {
     const contentStyle = { margin: '0 16px' }
 
     return (
-      <div style={{ width: '100%', maxWidth: 700, margin: 'auto' }}>
+      <div style={{ width: '100%', maxWidth: 700, margin: 'auto', fontFamily: 'Roboto, sans-serif' }}>
         <Stepper activeStep={stepIndex}>
           <Step>
             <StepLabel>Campaign Settings</StepLabel>
