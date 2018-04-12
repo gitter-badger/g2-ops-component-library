@@ -1,9 +1,11 @@
-Material UI Table Example:
+Table Examples:
 
-```js
- var TableExample = require('../../examples/TableExample.js').default;
- <TableExample />
-```
+All the tables in Copart have to implement either RowSelectTable or Copart-Grid Components.
 
-For more information on accepted props refer to:
-http://www.material-ui.com/v0.15.4/#/components/table
+#### RowSelectTable:
+* https://github.com/copartit/mui-row-select-table
+* https://www.npmjs.com/package/mui-row-select-table
+
+#### Copart-Grid:
+* https://www.npmjs.com/package/copart-grid
+* https://aldizh.github.io/copart-grid/
