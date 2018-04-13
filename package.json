@@ -1,14 +1,17 @@
 {
   "name": "g2-ops-components",
+
   "repository": {
     "type": "git",
     "url": "git+https://github.com/copartit/g2-ops-component-library.git"
   },
 
+  "license": "ISC",
   "version": "0.0.6",
-  "main": "index.js",
+  "main": "lib/index.js",
   "description": "G2 Ops Component Library",
   "author": "Sidharth Mehra",
+
   "scripts": {
     "start": "webpack-dev-server",
     "test": "jest --silent",
@@ -20,11 +23,9 @@
     "flow": "flow",
     "lint": "eslint src/**/*.js",
     "flowtype": "flow-typed install",
-    "precommit": "pretty-quick --staged && yarn lint",
-    "prettier": "prettier-eslint src/**/{*,*.test}.{js,css,scss,json} --eslint-config-path .eslintrc.js --write"
+    "precommit": "pretty-quick --staged && yarn lint"
   },
 
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/copartit/g2-ops-component-library/issues"
   },
@@ -32,11 +33,8 @@
   "homepage": "https://github.com/copartit/g2-ops-component-library/#readme",
   "dependencies": {
     "@uifabric/icons": "^5.3.0",
-    "babel-preset-stage-0": "^6.24.1",
     "classnames": "^2.2.5",
     "country-telephone-data": "^0.5.4",
-    "css-loader": "^0.28.7",
-    "html-webpack-plugin": "^2.29.0",
     "jss": "^9.5.1",
     "libphonenumber-js": "^1.0.3",
     "material-design-icons": "^3.0.1",
@@ -44,10 +42,7 @@
     "material-ui": "0.15.4",
     "moment": "^2.19.2",
     "moment-timezone": "^0.5.14",
-    "node-sass": "^4.7.2",
     "office-ui-fabric-react": "^5.30.2",
-    "path": "^0.12.7",
-    "pretty-quick": "^1.4.1",
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
     "react": "15.6.1",
@@ -55,10 +50,7 @@
     "react-tap-event-plugin": "2.0.1",
     "react-tooltip": "^3.4.0",
     "react-virtualized": "^9.18.5",
-    "render-if": "^0.1.1",
-    "sass-loader": "^6.0.6",
-    "style-loader": "^0.19.0",
-    "webpack": "^3.0.0"
+    "render-if": "^0.1.1"
   },
 
   "devDependencies": {
@@ -79,12 +71,20 @@
     "jest": "^22.1.4",
     "lint-staged": "^6.1.0",
     "pre-push": "^0.1.1",
+    "node-sass": "^4.7.2",
     "prettier-eslint-cli": "^4.7.0",
     "react-styleguidist": "^6.0.33",
     "react-test-renderer": "15.6.1",
     "react-with-context": "1.2.1",
     "resolve": "^1.5.0",
-    "webpack-dev-server": "^2.11.1"
+    "webpack-dev-server": "^2.11.1",
+    "babel-preset-stage-0": "^6.24.1",
+    "css-loader": "^0.28.7",
+    "html-webpack-plugin": "^2.29.0",
+    "pretty-quick": "^1.4.1",
+    "sass-loader": "^6.0.6",
+    "style-loader": "^0.19.0",
+    "webpack": "^3.0.0"
   },
 
   "jest": {
