@@ -11,7 +11,7 @@ module.exports = {
   },
 
   plugins: ['react', 'flowtype'],
-  extends: 'eslint-config-airbnb-easy',
+  extends: ['eslint-config-airbnb-easy', 'eslint-config-prettier'],
 
   settings: {
     'import/resolver': {

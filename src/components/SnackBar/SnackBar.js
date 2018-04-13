@@ -1,7 +1,6 @@
 // @flow
 
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import Snackbar from 'material-ui/Snackbar'
 
 import { wrapMuiContext } from '../../wrapMuiContext'

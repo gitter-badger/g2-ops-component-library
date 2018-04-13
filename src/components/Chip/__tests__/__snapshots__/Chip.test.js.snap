@@ -4,7 +4,6 @@ exports[`<Chip /> should render properly 1`] = `
 <div
   className={undefined}
   disabled={undefined}
-  href={undefined}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}
@@ -16,7 +15,7 @@ exports[`<Chip /> should render properly 1`] = `
   onMouseUp={[Function]}
   onTouchEnd={[Function]}
   onTouchStart={[Function]}
-  onTouchTap={[Function]}
+  onTouchTap={undefined}
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -34,15 +33,14 @@ exports[`<Chip /> should render properly 1`] = `
       "muiPrepared": true,
       "outline": "none",
       "padding": 0,
+      "position": "relative",
       "textDecoration": "none",
-      "transform": null,
       "verticalAlign": null,
       "whiteSpace": "nowrap",
       "width": "fit-content",
     }
   }
   tabIndex={0}
-  type="button"
 >
   <span
     style={

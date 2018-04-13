@@ -3,7 +3,6 @@
 import type { Node, ChildrenArray } from 'react'
 
 import React from 'react'
-import PropTypes from 'prop-types'
 import MuiAvatar from 'material-ui/Avatar'
 
 import { wrapMuiContext } from '../../wrapMuiContext'

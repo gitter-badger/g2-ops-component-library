@@ -1,4 +1,4 @@
-const Style = {
+export const styles = {
   root: {
     width: '100%',
   },
@@ -33,4 +33,3 @@ const Style = {
     outline: 'none',
   },
 }
-export default Style

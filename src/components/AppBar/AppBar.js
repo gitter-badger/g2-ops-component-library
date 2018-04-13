@@ -5,7 +5,6 @@ import React from 'react'
 import renderIf from 'render-if'
 import MuiAppBar from 'material-ui/AppBar'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
-import PropTypes from 'prop-types'
 import { LogoutMenu } from './LogoutMenu'
 import { wrapMuiContext } from '../../wrapMuiContext'
 

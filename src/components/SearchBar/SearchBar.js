@@ -1,12 +1,11 @@
 // @flow
 import React, { PureComponent } from 'react'
-import PropTypes from 'prop-types'
 import renderIf from 'render-if'
 import { TextField } from 'office-ui-fabric-react/lib/TextField'
 import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
 import { DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button'
 
-import Checkbox from 'components/Checkbox/Checkbox'
+import { Checkbox } from 'components/Checkbox/Checkbox'
 
 import { wrapFabricContext } from '../../wrapFabricContext'
 import { checkboxStyle } from './SearchBar.style'
@@ -24,13 +23,13 @@ type SearchBarPropType = {
   /** Search Types to be rendered in the searchMenu on the left */
   searchTypes: Array<SearchType>,
   /** Trigger search handler */
-  handleSearch: PropTypes.func.isRequired,
+  handleSearch(): any,
   /** search text to display within the Search box */
   searchText: string,
   /** boolean to show Checkbox */
   showCheckbox: boolean,
   /** Callback triggered when the search type changes */
-  onSearchTypeChange?: (SearchType) => any,
+  onSearchTypeChange?: SearchType => any,
 }
 
 type SearchBarStateType = {

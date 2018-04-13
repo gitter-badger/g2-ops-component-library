@@ -1,39 +1,32 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import renderIf from 'render-if'
 import { Row } from './commonFunctions'
 
-const pickupTypeDesc = (code) => ({
-  D: 'Dropoff',
-  O: 'Offsite',
-  P: 'Pickup',
-  PS: 'Post Sale',
-  A: 'N/A'
-}[code])
+const pickupTypeDesc = code =>
+  ({
+    D: 'Dropoff',
+    O: 'Offsite',
+    P: 'Pickup',
+    PS: 'Post Sale',
+    A: 'N/A',
+  }[code])
 
-const pickupPrimaryTextProptypes = {
-  lot_site_nm: PropTypes.string,
-  lot_site_type_cd: PropTypes.string,
-  addr_line1: PropTypes.string,
-  addr_line2: PropTypes.string,
-  oper_cntry_cd: PropTypes.string,
-  state_cd: PropTypes.string,
-  postal_cd: PropTypes.string,
-  phone_num: PropTypes.string,
-  alt_phone_num: PropTypes.string,
-  city: PropTypes.string,
-  email: PropTypes.string,
-  status: PropTypes.string
+type PropsT = {
+  lot_site_nm: string,
+  lot_site_type_cd: string,
+  addr_line1: string,
+  addr_line2: string,
+  oper_cntry_cd: string,
+  state_cd: string,
+  postal_cd: string,
+  phone_num: string,
+  alt_phone_num: string,
+  city: string,
+  email: string,
+  status: string,
 }
 
-const LocationInformation = ({
-  address1,
-  address2,
-  country,
-  city,
-  state,
-  postalCode
-}) => (
+const LocationInformation = ({ address1, address2, country, city, state, postalCode }) => (
   <div>
     <Row label={'Address'} value={address1} />
     {renderIf(address2)(<Row label={'Address 2'} value={address2} />)}
@@ -43,11 +36,7 @@ const LocationInformation = ({
   </div>
 )
 
-const PhoneInformation = ({ phone }) => (
-  <div>
-    {renderIf(phone)(<Row label={'Phone'} value={phone} />)}
-  </div>
-)
+const PhoneInformation = ({ phone }) => <div>{renderIf(phone)(<Row label={'Phone'} value={phone} />)}</div>
 
 const PickupPrimaryText = ({
   lot_site_nm: name,
@@ -62,25 +51,23 @@ const PickupPrimaryText = ({
   postal_cd: postalCode,
   phone_num: phone,
   alt_phone_num: altPhone,
-  vat_id: vatId
-}) => {
+  vat_id: vatId,
+}: PropsT) => {
   const locationInfo = {
     address1,
     address2,
     country,
     city,
     state,
-    postalCode
+    postalCode,
   }
   const phoneInfo = {
     phone,
-    altPhone
+    altPhone,
   }
   return (
     <div style={{ color: 'black', paddingTop: '0px', lineHeight: '20px', paddingBottom: '5px', margin: '0px' }}>
-      <span style={{ fontSize: '11px', fontWeight: 'bold' }}>
-        {name}
-      </span>
+      <span style={{ fontSize: '11px', fontWeight: 'bold' }}>{name}</span>
       {renderIf(locationInfo)(<LocationInformation {...locationInfo} />)}
       {renderIf(phone)(<PhoneInformation {...phoneInfo} />)}
       {renderIf(email)(<Row label={'Email'} value={email} />)}
@@ -88,7 +75,5 @@ const PickupPrimaryText = ({
     </div>
   )
 }
-
-PickupPrimaryText.propTypes = pickupPrimaryTextProptypes
 
 export default PickupPrimaryText

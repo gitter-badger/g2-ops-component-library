@@ -1,6 +1,5 @@
 import React, { PureComponent, isValidElement } from 'react'
-import PropTypes from 'prop-types'
-import TextField from 'components/TextField'
+import { TextField } from 'components/TextField'
 import { isNil, identity } from './autoSelectUtils'
 import Options from './AutoSelectOptions'
 
@@ -13,7 +12,7 @@ const KeyCode = {
 }
 // TODO get rid of serializeOption prop, take options always as array of strings
 
-const toStringValue = (value) => (value == null ? '' : String(value))
+const toStringValue = value => (value == null ? '' : String(value))
 
 const getOptionTransforms = ({ displayOption, serializeOption }) => ({
   displayOption: displayOption || identity,
@@ -25,7 +24,7 @@ const startsWithIgnoringCase = (val1, val2) =>
     .toUpperCase()
     .startsWith(String(val2).toUpperCase())
 
-const isNode = (val) => {
+const isNode = val => {
   const valType = typeof val
   return (
     valType === 'string' || valType === 'number' || isValidElement(val) || (Array.isArray(val) && val.every(isNode))
@@ -38,7 +37,7 @@ const validateOptions = (props, propName, componentName) => {
 
   if (!Array.isArray(propVal)) {
     return new Error(`Required prop '${propName}' in ${componentName} must be an array`)
-  } else if (!optionTransformsProvided && propVal.some((el) => !isNode(el))) {
+  } else if (!optionTransformsProvided && propVal.some(el => !isNode(el))) {
     return new Error(`Required prop '${propName}' in ${componentName} must be an array of nodes`)
   }
 }
@@ -57,19 +56,19 @@ const validateOptionTransforms = (props, propName, componentName) => {
   return new Error(`Optional prop '${propName}' in ${componentName} requires an accompanying '${counterpartName}'`)
 }
 
-const getDisplayValue = (props) => {
+const getDisplayValue = props => {
   const { value, options, serializeOption, displayOption, displaySelectedOption } = props
-  const valueAmongOptions = options.find((o) => serializeOption(o) === value)
+  const valueAmongOptions = options.find(o => serializeOption(o) === value)
 
   const display = displaySelectedOption || displayOption
 
   return !isNil(valueAmongOptions) ? display(valueAmongOptions) : value
 }
 
-const firstMatchingOption = (props) => {
+const firstMatchingOption = props => {
   const { options, displayOption, displaySelectedOption, value } = props
   return options.find(
-    (o) =>
+    o =>
       String(value).trim() &&
       startsWithIgnoringCase(String((displaySelectedOption || displayOption)(o)), getDisplayValue(props)),
   )
@@ -78,30 +77,30 @@ const firstMatchingOption = (props) => {
 const UP = -1
 const DOWN = 1
 
-class AutoSelect extends PureComponent {
-  static propTypes = {
-    name: PropTypes.string.isRequired,
-    value: PropTypes.oneOfType([ PropTypes.string, PropTypes.number ]),
-    disabled: PropTypes.bool,
-    required: PropTypes.bool,
-    errorText: PropTypes.string.isRequired,
-    errorStyle: PropTypes.shape(),
-    options: validateOptions,
-    onFocus: PropTypes.func.isRequired,
-    onChange: PropTypes.func,
-    onBlur: PropTypes.func,
-    isReadable: PropTypes.bool,
-    displayOption: validateOptionTransforms,
-    serializeOption: validateOptionTransforms,
-    underlineFocusStyle: PropTypes.objectOf(PropTypes.any),
-    floatingLabelStyle: PropTypes.objectOf(PropTypes.any),
-    'data-uname': PropTypes.string,
-    Options: PropTypes.func,
-    displaySelectedOption: PropTypes.func,
-    optionStyleProps: PropTypes.objectOf(PropTypes.any),
-    selectTextField: PropTypes.func,
-  }
+type PropsT = {
+  name: string,
+  value: string | number,
+  disabled: boolean,
+  required: boolean,
+  errorText: string,
+  errorStyle: {}, // TODO
+  options: validateOptions,
+  onFocus(): any,
+  onChange(): any,
+  onBlur(): any,
+  isReadable: boolean,
+  displayOption: validateOptionTransforms,
+  serializeOption: validateOptionTransforms,
+  underlineFocusStyle: {}, // TODO
+  floatingLabelStyle: {}, // TODO
+  'data-uname': string,
+  Options(): any, // TODO
+  displaySelectedOption(): any, // TODO
+  optionStyleProps: {}, // TODO
+  selectTextField(): any, // TODO
+}
 
+class AutoSelect extends PureComponent<PropsT> {
   static defaultProps = {
     value: '',
     errorText: '',
@@ -153,7 +152,7 @@ class AutoSelect extends PureComponent {
     (this.props.searchThroughOptions && this.props.searchThroughOptions(this.props)) ||
     firstMatchingOption(this.props)
 
-  handleFocus = (e) => {
+  handleFocus = e => {
     this.props.onFocus(e)
     this.setState({ active: true })
   }
@@ -164,7 +163,7 @@ class AutoSelect extends PureComponent {
     onBlur && onBlur()
   }
 
-  handleKeyDown = (e) => {
+  handleKeyDown = e => {
     const { serializeOption, value, options } = this.props
     const { active } = this.state
 
@@ -215,7 +214,7 @@ class AutoSelect extends PureComponent {
         if (dir === DOWN && !active) {
           return this.setState({
             active: true,
-            highlightedOption: options.find((o) => serializeOption(o) === this.props.value),
+            highlightedOption: options.find(o => serializeOption(o) === this.props.value),
           })
         }
 
@@ -233,23 +232,23 @@ class AutoSelect extends PureComponent {
     }
   }
 
-  handleMouseEnterOption = (option) => this.setState({ highlightedOption: option })
+  handleMouseEnterOption = option => this.setState({ highlightedOption: option })
 
-  handleClickOption = (serializedOption) => {
+  handleClickOption = serializedOption => {
     const { onChange, displayOption, displaySelectedOption, options, serializeOption } = this.props
 
-    const selectedOption = options.find((o) => serializeOption(o) === serializedOption)
+    const selectedOption = options.find(o => serializeOption(o) === serializedOption)
     onChange && onChange(selectedOption)
     const displayValue = (displaySelectedOption || displayOption)(selectedOption)
     this.setState({ displayValue })
   }
 
-  handleChange = (changedValue) => {
+  handleChange = changedValue => {
     this.setState({ displayValue: changedValue })
     const { onFocus, value, onChange, options, ...otherProps } = this.props // eslint-disable-line no-unused-vars
     const { displayOption, serializeOption } = getOptionTransforms(otherProps)
 
-    const valueIndexAmongOptions = options.findIndex((o) => displayOption(o) === changedValue)
+    const valueIndexAmongOptions = options.findIndex(o => displayOption(o) === changedValue)
     const valueAmongOptions = options[valueIndexAmongOptions]
     const newValue = valueAmongOptions ? serializeOption(valueAmongOptions) : changedValue
     onChange && onChange(newValue)
@@ -288,7 +287,7 @@ class AutoSelect extends PureComponent {
     const display = displaySelectedOption || displayOption
     const scrollToIndex = this.state.highlightedOption
       ? options.indexOf(this.state.highlightedOption)
-      : options.findIndex((o) => startsWithIgnoringCase(String(display(o)), getDisplayValue(this.props)))
+      : options.findIndex(o => startsWithIgnoringCase(String(display(o)), getDisplayValue(this.props)))
     const textFieldProps = {
       value: this.state.displayValue == null ? '' : this.state.displayValue,
       onChanged: this.handleChange,
@@ -321,13 +320,13 @@ class AutoSelect extends PureComponent {
           name={`${name}-txtField`}
           {...textFieldProps}
           type="text"
-          componentRef={(c) => {
+          componentRef={c => {
             this.textField = c
           }}
           onKeyDown={this.handleKeyDown}
         />
         {active && (
-          <div style={{ width: 'auto' }} onMouseDown={(e) => e.preventDefault()}>
+          <div style={{ width: 'auto' }} onMouseDown={e => e.preventDefault()}>
             <OptionsComponent name={name} {...optionsProps} />
           </div>
         )}
@@ -336,7 +335,7 @@ class AutoSelect extends PureComponent {
           name={name}
           value={toStringValue(value)}
           data-uname={uName}
-          ref={(elem) => {
+          ref={elem => {
             this.input = elem
           }}
         />

@@ -16,6 +16,7 @@ exports[`<TimePicker /> should render properly 1`] = `
       style={
         Object {
           "backgroundColor": "transparent",
+          "cursor": "auto",
           "display": "inline-block",
           "fontFamily": "Roboto, sans-serif",
           "fontSize": 16,
@@ -48,17 +49,18 @@ exports[`<TimePicker /> should render properly 1`] = `
         name={undefined}
         onBlur={[Function]}
         onChange={[Function]}
+        onClick={[Function]}
         onFocus={[Function]}
-        onKeyDown={[Function]}
-        onTouchTap={[Function]}
         required={false}
         style={
           Object {
+            "WebkitOpacity": 1,
             "WebkitTapHighlightColor": "rgba(0,0,0,0)",
+            "appearance": "textfield",
             "backgroundColor": "rgba(0,0,0,0)",
             "border": "none",
             "color": "rgba(0, 0, 0, 0.87)",
-            "cursor": "initial",
+            "cursor": "inherit",
             "font": "inherit",
             "height": "100%",
             "muiPrepared": true,
@@ -73,11 +75,15 @@ exports[`<TimePicker /> should render properly 1`] = `
       />
       <div>
         <hr
+          aria-hidden="true"
           style={
             Object {
-              "border": "none",
-              "borderBottom": "solid 1px",
+              "borderBottomStyle": "solid",
+              "borderBottomWidth": 1,
               "borderColor": "#e0e0e0",
+              "borderLeft": "none",
+              "borderRight": "none",
+              "borderTop": "none",
               "bottom": 8,
               "boxSizing": "content-box",
               "margin": 0,
@@ -88,11 +94,15 @@ exports[`<TimePicker /> should render properly 1`] = `
           }
         />
         <hr
+          aria-hidden="true"
           style={
             Object {
-              "border": "none",
-              "borderBottom": "solid 2px",
+              "borderBottomStyle": "solid",
+              "borderBottomWidth": 2,
               "borderColor": "#1d5ab9",
+              "borderLeft": "none",
+              "borderRight": "none",
+              "borderTop": "none",
               "bottom": 8,
               "boxSizing": "content-box",
               "color": "#0D5DB8",

@@ -3,13 +3,12 @@
 import type { Node } from 'react'
 
 import React from 'react'
-import PropTypes from 'prop-types'
 import { Tabs as MuiTabs, Tab } from 'material-ui/Tabs'
 import Badge from 'material-ui/Badge'
 
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-import './Tabs.scss'
+import './styles.scss'
 
 type TabsConfig = {
   label: Node | string,

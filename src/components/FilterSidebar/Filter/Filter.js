@@ -3,9 +3,9 @@ import type { FilterType } from 'types/Filter'
 
 import React from 'react'
 import Card, { CardHeader, CardText } from 'components/Card/Card'
-import FilterValueList from './filter-value-list.component'
+import { FilterValueList } from './FilterValueList'
 
-import filterStyles from './filter.component.style'
+import { filterStyles } from './Filter.styles'
 
 type FilterPropType = {
   filter: FilterType,
@@ -15,13 +15,13 @@ type FilterPropType = {
   onFilterChange: (Array<string>, string) => void,
 }
 
-const filterDefaultProps = {
-  filterHeaderStyle: {},
-  filterContentStyle: {},
-  filterStyle: {},
-}
-
-const Filter = ({ filter, filterStyle, filterHeaderStyle, filterContentStyle, onFilterChange }: FilterPropType) => (
+export const Filter = ({
+  filter,
+  filterStyle = {},
+  filterHeaderStyle = {},
+  filterContentStyle = {},
+  onFilterChange,
+}: FilterPropType) => (
   <Card containerStyle={{ ...filterStyles.filterStyle, ...filterStyle }}>
     <CardHeader
       title={filter.label}
@@ -40,7 +40,3 @@ const Filter = ({ filter, filterStyle, filterHeaderStyle, filterContentStyle, on
     </CardText>
   </Card>
 )
-
-Filter.defaultProps = filterDefaultProps
-
-export default Filter

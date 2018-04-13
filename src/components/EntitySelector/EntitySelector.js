@@ -1,21 +1,21 @@
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import Selector from './Selector'
 
-const EntitySelectorPropTypes = {
-  typeOfSelector: PropTypes.string
+type EntitySelectorPropTypes = {
+  typeOfSelector: string,
 }
 
 const EntitySelectorDefaultProps = {
-  typeOfSelector: ''
+  typeOfSelector: '',
 }
 
-class EntitySelector extends Component {
-  static propTypes = EntitySelectorPropTypes
+class EntitySelector extends Component<EntitySelectorPropTypes> {
   static defaultProps = EntitySelectorDefaultProps
+
   state = {
-    typeOfSelector: this.props.typeOfSelector
+    typeOfSelector: this.props.typeOfSelector,
   }
+
   render() {
     return (
       <div>

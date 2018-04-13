@@ -1,9 +1,8 @@
 // @flow
 
 import React, { Component } from 'react'
-import PropTypes from 'prop-types'
 import { pathOr, isEmpty } from 'ramda'
-import TextField from 'components/TextField'
+import { TextField } from 'components/TextField'
 import { AsYouType } from 'libphonenumber-js'
 import { stripDownPhoneNumber, getCountryDialCode, getFormattedNumber } from './phoneNumberUtils'
 
@@ -56,7 +55,7 @@ class PhoneNumber extends Component<PhoneNumberPropTypes, PhoneNumberStateTypes>
       <TextField
         {...otherProps}
         label={label}
-        componentRef={(input) => {
+        componentRef={input => {
           this.numberInput = input
         }}
         onChanged={this.handleChange}

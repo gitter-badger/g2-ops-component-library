@@ -2,17 +2,17 @@
 import type { Node, ComponentType } from 'react'
 
 import React, { Component } from 'react'
-import TextField from 'components/TextField'
+import { TextField } from 'components/TextField'
 import { pick, equals } from 'ramda'
 
 import formatCurrency, { stripDownCurrency, serialize } from './currencyUtils'
 import companyCodeMapper from './countryMapper'
 
-const getDelimiter = (countryCode) => (countryCode.toUpperCase() === 'IN' ? '.' : ',')
-const isBlank = (val) => val == null || (typeof val === 'string' && !val.trim().length)
-const CASCountry = [ 'US', 'UK', 'CA', 'IR', 'ME', 'GB' ]
-const GlobalCountry = [ 'DE', 'ES', 'IN' ]
-const countriesSupported = [ ...CASCountry, ...GlobalCountry ]
+const getDelimiter = countryCode => (countryCode.toUpperCase() === 'IN' ? '.' : ',')
+const isBlank = val => val == null || (typeof val === 'string' && !val.trim().length)
+const CASCountry = ['US', 'UK', 'CA', 'IR', 'ME', 'GB']
+const GlobalCountry = ['DE', 'ES', 'IN']
+const countriesSupported = [...CASCountry, ...GlobalCountry]
 
 type CurrencyFieldPropTypes = {
   name: string,
@@ -77,7 +77,7 @@ const validateInputValueAndReturnErrorMessage = (
 const arePropValuesEqual = (
   nextProps: any,
   props: any,
-  properties: Array<string> = [ 'maxValue', 'countryCode', 'value' ],
+  properties: Array<string> = ['maxValue', 'countryCode', 'value'],
 ): boolean => !equals(pick(properties, nextProps), pick(properties, props))
 
 class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldStateType> {
@@ -95,7 +95,7 @@ class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldState
   componentWillReceiveProps(nextProps: CurrencyFieldPropTypes) {
     if (arePropValuesEqual(nextProps, this.props)) {
       const { value, countryCode, maxValue } = nextProps
-      this.setState((prevState) => ({
+      this.setState(prevState => ({
         ...prevState,
         ...validateInputValueAndReturnErrorMessage(value.toString(), countryCode, maxValue),
       }))
@@ -106,7 +106,7 @@ class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldState
     const { countryCode, maxValue } = this.props
     const value = e.currentTarget.value
     const validatedInput = validateInputValueAndReturnErrorMessage(value, countryCode, maxValue)
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       ...prevState,
       ...validatedInput,
       displayedValue: validatedInput.formattedValue,
@@ -124,9 +124,9 @@ class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldState
     if (countriesSupported.includes(countryCode)) {
       const country = companyCodeMapper(countryCode)
       const delimiter = country.delimiter
-      currencyValue = value.replace(/\D/g, (match) => (match === delimiter ? delimiter : ''))
+      currencyValue = value.replace(/\D/g, match => (match === delimiter ? delimiter : ''))
     }
-    this.setState((prevState) => ({
+    this.setState(prevState => ({
       ...prevState,
       ...validatedInput,
       displayedValue: currencyValue,
@@ -147,7 +147,7 @@ class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldState
           value={this.state.displayedValue}
           onChanged={this.onChange}
           onBlur={this.onBlur}
-          onFocus={(e) => this.onChange(e.target.value)}
+          onFocus={e => this.onChange(e.target.value)}
           errorMessage={this.state.errorMessage}
         />
         <input type="hidden" name={this.props.name} required={this.props.required} value={this.state.formattedValue} />

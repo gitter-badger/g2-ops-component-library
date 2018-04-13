@@ -4,7 +4,7 @@ import type { FilterValueType } from 'types/Filter'
 
 import React, { Component } from 'react'
 
-import FilterValue from './filter-value.component'
+import { FilterValue } from './FilterValue'
 
 type FilterValueListPropType = {
   filterOptions: Array<FilterValueType>,
@@ -18,7 +18,7 @@ type FilterValueListStateType = {
   selectedFilterLabels: Array<string>,
 }
 
-class FilterValueList extends Component<FilterValueListPropType, FilterValueListStateType> {
+export class FilterValueList extends Component<FilterValueListPropType, FilterValueListStateType> {
   state = {
     selectedFilterLabels: [],
   }
@@ -38,10 +38,10 @@ class FilterValueList extends Component<FilterValueListPropType, FilterValueList
 
   onFilterValueChecked = (isFilterSelected: boolean, filterLabel: string) => {
     const filteredSelectedFilterLabels = this.state.selectedFilterLabels.filter(
-      (selectedFilter) => selectedFilter !== filterLabel,
+      selectedFilter => selectedFilter !== filterLabel,
     )
     const modifiedFilterLabels = isFilterSelected
-      ? [ ...filteredSelectedFilterLabels, filterLabel ]
+      ? [...filteredSelectedFilterLabels, filterLabel]
       : filteredSelectedFilterLabels
     this.setState(() => ({ selectedFilterLabels: modifiedFilterLabels }))
     if (this.props.onFilterValueChange) {
@@ -51,14 +51,14 @@ class FilterValueList extends Component<FilterValueListPropType, FilterValueList
 
   render() {
     const { filterOptions } = this.props
+    let filterOption
+
     return (
       <div className="FilterValueList">
-        {filterOptions.map((filterOption) => (
+        <For each="filterOption" of={filterOptions} index="index">
           <FilterValue filterOption={filterOption} onFilterValueChecked={this.onFilterValueChecked} />
-        ))}
+        </For>
       </div>
     )
   }
 }
-
-export default FilterValueList

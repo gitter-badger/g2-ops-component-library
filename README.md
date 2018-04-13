@@ -28,11 +28,11 @@ $ yarn
 
 ### Scripts
 
-* `yarn install` to install dependencies
+* `yarn` to install dependencies
 * `yarn styleguide` to generate and serve style guide
 * `yarn test` to run tests
-* `yarn run build` to build for production
-* `yarn run styleguide:build` to build a static version of the styleguide for deployment
+* `yarn build` to build for production
+* `yarn styleguide:build` to build a static version of the styleguide for deployment
 
 ### Tests
 

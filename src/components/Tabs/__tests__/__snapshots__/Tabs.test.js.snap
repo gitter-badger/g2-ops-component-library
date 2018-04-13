@@ -3,7 +3,6 @@
 exports[`<Tabs /> should render properly 1`] = `
 <div
   className="tabs"
-  onChange={[Function]}
   style={
     Object {
       "muiPrepared": true,
@@ -14,6 +13,7 @@ exports[`<Tabs /> should render properly 1`] = `
     style={
       Object {
         "backgroundColor": "#1d5ab9",
+        "display": "flex",
         "muiPrepared": true,
         "whiteSpace": "nowrap",
         "width": "100%",
@@ -23,20 +23,12 @@ exports[`<Tabs /> should render properly 1`] = `
     <button
       className="tab default undefined"
       disabled={undefined}
-      href={undefined}
       name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -53,9 +45,9 @@ exports[`<Tabs /> should render properly 1`] = `
           "muiPrepared": true,
           "outline": "none",
           "padding": 0,
+          "position": "relative",
           "textDecoration": "none",
           "textTransform": "uppercase",
-          "transform": "translate(0, 0)",
           "verticalAlign": null,
           "width": "12.5%",
         }
@@ -97,20 +89,12 @@ exports[`<Tabs /> should render properly 1`] = `
     <button
       className="tab active undefined"
       disabled={undefined}
-      href={undefined}
       name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -127,9 +111,9 @@ exports[`<Tabs /> should render properly 1`] = `
           "muiPrepared": true,
           "outline": "none",
           "padding": 0,
+          "position": "relative",
           "textDecoration": "none",
           "textTransform": "uppercase",
-          "transform": "translate(0, 0)",
           "verticalAlign": null,
           "width": "12.5%",
         }
@@ -171,20 +155,12 @@ exports[`<Tabs /> should render properly 1`] = `
     <button
       className="tab default undefined"
       disabled={undefined}
-      href={undefined}
       name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -201,9 +177,9 @@ exports[`<Tabs /> should render properly 1`] = `
           "muiPrepared": true,
           "outline": "none",
           "padding": 0,
+          "position": "relative",
           "textDecoration": "none",
           "textTransform": "uppercase",
-          "transform": "translate(0, 0)",
           "verticalAlign": null,
           "width": "12.5%",
         }
@@ -245,20 +221,12 @@ exports[`<Tabs /> should render properly 1`] = `
     <button
       className="tab default undefined"
       disabled={undefined}
-      href={undefined}
       name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -275,9 +243,9 @@ exports[`<Tabs /> should render properly 1`] = `
           "muiPrepared": true,
           "outline": "none",
           "padding": 0,
+          "position": "relative",
           "textDecoration": "none",
           "textTransform": "uppercase",
-          "transform": "translate(0, 0)",
           "verticalAlign": null,
           "width": "12.5%",
         }
@@ -319,20 +287,12 @@ exports[`<Tabs /> should render properly 1`] = `
     <button
       className="tab default undefined"
       disabled={undefined}
-      href={undefined}
       name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -349,9 +309,9 @@ exports[`<Tabs /> should render properly 1`] = `
           "muiPrepared": true,
           "outline": "none",
           "padding": 0,
+          "position": "relative",
           "textDecoration": "none",
           "textTransform": "uppercase",
-          "transform": "translate(0, 0)",
           "verticalAlign": null,
           "width": "12.5%",
         }
@@ -393,20 +353,12 @@ exports[`<Tabs /> should render properly 1`] = `
     <button
       className="tab default undefined"
       disabled={undefined}
-      href={undefined}
       name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -423,9 +375,9 @@ exports[`<Tabs /> should render properly 1`] = `
           "muiPrepared": true,
           "outline": "none",
           "padding": 0,
+          "position": "relative",
           "textDecoration": "none",
           "textTransform": "uppercase",
-          "transform": "translate(0, 0)",
           "verticalAlign": null,
           "width": "12.5%",
         }
@@ -467,20 +419,12 @@ exports[`<Tabs /> should render properly 1`] = `
     <button
       className="tab default undefined"
       disabled={undefined}
-      href={undefined}
       name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -497,9 +441,9 @@ exports[`<Tabs /> should render properly 1`] = `
           "muiPrepared": true,
           "outline": "none",
           "padding": 0,
+          "position": "relative",
           "textDecoration": "none",
           "textTransform": "uppercase",
-          "transform": "translate(0, 0)",
           "verticalAlign": null,
           "width": "12.5%",
         }
@@ -541,20 +485,12 @@ exports[`<Tabs /> should render properly 1`] = `
     <button
       className="tab default undefined"
       disabled={undefined}
-      href={undefined}
       name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
       onKeyDown={[Function]}
       onKeyUp={[Function]}
-      onMouseDown={[Function]}
-      onMouseEnter={[Function]}
-      onMouseLeave={[Function]}
-      onMouseUp={[Function]}
-      onTouchEnd={[Function]}
-      onTouchStart={[Function]}
-      onTouchTap={[Function]}
       style={
         Object {
           "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -571,9 +507,9 @@ exports[`<Tabs /> should render properly 1`] = `
           "muiPrepared": true,
           "outline": "none",
           "padding": 0,
+          "position": "relative",
           "textDecoration": "none",
           "textTransform": "uppercase",
-          "transform": "translate(0, 0)",
           "verticalAlign": null,
           "width": "12.5%",
         }

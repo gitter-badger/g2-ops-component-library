@@ -54,7 +54,7 @@ exports[`<AppBar /> <AppBar /> renders properly 1`] = `
     </div>
   </div>
   <h1
-    onTouchTap={[Function]}
+    onClick={[Function]}
     style={
       Object {
         "boxFlex": 1,

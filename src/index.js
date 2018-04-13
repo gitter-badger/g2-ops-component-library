@@ -19,6 +19,7 @@ export { default as SnackBar } from './components/SnackBar'
 export { default as SearchBar } from './components/SearchBar'
 export { default as Stepper, Step, StepLabel } from './components/Stepper'
 export { default as Tabs } from './components/Tabs'
+
 export {
   default as Table,
   TableBody,
@@ -28,6 +29,7 @@ export {
   TableRow,
   TableRowColumn,
 } from './components/Table'
+
 export { default as TextField } from './components/TextField'
 export { default as TimePicker } from './components/TimePicker'
 export { default as Toggle } from './components/Toggle'

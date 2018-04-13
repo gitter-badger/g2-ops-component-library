@@ -9,7 +9,7 @@ import QuickFilter from './quick-filter.component'
 type QuickFiltersPropType = {
   quickFilters: Array<QuickFilterType>,
   selectedQuickFilter: string,
-  onQuickFiltersChange?: (string) => void,
+  onQuickFiltersChange?: string => void,
 }
 
 type QuickFiltersStateType = {
@@ -46,8 +46,9 @@ class QuickFilters extends Component<QuickFiltersPropType, QuickFiltersStateType
     const { selectedQuickFilter } = this.state
     return (
       <div className="QuickFilters">
-        {quickFilters.map((quickFilter) => (
+        {quickFilters.map(quickFilter => (
           <QuickFilter
+            key={quickFilter.name}
             quickFilter={quickFilter}
             onQuickFiltersChange={this.handleQuickFilterChange}
             isSelected={selectedQuickFilter === quickFilter.name}

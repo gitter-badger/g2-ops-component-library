@@ -1,5 +1,4 @@
 import React from 'react'
-import PropTypes from 'prop-types'
 import { AutoSizer, List } from 'react-virtualized'
 import cn from 'classnames'
 import mdlComponent from './autoselectMdlComponent'
@@ -85,22 +84,22 @@ export const AutoSelectOptions = ({
   />
 )
 
-AutoSelectOptions.propTypes = {
-  options: PropTypes.arrayOf(PropTypes.any).isRequired,
-  displayOption: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  onMouseEnterOption: PropTypes.func,
-  onMouseLeaveOption: PropTypes.func,
-  onClickOption: PropTypes.func,
-  afterClickOption: PropTypes.func,
-  serializeOption: PropTypes.func,
-  selectedOption: PropTypes.any,
-  scrollToIndex: PropTypes.number,
-  width: PropTypes.number, // DEFAULT WIDTH FOR TESTING
-  optionStyleProps: PropTypes.shape({
-    rowHeight: PropTypes.number,
-    optionsMinHeight: PropTypes.number,
-  }),
+type PropsT = {
+  options: [], // TODO
+  displayOption(): any, // TODO
+  name(): any,
+  onMouseEnterOption(): any,
+  onMouseLeaveOption(): any,
+  onClickOption(): any,
+  afterClickOption(): any,
+  serializeOption(): any,
+  selectedOption: any, // TODO
+  scrollToIndex: number,
+  width: number, // DEFAULT WIDTH FOR TESTING
+  optionStyleProps: {
+    rowHeight: number,
+    optionsMinHeight: number,
+  },
 }
 
 AutoSelectOptions.defaultProps = {
@@ -117,7 +116,7 @@ AutoSelectOptions.defaultProps = {
   width: 200,
 }
 
-const AutoSizedAutoSelectOptions = (props) => (
+const AutoSizedAutoSelectOptions = (props: PropsT) => (
   <AutoSizer>{({ width }) => <AutoSelectOptions {...props} width={width} />}</AutoSizer>
 )
 

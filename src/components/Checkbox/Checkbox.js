@@ -1,9 +1,8 @@
 // @flow
 
 import type { Node } from 'react'
-
 import React from 'react'
-import PropTypes from 'prop-types'
+
 import { Checkbox as FabricCheckbox } from 'office-ui-fabric-react/lib/Checkbox'
 
 type CheckboxPropTypes = {
@@ -21,7 +20,14 @@ type CheckboxPropTypes = {
   otherProps?: any,
 }
 
-const Checkbox = ({ label, isChecked, handleChange, labelRenderer, styles, ...otherProps }: CheckboxPropTypes) => (
+export const Checkbox = ({
+  label,
+  isChecked,
+  handleChange,
+  labelRenderer,
+  styles,
+  ...otherProps
+}: CheckboxPropTypes) => (
   <FabricCheckbox
     label={label}
     checked={isChecked}
@@ -31,5 +37,3 @@ const Checkbox = ({ label, isChecked, handleChange, labelRenderer, styles, ...ot
     {...otherProps}
   />
 )
-
-export default Checkbox

@@ -5,6 +5,7 @@ exports[`<SnackBar /> should render properly 1`] = `
   <div
     action={null}
     className="CopartSnackBar"
+    onActionTouchTap={[Function]}
     open={false}
     style={
       Object {
@@ -14,7 +15,7 @@ exports[`<SnackBar /> should render properly 1`] = `
         "muiPrepared": true,
         "position": "fixed",
         "right": "5px",
-        "transform": "translate(0, 48px)",
+        "transform": "translate(-50%, 48px)",
         "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
         "visibility": "hidden",
         "zIndex": 2900,
@@ -30,11 +31,11 @@ exports[`<SnackBar /> should render properly 1`] = `
           "fontFamily": "Roboto, sans-serif",
           "height": 48,
           "lineHeight": "48px",
-          "margin": "auto",
           "maxWidth": "800px",
           "minWidth": 288,
           "muiPrepared": true,
           "padding": "0 24px",
+          "width": "auto",
         }
       }
       width={3}
@@ -64,6 +65,7 @@ exports[`<SnackBar /> should render properly when showOKButton=true 1`] = `
   <div
     action="OK"
     className="CopartSnackBar"
+    onActionTouchTap={[Function]}
     open={false}
     style={
       Object {
@@ -73,7 +75,7 @@ exports[`<SnackBar /> should render properly when showOKButton=true 1`] = `
         "muiPrepared": true,
         "position": "fixed",
         "right": "5px",
-        "transform": "translate(0, 48px)",
+        "transform": "translate(-50%, 48px)",
         "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
         "visibility": "hidden",
         "zIndex": 2900,
@@ -89,11 +91,11 @@ exports[`<SnackBar /> should render properly when showOKButton=true 1`] = `
           "fontFamily": "Roboto, sans-serif",
           "height": 48,
           "lineHeight": "48px",
-          "margin": "auto",
           "maxWidth": "800px",
           "minWidth": 288,
           "muiPrepared": true,
           "padding": "0 24px",
+          "width": "auto",
         }
       }
       width={3}
@@ -114,19 +116,14 @@ exports[`<SnackBar /> should render properly when showOKButton=true 1`] = `
         </span>
         <button
           disabled={false}
-          href={undefined}
           onBlur={[Function]}
           onClick={[Function]}
           onFocus={[Function]}
           onKeyDown={[Function]}
           onKeyUp={[Function]}
-          onMouseDown={[Function]}
           onMouseEnter={[Function]}
           onMouseLeave={[Function]}
-          onMouseUp={[Function]}
-          onTouchEnd={[Function]}
           onTouchStart={[Function]}
-          onTouchTap={[Function]}
           style={
             Object {
               "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
@@ -155,7 +152,6 @@ exports[`<SnackBar /> should render properly when showOKButton=true 1`] = `
               "position": "relative",
               "textAlign": "center",
               "textDecoration": "none",
-              "transform": "translate(0, 0)",
               "transition": "all 450ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
               "userSelect": "none",
               "verticalAlign": null,
@@ -201,6 +197,7 @@ exports[`<SnackBar /> should render properly when showSnackBar=true 1`] = `
   <div
     action={null}
     className="CopartSnackBar"
+    onActionTouchTap={[Function]}
     open={true}
     style={
       Object {
@@ -210,7 +207,7 @@ exports[`<SnackBar /> should render properly when showSnackBar=true 1`] = `
         "muiPrepared": true,
         "position": "fixed",
         "right": "5px",
-        "transform": "translate(0, 0)",
+        "transform": "translate(-50%, 0)",
         "transition": "transform 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms, visibility 400ms cubic-bezier(0.23, 1, 0.32, 1) 0ms",
         "visibility": "visible",
         "zIndex": 2900,
@@ -226,11 +223,11 @@ exports[`<SnackBar /> should render properly when showSnackBar=true 1`] = `
           "fontFamily": "Roboto, sans-serif",
           "height": 48,
           "lineHeight": "48px",
-          "margin": "auto",
           "maxWidth": "800px",
           "minWidth": 288,
           "muiPrepared": true,
           "padding": "0 24px",
+          "width": "auto",
         }
       }
       width={3}

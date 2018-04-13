@@ -1,7 +1,5 @@
 // @flow
-
 import React from 'react'
-import PropTypes from 'prop-types'
 import RaisedButton from 'material-ui/RaisedButton'
 import MuiIconButton from 'material-ui/IconButton'
 import AddIcon from 'material-ui/svg-icons/content/add'
@@ -25,6 +23,7 @@ type ButtonPropTypes = {
 
 const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) => {
   let typeProps
+
   switch (type) {
     case 'primary':
     case 'secondary':
@@ -35,6 +34,7 @@ const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) =
       }
       break
     }
+
     case 'add': {
       typeProps = {
         ...buttonProps,
@@ -44,6 +44,7 @@ const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) =
       }
       break
     }
+
     case 'edit': {
       typeProps = {
         ...buttonProps,
@@ -53,6 +54,7 @@ const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) =
       }
       break
     }
+
     case 'delete': {
       typeProps = {
         ...buttonProps,
@@ -62,10 +64,12 @@ const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) =
       }
       break
     }
+
     default: {
       typeProps = buttonProps
     }
   }
+
   return <RaisedButton {...typeProps} />
 }
 

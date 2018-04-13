@@ -28,6 +28,7 @@ exports[`<Stepper /> should render properly 1`] = `
           "alignItems": "center",
           "color": "rgba(0, 0, 0, 0.87)",
           "display": "flex",
+          "fontFamily": "Roboto, sans-serif",
           "fontSize": 14,
           "height": 72,
           "muiPrepared": true,
@@ -39,11 +40,8 @@ exports[`<Stepper /> should render properly 1`] = `
       <span
         style={
           Object {
-            "alignItems": "center",
-            "display": "flex",
             "muiPrepared": true,
             "paddingRight": 8,
-            "width": 24,
           }
         }
       >
@@ -110,6 +108,7 @@ exports[`<Stepper /> should render properly 1`] = `
           "alignItems": "center",
           "color": "rgba(0, 0, 0, 0.87)",
           "display": "flex",
+          "fontFamily": "Roboto, sans-serif",
           "fontSize": 14,
           "fontWeight": 500,
           "height": 72,
@@ -122,11 +121,8 @@ exports[`<Stepper /> should render properly 1`] = `
       <span
         style={
           Object {
-            "alignItems": "center",
-            "display": "flex",
             "muiPrepared": true,
             "paddingRight": 8,
-            "width": 24,
           }
         }
       >
@@ -203,8 +199,9 @@ exports[`<Stepper /> should render properly 1`] = `
         Object {
           "alignItems": "center",
           "color": "rgba(0, 0, 0, 0.26)",
-          "cursor": "not-allowed",
+          "cursor": "default",
           "display": "flex",
+          "fontFamily": "Roboto, sans-serif",
           "fontSize": 14,
           "height": 72,
           "muiPrepared": true,
@@ -216,11 +213,8 @@ exports[`<Stepper /> should render properly 1`] = `
       <span
         style={
           Object {
-            "alignItems": "center",
-            "display": "flex",
             "muiPrepared": true,
             "paddingRight": 8,
-            "width": 24,
           }
         }
       >

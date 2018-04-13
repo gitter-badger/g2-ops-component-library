@@ -6,7 +6,7 @@ type FilterStylesType = {
   filterContentStyle: Object,
 }
 
-const filterStyles: FilterStylesType = {
+export const filterStyles: FilterStylesType = {
   filterStyle: {
     paddingBottom: '0px',
   },
@@ -20,5 +20,3 @@ const filterStyles: FilterStylesType = {
     paddingBottom: '10px',
   },
 }
-
-export default filterStyles

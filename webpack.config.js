@@ -4,50 +4,54 @@ const HtmlWebpackPlugin = require('html-webpack-plugin')
 
 const { join, resolve } = path
 
-const root = resolve(__dirname)
-const src = join(root, 'src')
-const dest = join(root, '.')
+const src = join(__dirname, 'src')
+const dest = join(__dirname, '.')
 
 module.exports = {
-  devtool: 'source-map',
-  entry: [ join(src, 'index.js') ],
+  devtool: 'inline-source-map',
+  entry: [join(src, 'index.js')],
   output: {
     publicPath: '/',
     path: dest,
     filename: 'index.js',
-    libraryTarget: 'commonjs2',
+    library: 'g2Components',
+    libraryTarget: 'umd',
+    umdNamedDefine: false,
   },
   externals: {
-    react: { commonjs: 'react', commonjs2: 'react' },
-    'react-dom': { commonjs: 'react-dom', commonjs2: 'react-dom' },
-    'material-ui': { commonjs: 'material-ui', commonjs2: 'material-ui' },
-    'office-ui-fabric-react': { commonjs: 'office-ui-fabric-react', commonjs2: 'office-ui-fabric-react' },
+    react: 'React',
+    'react-dom': 'ReactDOM',
+    // 'material-ui': 'material-ui',
+    // 'office-ui-fabric-react': 'Fa,
   },
   resolve: {
     alias: {
       examples: join(src, 'examples'),
       components: join(src, 'components'),
-      types: join(root, 'types'),
+      types: join(__dirname, 'types'),
     },
-    extensions: [ '.js', '.css' ],
+    extensions: ['.js', '.css'],
   },
   plugins: [
     new webpack.DefinePlugin({
       __DEVELOPMENT__: false,
       __DEVTOOLS__: false,
     }),
+
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
         BABEL_ENV: JSON.stringify('production'),
       },
     }),
+
     new HtmlWebpackPlugin({
       template: './src/index.html',
       filename: 'index.html',
       inject: 'body',
     }),
   ],
+
   module: {
     loaders: [
       {
@@ -63,6 +67,9 @@ module.exports = {
           },
           {
             loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'postcss-loader',
           },
           {
             loader: 'sass-loader', // compiles Sass to CSS

@@ -9,7 +9,7 @@ import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
 import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/dateUtils'
 
-import TextField from 'components/TextField'
+import { TextField } from 'components/TextField'
 import { IconButton } from 'components/Button'
 
 import { getDateObject, getDefaultMinDate, getDefaultMaxDate, validateDateAndGetErrorMesssage } from './dateUtils'
@@ -49,9 +49,9 @@ type DatePickerProps = {
   onChange: (string, Date | null, string) => void,
   onDismiss: (SyntheticEvent<HTMLInputElement>) => void,
   onFocus: (SyntheticFocusEvent<HTMLInputElement>) => void,
-  onShow: (any) => void,
+  onShow: any => void,
   onTouchTap: (SyntheticUIEvent<HTMLInputElement>) => void,
-  shouldDisableDate: (Date) => boolean,
+  shouldDisableDate: Date => boolean,
   style: Node,
   value: Date,
 }
@@ -76,7 +76,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
   }
 
   static contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: {}, // TODO
   }
 
   state = {
@@ -189,7 +189,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     }
   }
 
-  formatDate = (date) => {
+  formatDate = date => {
     if (this.props.locale) {
       const DateTimeFormat = this.props.DateTimeFormat || dateTimeFormat
       return new DateTimeFormat(this.props.locale, {
@@ -266,7 +266,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
           onAccept={this.handleAccept}
           onShow={onShow}
           onDismiss={onDismiss}
-          ref={(elem) => {
+          ref={elem => {
             this.dialogWindow = elem
           }}
           shouldDisableDate={shouldDisableDate}
