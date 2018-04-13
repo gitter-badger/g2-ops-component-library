@@ -27,6 +27,7 @@ type TabsConfig = {
   className: string,
   /** name for Tab label */
   name: string,
+  showBadge: boolean,
 }
 
 type TabsPropType = {
@@ -68,7 +69,7 @@ const IconWithoutBadge = ({ tabClassName = 'tabIcon', tabConfig }: IconWithoutBa
 }
 
 const getLabelForTab = (label: string, labelError: Node | string = label, tabHasError: boolean = false) =>
-  (tabHasError ? labelError : label)
+  tabHasError ? labelError : label
 
 const Tabs = ({ slideIndex, tabsConfig, onTabActive, tabsWithErrors }: TabsPropType) => (
   <MuiTabs className="tabs">
