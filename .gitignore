@@ -1,7 +1,11 @@
 node_modules
 .DS_Store
+lib
+
 npm-debug.log
+package-lock.json
+
 yarn-error.log
 yarn.lock
-package-lock.json
+
 .idea
