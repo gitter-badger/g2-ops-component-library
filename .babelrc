@@ -46,6 +46,7 @@
         "alias": {
           "examples": "./packages/core/examples",
           "components": "./packages/core/components",
+          "utils": "./packages/core/utils",
           "types": "./types"
         }
       }

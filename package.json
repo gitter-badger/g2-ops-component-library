@@ -18,7 +18,7 @@
     "build": "NODE_ENV=production BABEL_ENV=production webpack -p",
     "prepublishOnly": "npm run build",
     "flow": "flow",
-    "lint": "eslint src/**/*.js",
+    "lint": "eslint packages/**/*.js",
     "flowtype": "flow-typed install",
     "precommit": "pretty-quick --staged && yarn lint"
   },
@@ -123,15 +123,15 @@
   "jest": {
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy",
-      "^components(.*)$": "<rootDir>/src/components/$1",
-      "^utils(.*)$": "<rootDir>/src/utils/$1"
+      "^components(.*)$": "<rootDir>/packages/components/$1",
+      "^utils(.*)$": "<rootDir>/packages/utils/$1"
     },
     "transform": {
       "^.+\\.jsx?$": "babel-jest"
     },
     "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
-    "testRegex": "src/.*(jest|test).js$"
+    "testRegex": "packages/.*(jest|test).js$"
   },
   "pre-push": ["test", "flow"]
 }
