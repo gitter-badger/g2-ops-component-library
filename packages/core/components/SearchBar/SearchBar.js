@@ -7,7 +7,7 @@ import { DefaultButton, IconButton } from 'office-ui-fabric-react/lib/Button'
 
 import { Checkbox } from 'components/Checkbox/Checkbox'
 
-import { wrapFabricContext } from '../../wrapFabricContext'
+import wrapFabricContext from '../../wrapFabricContext'
 import { checkboxStyle } from './SearchBar.style'
 
 import './style.scss'

@@ -42,11 +42,11 @@
     [
       "babel-plugin-module-resolver",
       {
-        "root": ["./src"],
+        "root": ["./"],
         "alias": {
-          "examples": "./src/examples",
-          "components": "./src/components",
-          "types": "./src/types"
+          "examples": "./packages/core/examples",
+          "components": "./packages/core/components",
+          "types": "./types"
         }
       }
     ]

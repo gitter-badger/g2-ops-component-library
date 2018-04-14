@@ -2,7 +2,7 @@ import React from 'react'
 import renderIf from 'render-if'
 import { prop } from 'ramda'
 import { formatDate, daysElapsedUntilToday } from '../DatePicker/dateUtils'
-import { FlattenedOptionType, OptionType } from '../../../types/HierarchySelector'
+import { FlattenedOptionType, OptionType } from 'types/HierarchySelector'
 import HierarchySelector from './HierarchySelector'
 import towProvidersJson from './towProviders.json'
 

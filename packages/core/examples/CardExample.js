@@ -2,7 +2,7 @@ import React from 'react'
 import Card, { CardActions, CardHeader, CardText } from 'components/Card/Card'
 import FlatButton from 'material-ui/FlatButton'
 
-console.log({ Card, CardActions, CardHeader, CardText, FlatButton })
+console.log(false, 3939393)
 const CardExampleExpandable = () => (
   <Card>
     <CardHeader title="Card Example" subtitle="Subtitle" actAsExpander showExpandableButton />

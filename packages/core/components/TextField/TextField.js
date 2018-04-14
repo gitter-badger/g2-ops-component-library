@@ -4,7 +4,7 @@ import React from 'react'
 import { TextField as FabricTextField } from 'office-ui-fabric-react/lib/TextField'
 import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
 
-import { wrapFabricContext } from '../../wrapFabricContext'
+import wrapFabricContext from '../../wrapFabricContext'
 
 import './style.scss'
 

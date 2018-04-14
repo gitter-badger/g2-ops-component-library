@@ -2,36 +2,38 @@ const path = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 
+const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
+
 const { join, resolve } = path
 
-const src = join(__dirname, 'src')
+const src = join(__dirname, 'packages/core')
 const dest = join(__dirname, '.')
 
 module.exports = {
-  devtool: 'inline-source-map',
-  entry: [join(src, 'index.js')],
+  // devtool: 'inline-source-map',
+  entry: [path.resolve(__dirname, 'packages/core/index.js')],
   output: {
     publicPath: '/',
-    path: dest,
+    path: path.resolve(__dirname, 'packages/core/dist'),
     filename: 'index.js',
-    library: 'g2Components',
-    libraryTarget: 'umd',
+    libraryTarget: 'commonjs',
     umdNamedDefine: false,
   },
-  externals: {
-    react: 'React',
-    'react-dom': 'ReactDOM',
-    // 'material-ui': 'material-ui',
-    // 'office-ui-fabric-react': 'Fa,
-  },
+
+  externals: [
+    /^office-ui-fabric-react\/lib\/.+/,
+    /^react$/,
+    /react-dom/,
+    /^moment$/,
+    /^moment-timezone$/,
+    /^material-ui\/.+/,
+    /^@uifabric\/.+/,
+  ],
+
   resolve: {
-    alias: {
-      examples: join(src, 'examples'),
-      components: join(src, 'components'),
-      types: join(__dirname, 'types'),
-    },
     extensions: ['.js', '.css'],
   },
+
   plugins: [
     new webpack.DefinePlugin({
       __DEVELOPMENT__: false,
@@ -45,11 +47,13 @@ module.exports = {
       },
     }),
 
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-      inject: 'body',
-    }),
+    new BundleAnalyzerPlugin(),
+
+    // new HtmlWebpackPlugin({
+    //   template: './src/index.html',
+    //   filename: 'index.html',
+    //   inject: 'body',
+    // }),
   ],
 
   module: {
