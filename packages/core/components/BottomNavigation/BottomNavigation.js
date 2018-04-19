@@ -6,9 +6,9 @@ import { BottomNavigation as MuiBottomNavigation, BottomNavigationItem } from 'm
 
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-const BottomNavigation = <T: { children?: ChildrenArray<Node> }>(props: T) => (
+export const BottomNavigation = wrapMuiContext(<T: { children?: ChildrenArray<Node> }>(props: T) => (
   <MuiBottomNavigation {...props}>{props.children}</MuiBottomNavigation>
-)
+))
 
-export default wrapMuiContext(BottomNavigation)
+// export default wrapMuiContext(BottomNavigation)
 export { BottomNavigationItem }

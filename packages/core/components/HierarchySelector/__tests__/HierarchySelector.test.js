@@ -5,7 +5,7 @@ import renderIf from 'render-if'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import HierarchySelector from '../HierarchySelector'
+import {HierarchySelector} from '../HierarchySelector'
 import { CardIcon, renderMethod } from '../HierarchySelectorExample'
 
 const nestedOptions = [

@@ -1,9 +1,9 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Button from 'components/Button'
+import {Button} from 'components/Button'
 
-import DialogBox from '../DialogBox'
+import {DialogBox} from '../'
 
 // TODO: We don't need to test anything here!
 describe('<DialogBox />', () => {

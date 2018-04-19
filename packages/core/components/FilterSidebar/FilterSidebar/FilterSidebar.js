@@ -4,15 +4,14 @@ import type { Node } from 'react'
 
 import React, { Component } from 'react'
 import renderIf from 'render-if'
-import cn from 'classnames'
 
-import QuickFilters from 'components/FilterSidebar/QuickFilters'
-import Filters from 'components/FilterSidebar/Filters'
+import {QuickFilters} from 'components/FilterSidebar/QuickFilters'
+import {Filters} from 'components/FilterSidebar/Filters'
 import { wrapMuiContext } from '../../../wrapMuiContext'
-import FilterSwitcher from './filter-switcher.component'
-import './filter-sidebar.component.scss'
+import {FilterSwitcher} from './FilterSwitcher'
+import './FilterSidebar.scss'
 
-type FilterSidebarComponentPropType = {
+type FilterSidebarPropType = {
   selectedQuickFilter: string,
   quickFilters: Array<QuickFilterType>,
   filters: Array<FilterType>,
@@ -24,11 +23,11 @@ type FilterSidebarComponentPropType = {
   height: string,
 }
 
-type FilterSidebarComponentStateType = {
+type FilterSidebarStateType = {
   filterDrawerOpen: boolean,
 }
 
-class FilterSidebarComponent extends Component<FilterSidebarComponentPropType, FilterSidebarComponentStateType> {
+class FilterSidebarComponent extends Component<FilterSidebarPropType, FilterSidebarStateType> {
   static defaultProps = {
     quickFilters: [],
     selectedQuickFilter: 'lots',
@@ -69,7 +68,7 @@ class FilterSidebarComponent extends Component<FilterSidebarComponentPropType, F
           </div>
           {this.props.children}
         </div>
-        <div className={cn('filters', { open: this.state.filterDrawerOpen })}>
+        <div className={`filters ${this.state.filterDrawerOpen ? 'open' : ''}`}>
           {renderIfFilterDrawerOpen(
             <Filters width={width} filters={filters} onFilterChange={onFilterChange} onFiltersClear={onFiltersClear} />,
           )}
@@ -79,4 +78,4 @@ class FilterSidebarComponent extends Component<FilterSidebarComponentPropType, F
   }
 }
 
-export default wrapMuiContext(FilterSidebarComponent)
+export const FilterSidebar = wrapMuiContext(FilterSidebar)

@@ -2,7 +2,7 @@
 import type { FilterType } from 'types/Filter'
 
 import React from 'react'
-import Card, { CardHeader, CardText } from 'components/Card/Card'
+import { Card, CardHeader, CardText } from 'components/Card/Card'
 import { FilterValueList } from './FilterValueList'
 
 import { filterStyles } from './Filter.styles'

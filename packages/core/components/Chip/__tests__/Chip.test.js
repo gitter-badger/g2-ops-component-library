@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import Chip from '../Chip'
+import {Chip} from '../Chip'
 
 describe('<Chip />', () => {
   test('should render properly', () => {

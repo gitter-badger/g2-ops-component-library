@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import Toggle from '../Toggle'
+import {Toggle} from '../Toggle'
 
 // Issue exists with material-ui/Toggle for testing
 jest.mock('material-ui/internal/EnhancedSwitch', () => () => <div className="EnhanceSwitch" />)

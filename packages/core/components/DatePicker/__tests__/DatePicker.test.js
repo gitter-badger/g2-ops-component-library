@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme'
 import moment from 'moment'
 import renderer from 'react-test-renderer'
 
-import DatePicker from '../DatePicker'
+import {DatePicker} from '../'
 import { isSameOrBeforeMaxDate, isSameOrAfterMinDate, getDateObject } from '../dateUtils'
 
 const getProps = (props = {}) => {
@@ -42,7 +42,7 @@ describe('Sets state when user enters date', () => {
     const tree = mount(<DatePicker {...getProps()} />)
     textField = tree.find('TextField').at(0)
     datePicker = tree
-      .find('DatePicker')
+      .find('.DatePicker')
       .at(0)
       .instance()
   })

@@ -28,7 +28,7 @@ type AvatarPropTypes = {
   },
 }
 
-const Avatar = ({ backgroundColor, className, color, size, icon, src, style, children }: AvatarPropTypes) => (
+export const Avatar = wrapMuiContext(({ backgroundColor, className, color, size, icon, src, style, children }: AvatarPropTypes) => (
   <MuiAvatar
     backgroundColor={backgroundColor}
     className={className}
@@ -40,6 +40,4 @@ const Avatar = ({ backgroundColor, className, color, size, icon, src, style, chi
   >
     {children}
   </MuiAvatar>
-)
-
-export default wrapMuiContext(Avatar)
+))

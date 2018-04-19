@@ -17,7 +17,7 @@ type PhoneNumberStateTypes = {
   formattedNumber: string,
 }
 
-class PhoneNumber extends Component<PhoneNumberPropTypes, PhoneNumberStateTypes> {
+export class PhoneNumber extends Component<PhoneNumberPropTypes, PhoneNumberStateTypes> {
   state = {
     formattedNumber: getFormattedNumber(this.props.value),
   }
@@ -68,4 +68,3 @@ class PhoneNumber extends Component<PhoneNumberPropTypes, PhoneNumberStateTypes>
 }
 
 export { AsYouType }
-export default PhoneNumber

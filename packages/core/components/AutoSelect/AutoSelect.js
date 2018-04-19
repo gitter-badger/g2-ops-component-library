@@ -100,7 +100,7 @@ type PropsT = {
   selectTextField(): any, // TODO
 }
 
-class AutoSelect extends PureComponent<PropsT> {
+export class AutoSelect extends PureComponent<PropsT> {
   static defaultProps = {
     value: '',
     errorText: '',
@@ -343,5 +343,3 @@ class AutoSelect extends PureComponent<PropsT> {
     )
   }
 }
-
-export default AutoSelect

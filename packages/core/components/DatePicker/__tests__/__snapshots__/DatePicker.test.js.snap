@@ -2,7 +2,7 @@
 
 exports[`<DatePicker /> should render properly 1`] = `
 <div
-  className={undefined}
+  className="DatePicker "
   style={
     Object {
       "maxWidth": "300px",
@@ -119,7 +119,7 @@ exports[`<DatePicker /> should render properly 1`] = `
 
 exports[`<DatePicker /> should render when value prop passed 1`] = `
 <div
-  className={undefined}
+  className="DatePicker "
   style={
     Object {
       "maxWidth": "300px",

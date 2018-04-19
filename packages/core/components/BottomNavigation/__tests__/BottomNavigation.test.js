@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import BottomNavigation from '../BottomNavigation'
+import {BottomNavigation} from '../BottomNavigation'
 
 // Nothing added here as it is just wrapper around MaterialBottomNavigation
 describe('<BottomNavigation />', () => {

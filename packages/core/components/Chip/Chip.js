@@ -29,7 +29,7 @@ type ChippropTypes = {
   style: StyleType,
 }
 
-const Chip = ({
+export const Chip = wrapMuiContext(({
   backgroundColor,
   children,
   className,
@@ -50,6 +50,4 @@ const Chip = ({
   >
     {children}
   </MuiChip>
-)
-
-export default wrapMuiContext(Chip)
+))

@@ -1,1 +1,1 @@
-export default from './Card'
+export { Card, CardActions, CardHeader, CardMedia, CardTitle, CardText } from './Card'

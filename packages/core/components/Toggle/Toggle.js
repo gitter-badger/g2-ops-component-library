@@ -38,4 +38,4 @@ import { wrapMuiContext } from '../../wrapMuiContext'
 //   valueLink?: Object,
 // }
 
-export default wrapMuiContext(MuiToggle)
+export const Toggle = wrapMuiContext(MuiToggle)

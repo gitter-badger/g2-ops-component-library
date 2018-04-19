@@ -4,7 +4,7 @@ import type { Node, ChildrenArray } from 'react'
 import React from 'react'
 import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog'
 
-import wrapFabricContext from '../../wrapFabricContext'
+import {wrapFabricContext} from '../../wrapFabricContext'
 
 import './DialogBox.scss'
 

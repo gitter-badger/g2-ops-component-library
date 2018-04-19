@@ -4,9 +4,10 @@ import React, { Component } from 'react'
 import { IconButton } from 'office-ui-fabric-react/lib/Button'
 import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
 
-import './AppBar.scss'
+// QUESTION: Is this necessary? The CSS is already imported and globally available.
+import '../AppBar.scss'
 
-type LogoutMenuPropTypes = {
+type LogOutMenuPropTypes = {
   items?: Array<{
     key: string,
     name: string,
@@ -14,7 +15,7 @@ type LogoutMenuPropTypes = {
   onItemClick?: (SyntheticMouseEvent<HTMLElement>, { key: string, name: string }) => void,
 }
 
-type LogoutMenuState = {
+type LogOutMenuState = {
   directionalHint: DirectionalHint,
   directionalHintForRTL: DirectionalHint,
   useDirectionalHintForRtl: boolean,
@@ -23,7 +24,7 @@ type LogoutMenuState = {
   edgeFixed: boolean,
 }
 
-export class LogoutMenu extends Component<LogoutMenuPropTypes, LogoutMenuState> {
+export class LogOutMenu extends Component<LogOutMenuPropTypes, LogOutMenuState> {
   state = {
     directionalHint: DirectionalHint.bottomCenter,
     directionalHintForRTL: DirectionalHint.bottomCenter,
@@ -61,5 +62,3 @@ export class LogoutMenu extends Component<LogoutMenuPropTypes, LogoutMenuState> 
     )
   }
 }
-
-export default LogoutMenu

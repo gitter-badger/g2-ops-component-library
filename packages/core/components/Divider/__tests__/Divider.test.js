@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import Divider from '../Divider'
+import {Divider} from '../'
 
 describe('<Divider />', () => {
   test('should render properly', () => {

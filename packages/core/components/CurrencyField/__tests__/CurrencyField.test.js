@@ -2,7 +2,7 @@ import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
 
-import CurrencyField from '../CurrencyField'
+import {CurrencyField} from '../CurrencyField'
 import companyCodeMapper from '../countryMapper'
 
 describe('<CurrencyField />', () => {

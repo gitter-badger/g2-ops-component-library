@@ -1,5 +1,5 @@
 import React from 'react'
-import AutoSelect from 'components/AutoSelect'
+import {AutoSelect} from 'components/AutoSelect'
 import { IconButton } from 'components/Button'
 import { pickAll, prop, pick, values, curry, any, __, compose } from 'ramda'
 import renderIf from 'render-if'

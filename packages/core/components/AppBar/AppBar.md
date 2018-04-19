@@ -1,9 +1,9 @@
 Cobalt Portal App Bar
 
 ```js
-var SearchBar = require('../SearchBar/SearchBar').default
+const SearchBar = require('../SearchBar/SearchBar')
 
-var configCobalt = {
+const configCobalt = {
   type: 'cobalt',
   config: ['flag', 'role', 'yard'],
   isLoggedOn: true,
@@ -14,7 +14,7 @@ var configCobalt = {
   moduleName: 'Cobalt Portal'
 }
 
-var configCAS = {
+const configCAS = {
   type: 'cas',
   config: ['flag', 'yard', 'phone'],
   isLoggedOn: true,
@@ -25,7 +25,7 @@ var configCAS = {
   moduleName: 'CAS Portal'
 }
 
-var logoutItems = [
+const logoutItems = [
   {
     key: 'userName',
     name: 'Sidharth Mehra'
@@ -40,7 +40,7 @@ var logoutItems = [
   }
 ]
 
-var searchTypes = [
+const searchTypes = [
   { key: 'lot', name: 'Lot' },
   { key: 'seller', name: 'Seller' },
   { key: 'owner', name: 'Owner' },

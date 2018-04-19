@@ -5,12 +5,10 @@ import React from 'react'
 import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
 
 // a higher order function that provides mui context to the Component being passed.
-function wrapFabricContext<T>(WrapperComponent: ComponentType<T>): (T) => Node {
+export function wrapFabricContext<T>(WrapperComponent: ComponentType<T>): (T) => Node {
   return (props: T) => (
     <Fabric>
       <WrapperComponent {...props} />
     </Fabric>
   )
 }
-
-export default wrapFabricContext

@@ -5,7 +5,7 @@ import React from 'react'
 import renderIf from 'render-if'
 import MuiAppBar from 'material-ui/AppBar'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
-import { LogoutMenu } from './LogoutMenu'
+import { LogOutMenu } from './LogOutMenu'
 import { wrapMuiContext } from '../../wrapMuiContext'
 
 import './AppBar.scss'
@@ -96,7 +96,7 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
         </div>,
       )}
       <div className="col">
-        {renderIfLoggedInMenu(<LogoutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />)}
+        {renderIfLoggedInMenu(<LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />)}
       </div>
       <DefaultButton text="Feedback" onClick={onFeedbackClick} />
     </div>

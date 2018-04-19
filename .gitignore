@@ -2,6 +2,9 @@ node_modules
 .DS_Store
 lib
 
+packages/**/dist
+styleguide/build/**
+
 npm-debug.log
 package-lock.json
 

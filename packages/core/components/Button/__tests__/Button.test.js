@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import Button from '../Button'
+import {Button} from '../Button'
 
 // This is also a wrapper around MaterialUI. Added snapshots, to track how these things change over time
 describe('<Button />', () => {

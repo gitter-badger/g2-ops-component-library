@@ -1,1 +1,1 @@
-export default from './Paper'
+export { Paper } from './Paper'

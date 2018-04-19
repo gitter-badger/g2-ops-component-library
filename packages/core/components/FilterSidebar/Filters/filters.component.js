@@ -1,7 +1,7 @@
 // @flow
 import type { FilterType } from 'types/Filter'
 import React from 'react'
-import Filter from 'components/FilterSidebar/Filter'
+import {Filter} from 'components/FilterSidebar/Filter'
 import './filters.component.scss'
 
 type FiltersPropType = {

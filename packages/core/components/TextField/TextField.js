@@ -4,7 +4,7 @@ import React from 'react'
 import { TextField as FabricTextField } from 'office-ui-fabric-react/lib/TextField'
 import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
 
-import wrapFabricContext from '../../wrapFabricContext'
+import {wrapFabricContext} from '../../wrapFabricContext'
 
 import './style.scss'
 
@@ -19,7 +19,7 @@ type TextFieldPropTypes = {
   },
 }
 
-const TextField = wrapFabricContext(
+export const TextField = wrapFabricContext(
   ({ placeholder, disabled, className, inputClassName, ...otherProps }: TextFieldPropTypes) => (
     <FabricTextField
       {...otherProps}
@@ -34,5 +34,3 @@ const TextField = wrapFabricContext(
 TextField.defaultProps = {
   inputClassName: '',
 }
-
-export default TextField

@@ -1,7 +1,7 @@
 Confirmation Dialog example:
 
 ```js
-const Button = require('../Button').default;
+const {Button} = require('../Button');
 initialState = { hideDialog: true };
 <div>
   <Button

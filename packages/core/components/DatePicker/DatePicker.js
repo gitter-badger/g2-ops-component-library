@@ -63,7 +63,7 @@ type DatePickerState = {
   errorMessage: ?string,
 }
 
-class DatePicker extends Component<DatePickerProps, DatePickerState> {
+class DatePickerComponent extends Component<DatePickerProps, DatePickerState> {
   static defaultProps = {
     autoOk: false,
     container: 'dialog',
@@ -207,7 +207,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       DateTimeFormat,
       autoOk,
       cancelLabel,
-      className,
+      className = '',
       container,
       defaultDate, // eslint-disable-line no-unused-vars
       disabled,
@@ -228,13 +228,13 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       defaultFormat,
       formatDate: formatDateProp,
       ...other
-    } = this.props
+		} = this.props
 
     const { prepareStyles } = this.context.muiTheme
     const formatDate = formatDateProp || this.formatDate
     const renderDateIcon = renderIf(disabled === false)
     return (
-      <div className={className} style={prepareStyles(style)}>
+      <div className={`DatePicker ${className}`} style={prepareStyles(style)}>
         <TextField
           {...other}
           errorMessage={this.state.errorMessage}
@@ -276,4 +276,4 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
   }
 }
 
-export default wrapMuiContext(DatePicker)
+export const DatePicker = wrapMuiContext(DatePickerComponent)

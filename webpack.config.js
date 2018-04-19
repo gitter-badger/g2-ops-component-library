@@ -1,33 +1,28 @@
-const path = require('path')
+const { resolve } = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin
-
-const { join, resolve } = path
-
-const src = join(__dirname, 'packages/core')
-const dest = join(__dirname, '.')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
-  // devtool: 'inline-source-map',
-  entry: [path.resolve(__dirname, 'packages/core/index.js')],
+  devtool: 'source-map',
+  entry: resolve(__dirname, 'packages/core/index.js'),
+
   output: {
     publicPath: '/',
-    path: path.resolve(__dirname, 'packages/core/dist'),
-    filename: 'index.js',
+    path: resolve(__dirname, 'packages/core/dist'),
+    filename: '[name].js',
     libraryTarget: 'commonjs',
     umdNamedDefine: false,
   },
 
   externals: [
-    /^office-ui-fabric-react\/lib\/.+/,
+    // /^office-ui-fabric-react\/lib\/.+/,
     /^react$/,
     /react-dom/,
-    /^moment$/,
-    /^moment-timezone$/,
-    /^material-ui\/.+/,
-    /^@uifabric\/.+/,
+    // /^moment$/,
+    // /^moment-timezone$/,
+    // /^material-ui\/.+/,
+    // /^@uifabric\/.+/,
   ],
 
   resolve: {
@@ -47,7 +42,7 @@ module.exports = {
       },
     }),
 
-    new BundleAnalyzerPlugin(),
+    // new BundleAnalyzerPlugin(),
 
     // new HtmlWebpackPlugin({
     //   template: './src/index.html',

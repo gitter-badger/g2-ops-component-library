@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import Stepper, { Step, StepLabel } from '../Stepper'
+import { Stepper, Step, StepLabel } from '../Stepper'
 
 describe('<Stepper />', () => {
   test('should render properly', () => {

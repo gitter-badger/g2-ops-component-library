@@ -21,7 +21,7 @@ type ButtonPropTypes = {
   buttonProps: any,
 }
 
-const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) => {
+export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) => {
   let typeProps
 
   switch (type) {
@@ -71,7 +71,6 @@ const Button = ({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) =
   }
 
   return <RaisedButton {...typeProps} />
-}
+})
 
 export const IconButton = wrapMuiContext(MuiIconButton)
-export default wrapMuiContext(Button)

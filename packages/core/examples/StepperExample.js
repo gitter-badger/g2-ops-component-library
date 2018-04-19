@@ -1,6 +1,6 @@
 import React from 'react'
-import Stepper, { Step, StepLabel } from 'components/Stepper/Stepper'
-import Button from 'components/Button/Button'
+import { Stepper, Step, StepLabel } from 'components/Stepper/Stepper'
+import {Button} from 'components/Button/Button'
 import { wrapMuiContext } from '../wrapMuiContext'
 
 /**

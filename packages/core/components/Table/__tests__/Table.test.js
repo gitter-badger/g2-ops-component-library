@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import Table, { TableHeader, TableHeaderColumn, TableBody, TableRow, TableRowColumn } from 'components/Table/Table'
+import { Table, TableHeader, TableHeaderColumn, TableBody, TableRow, TableRowColumn } from 'components/Table/Table'
 
 describe('<Table />', () => {
   test('should render properly', () => {

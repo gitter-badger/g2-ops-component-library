@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import Paper from '../Paper'
+import {Paper} from '../Paper'
 
 describe('<Paper />', () => {
   test('should render properly', () => {

@@ -1,9 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
-
-import SnackBar from '../SnackBar'
+import {SnackBar} from '../'
 
 const message = 'Snackbar Message'
 

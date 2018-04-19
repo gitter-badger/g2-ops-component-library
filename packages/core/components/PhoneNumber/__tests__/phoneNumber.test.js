@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 import { mount } from 'enzyme'
-import PhoneNumber from '../PhoneNumber'
+import {PhoneNumber} from '../PhoneNumber'
 
 describe('<PhoneNumber />', () => {
   test('should render properly for various country codes', () => {

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import Avatar from '../Avatar'
+import {Avatar} from '../Avatar'
 
 describe('<Avatar />', () => {
   test('<Avatar /> should render properly', () => {

@@ -3,7 +3,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import RowSelectable from '../RowSelectable'
+import {RowSelectable} from '../RowSelectable'
 
 const getRowSelectableProps = () => ({})
 

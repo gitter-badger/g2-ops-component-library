@@ -7,7 +7,7 @@ import React, { PureComponent } from 'react'
 import DownArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-down'
 import renderIf from 'render-if'
 
-import AutoSelect from 'components/AutoSelect'
+import {AutoSelect} from 'components/AutoSelect'
 
 import { wrapMuiContext } from '../../wrapMuiContext'
 import { flattenNestedOptions } from './hierarchySelector.transformer'
@@ -30,7 +30,7 @@ type HierarchySelectorStateType = {
 
 const DownArrowIcon = wrapMuiContext(DownArrow)
 
-class HierarchySelector extends PureComponent<HierarchySelectorPropType, HierarchySelectorStateType> {
+export class HierarchySelector extends PureComponent<HierarchySelectorPropType, HierarchySelectorStateType> {
   autoSelect: Node // eslint-disable-line
   constructor(props: HierarchySelectorPropType) {
     super(props)
@@ -143,5 +143,3 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
     )
   }
 }
-
-export default HierarchySelector

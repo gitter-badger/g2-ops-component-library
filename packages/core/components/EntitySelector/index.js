@@ -1,1 +1,1 @@
-export default from './EntitySelector'
+export { default as EntitySelector } from './EntitySelector'

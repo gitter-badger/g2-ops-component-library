@@ -1,6 +1,6 @@
 import React from 'react'
-import Paper from 'components/Paper'
-import BottomNavigation, { BottomNavigationItem } from 'components/BottomNavigation/BottomNavigation'
+import {Paper} from 'components/Paper'
+import { BottomNavigation, BottomNavigationItem } from 'components/BottomNavigation/BottomNavigation'
 
 const BottomNavExample = (props) => (
   <Paper zDepth={1}>

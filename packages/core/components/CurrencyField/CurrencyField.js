@@ -80,7 +80,7 @@ const arePropValuesEqual = (
   properties: Array<string> = ['maxValue', 'countryCode', 'value'],
 ): boolean => !equals(pick(properties, nextProps), pick(properties, props))
 
-class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldStateType> {
+export class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldStateType> {
   static defaultProps = {
     countryCode: 'US',
     value: '',
@@ -155,4 +155,5 @@ class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldState
     )
   }
 }
-export default CurrencyField
+
+

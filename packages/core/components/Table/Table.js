@@ -15,8 +15,6 @@ import {
 
 import { wrapMuiContext } from '../../wrapMuiContext'
 
-const Table = <T: { children: Node }>(props: T) => <MuiTable {...props}>{props.children}</MuiTable>
+const Table = wrapMuiContext(MuiTable)
 
-export default wrapMuiContext(Table)
-
-export { TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn }
+export { Table, TableBody, TableFooter, TableHeader, TableHeaderColumn, TableRow, TableRowColumn }
