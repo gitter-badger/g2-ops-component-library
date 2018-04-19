@@ -1,7 +1,4 @@
 .stepper > div > div > span {
-  display: block !important;
+  flex-direction: column;
   font-family: 'Roboto', sans-serif !important;
-  span {
-    margin: auto;
-  }
 }
