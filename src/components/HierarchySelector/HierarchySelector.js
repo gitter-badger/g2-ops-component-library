@@ -46,12 +46,15 @@ class HierarchySelector extends PureComponent<HierarchySelectorPropType, Hierarc
 
   componentWillReceiveProps(nextProps: HierarchySelectorPropType) {
     const { onChange } = this.props
-    if (nextProps.options !== this.props.options) {
-      const flattenedOptions = flattenNestedOptions(nextProps.options, nextProps.renderMethod)
+    const { options, value: optionId, renderMethod } = nextProps
+    if (options !== this.props.options) {
+      const flattenedOptions = flattenNestedOptions(options, renderMethod)
+      const renderedPath = this.convertIdToPath(optionId, flattenedOptions)
       this.setState((prevState) => ({
         ...prevState,
         flattenedOptions,
         filteredOptions: flattenedOptions,
+        selectedValue: renderedPath,
       }))
     }
   }
