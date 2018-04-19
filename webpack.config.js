@@ -10,7 +10,7 @@ module.exports = {
   output: {
     publicPath: '/',
     path: resolve(__dirname, 'packages/core/dist'),
-    filename: '[name].js',
+    filename: 'index.js',
     libraryTarget: 'commonjs',
     umdNamedDefine: false,
   },
