@@ -53,7 +53,7 @@ type DatePickerState = {
   style: Object,
 }
 
-class DatePickerComponent extends Component<DatePickerProps, DatePickerState> {
+class DatePicker extends Component<DatePickerProps, DatePickerState> {
   static defaultProps = {
     autoOk: false,
     container: 'dialog',
@@ -268,4 +268,5 @@ class DatePickerComponent extends Component<DatePickerProps, DatePickerState> {
   }
 }
 
-export const DatePicker = wrapMuiContext(DatePickerComponent)
+const wrappedDatePicker = wrapMuiContext(DatePicker)
+export { wrappedDatePicker as DatePicker }

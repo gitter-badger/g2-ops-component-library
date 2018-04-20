@@ -153,4 +153,5 @@ AppBar.defaultProps = {
   onRenderLogo: (): Node => <img className="logo" src="./public/assets/images/logo.svg" alt="Copart" />,
 }
 
-export default wrapMuiContext(AppBar)
+const wrappedAppBar = wrapMuiContext(AppBar)
+export { wrappedAppBar as AppBar }

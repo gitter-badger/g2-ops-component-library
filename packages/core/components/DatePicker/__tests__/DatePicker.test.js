@@ -42,7 +42,7 @@ describe('Sets state when user enters date', () => {
     const tree = mount(<DatePicker {...getProps()} />)
     textField = tree.find('TextField').at(0)
     datePicker = tree
-      .find('.DatePicker')
+      .find('DatePicker')
       .at(0)
       .instance()
   })

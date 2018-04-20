@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import AppBar from '../AppBar'
+import { AppBar } from '../AppBar'
 
 const getProps = (extraProps = {}) => ({
   config: [],
@@ -22,7 +22,7 @@ describe('<AppBar />', () => {
 
   test('should render LogOut Menu when isLoggedOn=true', () => {
     const tree = mount(wrapWithMaterialUIContext(<AppBar {...getProps({ isLoggedOn: true })} />))
-    expect(tree.find('LogoutMenu').exists()).toBe(true)
+    expect(tree.find('LogOutMenu').exists()).toBe(true)
   })
 
   test('should render different components based on config', () => {
