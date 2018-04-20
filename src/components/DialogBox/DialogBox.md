@@ -7,29 +7,14 @@ initialState = { hideDialog: true };
   <Button
     type={'primary'}
     onClick={() => setState({ hideDialog: false })}
-    label={'Show Dialog'}
+    label={'Show Default Dialog'}
   />
   <DialogBox
     hideDialog={state.hideDialog}
-    dialogType="confirmation"
     isBlocking={false}
     onDismiss={() => setState({ hideDialog: true })}
-    renderFooter={() => (
-      <div style={{ display: 'flex', float: 'right' }}>
-        <Button 
-          type={'primary'}
-          onClick={() => setState({ hideDialog: true })}
-          label={'Yes'}
-        />
-        <span style={{ width: '10px' }}>{}</span>
-        <Button 
-          type={'secondary'}
-          onClick={() => setState({ hideDialog: true })}
-          label={'No'}
-        />
-      </div>
-    )}
-    >
+    title={'Dialog with Header'}
+  >
     Are you sure you want to move away from this screen?
   </DialogBox>
 </div>
@@ -44,29 +29,18 @@ initialState = { hideDialog: true };
   <Button
     type={'primary'}
     onClick={() => setState({ hideDialog: false })}
-    label={'Show Dialog'}
+    label={'Show Dialog with Header'}
   />
   <DialogBox
-    title={'Dialog with Content'}
+    showHeader
+    title={'Dialog with Header'}
     hideDialog={state.hideDialog}
     isBlocking={false}
     onDismiss={() => setState({ hideDialog: true })}
-    footerRenderer={() => (
-      <div style={{ display: 'flex', float: 'right' }}>
-        <Button
-          type={'primary'}
-          onClick={() => setState({ hideDialog: true })}
-          label={'Save'}
-        />
-        <span style={{ width: '10px' }}>{}</span>
-        <Button
-          type={'secondary'}
-          onClick={() => setState({ hideDialog: true })}
-          label={'Discard'}
-        />
-      </div>
-    )}>
-    <div>Main Dialog Content to be added here</div>
+  >
+    <div>
+      <p>Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo.</p>
+    </div>
   </DialogBox>
 </div>
 ```
