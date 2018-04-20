@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import {Tabs} from '../Tabs'
+import Tabs from '../Tabs'
 import tabsConfig from '../sampleTabConfig'
 
 describe('<Tabs />', () => {

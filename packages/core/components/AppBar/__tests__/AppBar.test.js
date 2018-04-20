@@ -4,7 +4,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import {AppBar} from '../AppBar'
+import AppBar from '../AppBar'
 
 const getProps = (extraProps = {}) => ({
   config: [],

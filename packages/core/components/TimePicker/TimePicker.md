@@ -1,8 +1,10 @@
 TimePicker Example:
 
 ```js
-<TimePicker
-  hintText="12hr Format with auto ok"
-  autoOk={true}
-/>
+<div style={{ width: '300px'}}>
+  <TimePicker
+    hintText="12hr Format with auto ok"
+    autoOk={true}
+  />
+</div>
 ```

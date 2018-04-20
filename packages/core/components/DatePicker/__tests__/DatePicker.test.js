@@ -3,7 +3,7 @@ import { mount, shallow } from 'enzyme'
 import moment from 'moment'
 import renderer from 'react-test-renderer'
 
-import {DatePicker} from '../'
+import { DatePicker } from '../DatePicker'
 import { isSameOrBeforeMaxDate, isSameOrAfterMinDate, getDateObject } from '../dateUtils'
 
 const getProps = (props = {}) => {

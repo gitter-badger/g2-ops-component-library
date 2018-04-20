@@ -17,17 +17,6 @@ import { wrapMuiContext } from '../../wrapMuiContext'
 
 import './style.scss'
 
-type DateTimeFormatObj = {
-  day: string,
-  month: string,
-  year: string,
-}
-
-type DateTimeFormatType = {
-  locale?: string,
-  ...DateTimeFormatObj,
-}
-
 type DatePickerProps = {
   autoOk?: boolean,
   cancelLabel: Node,
@@ -35,7 +24,7 @@ type DatePickerProps = {
   container: 'dialog' | 'inline',
   defaultDate: Date,
   defaultFormat: string,
-  DateTimeFormat: (string, DateTimeFormatType) => string,
+  DateTimeFormat: (string, Object) => string,
   dialogContainerStyle: Node,
   disableYearSelection: boolean,
   disabled: boolean,
@@ -61,6 +50,7 @@ type DatePickerState = {
   displayDate: string,
   dialogDate: Date | null,
   errorMessage: ?string,
+  style: Object,
 }
 
 class DatePickerComponent extends Component<DatePickerProps, DatePickerState> {
@@ -76,7 +66,7 @@ class DatePickerComponent extends Component<DatePickerProps, DatePickerState> {
   }
 
   static contextTypes = {
-    muiTheme: {}, // TODO
+    muiTheme: React.PropTypes.object.isRequired,
   }
 
   state = {
@@ -84,14 +74,17 @@ class DatePickerComponent extends Component<DatePickerProps, DatePickerState> {
     displayDate: '',
     dialogDate: null,
     errorMessage: '',
+    style: {},
   }
 
   componentWillMount() {
     const { defaultDate, defaultFormat } = this.props
+    const { prepareStyles } = this.context.muiTheme
     const dateValue = this.isControlled() ? this.getControlledDate() : defaultDate
     this.setState({
       date: dateValue,
       displayDate: dateValue ? moment(dateValue).format(defaultFormat) : '',
+      style: prepareStyles(this.props.style),
     })
   }
 
@@ -189,9 +182,9 @@ class DatePickerComponent extends Component<DatePickerProps, DatePickerState> {
     }
   }
 
-  formatDate = date => {
+  formatDate = (date: string | Date) => {
     if (this.props.locale) {
-      const DateTimeFormat = this.props.DateTimeFormat || dateTimeFormat
+      const DateTimeFormat: (string, Object) => mixed = this.props.DateTimeFormat || dateTimeFormat
       return new DateTimeFormat(this.props.locale, {
         day: 'numeric',
         month: 'numeric',
@@ -230,11 +223,10 @@ class DatePickerComponent extends Component<DatePickerProps, DatePickerState> {
       ...other
 		} = this.props
 
-    const { prepareStyles } = this.context.muiTheme
     const formatDate = formatDateProp || this.formatDate
     const renderDateIcon = renderIf(disabled === false)
     return (
-      <div className={`DatePicker ${className}`} style={prepareStyles(style)}>
+      <div className={`DatePicker ${className}`} style={this.state.style}>
         <TextField
           {...other}
           errorMessage={this.state.errorMessage}

@@ -3,7 +3,7 @@ import renderer from 'react-test-renderer'
 
 import { wrapWithMaterialUIContext } from 'utils/wrapWithContext'
 
-import {Card} from '../Card'
+import { Card } from '../Card'
 
 describe('<Card />', () => {
   test('should render properly with children', () => {

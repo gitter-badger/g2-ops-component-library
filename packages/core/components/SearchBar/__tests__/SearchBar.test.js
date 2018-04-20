@@ -1,7 +1,7 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
 
-import {SearchBar} from '../SearchBar'
+import { SearchBar } from '../SearchBar'
 
 const searchTypes = [
   { key: 'lot', name: 'Lot' },

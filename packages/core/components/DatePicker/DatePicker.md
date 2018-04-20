@@ -1,12 +1,12 @@
 DatePicker Example:
 
 ```js
-var moment = require('moment')
-var defaultFormat = 'DD/MM/YYYY'
-
-initialState = { dateValue: null }
-;<div style={{ maxWidth: '300px' }}>
-  <DatePicker
+var moment = require('moment');
+var DatePickerExample = require('./DatePickerExample').default;
+var defaultFormat = 'DD/MM/YYYY';
+initialState = { dateValue: null };
+<div style={{ maxWidth: '300px' }}>
+  <DatePickerExample
     autoOk
     placeholder={defaultFormat}
     hintText={defaultFormat}

@@ -17,7 +17,7 @@ initialState = { value: '', disabled: false };
     labelPosition="left"
     required
     disabled={state.disabled}
-    onChange={(value) => setState({ value })}
+    onChange={(value) => setState({ value: value.code })}
     typeOfSelector="pickupLocation"
     pickupLocations={pickupLocations}
     onRenderEntityAction={() => !state.disabled ? (

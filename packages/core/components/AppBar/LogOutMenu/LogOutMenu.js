@@ -15,50 +15,24 @@ type LogOutMenuPropTypes = {
   onItemClick?: (SyntheticMouseEvent<HTMLElement>, { key: string, name: string }) => void,
 }
 
-type LogOutMenuState = {
-  directionalHint: DirectionalHint,
-  directionalHintForRTL: DirectionalHint,
-  useDirectionalHintForRtl: boolean,
-  gapSpace: number,
-  beakWidth: number,
-  edgeFixed: boolean,
-}
+const renderIcon = () => <i className="material-icons md-light">account_circle</i>
+const renderMenuIcon = () => {}
 
-export class LogOutMenu extends Component<LogOutMenuPropTypes, LogOutMenuState> {
-  state = {
-    directionalHint: DirectionalHint.bottomCenter,
-    directionalHintForRTL: DirectionalHint.bottomCenter,
-    useDirectionalHintForRtl: false,
-    gapSpace: 0,
-    beakWidth: 20,
-    edgeFixed: false,
-  }
-  onRenderIcon = () => <i className="material-icons md-light">account_circle</i>
-  onRenderMenuIcon = () => {}
-  render() {
-    const {
-      beakWidth,
-      directionalHint,
-      directionalHintForRTL,
-      edgeFixed,
-      gapSpace,
-      useDirectionalHintForRtl,
-    } = this.state
-    return (
-      <IconButton
-        onRenderIcon={this.onRenderIcon}
-        onRenderMenuIcon={this.onRenderMenuIcon}
-        menuProps={{
-          isBeakVisible: false,
-          directionalHint: directionalHint,
-          directionalHintForRTL: directionalHintForRTL,
-          gapSpace: gapSpace,
-          beakWidth: beakWidth,
-          directionalHintFixed: edgeFixed,
-          onItemClick: this.props.onItemClick,
-          items: this.props.items,
-        }}
-      />
-    )
-  }
-}
+export const LogOutMenu = ({ items, onItemClick }: LogOutMenuPropTypes) =>(
+  <IconButton
+    onRenderIcon={renderIcon}
+    onRenderMenuIcon={renderMenuIcon}
+    menuProps={{
+      isBeakVisible: false,
+      directionalHint: DirectionalHint.bottomCenter,
+      directionalHintForRTL: DirectionalHint.bottomCenter,
+      gapSpace: 0,
+      beakWidth: 20,
+      directionalHintFixed: false,
+      onItemClick: onItemClick,
+      items: items,
+    }}
+  />
+)
+
+export default {}
