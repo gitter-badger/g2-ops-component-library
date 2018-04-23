@@ -2,7 +2,7 @@
 
 exports[`<TextField /> <TextField /> should render properly 1`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -14,7 +14,7 @@ exports[`<TextField /> <TextField /> should render properly 1`] = `
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "

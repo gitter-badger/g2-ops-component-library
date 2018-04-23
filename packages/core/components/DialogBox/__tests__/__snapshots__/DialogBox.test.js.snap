@@ -2,7 +2,7 @@
 
 exports[`<DialogBox /> should render properly 1`] = `
 <div
-  className="ms-Fabric css-36"
+  className="ms-Fabric root-37"
 >
   <span
     className="ms-Layer"

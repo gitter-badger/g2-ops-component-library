@@ -2,7 +2,7 @@
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 1`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -11,7 +11,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField0"
       >
         Phone Field
@@ -20,7 +20,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -42,7 +42,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 2`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -51,7 +51,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField2"
       >
         Phone Field
@@ -60,7 +60,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -82,7 +82,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 3`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -91,7 +91,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField4"
       >
         Phone Field
@@ -100,7 +100,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -122,7 +122,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 4`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -131,7 +131,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField6"
       >
         Phone Field
@@ -140,7 +140,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -162,7 +162,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 5`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -171,7 +171,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField8"
       >
         Phone Field
@@ -180,7 +180,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -202,7 +202,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 6`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -211,7 +211,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField10"
       >
         Phone Field
@@ -220,7 +220,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -242,7 +242,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 7`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -251,7 +251,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField12"
       >
         Phone Field
@@ -260,7 +260,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -282,7 +282,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 8`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -291,7 +291,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField14"
       >
         Phone Field
@@ -300,7 +300,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -322,7 +322,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly for various country codes: [object Object] 9`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -331,7 +331,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField16"
       >
         Phone Field
@@ -340,7 +340,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "
@@ -362,7 +362,7 @@ exports[`<PhoneNumber /> should render properly for various country codes: [obje
 
 exports[`<PhoneNumber /> should render properly with value set: [object Object] 1`] = `
 <div
-  className="ms-Fabric css-32"
+  className="ms-Fabric root-33"
 >
   <div
     className="ms-TextField root"
@@ -371,7 +371,7 @@ exports[`<PhoneNumber /> should render properly with value set: [object Object] 
       className="ms-TextField-wrapper wrapper"
     >
       <label
-        className="ms-Label root-33"
+        className="ms-Label root-34"
         htmlFor="TextField18"
       >
         Phone Field
@@ -380,7 +380,7 @@ exports[`<PhoneNumber /> should render properly with value set: [object Object] 
         className="ms-TextField-fieldGroup fieldGroup"
       >
         <input
-          aria-describedby={null}
+          aria-describedby={undefined}
           aria-invalid={false}
           aria-label={undefined}
           className="ms-TextField-field field input "

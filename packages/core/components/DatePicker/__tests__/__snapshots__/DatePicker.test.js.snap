@@ -11,7 +11,7 @@ exports[`<DatePicker /> should render properly 1`] = `
   }
 >
   <div
-    className="ms-Fabric css-32"
+    className="ms-Fabric root-33"
   >
     <div
       className="ms-TextField root"
@@ -20,7 +20,7 @@ exports[`<DatePicker /> should render properly 1`] = `
         className="ms-TextField-wrapper wrapper"
       >
         <label
-          className="ms-Label root-33"
+          className="ms-Label root-34"
           htmlFor="TextField0"
         >
           Select Date
@@ -29,7 +29,7 @@ exports[`<DatePicker /> should render properly 1`] = `
           className="ms-TextField-fieldGroup fieldGroup"
         >
           <input
-            aria-describedby={null}
+            aria-describedby={undefined}
             aria-invalid={false}
             aria-label={undefined}
             className="ms-TextField-field field input "
@@ -128,7 +128,7 @@ exports[`<DatePicker /> should render when value prop passed 1`] = `
   }
 >
   <div
-    className="ms-Fabric css-32"
+    className="ms-Fabric root-33"
   >
     <div
       className="ms-TextField root"
@@ -137,7 +137,7 @@ exports[`<DatePicker /> should render when value prop passed 1`] = `
         className="ms-TextField-wrapper wrapper"
       >
         <label
-          className="ms-Label root-33"
+          className="ms-Label root-34"
           htmlFor="TextField2"
         >
           Select Date
@@ -146,7 +146,7 @@ exports[`<DatePicker /> should render when value prop passed 1`] = `
           className="ms-TextField-fieldGroup fieldGroup"
         >
           <input
-            aria-describedby={null}
+            aria-describedby={undefined}
             aria-invalid={false}
             aria-label={undefined}
             className="ms-TextField-field field input "
