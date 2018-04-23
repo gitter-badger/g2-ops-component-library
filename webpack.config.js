@@ -1,53 +1,56 @@
-const path = require('path')
+const { resolve } = require('path')
 const webpack = require('webpack')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-
-const { join, resolve } = path
-
-const root = resolve(__dirname)
-const src = join(root, 'src')
-const dest = join(root, '.')
+const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 
 module.exports = {
   devtool: 'source-map',
-  entry: [ join(src, 'index.js') ],
+  entry: resolve(__dirname, 'packages/core/index.js'),
+
   output: {
     publicPath: '/',
-    path: dest,
+    path: resolve(__dirname, 'packages/core/dist'),
     filename: 'index.js',
-    libraryTarget: 'commonjs2',
+    libraryTarget: 'commonjs',
+    umdNamedDefine: false,
   },
-  externals: {
-    react: { commonjs: 'react', commonjs2: 'react' },
-    'react-dom': { commonjs: 'react-dom', commonjs2: 'react-dom' },
-    'material-ui': { commonjs: 'material-ui', commonjs2: 'material-ui' },
-    'office-ui-fabric-react': { commonjs: 'office-ui-fabric-react', commonjs2: 'office-ui-fabric-react' },
-  },
+
+  externals: [
+    // /^office-ui-fabric-react\/lib\/.+/,
+    /^react$/,
+    /react-dom/,
+    // /^moment$/,
+    // /^moment-timezone$/,
+    // /^material-ui\/.+/,
+    // /^@uifabric\/.+/,
+  ],
+
   resolve: {
-    alias: {
-      examples: join(src, 'examples'),
-      components: join(src, 'components'),
-      types: join(root, 'types'),
-    },
-    extensions: [ '.js', '.css' ],
+    extensions: ['.js', '.css'],
   },
+
   plugins: [
     new webpack.DefinePlugin({
       __DEVELOPMENT__: false,
       __DEVTOOLS__: false,
     }),
+
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify('production'),
         BABEL_ENV: JSON.stringify('production'),
       },
     }),
-    new HtmlWebpackPlugin({
-      template: './src/index.html',
-      filename: 'index.html',
-      inject: 'body',
-    }),
+
+    // new BundleAnalyzerPlugin(),
+
+    // new HtmlWebpackPlugin({
+    //   template: './src/index.html',
+    //   filename: 'index.html',
+    //   inject: 'body',
+    // }),
   ],
+
   module: {
     loaders: [
       {
@@ -63,6 +66,9 @@ module.exports = {
           },
           {
             loader: 'css-loader', // translates CSS into CommonJS
+          },
+          {
+            loader: 'postcss-loader',
           },
           {
             loader: 'sass-loader', // compiles Sass to CSS

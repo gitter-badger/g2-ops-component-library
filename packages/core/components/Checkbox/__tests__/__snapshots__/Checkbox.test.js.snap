@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Checkbox /> should render properly 1`] = `
+<button
+  aria-checked={false}
+  aria-describedby={undefined}
+  aria-disabled={undefined}
+  aria-label={undefined}
+  aria-labelledby={undefined}
+  aria-posinset={undefined}
+  aria-setsize={undefined}
+  className="ms-Checkbox is-enabled css-33"
+  disabled={undefined}
+  id="checkbox-0"
+  name={undefined}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  role="checkbox"
+  type="button"
+>
+  <label
+    className="ms-Checkbox-label css-34"
+    htmlFor="checkbox-0"
+  >
+    <div
+      className="ms-Checkbox-checkbox css-35"
+    >
+      <i
+        aria-hidden={true}
+        className="root-38 css-36"
+        data-icon-name="CheckMark"
+        role="presentation"
+      />
+    </div>
+    <span
+      className="ms-Checkbox-text css-37"
+    >
+      Custom Label
+    </span>
+  </label>
+</button>
+`;

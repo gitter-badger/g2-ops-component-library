@@ -1,9 +1,12 @@
 [ignore]
+.*/node_modules/jsx-control-statements/jsx-control-statements.flow.js
 .*/node_modules/.*
 .*/__tests__/.*
+
 [include]
 
 [libs]
+./node_modules/jsx-control-statements/jsx-control-statements.latest.flow.js
 flow-typed
 
 [lints]
@@ -22,3 +25,7 @@ module.name_mapper='^components' ->'<PROJECT_ROOT>/src/components'
 module.name_mapper='^types/\(.*\)$' -> '<PROJECT_ROOT>/types/\1.js'
 module.name_mapper='.*\(.scss\)' -> 'empty/object'
 module.name_mapper='.*\(.css\)' -> 'empty/object'
+
+suppress_type=TODO
+suppress_type=TODO_OBJECT
+suppress_type=TODO_ARRAY

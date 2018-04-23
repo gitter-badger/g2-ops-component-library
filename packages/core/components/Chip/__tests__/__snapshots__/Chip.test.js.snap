@@ -1,0 +1,63 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Chip /> should render properly 1`] = `
+<div
+  className={undefined}
+  disabled={undefined}
+  onBlur={[Function]}
+  onClick={[Function]}
+  onFocus={[Function]}
+  onKeyDown={[Function]}
+  onKeyUp={[Function]}
+  onMouseDown={[Function]}
+  onMouseEnter={[Function]}
+  onMouseLeave={[Function]}
+  onMouseUp={[Function]}
+  onTouchEnd={[Function]}
+  onTouchStart={[Function]}
+  onTouchTap={undefined}
+  style={
+    Object {
+      "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",
+      "backgroundColor": "rgb(224, 224, 224)",
+      "border": 10,
+      "borderRadius": 16,
+      "boxShadow": null,
+      "boxSizing": "border-box",
+      "cursor": "default",
+      "display": "flex",
+      "fontFamily": "Roboto, sans-serif",
+      "fontSize": "inherit",
+      "fontWeight": "inherit",
+      "margin": 0,
+      "muiPrepared": true,
+      "outline": "none",
+      "padding": 0,
+      "position": "relative",
+      "textDecoration": "none",
+      "verticalAlign": null,
+      "whiteSpace": "nowrap",
+      "width": "fit-content",
+    }
+  }
+  tabIndex={0}
+>
+  <span
+    style={
+      Object {
+        "color": "rgba(0, 0, 0, 0.87)",
+        "fontSize": 14,
+        "fontWeight": 400,
+        "lineHeight": "32px",
+        "muiPrepared": true,
+        "paddingLeft": 12,
+        "paddingRight": 12,
+        "userSelect": "none",
+        "whiteSpace": "nowrap",
+      }
+    }
+  >
+    Sample Chip
+  </span>
+</div>
+`;

@@ -7,7 +7,7 @@ module.exports = {
   sections: [
     {
       name: 'Components',
-      components: 'src/components/**/[A-Z]*.js',
+      components: 'packages/core/components/**/[A-Z]*.js',
     },
     {
       name: 'Demo Page',
