@@ -2,7 +2,7 @@
 import type { Node, ChildrenArray } from 'react'
 
 import React from 'react'
-import { Dialog, DialogType, DialogFooter } from 'office-ui-fabric-react/lib/Dialog'
+import { Dialog, DialogFooter } from 'office-ui-fabric-react/lib/Dialog'
 
 import { wrapFabricContext } from '../../wrapFabricContext'
 
@@ -17,8 +17,6 @@ type DialogBoxPropTypes = {
   /** Title to be displayed in the dialog header */
   title: string,
   subText: string,
-  /** Default is normal, largeHeader shows blue background */
-  dialogType: 'largeHeader' | 'normal',
   onDismiss: (SyntheticMouseEvent<HTMLInputElement>) => void,
   /** indicates whether the dialog is hidden or displayed */
   hideDialog: boolean,
@@ -35,22 +33,21 @@ const DialogBox = (props: DialogBoxPropTypes) => {
   const {
     title,
     subText,
-    dialogType,
     onDismiss,
     hideDialog,
     isBlocking,
     containerClassName,
     children,
     footerRenderer,
+    showHeader,
     ...otherProps
   } = props
-  const dialogTypeProp = dialogType === 'largeHeader' ? DialogType.largeHeader : DialogType.normal
   return (
     <Dialog
       hidden={hideDialog}
+      dialogType="normal"
       onDismiss={onDismiss}
       dialogContentProps={{
-        type: dialogTypeProp,
         title: title,
         subText: subText,
       }}
@@ -58,6 +55,7 @@ const DialogBox = (props: DialogBoxPropTypes) => {
         isBlocking: isBlocking,
         containerClassName: `dialogModelContent ${containerClassName}`,
       }}
+      className={showHeader ? 'CustomDialogWithHeader' : 'CustomDialogWithoutHeader'}
     >
       {children}
       {footerRenderer && <DialogFooter>{footerRenderer()}</DialogFooter>}
