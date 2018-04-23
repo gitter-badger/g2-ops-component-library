@@ -1,0 +1,15 @@
+{
+  "name": "@copart/core-components",
+  "version": "0.0.11",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "dependencies": {
+    "@uifabric/icons": "^5.7.1",
+    "material-ui": "^0.20.0",
+    "moment": "^2.22.1",
+    "office-ui-fabric-react": "^5.87.0",
+    "react": "^15.6.2",
+    "react-dom": "^15.6.2",
+    "react-tap-event-plugin": "^3.0.2"
+  }
+}

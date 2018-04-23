@@ -3,43 +3,47 @@ const customImportResolver = path.resolve('./flow.resolver')
 
 module.exports = {
   parser: 'babel-eslint',
+
   env: {
     browser: true,
     node: true,
     mocha: true,
   },
+
   plugins: ['react', 'flowtype'],
-  extends: 'eslint-config-airbnb-easy',
+  extends: ['eslint-config-airbnb-easy', 'eslint-config-prettier'],
+
   settings: {
     'import/resolver': {
       node: {
         extensions: ['.js'],
         paths: ['node_modules', path.join(__dirname, 'src')],
       },
+
       [customImportResolver]: {
         moduleNameMapper: {
           '^types/(.*)': './types/$1',
+          '^examples/(.*)': './packages/core/examples/$1',
+          '^components/(.*)': './packages/core/components/$1',
+          '^utils/(.*)': './packages/core/utils/$1',
         },
       },
     },
+
     flowtype: {
       onlyFilesWithFlowAnnotation: false,
     },
   },
+
   rules: {
-    'array-bracket-spacing': [1, 'always'],
-    eqeqeq: [2, 'smart'],
-    'jsx-quotes': [1, 'prefer-double'],
-    'no-console': 0,
     'no-unused-vars': 0,
-    'object-curly-spacing': [1, 'always'],
-    quotes: [1, 'single', 'avoid-escape'],
-    'react/jsx-space-before-closing': [1, 'never'],
+    'no-console': 0,
     'react/no-did-mount-set-state': 0,
     'react/prop-types': 0,
-    semi: [1, 'never'],
-    'space-before-blocks': [1, 'always'],
+    eqeqeq: [2, 'smart'],
+    'import/prefer-default-export': 0,
   },
+
   globals: {
     ReactComponent: false,
     ReactElement: false,

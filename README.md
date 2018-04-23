@@ -18,21 +18,21 @@ Please refer to React-Styleguidist cookbook for documenting components.
 
 ### Installing
 
-```
-git clone https://github.com/copartit/g2-ops-component-library.git
-cd g2-ops-component-library
-yarn install or npm install
+```sh
+$ git clone https://github.com/copartit/g2-ops-component-library.git
+$ cd g2-ops-component-library
+$ yarn
 ```
 
 ## Development
 
 ### Scripts
 
-* `yarn install` to install dependencies
+* `yarn` to install dependencies
 * `yarn styleguide` to generate and serve style guide
 * `yarn test` to run tests
-* `yarn run build` to build for production
-* `yarn run styleguide:build` to build a static version of the styleguide for deployment
+* `yarn build` to build for production
+* `yarn styleguide:build` to build a static version of the styleguide for deployment
 
 ### Tests
 
