@@ -48,16 +48,16 @@ class StepperExample extends React.Component {
     const contentStyle = { margin: '0 16px' }
 
     return (
-      <div style={{ width: '100%', maxWidth: 700, margin: 'auto' }}>
+      <div style={{ width: '100%', maxWidth: 700, margin: 'auto', fontFamily: 'Roboto, sans-serif' }}>
         <Stepper activeStep={stepIndex}>
           <Step>
-            <StepLabel>Select campaign settings</StepLabel>
+            <StepLabel>Campaign Settings</StepLabel>
           </Step>
           <Step>
-            <StepLabel>Create an ad group</StepLabel>
+            <StepLabel>Create Group</StepLabel>
           </Step>
           <Step>
-            <StepLabel>Create an ad</StepLabel>
+            <StepLabel>Create Ad</StepLabel>
           </Step>
         </Stepper>
         <div style={contentStyle}>
