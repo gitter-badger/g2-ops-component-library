@@ -9,15 +9,17 @@ type FilterStylesType = {
 const filterStyles: FilterStylesType = {
   filterStyle: {
     paddingBottom: '0px',
+    borderBottom: 'solid #fff 2px',
   },
   filterHeaderStyle: {
-    backgroundColor: '#D6DFE8',
-    borderBottom: '2px solid #DEE5EC',
+    backgroundColor: 'rgb(222, 222, 222)',
     padding: '12px',
+    fontSize: '14px',
   },
   filterContentStyle: {
-    backgroundColor: '#D9D9D9',
+    backgroundColor: 'rgb(255, 255, 255)',
     paddingBottom: '10px',
+    fontSize: '14px',
   },
 }
 

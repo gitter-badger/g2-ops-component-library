@@ -12,7 +12,7 @@
     }
   }
   .count {
-    color: #60d1ff;
+    color: #fff;
     font-size: 12px;
   }
   &.active {
@@ -21,6 +21,9 @@
       svg {
         fill: #323a49 !important;
       }
+    }
+    .count {
+      color: #323a49;
     }
   }
 }

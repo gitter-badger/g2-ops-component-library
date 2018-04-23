@@ -25,7 +25,7 @@ const Filter = ({ filter, filterStyle, filterHeaderStyle, filterContentStyle, on
   <Card containerStyle={{ ...filterStyles.filterStyle, ...filterStyle }}>
     <CardHeader
       title={filter.label}
-      titleStyle={{ fontSize: '12px' }}
+      titleStyle={{ fontSize: '14px' }}
       actAsExpander
       showExpandableButton
       style={{ ...filterStyles.filterHeaderStyle, ...filterHeaderStyle }}
