@@ -22,10 +22,10 @@ module.exports = {
 
       [customImportResolver]: {
         moduleNameMapper: {
-          '^types/(.*)': './types/$1',
+          '^types/(.*)': './packages/core/types/$1',
           '^examples/(.*)': './packages/core/examples/$1',
           '^components/(.*)': './packages/core/components/$1',
-          '^utils/(.*)': './packages/core/utils/$1',
+          '^utilities/(.*)': './packages/core/utilities/$1',
         },
       },
     },

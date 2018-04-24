@@ -4,7 +4,6 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const path = require('path')
 const webpack = require('webpack')
 
-
 const resolve = (_path) => {
     return path.resolve(__dirname, _path)
 }
