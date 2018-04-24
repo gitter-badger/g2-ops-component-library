@@ -82,9 +82,9 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
         selectedValue: this.renderSelectedOption(changedOption),
         filteredOptions: filteredOptions,
       }))
-      // invokes parent's onChange method
-      onChangeMethod && onChangeMethod(changedOption)
     }
+   // invokes parent's onChange method
+  onChangeMethod && onChangeMethod(changedOption)
   }
 
   onFocus = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
