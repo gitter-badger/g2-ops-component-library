@@ -10,8 +10,7 @@
   "description": "G2 Ops Component Library",
   "author": "Sidharth Mehra",
   "scripts": {
-    "start": "webpack-dev-server",
-    "test": "babel-node node_modules/.bin/jest --silent",
+    "start": "npm run styleguide",
     "styleguide": "styleguidist server",
     "styleguide:build": "styleguidist build",
     "build:dev": "webpack",
@@ -20,6 +19,7 @@
     "flow": "flow",
     "lint": "eslint packages/**/*.js",
     "flowtype": "flow-typed install",
+    "test": "babel-node node_modules/.bin/jest --silent",
     "precommit": "pretty-quick --staged && yarn lint"
   },
   "private": true,
@@ -124,8 +124,8 @@
   "jest": {
     "moduleNameMapper": {
       "^.+\\.(css|scss)$": "identity-obj-proxy",
-      "^components(.*)$": "<rootDir>/packages/components/$1",
-      "^utils(.*)$": "<rootDir>/packages/utils/$1"
+      "^components(.*)$": "<rootDir>/packages/src/components/$1",
+      "^utilities(.*)$": "<rootDir>/packages/src/utilities/$1"
     },
     "transform": {
       "^.+\\.jsx?$": "babel-jest"

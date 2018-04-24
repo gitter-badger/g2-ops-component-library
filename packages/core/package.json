@@ -1,8 +1,14 @@
 {
   "name": "@copart/core-components",
-  "version": "0.0.11",
+  "version": "0.0.14",
   "main": "dist/index.js",
   "license": "MIT",
+  "scripts": {
+    "prepublishOnly": "npm run build && npm run prodTest",
+    "build": "webpack --mode production --config ./webpack.prod.js",
+    "prodTest": "jest Components",
+    "test": "jest"
+  },
   "dependencies": {
     "@uifabric/icons": "^5.7.1",
     "material-ui": "^0.20.0",
@@ -11,5 +17,66 @@
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
     "react-tap-event-plugin": "2.0.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.0.0-beta.44",
+    "@babel/core": "^7.0.0-beta.44",
+    "@babel/node": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-async-generator-functions": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-class-properties": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-decorators": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-do-expressions": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-export-default-from": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-export-namespace-from": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-function-bind": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-function-sent": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-logical-assignment-operators": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-nullish-coalescing-operator": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-numeric-separator": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-optional-catch-binding": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-optional-chaining": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-pipeline-operator": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-throw-expressions": "^7.0.0-beta.44",
+    "@babel/plugin-proposal-unicode-property-regex": "^7.0.0-beta.44",
+    "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.44",
+    "@babel/plugin-syntax-import-meta": "^7.0.0-beta.44",
+    "@babel/polyfill": "^7.0.0-beta.44",
+    "@babel/preset-env": "^7.0.0-beta.44",
+    "@babel/preset-flow": "^7.0.0-beta.44",
+    "@babel/preset-react": "^7.0.0-beta.44",
+    "@babel/preset-stage-0": "^7.0.0-beta.44",
+    "@babel/register": "^7.0.0-beta.44",
+    "babel-jest": "^22.4.3",
+    "babel-loader": "^8.0.0-beta.2",
+    "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-15": "^1.0.5",
+    "html-webpack-plugin": "^3.2.0",
+    "identity-obj-proxy": "^3.0.0",
+    "jest": "^22.4.3",
+    "postcss-loader": "^2.1.4",
+    "sass-loader": "^7.0.1",
+    "style-loader": "^0.21.0",
+    "url-loader": "^1.0.1",
+    "webpack": "^4.6.0",
+    "webpack-bundle-analyzer": "^2.11.1",
+    "webpack-cli": "^2.0.15"
+  },
+  "jest": {
+    "moduleNameMapper": {
+      "^.+\\.(css|scss)$": "identity-obj-proxy",
+      "^components(.*)$": "./src/components/$1",
+      "^utilities(.*)$": "./src/utilities/$1"
+    },
+    "transform": {
+      "^.+\\.jsx?$": "babel-jest"
+    },
+    "testPathIgnorePatterns": [
+      "*/node_modules/*",
+      "*/g2-layout-demo/*"
+    ],
+    "setupTestFrameworkScriptFile": ".//jestSetup.js",
+    "testRegex": "./src/.*(jest|test).js$"
   }
 }

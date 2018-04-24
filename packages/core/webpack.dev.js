@@ -1,28 +1,27 @@
-const { resolve } = require('path')
-const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const HtmlWebpackPlugin = require('html-webpack-plugin')
+const path = require('path')
+const webpack = require('webpack')
+
+const resolve = (_path) => {
+    return path.resolve(__dirname, _path)
+}
 
 module.exports = {
   devtool: 'source-map',
-  entry: resolve(__dirname, 'packages/core/src/index.js'),
+  entry: resolve('src/index.js'),
 
   output: {
     publicPath: '/',
-    path: resolve(__dirname, 'packages/core/dist'),
+    path: resolve('dist/'),
     filename: 'index.js',
     libraryTarget: 'commonjs',
     umdNamedDefine: false,
   },
 
   externals: [
-    // /^office-ui-fabric-react\/lib\/.+/,
     /^react$/,
     /react-dom/,
-    // /^moment$/,
-    // /^moment-timezone$/,
-    // /^material-ui\/.+/,
-    // /^@uifabric\/.+/,
   ],
 
   resolve: {
@@ -40,19 +39,11 @@ module.exports = {
         NODE_ENV: JSON.stringify('production'),
         BABEL_ENV: JSON.stringify('production'),
       },
-    }),
-
-    // new BundleAnalyzerPlugin(),
-
-    // new HtmlWebpackPlugin({
-    //   template: './src/index.html',
-    //   filename: 'index.html',
-    //   inject: 'body',
-    // }),
+    })
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
         loader: 'babel-loader',

@@ -1,7 +1,7 @@
 import React from 'react'
 import { Stepper, Step, StepLabel } from 'components/Stepper/Stepper'
 import {Button} from 'components/Button/Button'
-import { wrapMuiContext } from '../wrapMuiContext'
+import { wrapMuiContext } from 'utilities/wrapMuiContext'
 
 /**
  * Horizontal steppers are ideal when the contents of one step depend on an earlier step.
