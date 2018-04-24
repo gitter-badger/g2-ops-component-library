@@ -12,7 +12,9 @@ module.exports = {
     "presets": ["@babel/preset-env", "@babel/preset-flow", "@babel/preset-react"],
   
     "plugins": [
-      "@babel/plugin-proposal-decorators",
+      ["@babel/plugin-proposal-decorators", {
+        legacy: true
+      }],
       [
         "@babel/plugin-proposal-class-properties",
         {

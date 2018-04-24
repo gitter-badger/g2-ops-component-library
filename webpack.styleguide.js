@@ -1,15 +1,16 @@
-const { resolve } = require('path')
+const path = require('path')
 const webpack = require('webpack')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+const babelrc = require('./packages/core/.babelrc.js')
+
+const resolve = _path => path.resolve(__dirname, _path)
 
 module.exports = {
   devtool: 'source-map',
-  entry: resolve(__dirname, 'packages/core/src/index.js'),
+  entry: resolve('packages/core/src/index.js'),
 
   output: {
     publicPath: '/',
-    path: resolve(__dirname, 'packages/core/dist'),
+    path: resolve('packages/core/dist'),
     filename: 'index.js',
     libraryTarget: 'commonjs',
     umdNamedDefine: false,
@@ -41,25 +42,25 @@ module.exports = {
         BABEL_ENV: JSON.stringify('production'),
       },
     }),
-
-    // new BundleAnalyzerPlugin(),
-
-    // new HtmlWebpackPlugin({
-    //   template: './src/index.html',
-    //   filename: 'index.html',
-    //   inject: 'body',
-    // }),
   ],
 
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.js$/,
-        loader: 'babel-loader',
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              plugins: babelrc.plugins,
+              presets: babelrc.presets,
+            },
+          },
+        ],
         exclude: /node_modules/,
       },
       {
-        test: /\.(scss)$/,
+        test: /\.(css|scss)$/,
         use: [
           {
             loader: 'style-loader', // creates style nodes from JS strings

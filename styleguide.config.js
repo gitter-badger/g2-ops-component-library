@@ -1,5 +1,6 @@
 module.exports = {
   template: './docs-styleguidist/template.html',
+  webpackConfig: require('./webpack.styleguide'),
   skipComponentsWithoutExample: true,
   title: 'G2 Ops UI Styleguide',
   showCode: false,
