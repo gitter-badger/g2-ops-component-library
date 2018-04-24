@@ -20,7 +20,7 @@ const handleSelectSubhauler = (selectedOption: FlattenedOptionType) => {
   if (typeof selectedOption === 'string') {
     selectedSubhauler = selectedOption
   } else {
-     selectedSubhauler = { user: selectedOption.hierarchy }
+     selectedSubhauler = selectedOption.hierarchy
   }
   console.log('handleSelectSubhauler called for newly selected value: ', selectedSubhauler)
 }
