@@ -111,9 +111,6 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     const displayTitle = option.path.slice(0, numberOfSpaces - 1).join(' - ')
     return (
       <div style={{ display: 'flex', flexDirection: 'row', paddingLeft }}>
-        <div style={{ marginTop: '-5px', display: 'flex', alignItems: 'center' }}>
-          {renderIfHasChildren(<i className="material-icons">arrow_drop_down</i>)}
-        </div>
         <div style={{ display: 'flex', flexDirection: 'row' }}>
           {renderIfFilteringIsDone(<div className="filtered">{displayTitle}</div>)}
           <div title={`${displayTitle} - ${option.label}`}>{option.display}</div>
