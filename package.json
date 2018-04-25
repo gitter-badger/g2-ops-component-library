@@ -134,5 +134,5 @@
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "testRegex": "packages/.*(jest|test).js$"
   },
-  "pre-push": ["test", "flow"]
+  "pre-push": ["test"]
 }
