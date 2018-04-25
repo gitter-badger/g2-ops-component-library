@@ -128,7 +128,7 @@
       "^utilities(.*)$": "<rootDir>/packages/src/utilities/$1"
     },
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
+      "^.+\\.js$": "<rootDir>/jestProcess.js"
     },
     "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
