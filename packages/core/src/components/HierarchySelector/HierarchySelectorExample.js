@@ -16,7 +16,7 @@ const initialUser = {
 const initialOptionId = prop('driver', initialUser) || prop('group', initialUser) || prop('company', initialUser)
 
 const handleSelectSubhauler = (selectedOption: FlattenedOptionType) => {
-  const selectedSubhauler = { user: selectedOption.hierarchy }
+  const selectedSubhauler = (typeof selectedOption === 'string')? selectedOption : selectedOption.hierarchy
   console.log('handleSelectSubhauler called for newly selected value: ', selectedSubhauler)
 }
 export const CardIcon = () => (
