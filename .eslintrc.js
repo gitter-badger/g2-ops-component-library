@@ -42,6 +42,7 @@ module.exports = {
     'react/prop-types': 0,
     eqeqeq: [2, 'smart'],
     'import/prefer-default-export': 0,
+    'arrow-body-style': 0,
   },
 
   globals: {
