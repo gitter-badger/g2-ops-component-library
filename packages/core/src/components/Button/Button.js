@@ -66,7 +66,7 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
     }
 
     default: {
-      typeProps = buttonProps
+      typeProps = { ...buttonProps, 'type': type }
     }
   }
 
