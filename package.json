@@ -20,7 +20,7 @@
 		"lint": "eslint packages/**/*.js",
 		"flowtype": "flow-typed install",
 		"test": "babel-node node_modules/.bin/jest --silent",
-		"precommit": "pretty-quick --staged && yarn lint"
+		"precommit": "pretty-quick --staged"
 	},
 	"private": true,
 	"workspaces": ["packages/*"],

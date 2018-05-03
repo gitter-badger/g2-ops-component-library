@@ -8,11 +8,6 @@ import {wrapFabricContext} from 'utilities/wrapFabricContext'
 
 import './DialogBox.scss'
 
-const defaultProps = {
-  isBlocking: false,
-  hideDialog: false,
-}
-
 type DialogBoxPropTypes = {
   /** Title to be displayed in the dialog header */
   title: string,
@@ -29,7 +24,7 @@ type DialogBoxPropTypes = {
   otherProps: any,
 }
 
-const DialogBox = (props: DialogBoxPropTypes) => {
+export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
   const {
     title,
     subText,
@@ -61,8 +56,9 @@ const DialogBox = (props: DialogBoxPropTypes) => {
       {footerRenderer && <DialogFooter>{footerRenderer()}</DialogFooter>}
     </Dialog>
   )
+})
+
+DialogBox.defaultProps = {
+  isBlocking: false,
+  hideDialog: false,
 }
-
-DialogBox.defaultProps = defaultProps
-
-export default wrapFabricContext(DialogBox)
