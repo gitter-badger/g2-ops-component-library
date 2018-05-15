@@ -6,8 +6,9 @@ import type { OptionsType, FlattenedOptionType } from 'types/HierarchySelector'
 import React, { PureComponent } from 'react'
 import DownArrow from 'material-ui/svg-icons/hardware/keyboard-arrow-down'
 import renderIf from 'render-if'
+import { keys } from 'ramda'
 
-import {AutoSelect} from 'components/AutoSelect'
+import { AutoSelect } from 'components/AutoSelect'
 
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 import { flattenNestedOptions } from './hierarchySelector.transformer'
@@ -17,7 +18,7 @@ import './HierarchySelector.scss'
 type HierarchySelectorPropType = {
   options: OptionsType,
   onFocus: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
-  value: number,
+  value: Object,
   renderMethod: Function,
   onChange: Function,
 }
@@ -30,13 +31,16 @@ type HierarchySelectorStateType = {
 
 const DownArrowIcon = wrapMuiContext(DownArrow)
 
+// Helper function to check if selected option matches the current options hierarchy
+const matchesOption = (selectedOption: Object) => ({ hierarchy }) =>
+  keys(selectedOption).every((key) => selectedOption[key] === hierarchy[key])
+
 export class HierarchySelector extends PureComponent<HierarchySelectorPropType, HierarchySelectorStateType> {
-  autoSelect: Node // eslint-disable-line
   constructor(props: HierarchySelectorPropType) {
     super(props)
-    const { options, value: optionId, renderMethod } = props
+    const { options, value, renderMethod } = props
     const flattenedOptions = flattenNestedOptions(options, renderMethod)
-    const renderedPath = this.convertIdToPath(optionId, flattenedOptions)
+    const renderedPath = this.getPathFromSelectedValue(value, flattenedOptions)
     this.state = {
       flattenedOptions,
       filteredOptions: flattenedOptions,
@@ -46,10 +50,10 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
 
   componentWillReceiveProps(nextProps: HierarchySelectorPropType) {
     const { onChange } = this.props
-    const { options, value: optionId, renderMethod } = nextProps
+    const { options, value, renderMethod } = nextProps
     if (options !== this.props.options) {
       const flattenedOptions = flattenNestedOptions(options, renderMethod)
-      const renderedPath = this.convertIdToPath(optionId, flattenedOptions)
+      const renderedPath = this.getPathFromSelectedValue(value, flattenedOptions)
       this.setState((prevState) => ({
         ...prevState,
         flattenedOptions,
@@ -58,11 +62,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
       }))
     }
   }
-
-  isControlled() {
-    return this.props.hasOwnProperty('value')
-  }
-
+  
   onChange = (changedOption: FlattenedOptionType) => {
     const { onChange: onChangeMethod } = this.props
     if (typeof changedOption === 'string') {
@@ -83,7 +83,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
         filteredOptions: filteredOptions,
       }))
     }
-   // invokes parent's onChange method
+   // Invokes parent's onChange method with the selected option/entered desk
   onChangeMethod && onChangeMethod(changedOption)
   }
 
@@ -94,12 +94,16 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     }
   }
 
-  convertIdToPath = (lookupId: number, options: Array<FlattenedOptionType>) => {
-    const valueAmongOptions = options.find((o) => o.id === lookupId)
-    const displayMethod = this.renderSelectedOption || this.renderOption
-    const result = valueAmongOptions ? displayMethod(valueAmongOptions) : ''
-    return result
+  getPathFromSelectedValue = (selectedOption: Object, options: Array<FlattenedOptionType>) => {
+    const valueAmongOptions = options.find(matchesOption(selectedOption))
+    return valueAmongOptions ? this.renderSelectedOption(valueAmongOptions) : ''
   }
+
+  isControlled() {
+    return this.props.hasOwnProperty('value')
+  }
+
+  autoSelect: any
 
   renderOption = (option: FlattenedOptionType) => {
     const numberOfSpaces = option.path.length
@@ -123,7 +127,6 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
 
   render() {
     const { filteredOptions, selectedValue } = this.state
-
     return (
       <div className="HierarchySelector">
         <AutoSelect

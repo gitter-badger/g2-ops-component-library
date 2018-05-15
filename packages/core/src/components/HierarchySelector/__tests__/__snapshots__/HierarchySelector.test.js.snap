@@ -90,9 +90,9 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
               onInput={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
-              title=""
+              title="Asia"
               type="text"
-              value=""
+              value="Asia"
               width={200}
             />
           </div>
@@ -103,7 +103,7 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
       data-uname={undefined}
       name="AutoSelect Field"
       type="hidden"
-      value=""
+      value="Asia"
     />
   </div>
 </div>
