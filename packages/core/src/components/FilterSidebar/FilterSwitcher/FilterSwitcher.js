@@ -2,7 +2,7 @@
 
 import React from 'react'
 import IconButton from 'material-ui/IconButton'
-import {FilterSwitcherIcon} from './FilterSwitcherIcon'
+import {FilterSwitcherIcon} from './FilterSwitcher.Icon'
 
 import './FilterSwitcher.scss'
 

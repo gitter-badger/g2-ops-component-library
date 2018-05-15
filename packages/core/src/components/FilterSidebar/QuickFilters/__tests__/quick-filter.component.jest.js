@@ -6,7 +6,7 @@ import Car from 'material-ui/svg-icons/maps/directions-car'
 
 import { wrapWithMaterialUIContext, theme } from 'utilities/wrapWithContext'
 
-import QuickFilter from '../quick-filter.component'
+import {QuickFilter} from '../quick-filter.component'
 
 describe('<QuickFilter />', () => {
   let props = null

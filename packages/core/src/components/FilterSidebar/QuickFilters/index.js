@@ -1,4 +1,2 @@
 // @flow
-import QuickFilters from './quick-filters.component'
-
-export default QuickFilters
+export {QuickFilters} from './quick-filters.component'

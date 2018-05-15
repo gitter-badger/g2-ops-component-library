@@ -7,9 +7,11 @@ import renderIf from 'render-if'
 
 import {QuickFilters} from 'components/FilterSidebar/QuickFilters'
 import {Filters} from 'components/FilterSidebar/Filters'
-import { wrapMuiContext } from '../utilities/wrapMuiContext'
+import { wrapMuiContext } from 'utilities/wrapMuiContext'
 import {FilterSwitcher} from './FilterSwitcher'
 import './FilterSidebar.scss'
+
+console.log({ QuickFilters, Filters, FilterSwitcher, wrapMuiContext })
 
 type FilterSidebarPropType = {
   selectedQuickFilter: string,
@@ -27,7 +29,8 @@ type FilterSidebarStateType = {
   filterDrawerOpen: boolean,
 }
 
-class FilterSidebarComponent extends Component<FilterSidebarPropType, FilterSidebarStateType> {
+@wrapMuiContext
+class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateType> {
   static defaultProps = {
     quickFilters: [],
     selectedQuickFilter: 'lots',
@@ -78,4 +81,4 @@ class FilterSidebarComponent extends Component<FilterSidebarPropType, FilterSide
   }
 }
 
-export const FilterSidebar = wrapMuiContext(FilterSidebar)
+export { FilterSidebar }

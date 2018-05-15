@@ -1,5 +1,3 @@
 // @flow
 //
-import Filters from './filters.component'
-
-export default Filters
+export { Filters } from './filters.component'
