@@ -12,8 +12,9 @@ exports[`<QuickFilters /> <QuickFilters /> renders properly 1`] = `
     <div
       className="__react_component_tooltip place-top type-dark "
       data-id="tooltip"
-      id={undefined}
-    />
+    >
+      
+    </div>
     <div
       className="icon"
     >
@@ -53,8 +54,9 @@ exports[`<QuickFilters /> <QuickFilters /> renders properly 1`] = `
     <div
       className="__react_component_tooltip place-top type-dark "
       data-id="tooltip"
-      id={undefined}
-    />
+    >
+      
+    </div>
     <div
       className="icon"
     >
