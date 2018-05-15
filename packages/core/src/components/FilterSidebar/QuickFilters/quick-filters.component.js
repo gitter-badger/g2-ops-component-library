@@ -4,7 +4,7 @@ import type { QuickFilterType } from 'types/Filter'
 
 import React, { Component } from 'react'
 
-import QuickFilter from './quick-filter.component'
+import {QuickFilter} from './quick-filter.component'
 
 type QuickFiltersPropType = {
   quickFilters: Array<QuickFilterType>,
@@ -16,7 +16,7 @@ type QuickFiltersStateType = {
   selectedQuickFilter: string,
 }
 
-class QuickFilters extends Component<QuickFiltersPropType, QuickFiltersStateType> {
+export class QuickFilters extends Component<QuickFiltersPropType, QuickFiltersStateType> {
   static defaultProps = {
     quickFilters: [],
   }
@@ -58,5 +58,3 @@ class QuickFilters extends Component<QuickFiltersPropType, QuickFiltersStateType
     )
   }
 }
-
-export default QuickFilters

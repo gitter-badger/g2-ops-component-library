@@ -11,7 +11,7 @@ type FiltersPropType = {
   width: string,
 }
 
-const Filters = ({ filters = [], onFilterChange, onFiltersClear, width }: FiltersPropType) => (
+export const Filters = ({ filters = [], onFilterChange, onFiltersClear, width }: FiltersPropType) => (
   <div className="Filters" style={{ width }}>
     <div className="sectionHeading">
       <div className="label">Filters</div>
@@ -26,5 +26,3 @@ const Filters = ({ filters = [], onFilterChange, onFiltersClear, width }: Filter
     </div>
   </div>
 )
-
-export default Filters

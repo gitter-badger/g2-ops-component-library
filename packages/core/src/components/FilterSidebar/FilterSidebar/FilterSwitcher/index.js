@@ -1,1 +1,0 @@
-export { FilterSwitcher } from './FilterSwitcher.'

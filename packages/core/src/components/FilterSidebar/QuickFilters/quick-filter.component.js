@@ -14,7 +14,7 @@ type QuickFilterPropType = {
   isSelected: boolean,
 }
 
-const QuickFilter = ({ quickFilter, onQuickFiltersChange, isSelected = false }: QuickFilterPropType) => (
+export const QuickFilter = ({ quickFilter, onQuickFiltersChange, isSelected = false }: QuickFilterPropType) => (
   <div
     data-tip={quickFilter.tooltipText}
     className={cn('QuickFilter', { active: isSelected })}
@@ -25,5 +25,3 @@ const QuickFilter = ({ quickFilter, onQuickFiltersChange, isSelected = false }: 
     <div className="count">{quickFilter.count}</div>
   </div>
 )
-
-export default QuickFilter
