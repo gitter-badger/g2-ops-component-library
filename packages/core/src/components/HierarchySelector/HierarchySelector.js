@@ -31,6 +31,10 @@ type HierarchySelectorStateType = {
 
 const DownArrowIcon = wrapMuiContext(DownArrow)
 
+// Helper function to check if selected option matches the current options hierarchy
+const matchesOption = (selectedOption: Object) => ({ hierarchy }) =>
+  keys(selectedOption).every((key) => selectedOption[key] === hierarchy[key])
+
 export class HierarchySelector extends PureComponent<HierarchySelectorPropType, HierarchySelectorStateType> {
   constructor(props: HierarchySelectorPropType) {
     super(props)
@@ -91,9 +95,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
   }
 
   getPathFromSelectedValue = (selectedOption: Object, options: Array<FlattenedOptionType>) => {
-    const matchesOption = ({ hierarchy }) => (option) => 
-      keys(selectedOption).every((key) => hierarchy[key] === option[key])
-    const valueAmongOptions = options.find((o) => matchesOption(o)(selectedOption))
+    const valueAmongOptions = options.find(matchesOption(selectedOption))
     return valueAmongOptions ? this.renderSelectedOption(valueAmongOptions) : ''
   }
 
