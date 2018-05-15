@@ -6,19 +6,15 @@ import { FlattenedOptionType, OptionType } from 'types/HierarchySelector'
 import {HierarchySelector} from './HierarchySelector'
 import towProvidersJson from './towProviders.json'
 
-// G/RTOW - G/RTOWDG - ALLEN MARQUEZ
+// LEHOFSTADT - DEFAULT DISPATCH - GROUP - DEVIN BURT
 const initialUser = {
-  company: 226,
-  group: 203,
-  driver: 1000,
+  company: 42517,
+  group: 40348,
+  driver: 15235,
 }
 
 const initialOptionId = prop('driver', initialUser) || prop('group', initialUser) || prop('company', initialUser)
 
-const handleSelectSubhauler = (selectedOption: FlattenedOptionType) => {
-  const selectedSubhauler = (typeof selectedOption === 'string')? selectedOption : selectedOption.hierarchy
-  console.log('handleSelectSubhauler called for newly selected value: ', selectedSubhauler)
-}
 export const CardIcon = () => (
   <div className="CardIcon Icon" data-tip="PCard">
     <div className="red circle" />
@@ -98,20 +94,31 @@ function transformVendorOption(option) {
 const towProviders = towProvidersJson.data
 const componentOptions = towProviders.map(transformVendorOption)
 
-const Example = () => (
-  <div style={{ maxWidth: '400px' }}>
-    <HierarchySelector
-      name="Tow Provider"
-      label="Tow Provider"
-      options={componentOptions}
-      width={200}
-      optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200, fontSize: '12px' }}
-      value={initialOptionId}
-      renderMethod={renderMethod}
-      onChange={handleSelectSubhauler}
-      onRenderSuffix={() => <i className="material-icons">arrow_drop_down</i>}
-    />
-  </div>
-)
+class Example extends React.Component {
+  state = {
+    value: null,
+  }
+  onChange = (selectedOption: FlattenedOptionType) => {
+    const selectedHierarchyOption = (typeof selectedOption === 'string')? selectedOption : selectedOption.hierarchy
+    this.setState({ value: selectedHierarchyOption })
+  }
+  render () {
+    return (
+      <div style={{ maxWidth: '400px' }}>
+        <HierarchySelector
+          name="Tow Provider"
+          label="Tow Provider"
+          options={componentOptions}
+          width={200}
+          optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200, fontSize: '12px' }}
+          value={initialUser}
+          renderMethod={renderMethod}
+          onChange={this.onChange}
+          onRenderSuffix={() => <i className="material-icons">arrow_drop_down</i>}
+        />
+      </div>
+    )
+  }
+}
 
 export default Example

@@ -317,7 +317,33 @@
           "updated_at": "2018-03-16T14:07:03-07:00",
           "updated_by": "service-account@copart.com",
           "source_system": "ops",
-          "personnel": []
+          "personnel": [
+            {
+              "vendor_personnel_id": 15235,
+              "vendor_id": 42517,
+              "role_id": null,
+              "p_card_flag": "Y",
+              "first_name": "DEVIN",
+              "middle_name": null,
+              "last_name": "BURT",
+              "date_of_birth": null,
+              "is_copart_employee": "N",
+              "social_security_number": "999999999",
+              "start_date": null,
+              "end_date": "2019-02-01T00:00:00-08:00",
+              "comments": null,
+              "dispatch_flag": true,
+              "status": "A",
+              "created_at": "2018-01-08T11:48:59-08:00",
+              "created_by": "DATA MIG",
+              "updated_at": "2018-01-08T11:48:59-08:00",
+              "updated_by": "DATA MIG",
+              "source_system": "CAS",
+              "phone_number": "1112223334",
+              "phone_extension": "5555",
+              "short_name": null
+            }
+          ]
         }
       ]
     }
