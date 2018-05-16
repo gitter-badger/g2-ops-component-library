@@ -46,7 +46,7 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
               </div>
               <i
                 aria-hidden={true}
-                className="ms-Button-menuIcon menuIcon-45"
+                className="root-45 ms-Button-menuIcon menuIcon-42"
                 data-icon-name="ChevronDown"
                 role="presentation"
               />
@@ -75,7 +75,7 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
             aria-label={undefined}
             aria-labelledby={null}
             aria-pressed={undefined}
-            className="ms-Button ms-Button--icon root-46"
+            className="ms-Button ms-Button--icon root-48"
             data-is-focusable={true}
             disabled={undefined}
             onClick={[Function]}
@@ -87,7 +87,7 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
             >
               <i
                 aria-hidden={true}
-                className="ms-Button-icon icon-48"
+                className="root-45 ms-Button-icon icon-40"
                 data-icon-name="search"
                 role="presentation"
               />
@@ -146,7 +146,7 @@ exports[`<SearchBar /> should render properly 1`] = `
               </div>
               <i
                 aria-hidden={true}
-                className="ms-Button-menuIcon menuIcon-45"
+                className="root-45 ms-Button-menuIcon menuIcon-42"
                 data-icon-name="ChevronDown"
                 role="presentation"
               />
@@ -175,7 +175,7 @@ exports[`<SearchBar /> should render properly 1`] = `
             aria-label={undefined}
             aria-labelledby={null}
             aria-pressed={undefined}
-            className="ms-Button ms-Button--icon root-46"
+            className="ms-Button ms-Button--icon root-48"
             data-is-focusable={true}
             disabled={undefined}
             onClick={[Function]}
@@ -187,7 +187,7 @@ exports[`<SearchBar /> should render properly 1`] = `
             >
               <i
                 aria-hidden={true}
-                className="ms-Button-icon icon-48"
+                className="root-45 ms-Button-icon icon-40"
                 data-icon-name="search"
                 role="presentation"
               />

@@ -1,7 +1,7 @@
 // @flow
 
 import { flattenNestedOptions } from '../hierarchySelector.transformer'
-import { renderMethod } from '../HierarchySelectorExample'
+import { renderMethod } from '../ComplexExample'
 
 describe('Handle Transformation', () => {
   test('properly transform nested option', () => {

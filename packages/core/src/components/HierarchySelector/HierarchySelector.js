@@ -16,11 +16,14 @@ import { flattenNestedOptions } from './hierarchySelector.transformer'
 import './HierarchySelector.scss'
 
 type HierarchySelectorPropType = {
+  /** Each option should include level and id property used to construct unique hierarchy value */
   options: OptionsType,
   onFocus: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
+  /** Hierarchy object passed */
   value: Object,
-  renderMethod: Function,
-  onChange: Function,
+  /** Render method for options */
+  renderMethod: (OptionsType) => Node,
+  onChange: (Object) => void,
 }
 
 type HierarchySelectorStateType = {
@@ -40,7 +43,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     super(props)
     const { options, value, renderMethod } = props
     const flattenedOptions = flattenNestedOptions(options, renderMethod)
-    const renderedPath = this.getPathFromSelectedValue(value, flattenedOptions)
+    const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions) : value
     this.state = {
       flattenedOptions,
       filteredOptions: flattenedOptions,
@@ -53,7 +56,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     const { options, value, renderMethod } = nextProps
     if (options !== this.props.options) {
       const flattenedOptions = flattenNestedOptions(options, renderMethod)
-      const renderedPath = this.getPathFromSelectedValue(value, flattenedOptions)
+      const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions) : value
       this.setState((prevState) => ({
         ...prevState,
         flattenedOptions,
@@ -135,7 +138,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
           }}
           {...this.props}
           options={filteredOptions}
-          serializeOption={(o) => o.id}
+          serializeOption={(o) => o.hierarchy}
           displayOption={this.renderOption}
           displaySelectedOption={this.renderSelectedOption}
           onChange={this.onChange}
