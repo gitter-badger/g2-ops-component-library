@@ -3,7 +3,7 @@ import renderIf from 'render-if'
 import { prop } from 'ramda'
 import { formatDate, daysElapsedUntilToday } from '../DatePicker/dateUtils'
 import { FlattenedOptionType, OptionType } from 'types/HierarchySelector'
-import {HierarchySelector} from './HierarchySelector'
+import { HierarchySelector } from './HierarchySelector'
 import towProvidersJson from './towProviders.json'
 
 // LEHOFSTADT - DEFAULT DISPATCH - GROUP - DEVIN BURT
@@ -96,7 +96,7 @@ const componentOptions = towProviders.map(transformVendorOption)
 
 class Example extends React.Component {
   state = {
-    value: null,
+    value: initialUser,
   }
   onChange = (selectedOption: FlattenedOptionType) => {
     const selectedHierarchyOption = (typeof selectedOption === 'string')? selectedOption : selectedOption.hierarchy
@@ -107,14 +107,13 @@ class Example extends React.Component {
       <div style={{ maxWidth: '400px' }}>
         <HierarchySelector
           name="Tow Provider"
-          label="Tow Provider"
+          label="Tow Provider Example"
           options={componentOptions}
           width={200}
           optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200, fontSize: '12px' }}
-          value={initialUser}
+          value={this.state.value}
           renderMethod={renderMethod}
           onChange={this.onChange}
-          onRenderSuffix={() => <i className="material-icons">arrow_drop_down</i>}
         />
       </div>
     )

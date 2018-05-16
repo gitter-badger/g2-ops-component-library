@@ -16,11 +16,16 @@ import { flattenNestedOptions } from './hierarchySelector.transformer'
 import './HierarchySelector.scss'
 
 type HierarchySelectorPropType = {
+  /** Each option should include level and id property used to construct unique hierarchy value */
   options: OptionsType,
   onFocus: (SyntheticKeyboardEvent<HTMLInputElement>) => void,
+  /** Hierarchy object passed */
   value: Object,
-  renderMethod: Function,
-  onChange: Function,
+  /** Render method for options */
+  renderMethod: (OptionsType) => Node,
+  onChange: (Object) => void,
+  /** Defaults to (option) => option.hierarchy */
+  serializeOption: (Object) => Node
 }
 
 type HierarchySelectorStateType = {
@@ -135,7 +140,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
           }}
           {...this.props}
           options={filteredOptions}
-          serializeOption={(o) => o.id}
+          serializeOption={(o) => o.hierarchy}
           displayOption={this.renderOption}
           displaySelectedOption={this.renderSelectedOption}
           onChange={this.onChange}

@@ -6,13 +6,7 @@ Array [
     "display": <div
       className="hierarchyOption"
     >
-      <span
-        style={
-          Object {
-            "color": "grey",
-          }
-        }
-      >
+      <span>
         Telangana
       </span>
     </div>,
@@ -32,13 +26,7 @@ Array [
     "display": <div
       className="hierarchyOption"
     >
-      <span
-        style={
-          Object {
-            "color": "grey",
-          }
-        }
-      >
+      <span>
         Texas
       </span>
     </div>,
@@ -90,9 +78,9 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
               onInput={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
-              title="Asia"
+              title=""
               type="text"
-              value="Asia"
+              value=""
               width={200}
             />
           </div>
@@ -103,7 +91,7 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
       data-uname={undefined}
       name="AutoSelect Field"
       type="hidden"
-      value="Asia"
+      value=""
     />
   </div>
 </div>

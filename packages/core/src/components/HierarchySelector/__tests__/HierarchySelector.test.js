@@ -5,73 +5,14 @@ import renderIf from 'render-if'
 
 import { wrapWithMaterialUIContext } from 'utilities/wrapWithContext'
 
-import {HierarchySelector} from '../HierarchySelector'
-import { CardIcon, renderMethod } from '../HierarchySelectorExample'
+import { HierarchySelector } from '../HierarchySelector'
+import { nestedOptions, renderMethod } from '../Example'
 
-const nestedOptions = [
-  {
-    name: 'asia',
-    label: 'Asia',
-    options: [
-      {
-        name: 'india',
-        label: 'India',
-        options: [
-          {
-            name: 'telangana',
-            label: 'Telangana',
-          },
-        ],
-      },
-      {
-        name: 'china',
-        label: 'China',
-        options: [
-          {
-            name: 'beijing',
-            label: 'Beijing',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    name: 'northAmerica',
-    label: 'North America',
-    options: [
-      {
-        name: 'usa',
-        label: 'USA',
-        options: [
-          {
-            name: 'texas',
-            label: 'Texas',
-          },
-          {
-            name: 'arkansas',
-            label: 'Arkansas',
-          },
-        ],
-      },
-    ],
-  },
-  {
-    name: 'africa',
-    label: 'Africa',
-    options: [
-      {
-        name: 'egypt',
-        label: 'Egypt',
-      },
-      {
-        name: 'libya',
-        label: 'Libya',
-      },
-    ],
-  },
-]
-
-const initialValue = "Haul O Way - Haul O' Way - Jason"
+const initialValue = {
+  continent: 'northAmerica',
+  country: 'usa',
+  state: 'texas'
+}
 
 describe('<HierarchySelector />', () => {
   test('should render nested options properly', () => {
@@ -81,6 +22,7 @@ describe('<HierarchySelector />', () => {
         options={nestedOptions}
         width={200}
         optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+        serializeOption={(o) => o.hierarchy}
         value={initialValue}
         renderMethod={renderMethod}
       />,
@@ -96,6 +38,7 @@ describe('<HierarchySelector />', () => {
         width={200}
         optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
         value={initialValue}
+        serializeOption={(o) => o.hierarchy}
         renderMethod={renderMethod}
       />,
     )
@@ -112,6 +55,7 @@ describe('<HierarchySelector />', () => {
         width={200}
         optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
         value={initialValue}
+        serializeOption={(o) => o.hierarchy}
         renderMethod={renderMethod}
       />,
     )

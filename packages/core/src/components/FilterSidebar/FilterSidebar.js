@@ -11,8 +11,6 @@ import { wrapMuiContext } from 'utilities/wrapMuiContext'
 import {FilterSwitcher} from './FilterSwitcher'
 import './FilterSidebar.scss'
 
-console.log({ QuickFilters, Filters, FilterSwitcher, wrapMuiContext })
-
 type FilterSidebarPropType = {
   selectedQuickFilter: string,
   quickFilters: Array<QuickFilterType>,
