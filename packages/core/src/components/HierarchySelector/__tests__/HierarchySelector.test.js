@@ -63,4 +63,31 @@ describe('<HierarchySelector />', () => {
     tree.find('AutoSelect').prop('onChange')(tree.state('filteredOptions')[0])
     expect(tree.state('selectedValue')).toMatchSnapshot()
   })
+
+  test('should select the correct hierarchy on selecting the option', () => {
+    const selectedOption = {
+      id: 'waterloo',
+      label: 'Waterloo',
+      level: 'state',
+      hierarchy: {
+        continent: 'europe',
+        country: 'belgium',
+        state: 'waterloo'
+      },
+      path: ['Europe', 'Belgium', 'Waterloo'],
+    }
+    const tree = mount(
+      <HierarchySelector
+        name="AutoSelect Field"
+        options={nestedOptions}
+        width={200}
+        optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+        value={initialValue}
+        serializeOption={(o) => o.hierarchy}
+        renderMethod={renderMethod}
+      />,
+    )
+    tree.find('AutoSelect').prop('onChange')(selectedOption)
+    expect(tree.state('selectedValue')).toBe('Europe - Belgium - Waterloo')
+  })
 })

@@ -76,6 +76,37 @@ export const nestedOptions = [
       },
     ],
   },
+  {
+    id: 'canada',
+    label: 'canada',
+    level: 'continent',
+    options: [
+      {
+        id: 'waterloo',
+        label: 'Waterloo',
+        level: 'country',
+      },
+    ],
+  },
+  {
+    id: 'europe',
+    label: 'Europe',
+    level: 'continent',
+    options: [
+      {
+        id: 'belgium',
+        label: 'Belgium',
+        level: 'country',
+        options: [
+          {
+            id: 'waterloo',
+            label: 'Waterloo',
+            level: 'state',
+          },
+        ],
+      },
+    ],
+  },
 ]
 
 export const renderMethod = (option) => (
