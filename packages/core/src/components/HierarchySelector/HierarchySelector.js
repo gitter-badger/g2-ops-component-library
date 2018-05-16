@@ -24,8 +24,6 @@ type HierarchySelectorPropType = {
   /** Render method for options */
   renderMethod: (OptionsType) => Node,
   onChange: (Object) => void,
-  /** Defaults to (option) => option.hierarchy */
-  serializeOption: (Object) => Node
 }
 
 type HierarchySelectorStateType = {
