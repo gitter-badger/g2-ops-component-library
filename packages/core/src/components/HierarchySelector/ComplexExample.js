@@ -96,7 +96,7 @@ const componentOptions = towProviders.map(transformVendorOption)
 
 class Example extends React.Component {
   state = {
-    value: initialUser,
+    value: null,
   }
   onChange = (selectedOption: FlattenedOptionType) => {
     const selectedHierarchyOption = (typeof selectedOption === 'string')? selectedOption : selectedOption.hierarchy

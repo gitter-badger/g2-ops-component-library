@@ -45,7 +45,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     super(props)
     const { options, value, renderMethod } = props
     const flattenedOptions = flattenNestedOptions(options, renderMethod)
-    const renderedPath = this.getPathFromSelectedValue(value, flattenedOptions)
+    const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions) : value
     this.state = {
       flattenedOptions,
       filteredOptions: flattenedOptions,
@@ -58,7 +58,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     const { options, value, renderMethod } = nextProps
     if (options !== this.props.options) {
       const flattenedOptions = flattenNestedOptions(options, renderMethod)
-      const renderedPath = this.getPathFromSelectedValue(value, flattenedOptions)
+      const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions) : value
       this.setState((prevState) => ({
         ...prevState,
         flattenedOptions,

@@ -47,6 +47,36 @@ describe('<HierarchySelector />', () => {
     expect(tree.state('filteredOptions')).toMatchSnapshot()
   })
 
+  test('should show blank value when props value is undefined', () => {
+    const tree = mount(
+      <HierarchySelector
+        name="AutoSelect Field"
+        options={nestedOptions}
+        width={200}
+        optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+        value={null}
+        serializeOption={(o) => o.hierarchy}
+        renderMethod={renderMethod}
+      />,
+    )
+    expect(tree.state('selectedValue')).toBe(null)
+  })
+
+  test('should show proper value when props value is valid hierarchy', () => {
+    const tree = mount(
+      <HierarchySelector
+        name="AutoSelect Field"
+        options={nestedOptions}
+        width={200}
+        optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+        value={initialValue}
+        serializeOption={(o) => o.hierarchy}
+        renderMethod={renderMethod}
+      />,
+    )
+    expect(tree.state('selectedValue')).toBe('North America - USA - Texas')
+  })
+
   test('should save selected value when value is selected from dropdown', () => {
     const tree = mount(
       <HierarchySelector

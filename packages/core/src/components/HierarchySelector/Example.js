@@ -123,7 +123,7 @@ const initialValue = {
 
 class Example extends React.Component {
   state = {
-    value: initialValue,
+    value: null,
   }
   onChange = (selectedOption: FlattenedOptionType) => {
     const selectedHierarchyOption = (typeof selectedOption === 'string')? selectedOption : selectedOption.hierarchy
