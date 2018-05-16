@@ -12,10 +12,13 @@ Array [
     </div>,
     "hasChildren": false,
     "hierarchy": Object {
-      "undefined": undefined,
+      "continent": "asia",
+      "country": "india",
+      "state": "telangana",
     },
+    "id": "telangana",
     "label": "Telangana",
-    "name": "telangana",
+    "level": "state",
     "path": Array [
       "Asia",
       "India",
@@ -32,10 +35,13 @@ Array [
     </div>,
     "hasChildren": false,
     "hierarchy": Object {
-      "undefined": undefined,
+      "continent": "northAmerica",
+      "country": "usa",
+      "state": "texas",
     },
+    "id": "texas",
     "label": "Texas",
-    "name": "texas",
+    "level": "state",
     "path": Array [
       "North America",
       "USA",
@@ -78,9 +84,9 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
               onInput={[Function]}
               onKeyDown={[Function]}
               placeholder={undefined}
-              title=""
+              title="North America - USA - Texas"
               type="text"
-              value=""
+              value="North America - USA - Texas"
               width={200}
             />
           </div>
@@ -91,7 +97,7 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
       data-uname={undefined}
       name="AutoSelect Field"
       type="hidden"
-      value=""
+      value="North America - USA - Texas"
     />
   </div>
 </div>
