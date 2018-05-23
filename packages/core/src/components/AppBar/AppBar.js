@@ -78,7 +78,7 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     onRenderLogo,
   } = otherProps
   return (
-    <div className="flex-grid">
+    <div className="flex-grid" data-ccc="AppBar-right">
       <div className="col element">
         {renderIfFlag(onRenderFlag({ countryCode, type }))}
         {renderIfRole(<div className="text role">{role}</div>)}
@@ -87,12 +87,6 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
         <div className="col element">
           <i className="material-icons">domain</i>
           <div className="iconText yardNumber">{yardNumber}</div>
-        </div>,
-      )}
-      {renderIfPhone(
-        <div className="col element">
-          <i className="material-icons">phone</i>
-          <div className="iconText phoneNumber">{phoneNumber}</div>
         </div>,
       )}
       <div className="col">
@@ -139,7 +133,8 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
       }}
       {...appBarProps}
       iconElementLeft={renderLogoAndSearchBar(props)}
-      iconElementRight={renderAppBarElements(props)}
+			iconElementRight={renderAppBarElements(props)}
+			onFeedb
     >
       {children}
     </MuiAppBar>
