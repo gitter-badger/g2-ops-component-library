@@ -136,7 +136,6 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
       {...appBarProps}
       iconElementLeft={renderLogoAndSearchBar(props)}
 			iconElementRight={renderAppBarElements(props)}
-			onFeedb
     >
       {children}
     </MuiAppBar>

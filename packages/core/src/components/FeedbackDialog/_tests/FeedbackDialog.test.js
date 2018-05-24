@@ -1,6 +1,6 @@
 import * as React from 'react'
 import { shallow, mount } from 'enzyme'
-import { FeedbackDialog } from '../FeedbackDialog.js'
+import { FeedbackDialog } from '../FeedbackDialog'
 import { wrapWithMaterialUIContext as mui } from 'utilities/wrapWithContext'
 
 it('should shallow render without erring', () => {
