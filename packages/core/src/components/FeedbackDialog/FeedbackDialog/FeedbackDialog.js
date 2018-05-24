@@ -34,15 +34,17 @@ type PropsT = {
   feedbackProcessValues: string
 }
 
+const initialState = {
+	open: false,
+	enhancementChosen: false,
+	includeEmail: true,
+	feedbackValue: "",
+	selectedIssueType: "",
+	selectedProcess: ""
+};
+
 export class FeedbackDialog extends React.PureComponent<PropsT> {
-  state = {
-    open: false,
-    enhancementChosen: false,
-    includeEmail: true,
-    feedbackValue: "",
-    selectedIssueType: "",
-    selectedProcess: ""
-  };
+  state = { ...initialState }
 
   setFeedbackValue = event => {
 		event.persist();
@@ -57,7 +59,7 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
   };
 
   handleClose = () => {
-    this.setState(state => ({ open: false, enhancementChosen: false }));
+    this.setState(state => (initialState));
   };
 
   toggleIncludeEmail = event => {

@@ -4,7 +4,7 @@
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
-    "prepublishOnly": "npm test && npm run build && node ./prepublish",
+    "prepublishOnly": "npm run build && node ./prepublish && npm test",
     "build": "webpack --mode production --config ./webpack.prod.js",
     "test": "babel-node node_modules/.bin/jest"
   },
