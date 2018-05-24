@@ -1,0 +1,73 @@
+.copartButton {
+	height: 36px;
+	min-width: 110px !important;
+}
+
+.copartButton button:disabled {
+	cursor: not-allowed !important;
+}
+
+.copartButton button span {
+	font-weight: 500 !important;
+	text-transform: capitalize !important;
+}
+
+.primaryButton button {
+	background-color: #1d5ab9 !important;
+}
+
+.primaryButton button:hover {
+	background-color: #133a77 !important;
+}
+
+.primaryButton button span {
+	color: white !important;
+}
+
+.secondaryButton button {
+	background-color: white !important;
+}
+
+.secondaryButton button:hover {
+	background-color: #d9d9d9 !important;
+}
+
+.inactiveButton button {
+	background-color: #dfdfdf !important;
+}
+
+.inactiveButton button:hover {
+	background-color: #b9b9b9 !important;
+}
+
+.deleteButton button {
+	background-color: #ee2727 !important;
+}
+
+.deleteButton button:hover {
+	background-color: #ba0f0f !important;
+}
+
+.deleteButton button span {
+	color: white !important;
+}
+
+.addButton button svg, .editButton button svg, .deleteButton button svg {
+	margin: 0 !important;
+	color: white !important;
+	fill: white !important;
+}
+
+.addButton button span, .editButton button span, .deleteButton button span {
+	padding-left: 3px !important;
+}
+
+.addButton button svg, .deleteButton button svg {
+	height: 20px !important;
+	width: 20px !important;
+}
+
+.editButton button svg {
+	height: 16px !important;
+	width: 16px !important;
+}

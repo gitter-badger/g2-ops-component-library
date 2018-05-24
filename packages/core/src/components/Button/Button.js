@@ -8,7 +8,7 @@ import DeleteIcon from 'material-ui/svg-icons/action/delete-forever'
 
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 
-import './Button.scss'
+import './Button.css'
 
 type ButtonPropTypes = {
   /** To indicate type of button {primary, secondary, inactive, add, edit, delete} */
@@ -22,7 +22,7 @@ type ButtonPropTypes = {
 }
 
 export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) => {
-  let typeProps
+	let typeProps
 
   switch (type) {
     case 'primary':
@@ -30,7 +30,7 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
     case 'inactive': {
       typeProps = {
         ...buttonProps,
-        className: `copartButton ${type}Button`,
+        className: `copartButton ${type}Button ${buttonProps.className}`,
       }
       break
     }
@@ -39,7 +39,7 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
       typeProps = {
         ...buttonProps,
         label: 'Add',
-        className: `copartButton primaryButton ${type}Button`,
+        className: `copartButton primaryButton ${type}Button ${buttonProps.className}`,
         icon: <AddIcon />,
       }
       break
@@ -49,7 +49,7 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
       typeProps = {
         ...buttonProps,
         label: 'Edit',
-        className: `copartButton primaryButton ${type}Button`,
+        className: `copartButton primaryButton ${type}Button ${buttonProps.className}`,
         icon: <EditIcon />,
       }
       break
@@ -59,7 +59,7 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
       typeProps = {
         ...buttonProps,
         label: 'Delete',
-        className: `copartButton ${type}Button`,
+        className: `copartButton ${type}Button ${buttonProps.className}`,
         icon: <DeleteIcon />,
       }
       break
@@ -72,5 +72,9 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
 
   return <RaisedButton {...typeProps} />
 })
+
+Button.defaultProps = {
+	className: ''
+}
 
 export const IconButton = wrapMuiContext(MuiIconButton)
