@@ -315,14 +315,14 @@ export class AutoSelect extends PureComponent<PropsT> {
     }
 
     return (
-      <div>
+      <div className={this.props.className}>
         <TextField
           name={`${name}-txtField`}
           {...textFieldProps}
           type="text"
           componentRef={c => {
             this.textField = c
-          }}
+					}}
           onKeyDown={this.handleKeyDown}
         />
         {active && (
