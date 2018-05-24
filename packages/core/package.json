@@ -1,6 +1,6 @@
 {
   "name": "@copart/core-components",
-  "version": "0.0.16",
+  "version": "0.1.1",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -39,8 +39,8 @@
     "@babel/plugin-proposal-unicode-property-regex": "^7.0.0-beta.44",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0-beta.44",
     "@babel/plugin-syntax-import-meta": "^7.0.0-beta.44",
-		"@babel/polyfill": "^7.0.0-beta.44",
-		"@babel/plugin-transform-runtime": "^7.0.0-beta.47",
+    "@babel/plugin-transform-runtime": "^7.0.0-beta.47",
+    "@babel/polyfill": "^7.0.0-beta.44",
     "@babel/preset-env": "^7.0.0-beta.44",
     "@babel/preset-flow": "^7.0.0-beta.44",
     "@babel/preset-react": "^7.0.0-beta.44",
@@ -76,7 +76,7 @@
       "^utilities(.*)$": "./src/utilities/$1"
     },
     "transform": {
-      "^.+\\.jsx?$": "babel-jest"
+      "^.+\\.js$": "<rootDir>/jestProcess.js"
     },
     "testPathIgnorePatterns": [
       "/node_modules/"
