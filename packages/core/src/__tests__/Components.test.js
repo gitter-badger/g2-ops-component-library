@@ -11,3 +11,13 @@ test('has no undefined', () => {
 
 	expect(hasUndefinedValues).toEqual(false)
 })
+
+test('has no default', () => {
+	const hasDefaultValues = Object.values(library).reduce((final, value) => {
+			if (final) return final
+			value.default && (final = true)
+			return final
+	}, false)
+
+	expect(hasDefaultValues).toEqual(false)
+})
