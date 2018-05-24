@@ -54,9 +54,10 @@ export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
       modalProps={{
 				className: `${showHeader ? 'CustomDialogWithHeader' : 'CustomDialogWithoutHeader'} ${className}`,
         containerClassName: `dialogModelContent ${containerClassName}`,
-        isBlocking: isBlocking
+				isBlocking: isBlocking,
+				isDarkOverlay: true
 			}}
-			isDarkOverlay
+			
     >
       {children}
       {footerRenderer && <DialogFooter>{footerRenderer()}</DialogFooter>}
