@@ -1,36 +1,38 @@
 .CustomDialogWithHeader {
   font-family: Roboto, sans-serif;
   font-size: 16px;
-  .ms-Dialog-main {
-    min-width: 600px;
-    > div {
-      width: 100%;
-    }
-  }
-  .ms-Dialog-header {
-    background-color: #0d5db8;
-    height: 40px;
-    .topButton-72 {
-      padding: 5px;
-    }
-    p {
-      padding: 11px 10px;
-      font-family: Roboto, sans-serif;
-      font-size: 16px;
-    }
-    p,
-    button {
-      color: white;
-    }
-  }
-  .ms-Dialog-inner {
-    padding-top: 20px;
-  }
 }
-.CustomDialogWithoutHeader {
-  .ms-Dialog-header {
-    p {
-      visibility: hidden;
-    }
-  }
+.CustomDialogWithHeader .ms-Dialog-main {
+  min-width: 600px;
+}
+.CustomDialogWithHeader .ms-Dialog-main > div {
+  width: 100%;
+}
+.CustomDialogWithHeader .ms-Dialog-header {
+  background-color: #0d5db8;
+  height: 40px;
+}
+.CustomDialogWithHeader .ms-Dialog-header .topButton-72 {
+  padding: 5px;
+}
+.CustomDialogWithHeader .ms-Dialog-header p {
+  padding: 11px 10px;
+  font-family: Roboto, sans-serif;
+  font-size: 16px;
+}
+.CustomDialogWithHeader .ms-Dialog-header p,
+.CustomDialogWithHeader .ms-Dialog-header button {
+  color: white;
+}
+.CustomDialogWithHeader .ms-Dialog-inner {
+  padding-top: 20px;
+}
+
+.CustomDialogWithoutHeader .ms-Dialog-header p {
+  visibility: hidden;
+}
+
+.ms-Dialog-header > div[class*=topButton] {
+  padding-top: 4px;
+  padding-right: 4px;
 }

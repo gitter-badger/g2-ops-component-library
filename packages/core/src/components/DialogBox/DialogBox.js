@@ -30,27 +30,34 @@ export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
     subText,
     onDismiss,
     hideDialog,
-    isBlocking,
-    containerClassName,
-    children,
+		isBlocking,
+		// TODO: Deprecate containerClassName.
+		containerClassName,
+		className,
+		// actionsContainerClassName,
+		// actionsContainerStyle,
+		children,
     footerRenderer,
     showHeader,
     ...otherProps
   } = props
   return (
     <Dialog
-      hidden={hideDialog}
+			data-ccc="DialogBox"
+      hidden={!!hideDialog}
       dialogType="normal"
-      onDismiss={onDismiss}
+			onDismiss={onDismiss}
+			showCloseButton={props.showCloseButton}
       dialogContentProps={{
         title: title,
         subText: subText,
       }}
       modalProps={{
-        isBlocking: isBlocking,
+				className: `${showHeader ? 'CustomDialogWithHeader' : 'CustomDialogWithoutHeader'} ${className}`,
         containerClassName: `dialogModelContent ${containerClassName}`,
-      }}
-      className={showHeader ? 'CustomDialogWithHeader' : 'CustomDialogWithoutHeader'}
+        isBlocking: isBlocking
+			}}
+			isDarkOverlay
     >
       {children}
       {footerRenderer && <DialogFooter>{footerRenderer()}</DialogFooter>}
