@@ -55,13 +55,33 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
       },
-      {
-        test: /\.(scss)$/,
+			{
+        test: /\.(pcss)$/,
         use: [
-            MiniCssExtractPlugin.loader,
+          MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader',
+						options: {
+							modules: true,
+							importLoaders: 1,
+							localIdentName: '__[name]-[local]'
+						}
+					},
           {
-            loader: 'css-loader', // translates CSS into CommonJS
+            loader: 'postcss-loader',
           },
+          {
+            loader: 'sass-loader', // compiles Sass to CSS
+          },
+        ],
+      },
+      {
+        test: /\.(css|scss)$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+					{
+						loader: 'css-loader'
+					},
           {
             loader: 'postcss-loader',
           },

@@ -53,6 +53,21 @@ module.exports = {
             "^types/(.+)": "./src/types/\\1"
           }
         }
+			],
+			[
+        'babel-plugin-react-css-modules',
+        {
+          generateScopedName: '__[name]-[local]',
+          handleMissingStyleName: 'warn',
+					webpackHotModuleReloading: true,
+					filetypes: {
+						'.pcss': {
+							syntax: 'postcss-scss',
+						},
+					},
+          context: '.${PWD}/src',
+          exclude: 'node_modules'
+        }
       ]
     ]
   }
