@@ -43,7 +43,6 @@ export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
   } = props
   return (
     <Dialog
-			data-ccc="DialogBox"
       hidden={!!hideDialog}
       dialogType="normal"
 			onDismiss={onDismiss}
