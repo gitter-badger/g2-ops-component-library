@@ -7,10 +7,6 @@
   display: flex;
   color: white;
   font-size: 13px;
-  margin-right: 0.5em;
-}
-.element img {
-  margin-right: 5px;
 }
 
 .appBarLeft {
@@ -24,8 +20,8 @@
 }
 
 .logo {
-  width: 6em;
-  margin-top: 0em;
+  width: 6rem;
+  margin-top: 0rem;
 }
 
 .moduleName {
@@ -35,19 +31,23 @@
 }
 
 .text {
-  margin-top: 0.6em;
+  margin-top: 0.6rem;
 }
 
 .iconText {
-  margin-top: 0.4em;
+  margin-top: 0.4rem;
 }
 
 .searchBar {
-  margin-top: -0.2em;
-  margin-left: 2em;
+  margin-top: -0.2rem;
+  margin-left: 2rem;
 }
 
 .md-light {
   font-size: 30px;
   color: rgba(255, 255, 255, 1);
+}
+
+.appBarLeft > img.logo {
+	display: initial;
 }

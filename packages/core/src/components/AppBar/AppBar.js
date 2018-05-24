@@ -7,8 +7,10 @@ import MuiAppBar from 'material-ui/AppBar'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { LogOutMenu } from './LogOutMenu'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
+import { FeedbackDialog } from 'components/FeedbackDialog';
 
 import './AppBar.scss'
+import './AppBar.pcss'
 
 type AppBarPropTypes = {
   /** Type of App bar, currently supports two values 'cas' and 'cobalt' */
@@ -58,12 +60,7 @@ const Flag = ({ countryCode, type }) => {
   return <img src={flagUrl} alt="Flag" {...imgProps} />
 }
 
-const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
-  const renderIfFlag = renderIf(config.includes('flag') && isLoggedOn)
-  const renderIfRole = renderIf(config.includes('role') && isLoggedOn)
-  const renderIfYard = renderIf(config.includes('yard') && isLoggedOn)
-  const renderIfPhone = renderIf(config.includes('phone') && isLoggedOn)
-  const renderIfLoggedInMenu = renderIf(isLoggedOn)
+const renderAppBarElements = (props) => {
   const {
     countryCode,
     role,
@@ -76,23 +73,29 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     onFeedbackClick,
     onRenderFlag,
     onRenderLogo,
-  } = otherProps
+  } = props
   return (
-    <div className="flex-grid" data-ccc="AppBar-right">
-      <div className="col element">
-        {renderIfFlag(onRenderFlag({ countryCode, type }))}
-        {renderIfRole(<div className="text role">{role}</div>)}
+    <div className="flex-grid" styleName="AppBarRight">
+      <div className="col element" styleName="roleAndFlag">
+        <If condition={props.config.includes('flag') && props.isLoggedOn}>
+					{onRenderFlag({ countryCode, type })}
+				</If>
+				<If condition={props.config.includes('role') && props.isLoggedOn}>
+					<div className="text role">{role}</div>
+				</If>
       </div>
-      {renderIfYard(
-        <div className="col element">
+      <If condition={props.config.includes('yard') && props.isLoggedOn}>
+        <div className="col element" styleName="yardNumber">
           <i className="material-icons">domain</i>
           <div className="iconText yardNumber">{yardNumber}</div>
-        </div>,
-      )}
-      <div className="col">
-        {renderIfLoggedInMenu(<LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />)}
+        </div>
+      </If>
+      <div className="col" styleName="userMenu">
+        <If condition={props.isLoggedOn}>
+					<LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
+				</If>
       </div>
-      <DefaultButton text="Feedback" onClick={onFeedbackClick} />
+      <FeedbackDialog {...props} />
     </div>
   )
 }
@@ -119,7 +122,6 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
     logoutItems,
     onLogoutItemClicked,
     moduleName,
-    onFeedbackClick,
     renderSearchbar,
     onRenderFlag,
     onRenderLogo,
