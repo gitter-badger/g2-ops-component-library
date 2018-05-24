@@ -72,5 +72,14 @@ module.exports = {
         exclude: 'node_modules',
       },
     ],
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        helpers: false,
+        polyfill: false,
+        regenerator: true,
+        moduleName: 'babel-runtime',
+      },
+    ],
   ],
 }
