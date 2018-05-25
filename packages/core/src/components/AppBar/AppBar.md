@@ -3,42 +3,6 @@ Cobalt Portal App Bar
 ```js
 const SearchBar = require('../SearchBar/SearchBar')
 
-const MOCK_ISSUE_TYPE_VALUES = [
-	{
-		key: 0,
-		value: 'ENHANCEMENT',
-		displayValue: 'enhancement',
-		isSelectable: true
-	},
-	{
-		key: 1,
-		value: 'FOOBAR',
-		displayValue: 'foobar',
-		isSelectable: true
-	},
-	{
-		key: 2,
-		value: 'YELLOW TAXI',
-		displayValue: 'yellow taxi',
-		isSelectable: true
-	}
-]
-
-const MOCK_PROCESS_VALUES = [
-	{
-		key: 0,
-		value: 'ABC',
-		displayValue: 'Abc',
-		isSelectable: true
-	},
-		{
-		key: 1,
-		value: 'ESPN',
-		displayValue: 'Espn',
-		isSelectable: true
-	},
-]
-
 const configCobalt = {
   type: 'cobalt',
   config: ['flag', 'role', 'yard'],
@@ -96,8 +60,6 @@ const searchTypes = [
 		selectedYard={2244}
 		language="Spanglish"
 		afterSendFeedback={() => { console.log('afterSendFeedback') }}
-		feedbackIssueTypeValues={MOCK_ISSUE_TYPE_VALUES}
-		feedbackProcessValues={MOCK_PROCESS_VALUES}
 		homeYard={99}
 		selectedRole="barfoo"
     renderSearchbar={() => (

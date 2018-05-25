@@ -16,37 +16,35 @@ import './AppBar.pcss'
 // TODO: Test
 // TODO: Move into utilities file.
 const allTruthy = (conditions: Function[]): Boolean => {
-	// If any one of the conditions evaluates to false
-	// then we want to return false, regardless of the
-	// other conditionals' outcomes. Thus; the for..of
-	// loop is used to exit early if we get a failing
-	// condition.
-	for (const condition of conditions) {
-		if (!condition()) {
-			return false 
-		}
-	}
+  // If any one of the conditions evaluates to false
+  // then we want to return false, regardless of the
+  // other conditionals' outcomes. Thus; the for..of
+  // loop is used to exit early if we get a failing
+  // condition.
+  for (const condition of conditions) {
+    if (!condition()) {
+      return false 
+    }
+  }
 
-	return true
+  return true
 }
 
 // TODO: Test
 const checkFeedbackProps = (props) => {
-	const propsPassTypeCheck = allTruthy([
-		() => ['String'].includes(getType (props.userEmail)),
-		() => ['Function'].includes(getType (props.afterSendFeedback)),
-		() => ['String', 'Number'].includes(getType (props.selectedYard)),
-		() => ['String', 'Number'].includes(getType (props.homeYard)),
-		() => ['String'].includes(getType (props.selectedRole)),
-		() => ['String'].includes(getType (props.countryCode)),
-		() => ['String'].includes(getType (props.language)),
-		() => ['Array'].includes(getType (props.feedbackIssueTypeValues)),
-		() => ['Array'].includes(getType (props.feedbackProcessValues)),
-	])
+  const propsPassTypeCheck = allTruthy([
+    () => ['String'].includes(getType (props.userEmail)),
+    () => ['Function'].includes(getType (props.afterSendFeedback)),
+    () => ['String', 'Number'].includes(getType (props.selectedYard)),
+    () => ['String', 'Number'].includes(getType (props.homeYard)),
+    () => ['String'].includes(getType (props.selectedRole)),
+    () => ['String'].includes(getType (props.countryCode)),
+    () => ['String'].includes(getType (props.language))
+  ])
 
-	// TODO: Handle warnings/errors for non-passing prop type check.
+  // TODO: Handle warnings/errors for non-passing prop type check.
 
-	return propsPassTypeCheck
+  return propsPassTypeCheck
 }
 
 
@@ -117,11 +115,11 @@ const renderAppBarElements = (props) => {
     <div className="flex-grid" styleName="AppBarRight">
       <div className="col element" styleName="roleAndFlag">
         <If condition={props.config.includes('flag') && props.isLoggedOn}>
-					{onRenderFlag({ countryCode, type })}
-				</If>
-				<If condition={props.config.includes('role') && props.isLoggedOn}>
-					<div className="text role">{role}</div>
-				</If>
+          {onRenderFlag({ countryCode, type })}
+        </If>
+        <If condition={props.config.includes('role') && props.isLoggedOn}>
+          <div className="text role">{role}</div>
+        </If>
       </div>
       <If condition={props.config.includes('yard') && props.isLoggedOn}>
         <div className="col element" styleName="yardNumber">
@@ -131,12 +129,12 @@ const renderAppBarElements = (props) => {
       </If>
       <div className="col" styleName="userMenu">
         <If condition={props.isLoggedOn}>
-					<LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
-				</If>
+          <LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
+        </If>
       </div>
-			<If condition={checkFeedbackProps(props)}>
-      	<FeedbackDialog {...props} />
-			</If>
+      <If condition={checkFeedbackProps(props)}>
+        <FeedbackDialog {...props} />
+      </If>
     </div>
   )
 }
@@ -176,7 +174,7 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
       }}
       {...appBarProps}
       iconElementLeft={renderLogoAndSearchBar(props)}
-			iconElementRight={renderAppBarElements(props)}
+      iconElementRight={renderAppBarElements(props)}
     >
       {children}
     </MuiAppBar>

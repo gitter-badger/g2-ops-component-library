@@ -31,7 +31,7 @@ type PropsT = {
   countryCode: string,
   language: string,
   feedbackIssueTypeValues: [],
-  feedbackProcessValues: string
+  feedbackProcessValues: []
 }
 
 const initialState = {
@@ -39,9 +39,39 @@ const initialState = {
 	enhancementChosen: false,
 	includeEmail: true,
 	feedbackValue: "",
-	selectedIssueType: "",
-	selectedProcess: ""
+	selectedissueType: "",
+	selectedprocess: ""
 };
+
+// TODO: Move to consts somewhere.
+const processOptions = [
+  { key: 'abc', value: 'ABC (AUCTION BOARD CONTROL)' },
+  { key: 'cfr', value: 'CALL FOR RELEASE' },
+  { key: 'casbo', value: 'CAS BACK OFFICE SUPPORT' },
+  { key: 'vwt', value: 'COMPLIANCE MANAGEMENT' },
+  { key: 'dispatch', value: 'DISPATCH' },
+  { key: 'dtle', value: 'DTLE' },
+  { key: 'employee', value: 'EMPLOYEE' },
+  { key: 'lotReview', value: 'LOT MAINTENANCE' },
+  { key: 'lotSearch', value: 'LOT SEARCH' },
+  { key: 'member', value: 'MEMBER' },
+  { key: 'mbp', value: 'MEMBER PAYMENTS' },
+  { key: 'miHub', value: 'MIHUB' },
+  { key: 'pricing', value: 'PRICING' },
+  { key: 'proQuote', value: 'PRO QUOTE' },
+  { key: 'titlePortal', value: 'TITLE PORTAL' },
+  { key: 'vendor', value: 'VENDOR' },
+]
+
+const issueTypeOptions = [
+  { key: 'ACCESS', value: 'Access/Permissions' },
+  { key: 'BUG', value: 'Bug/Problem' },
+  { key: 'CAS GAP', value: 'CAS Gap/Missing Functionality' },
+  { key: 'COMMENT', value: 'Comment' },
+  { key: 'ENHANCEMENT', value: 'Enhancement/Improvements' },
+  { key: 'QUESTION', value: 'Question' },
+  { key: 'OTHER', value: 'Other' },
+]
 
 export class FeedbackDialog extends React.PureComponent<PropsT> {
   state = { ...initialState }
@@ -103,12 +133,16 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 	}
 
 	getDisplayOption = (whichFeedbackValues) => which => {
-		return this.props[whichFeedbackValues][which.key].value;
+    const options = whichFeedbackValues[0] === 'i'
+      ? issueTypeOptions
+      : processOptions
+
+		return options.find(x => which.key === x.key).value;
 	}
 
 	setSelectedIssueType = option => {
-		this.state.enhancementChosen = option.value === "ENHANCEMENT" ? true : false;
-		this.setSelected('IssueType')(option.value)
+		this.state.enhancementChosen = option.key === "ENHANCEMENT" ? true : false;
+		this.setSelected('issueType')(option.value)
 	}
 
   render() {
@@ -128,7 +162,7 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 				>
 					<FAQText />
 					<form onSubmit={this.onSubmit}>
-						<EmailInput email={props.userEmail} />
+						<EmailInput self={this} />
 						<AutoSelects self={this} />
 						<If condition={!state.enhancementChosen}>
 							<div styleName="feedbackBox" style={PADDING_5PX_0}>
@@ -175,7 +209,7 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
   }
 }
 
-const EmailInput = (props) => {
+const EmailInput = ({ self }) => {
 	return (
 		<div styleName="emailInputBox">
 			<TextField
@@ -186,7 +220,7 @@ const EmailInput = (props) => {
 				type="email"
 				disabled
 				fullWidth
-				value={props.email}
+				value={self.props.userEmail}
 			/>
 		</div>
 	)
@@ -198,16 +232,16 @@ const AutoSelects = ({ self }) => {
 			<AutoSelect
 				styleName="autoSelect"
 				name="IssueType"
-				options={self.props.feedbackIssueTypeValues}
+				options={issueTypeOptions}
 				width={200}
 				label="Issue Type*"
 				selectedOption="2"
 				required
 				placeholder="Issue Type"
-				value={self.state.selectedIssueType}
+				value={self.state.selectedissueType}
 				onChange={self.setSelectedIssueType}
 				optionStyleProps={OPTION_STYLES}
-				displayOption={self.getDisplayOption('feedbackIssueTypeValues')}
+				displayOption={self.getDisplayOption('i')}
 			/>
 			<If condition={!self.state.enhancementChosen}>
 				<AutoSelect
@@ -216,13 +250,13 @@ const AutoSelects = ({ self }) => {
 					name="Process"
 					label="Process*"
 					placeholder="Process"
-					options={self.props.feedbackProcessValues}
+					options={processOptions}
 					selectedOption="2"
 					required
-					value={self.state.selectedProcess}
-					onChange={self.setSelected('Process')}
+					value={self.state.selectedprocess}
+					onChange={self.setSelected('process')}
 					optionStyleProps={OPTION_STYLES}
-					displayOption={self.getDisplayOption('feedbackProcessValues')}
+					displayOption={self.getDisplayOption('p')}
 				/>
 			</If>
 		</div>

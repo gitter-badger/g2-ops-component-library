@@ -27,42 +27,6 @@ describe('<AppBar />', () => {
 	})
 
 	test('should render <FeedbackDialog /> if specific props are valid', () => {
-		const MOCK_ISSUE_TYPE_VALUES = [
-			{
-				key: 0,
-				value: 'ENHANCEMENT',
-				displayValue: 'enhancement',
-				isSelectable: true
-			},
-			{
-				key: 1,
-				value: 'FOOBAR',
-				displayValue: 'foobar',
-				isSelectable: true
-			},
-			{
-				key: 2,
-				value: 'YELLOW TAXI',
-				displayValue: 'yellow taxi',
-				isSelectable: true
-			}
-		]
-
-		const MOCK_PROCESS_VALUES = [
-			{
-				key: 0,
-				value: 'ABC',
-				displayValue: 'Abc',
-				isSelectable: true
-			},
-				{
-				key: 1,
-				value: 'ESPN',
-				displayValue: 'Espn',
-				isSelectable: true
-			},
-		]
-
 		const wrapper = mount(<AppBar
 			config={[]}
 			type={'CAS'}
@@ -70,14 +34,12 @@ describe('<AppBar />', () => {
 			countryCode={'us'}
 			isLoggedOn={false}
 			userEmail={'STUB'}
-			afterSendFeedback={jest.fn()}
+			afterSendFeedback={() => {}}
 			selectedYard={60}
 			homeYard={'STUB'}
 			selectedRole={'STUB'}
 			countryCode={'ST'}
 			language={'STUB'}
-			feedbackIssueTypeValues={MOCK_ISSUE_TYPE_VALUES}
-			feedbackProcessValues={MOCK_PROCESS_VALUES}
 		/>)
 
 		expect(wrapper.find('FeedbackDialog').length).toEqual(1)
