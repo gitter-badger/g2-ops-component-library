@@ -1,16 +1,55 @@
 // @flow
 import type { Node, Element, ChildrenArray } from 'react'
 
-import React from 'react'
-import renderIf from 'render-if'
+import * as React from 'react'
+import { type as getType } from 'ramda'
+
 import MuiAppBar from 'material-ui/AppBar'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { LogOutMenu } from './LogOutMenu'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
-import { FeedbackDialog } from 'components/FeedbackDialog';
+import { FeedbackDialog } from 'components/FeedbackDialog'
 
 import './AppBar.scss'
 import './AppBar.pcss'
+
+// TODO: Test
+// TODO: Move into utilities file.
+const allTruthy = (conditions: Function[]): Boolean => {
+	// If any one of the conditions evaluates to false
+	// then we want to return false, regardless of the
+	// other conditionals' outcomes. Thus; the for..of
+	// loop is used to exit early if we get a failing
+	// condition.
+	for (const condition of conditions) {
+		if (!condition()) {
+			return false 
+		}
+	}
+
+	return true
+}
+
+// TODO: Test
+const checkFeedbackProps = (props) => {
+	const propsPassTypeCheck = allTruthy([
+		() => ['String'].includes(getType (props.userEmail)),
+		() => ['Function'].includes(getType (props.afterSendFeedback)),
+		() => ['String', 'Number'].includes(getType (props.selectedYard)),
+		() => ['String', 'Number'].includes(getType (props.homeYard)),
+		() => ['String'].includes(getType (props.selectedRole)),
+		() => ['String'].includes(getType (props.countryCode)),
+		() => ['String'].includes(getType (props.language)),
+		() => ['Array'].includes(getType (props.feedbackIssueTypeValues)),
+		() => ['Array'].includes(getType (props.feedbackProcessValues)),
+	])
+
+	// TODO: Handle warnings/errors for non-passing prop type check.
+
+	return propsPassTypeCheck
+}
+
+
 
 type AppBarPropTypes = {
   /** Type of App bar, currently supports two values 'cas' and 'cobalt' */
@@ -95,7 +134,9 @@ const renderAppBarElements = (props) => {
 					<LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
 				</If>
       </div>
-      <FeedbackDialog {...props} />
+			<If condition={checkFeedbackProps(props)}>
+      	<FeedbackDialog {...props} />
+			</If>
     </div>
   )
 }
