@@ -24,7 +24,7 @@ import {
 
 type PropsT = {
   userEmail: string,
-  sendFeedback(): any,
+  afterSendFeedback(): any,
   selectedYard: string | number,
   homeYard: string | number,
   selectedRole: string,
