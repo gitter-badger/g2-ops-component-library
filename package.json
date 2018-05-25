@@ -1,11 +1,8 @@
 {
-  "name": "g2-ops-components",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/copartit/g2-ops-component-library.git"
   },
-  "version": "0.0.7",
-  "license": "ISC",
   "main": "lib/index.js",
   "description": "G2 Ops Component Library",
   "author": "Sidharth Mehra",
@@ -29,7 +26,7 @@
   },
   "homepage": "https://github.com/copartit/g2-ops-component-library/#readme",
   "dependencies": {
-    "@uifabric/icons": "^5.3.0",
+    "@uifabric/icons": "5.8.0",
     "classnames": "^2.2.5",
     "country-telephone-data": "^0.5.4",
     "libphonenumber-js": "^1.0.3",
@@ -41,8 +38,8 @@
     "office-ui-fabric-react": "^5.30.2",
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
-    "react": "15.6.1",
-    "react-dom": "15.6.1",
+    "react": "15.6.2",
+    "react-dom": "15.6.2",
     "react-tap-event-plugin": "2.0.1",
     "react-tooltip": "^3.4.0",
     "react-virtualized": "^9.18.5",
@@ -101,6 +98,7 @@
     "eslint-import-resolver-babel-module": "^4.0.0",
     "eslint-plugin-flowtype": "^2.42.0",
     "eslint-plugin-import": "^2.8.0",
+    "flow-bin": "^0.73.0",
     "husky": "^0.14.3",
     "identity-obj-proxy": "3.0.0",
     "jest": "^22.1.4",
