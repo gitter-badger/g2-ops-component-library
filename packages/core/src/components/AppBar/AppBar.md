@@ -1,7 +1,5 @@
-Cobalt Portal App Bar
-
 ```js
-const SearchBar = require('../SearchBar/SearchBar')
+const { SearchBar } = require('../SearchBar')
 
 const configCobalt = {
   type: 'cobalt',
@@ -49,29 +47,28 @@ const searchTypes = [
   { key: 'location', name: 'Location' },
   { key: 'buyer', name: 'Buyer' }
 ]
-;<div style={{ margin: '-17px' }}>
-  <AppBar
-    {...configCobalt}
-    onLogoutItemClicked={(event, item) => console.log(item)}
-    logoutItems={logoutItems}
-		onFeedbackClick={() => console.log('Feedback clicked')}
-		role="foobar"
-		userEmail="test@copart.com"
-		selectedYard={2244}
-		language="Spanglish"
-		afterSendFeedback={() => { console.log('afterSendFeedback') }}
-		homeYard={99}
-		selectedRole="barfoo"
-    renderSearchbar={() => (
-      <SearchBar
-        searchType={{ key: 'lot', name: 'Lot' }}
-        searchTypes={searchTypes}
-        borderless
-        searchText="Default Search Text"
-        handleSearch={() => console.log('Search Clicked')}
-        showCheckbox={false}
-      />
-    )}
-  />
-</div>
+
+;<AppBar
+  {...configCobalt}
+  onLogoutItemClicked={(event, item) => console.log(item)}
+  logoutItems={logoutItems}
+  onFeedbackClick={() => console.log('Feedback clicked')}
+  role="foobar"
+  userEmail="test@copart.com"
+  selectedYard={2244}
+  language="Spanglish"
+  afterSendFeedback={() => { console.log('afterSendFeedback') }}
+  homeYard={99}
+  selectedRole="barfoo"
+  renderSearchbar={() => (
+    <SearchBar
+      searchType={{ key: 'lot', name: 'Lot' }}
+      searchTypes={searchTypes}
+      borderless
+      searchText="Default Search Text"
+      handleSearch={() => console.log('Search Clicked')}
+      showCheckbox={false}
+    />
+  )}
+/>
 ```

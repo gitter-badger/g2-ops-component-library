@@ -31,6 +31,7 @@ const allTruthy = (conditions: Function[]): Boolean => {
 }
 
 // TODO: Test
+// TODO: Move into utilities file.
 const checkFeedbackProps = (props) => {
   const propsPassTypeCheck = allTruthy([
     () => ['String'].includes(getType (props.userEmail)),
@@ -43,13 +44,21 @@ const checkFeedbackProps = (props) => {
   ])
 
   // TODO: Handle warnings/errors for non-passing prop type check.
-
   return propsPassTypeCheck
 }
 
-
-
 type AppBarPropTypes = {
+  userEmail: string,
+  selectedYard: string | number,
+  homeYard: string | number,
+  selectedRole: string,
+  language: string,
+  /** IMPORTANT: Currently requires the function to actually POST the feedback
+   * to the server. In the near future, AppBar/FeedbackDialog will handle this
+   * functionality for you. An example of what this function should look like
+   * can be found here: https://github.com/copartit/quicklooks/blob/6e0fbae22deb8f16fd90944144c4c314f7e7d441/src/components/AppBar/feedbackClick.js
+   */
+  afterSendFeedback(FeedbackT): any,
   /** Type of App bar, currently supports two values 'cas' and 'cobalt' */
   type: string,
   /** Config that determines elements rendered in right side of the App Bar */
@@ -68,7 +77,7 @@ type AppBarPropTypes = {
   /** Yard number */
   yardNumber?: number, // we remove support for string yardNumber,
   /** Phone number */
-  phoneNumber?: number, // it is number
+  phoneNumber?: number,
   /** To show searchbar component */
   showSearchBar?: boolean,
   /** If isLoggedOn is false, renders just the Feedback button, else everything is rendered. */
