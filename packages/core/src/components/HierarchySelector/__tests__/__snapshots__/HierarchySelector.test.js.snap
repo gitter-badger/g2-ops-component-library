@@ -55,9 +55,11 @@ exports[`<HierarchySelector /> should render nested options properly 1`] = `
 <div
   className="HierarchySelector"
 >
-  <div>
+  <div
+    className={undefined}
+  >
     <div
-      className="ms-Fabric root-33"
+      className="ms-Fabric root-65"
     >
       <div
         className="ms-TextField root"

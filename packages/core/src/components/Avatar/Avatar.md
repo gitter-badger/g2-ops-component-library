@@ -13,7 +13,8 @@ const iconsList = [
     <Avatar
       color={'black'}
       backgroundColor={'#ccc'}
-      size={30}
+			size={30}
+			key={iconName}
       icon={<i className="material-icons">{iconName}</i>}
     />
   </span>

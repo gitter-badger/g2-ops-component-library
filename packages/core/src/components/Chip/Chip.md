@@ -16,7 +16,7 @@ var chipData = [
       key={data.key}
       onRequestDelete={() => console.log('deletes the chip')}
       style={{ marginLeft: 4 }}
-      >
+		>
       {data.label}
     </Chip>
   ))}

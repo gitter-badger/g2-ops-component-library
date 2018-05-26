@@ -57,5 +57,29 @@ module.exports = {
         },
       },
     ],
+    [
+      'babel-plugin-react-css-modules',
+      {
+        generateScopedName: '__[name]-[local]',
+        handleMissingStyleName: 'warn',
+        filetypes: {
+          '.pcss': {
+            syntax: 'postcss-scss',
+          },
+        },
+        webpackHotModuleReloading: true,
+        context: '.${PWD}/packages/core/src',
+        exclude: 'node_modules',
+      },
+    ],
+    [
+      '@babel/plugin-transform-runtime',
+      {
+        helpers: false,
+        polyfill: false,
+        regenerator: true,
+        moduleName: 'babel-runtime',
+      },
+    ],
   ],
 }

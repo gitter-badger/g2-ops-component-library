@@ -22,7 +22,9 @@ export const Filters = ({ filters = [], onFilterChange, onFiltersClear, width }:
       </div>
     </div>
     <div className="filterSections">
-      {filters.map((filter) => <Filter filter={filter} onFilterChange={onFilterChange} />)}
+      {filters.map((filter) => {
+				return <Filter key={filter.name} filter={filter} onFilterChange={onFilterChange} />
+			})}
     </div>
   </div>
 )

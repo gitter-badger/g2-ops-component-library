@@ -9,7 +9,8 @@ import {wrapFabricContext} from 'utilities/wrapFabricContext'
 import './style.scss'
 
 type TextFieldPropTypes = {
-  text: string,
+	text: string,
+	label: string,
   disabled: boolean,
   placeholder?: string,
   className?: string,

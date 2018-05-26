@@ -1,16 +1,64 @@
 // @flow
 import type { Node, Element, ChildrenArray } from 'react'
 
-import React from 'react'
-import renderIf from 'render-if'
+import * as React from 'react'
+import { type as getType } from 'ramda'
+
 import MuiAppBar from 'material-ui/AppBar'
 import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { LogOutMenu } from './LogOutMenu'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
+import { FeedbackDialog } from 'components/FeedbackDialog'
 
 import './AppBar.scss'
+import './AppBar.pcss'
+
+// TODO: Test
+// TODO: Move into utilities file.
+const allTruthy = (conditions: Function[]): Boolean => {
+  // If any one of the conditions evaluates to false
+  // then we want to return false, regardless of the
+  // other conditionals' outcomes. Thus; the for..of
+  // loop is used to exit early if we get a failing
+  // condition.
+  for (const condition of conditions) {
+    if (!condition()) {
+      return false 
+    }
+  }
+
+  return true
+}
+
+// TODO: Test
+// TODO: Move into utilities file.
+const checkFeedbackProps = (props) => {
+  const propsPassTypeCheck = allTruthy([
+    () => ['String'].includes(getType (props.userEmail)),
+    () => ['Function'].includes(getType (props.afterSendFeedback)),
+    () => ['String', 'Number'].includes(getType (props.selectedYard)),
+    () => ['String', 'Number'].includes(getType (props.homeYard)),
+    () => ['String'].includes(getType (props.selectedRole)),
+    () => ['String'].includes(getType (props.countryCode)),
+    () => ['String'].includes(getType (props.language))
+  ])
+
+  // TODO: Handle warnings/errors for non-passing prop type check.
+  return propsPassTypeCheck
+}
 
 type AppBarPropTypes = {
+  userEmail: string,
+  selectedYard: string | number,
+  homeYard: string | number,
+  selectedRole: string,
+  language: string,
+  /** IMPORTANT: Currently requires the function to actually POST the feedback
+   * to the server. In the near future, AppBar/FeedbackDialog will handle this
+   * functionality for you. An example of what this function should look like
+   * can be found here: https://github.com/copartit/quicklooks/blob/6e0fbae22deb8f16fd90944144c4c314f7e7d441/src/components/AppBar/feedbackClick.js
+   */
+  afterSendFeedback(FeedbackT): any,
   /** Type of App bar, currently supports two values 'cas' and 'cobalt' */
   type: string,
   /** Config that determines elements rendered in right side of the App Bar */
@@ -29,7 +77,7 @@ type AppBarPropTypes = {
   /** Yard number */
   yardNumber?: number, // we remove support for string yardNumber,
   /** Phone number */
-  phoneNumber?: number, // it is number
+  phoneNumber?: number,
   /** To show searchbar component */
   showSearchBar?: boolean,
   /** If isLoggedOn is false, renders just the Feedback button, else everything is rendered. */
@@ -58,12 +106,7 @@ const Flag = ({ countryCode, type }) => {
   return <img src={flagUrl} alt="Flag" {...imgProps} />
 }
 
-const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
-  const renderIfFlag = renderIf(config.includes('flag') && isLoggedOn)
-  const renderIfRole = renderIf(config.includes('role') && isLoggedOn)
-  const renderIfYard = renderIf(config.includes('yard') && isLoggedOn)
-  const renderIfPhone = renderIf(config.includes('phone') && isLoggedOn)
-  const renderIfLoggedInMenu = renderIf(isLoggedOn)
+const renderAppBarElements = (props) => {
   const {
     countryCode,
     role,
@@ -76,29 +119,31 @@ const renderAppBarElements = ({ config, isLoggedOn, ...otherProps }) => {
     onFeedbackClick,
     onRenderFlag,
     onRenderLogo,
-  } = otherProps
+  } = props
   return (
-    <div className="flex-grid">
-      <div className="col element">
-        {renderIfFlag(onRenderFlag({ countryCode, type }))}
-        {renderIfRole(<div className="text role">{role}</div>)}
+    <div className="flex-grid" styleName="AppBarRight">
+      <div className="col element" styleName="roleAndFlag">
+        <If condition={props.config.includes('flag') && props.isLoggedOn}>
+          {onRenderFlag({ countryCode, type })}
+        </If>
+        <If condition={props.config.includes('role') && props.isLoggedOn}>
+          <div className="text role">{role}</div>
+        </If>
       </div>
-      {renderIfYard(
-        <div className="col element">
+      <If condition={props.config.includes('yard') && props.isLoggedOn}>
+        <div className="col element" styleName="yardNumber">
           <i className="material-icons">domain</i>
           <div className="iconText yardNumber">{yardNumber}</div>
-        </div>,
-      )}
-      {renderIfPhone(
-        <div className="col element">
-          <i className="material-icons">phone</i>
-          <div className="iconText phoneNumber">{phoneNumber}</div>
-        </div>,
-      )}
-      <div className="col">
-        {renderIfLoggedInMenu(<LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />)}
+        </div>
+      </If>
+      <div className="col" styleName="userMenu">
+        <If condition={props.isLoggedOn}>
+          <LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
+        </If>
       </div>
-      <DefaultButton text="Feedback" onClick={onFeedbackClick} />
+      <If condition={checkFeedbackProps(props)}>
+        <FeedbackDialog {...props} />
+      </If>
     </div>
   )
 }
@@ -125,7 +170,6 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
     logoutItems,
     onLogoutItemClicked,
     moduleName,
-    onFeedbackClick,
     renderSearchbar,
     onRenderFlag,
     onRenderLogo,

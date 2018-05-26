@@ -87,40 +87,14 @@ exports[`<AppBar /> <AppBar /> renders properly 1`] = `
     }
   >
     <div
-      className="flex-grid"
+      className="flex-grid __AppBar-AppBarRight"
     >
       <div
-        className="col element"
+        className="col element __AppBar-roleAndFlag"
       />
       <div
-        className="col"
+        className="col __AppBar-userMenu"
       />
-      <button
-        aria-describedby={null}
-        aria-label={undefined}
-        aria-labelledby={null}
-        aria-pressed={undefined}
-        className="ms-Button ms-Button--default root-37"
-        data-is-focusable={true}
-        disabled={undefined}
-        onClick={undefined}
-        type="button"
-      >
-        <div
-          className="ms-Button-flexContainer flexContainer-38"
-        >
-          <div
-            className="ms-Button-textContainer textContainer-39"
-          >
-            <div
-              className="ms-Button-label label-41"
-              id="id__0"
-            >
-              Feedback
-            </div>
-          </div>
-        </div>
-      </button>
     </div>
   </div>
 </div>

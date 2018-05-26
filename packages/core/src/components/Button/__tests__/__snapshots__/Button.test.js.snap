@@ -2,7 +2,7 @@
 
 exports[`<Button /> should render properly 1`] = `
 <div
-  className="copartButton primaryButton"
+  className="copartButton primaryButton "
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -88,7 +88,7 @@ exports[`<Button /> should render properly 1`] = `
 
 exports[`<Button /> should render properly 2`] = `
 <div
-  className="copartButton secondaryButton"
+  className="copartButton secondaryButton "
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -174,7 +174,7 @@ exports[`<Button /> should render properly 2`] = `
 
 exports[`<Button /> should render properly 3`] = `
 <div
-  className="copartButton inactiveButton"
+  className="copartButton inactiveButton "
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -260,7 +260,7 @@ exports[`<Button /> should render properly 3`] = `
 
 exports[`<Button /> should render properly 4`] = `
 <div
-  className="copartButton primaryButton addButton"
+  className="copartButton primaryButton addButton "
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -391,7 +391,7 @@ exports[`<Button /> should render properly 4`] = `
 
 exports[`<Button /> should render properly 5`] = `
 <div
-  className="copartButton primaryButton editButton"
+  className="copartButton primaryButton editButton "
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -522,7 +522,7 @@ exports[`<Button /> should render properly 5`] = `
 
 exports[`<Button /> should render properly 6`] = `
 <div
-  className="copartButton deleteButton"
+  className="copartButton deleteButton "
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",

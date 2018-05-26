@@ -1,0 +1,1 @@
+export { FAQLink } from './FAQLink';
