@@ -1,89 +1,28 @@
-// import axios from 'axios'
-// import uuid from 'uuid'
 import { filter, isNil } from 'ramda'
 
 import { SUBJECT_HEADER } from './consts';
 
-// const getAccessToken = () => {
-//   let accessToken = document.cookie
-//     .split(';')
-//     .map((c) => c.trim())
-//     .find((c) => c.match(/^access_token/))
-
-//   return accessToken && accessToken.split('=')[1]
-// }
-
-// const xhr = axios.create()
-
-
-// const COUNTRY_CODE = 'US'
-
-// const DEV_SESSION_SECRET = 'fsdfdhfjksfhfjk!@dsjfjkdshfkjdshkjfhdskjfhkjdshfkasjhfkjhkashkheu43895340918493mfhe49840143fwwdss#$'
-// const DEV_SESSION_ID = 'SessionID'
-// const DEV_AUTH_TOKEN = 'Basic b3BzcG9ydGFsOmQ1MmQ1MGMzMTMwODFiMzQzMmQyMzhiMTNkYjFmMTE2'
-// const DEV_ME_SERVICE = 'http://c-auth-qa4.copart.com/employee/oauth/token'
-
-// xhr.interceptors.request.use(
-//   (xhrConf) => {
-//     const accessToken = DEV_AUTH_TOKEN
-//     const headers = xhrConf.headers
-//     // solr check so that there is no authentication in solr queries
-//     if (xhrConf.url.indexOf('/solr/') !== -1) {
-//       xhrConf.url = `${xhrConf.url}&cl=${clientName}`
-//       return xhrConf
-//     }
-//     if (
-//       xhrConf.url.indexOf('referencedata-ws') !== -1 &&
-//       xhrConf.url.indexOf('referencedata-ws/states') === -1 &&
-//       xhrConf.url.indexOf('sprocs') === -1
-//     ) {
-//       headers.Version = '2.0'
-//     }
-//     if (accessToken && headers) {
-//       headers.Authorization = `bearer ${accessToken}`
-//       headers['Content-Type'] = 'application/json'
-//       headers.countryCode = xhrConf.imageRequest ? 'US' : COUNTRY_CODE
-//       headers.partnerCode = 'en'
-//       headers.source = 'mobile'
-//     }
-//     headers.correlationID = `cas-uuid-${uuid()}`
-//     return xhrConf
-//   },
-//   (error) => {
-//     console.error(error) //eslint-disable-line
-//     return Promise.reject(error)
-//   }
-// )
-
-// export { xhr }
-
-
-export const createSubjectText = (targetObject) => {
-	return `${SUBJECT_HEADER} Feedback - Process: ${targetObject.process} - Issue Type: ${targetObject.issueType}`
+export const createSubjectText = (target) => {
+	return `${SUBJECT_HEADER} Feedback - Process: ${target.process} - Issue Type: ${target.issueType}`
 }
 
 // NOTE: Cloned from ops-portal repo.
 export const generateFeedbackEmail = (props) => {
-  const userAgent = navigator.userAgent
-  const url = location.href
   return `
-    ${props.feedback}
+    Feedback: ${props.feedback}
     <br/>
+    Email: ${props.email}
     <br/>
+    Url: ${location.href}
     <br/>
-    ----
+    Selected Yard: ${props.selectedYard}
     <br/>
-      Email: ${props.email}
+    Home Yard: ${props.homeYard}
     <br/>
-      Url: ${props.url}
-    <br/>
-      Selected Yard: ${props.selectedYard}
-    <br/>
-      Home Yard: ${props.homeYard}
-    <br/>
-      User Agent: ${props.userAgent}
-    `
+    User Agent: ${navigator.userAgent}
+  `
 }
+
 // NOTE: Cloned from ops-portal repo.
 export const copyToClipboard = (text) => {
   const textField = document.createElement('textarea')
@@ -94,6 +33,7 @@ export const copyToClipboard = (text) => {
   textField.remove()
 }
 
+// TODO: Clean up.
 export const toObject = (form) => {
   if (!form || form.nodeName !== 'FORM') {
     return {}
@@ -163,6 +103,7 @@ export const toObject = (form) => {
   return obj
 }
 
+// TODO: Clean up.
 export const objectToQuery = (obj) => {
   const parts = []
   for (const i in obj) {
@@ -185,6 +126,7 @@ export const serialize = (form) => {
 const isClean = (x) => !(isNil(x) || x === '')
 export const cleanData = (data) => filter(isClean, data)
 
+// TODO: Clean up.
 export const removeEmpty = (obj) => {
   const nonEmptyObj = {}
   for (const i in obj) {
@@ -195,6 +137,7 @@ export const removeEmpty = (obj) => {
   return nonEmptyObj
 }
 
+// TODO: Clean up.
 export const dotToObj = (obj) => {
   const newObj = {}
   for (const k in obj) {
