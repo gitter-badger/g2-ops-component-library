@@ -47,11 +47,13 @@ export const renderMethod = (option) => {
 }
 const isExceeded = (givenDate: string, numberOfDays: number) => daysElapsedUntilToday(givenDate) > numberOfDays
 
-function transformPersonnelOption(option, isVendorExpired) {
+function transformPersonnelOption(option, isVendorExpired, vendor, group) {
+  const label = `${option.first_name} ${option.last_name}`
   const componentOption: OptionType = {
     id: option.vendor_personnel_id,
     level: 'driver',
-    label: `${option.first_name} ${option.last_name}`,
+    searchValues: [vendor.vendor_short_name, vendor.vendor_name, group.dispatch_group_name, label],
+    label: label,
     dispatch_flag: option.dispatch_flag,
     p_card_flag: option.p_card_flag,
     isExpired: isVendorExpired,
@@ -60,16 +62,17 @@ function transformPersonnelOption(option, isVendorExpired) {
   return componentOption
 }
 
-function transformGroupOption(option, isVendorExpired) {
+function transformGroupOption(option, isVendorExpired, vendor) {
   const componentOption: OptionType = {
     id: option.dispatch_group_id,
     level: 'group',
+    searchValues: [vendor.vendor_short_name, vendor.vendor_name, option.dispatch_group_name],
     label: option.dispatch_group_name,
     dispatch_flag: option.dispatch_flag,
     p_card_flag: option.p_card_flag,
     isExpired: isVendorExpired,
     isSelectable: !isVendorExpired && option.dispatch_flag === true,
-    options: option.personnel.map((personnelOption) => transformPersonnelOption(personnelOption, isVendorExpired)),
+    options: option.personnel.map((personnelOption) => transformPersonnelOption(personnelOption, isVendorExpired, vendor, option)),
   }
   return componentOption
 }
@@ -81,13 +84,16 @@ function transformVendorOption(option) {
   const componentOption = {
     id: option.vendor_id,
     level: 'company',
+    searchValues: [option.vendor_short_name, option.vendor_name],
+    vendor_name: option.vendor_name,
+    vendor_short_name: option.vendor_short_name,
     label: option.vendor_short_name,
     dispatch_flag: option.dispatch_flag,
     expiresOn: formattedDate,
     p_card_flag: option.p_card_flag,
     isExpired: isVendorExpired,
     isSelectable: !isVendorExpired && option.dispatch_flag === true,
-    options: option.dispatch_groups.map((groupOption) => transformGroupOption(groupOption, isVendorExpired)),
+    options: option.dispatch_groups.map((groupOption) => transformGroupOption(groupOption, isVendorExpired, option)),
   }
   return componentOption
 }
