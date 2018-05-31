@@ -72,21 +72,16 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
       this.setState((prevState) => ({
         ...prevState,
         selectedValue: changedOption,
-        filteredOptions: prevState.flattenedOptions.filter((option: FlattenedOptionType) =>
-          option.label.toLowerCase().startsWith(changedOption.toLowerCase()),
-        ),
+        filteredOptions: this.getFilteredOptions(changedOption, prevState.flattenedOptions),
       }))
     } else if (!changedOption.isDisabled) {
-      const filteredOptions = this.state.flattenedOptions.filter((option: FlattenedOptionType) =>
-        option.label.toLowerCase().startsWith(changedOption.label.toLowerCase()),
-      )
       this.setState((prevState) => ({
         ...prevState,
         selectedValue: this.renderSelectedOption(changedOption),
-        filteredOptions: filteredOptions,
+        filteredOptions: this.state.flattenedOptions,
       }))
     }
-   // Invokes parent's onChange method with the selected option/entered desk
+  // Invokes parent's onChange method with the selected option/entered desk
   onChangeMethod && onChangeMethod(changedOption)
   }
 
@@ -97,10 +92,16 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     }
   }
 
-  getPathFromSelectedValue = (selectedOption: Object, options: Array<FlattenedOptionType>) => {
+  getPathFromSelectedValue = (selectedOption: FlattenedOptionType, options: Array<FlattenedOptionType>) => {
     const valueAmongOptions = options.find(matchesOption(selectedOption))
     return valueAmongOptions ? this.renderSelectedOption(valueAmongOptions) : ''
   }
+
+  getFilteredOptions = (changedOption: string | FlattenedOptionType, flattenedOptions: Array<FlattenedOptionType>) => 
+    flattenedOptions.filter((option: FlattenedOptionType) => {
+      const { searchValues = [option.label] } = option
+      return searchValues.some((value) => value.toLowerCase().startsWith(changedOption.toLowerCase()))
+    })
 
   isControlled() {
     return this.props.hasOwnProperty('value')
