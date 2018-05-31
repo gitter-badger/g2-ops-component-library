@@ -1,6 +1,6 @@
 {
   "name": "@copart/core-components",
-  "version": "0.1.11",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -66,11 +66,11 @@
     "webpack": "4.6.0",
     "webpack-bundle-analyzer": "2.11.1",
     "webpack-cli": "2.0.15"
-	},
-	"peerDependencies": {
-		"react": "15.6.2",
+  },
+  "peerDependencies": {
+    "react": "15.6.2",
     "react-dom": "15.6.2"
-	},
+  },
   "jest": {
     "moduleNameMapper": {
       "^.+\\.(css|scss|pcss)$": "identity-obj-proxy",
