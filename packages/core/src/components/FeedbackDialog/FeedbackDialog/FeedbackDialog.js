@@ -58,23 +58,23 @@ const initialState = {
 // TODO: Move to consts somewhere.
 // TODO: Manually re-format these thangs.
 const processOptions = [
-  { key: 'abc', value: formatAutoSelectOption('ABC (AUCTION BOARD CONTROL)') },
-  { key: 'cfr', value: formatAutoSelectOption('CALL FOR RELEASE') },
-  { key: 'casbo', value: formatAutoSelectOption('CAS BACK OFFICE SUPPORT') },
-  { key: 'vwt', value: formatAutoSelectOption('COMPLIANCE MANAGEMENT') },
-  { key: 'dispatch', value: formatAutoSelectOption('DISPATCH') },
-  { key: 'dtle', value: formatAutoSelectOption('DTLE') },
-  { key: 'employee', value: formatAutoSelectOption('EMPLOYEE') },
-  { key: 'lotReview', value: formatAutoSelectOption('LOT MAINTENANCE') },
-  { key: 'lotSearch', value: formatAutoSelectOption('LOT SEARCH') },
-  { key: 'member', value: formatAutoSelectOption('MEMBER') },
-  { key: 'mbp', value: formatAutoSelectOption('MEMBER PAYMENTS') },
-  { key: 'miHub', value: formatAutoSelectOption('MIHUB') },
-  { key: 'pricing', value: formatAutoSelectOption('PRICING') },
-  { key: 'proQuote', value: formatAutoSelectOption('PRO QUOTE') },
-  { key: 'titlePortal', value: formatAutoSelectOption('TITLE PORTAL') },
-  { key: 'vendor', value: formatAutoSelectOption('VENDOR') },
-  { key: 'quicklooks', value: formatAutoSelectOption('QUICKLOOKS') }
+  { key: 'abc', value: 'ABC (Auction Board Control)' },
+  { key: 'cfr', value: 'Call For Lelease' },
+  { key: 'casbo', value: 'Cas Back Office Support' },
+  { key: 'vwt', value: 'Compliance Management' },
+  { key: 'dispatch', value: 'Dispatch' },
+  { key: 'dtle', value: 'Dtle' },
+  { key: 'employee', value: 'Employee' },
+  { key: 'lotReview', value: 'Lot Maintenance' },
+  { key: 'lotSearch', value: 'Lot Search' },
+  { key: 'member', value: 'Member' },
+  { key: 'mbp', value: 'Member Payments' },
+  { key: 'miHub', value: 'Mihub' },
+  { key: 'pricing', value: 'Pricing' },
+  { key: 'proQuote', value: 'Pro Quote' },
+  { key: 'titlePortal', value: 'Title Portal' },
+  { key: 'vendor', value: 'Vendor' },
+  { key: 'quicklooks', value: 'Quicklooks' }
 ]
 
 const issueTypeOptions = [
@@ -107,7 +107,6 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
   };
 
   toggleIncludeEmail = event => {
-    console.log('toggling')
     this.setState(state => ({
       includeEmail: !state.includeEmail
     }));
@@ -162,8 +161,6 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 
   render() {
     const { props, state } = this
-    
-    console.log({ props, state })
 
     return (
       <div data-ccc="AppBarFeedback">
