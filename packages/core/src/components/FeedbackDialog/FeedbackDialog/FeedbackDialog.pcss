@@ -42,4 +42,28 @@
 	/* margin */
 	display: flex;
 	justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 25px;
+}
+
+.FeedbackDialog :global(.ms-Dialog-inner) {
+  height: 100%;
+}
+
+:global(.copart_core-components_FeedbackDialog_Container) {
+  min-height: 475px;
+}
+
+.dialogTitle {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  position: relative;
+  bottom: 2px;
+  font-weight: 500;
+}
+
+.dialogTitle > i {
+  margin-right: 8px;
 }

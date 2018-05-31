@@ -13,6 +13,18 @@ import { toObject, generateFeedbackEmail, createSubjectText } from "../utilities
 import { FAQText } from '../FAQText'
 import './FeedbackDialog.pcss'
 
+const formatAutoSelectOption = (option) => {
+  return option.replace(/\w\S*/g, (text) => {
+      return text[0].toUpperCase() + text.substr(1).toLowerCase();
+  });
+}
+
+const DialogTitle = (props) => {
+  return (
+    <span styleName="dialogTitle"><i className="material-icons">feedback</i>Please provide us your feedback.</span>
+  )
+}
+
 import {
 	FEEDBACK_ENHANCEMENT_LINK,
 	ENHANCEMENT_LINK_STYLES,
@@ -44,23 +56,25 @@ const initialState = {
 };
 
 // TODO: Move to consts somewhere.
+// TODO: Manually re-format these thangs.
 const processOptions = [
-  { key: 'abc', value: 'ABC (AUCTION BOARD CONTROL)' },
-  { key: 'cfr', value: 'CALL FOR RELEASE' },
-  { key: 'casbo', value: 'CAS BACK OFFICE SUPPORT' },
-  { key: 'vwt', value: 'COMPLIANCE MANAGEMENT' },
-  { key: 'dispatch', value: 'DISPATCH' },
-  { key: 'dtle', value: 'DTLE' },
-  { key: 'employee', value: 'EMPLOYEE' },
-  { key: 'lotReview', value: 'LOT MAINTENANCE' },
-  { key: 'lotSearch', value: 'LOT SEARCH' },
-  { key: 'member', value: 'MEMBER' },
-  { key: 'mbp', value: 'MEMBER PAYMENTS' },
-  { key: 'miHub', value: 'MIHUB' },
-  { key: 'pricing', value: 'PRICING' },
-  { key: 'proQuote', value: 'PRO QUOTE' },
-  { key: 'titlePortal', value: 'TITLE PORTAL' },
-  { key: 'vendor', value: 'VENDOR' },
+  { key: 'abc', value: formatAutoSelectOption('ABC (AUCTION BOARD CONTROL)') },
+  { key: 'cfr', value: formatAutoSelectOption('CALL FOR RELEASE') },
+  { key: 'casbo', value: formatAutoSelectOption('CAS BACK OFFICE SUPPORT') },
+  { key: 'vwt', value: formatAutoSelectOption('COMPLIANCE MANAGEMENT') },
+  { key: 'dispatch', value: formatAutoSelectOption('DISPATCH') },
+  { key: 'dtle', value: formatAutoSelectOption('DTLE') },
+  { key: 'employee', value: formatAutoSelectOption('EMPLOYEE') },
+  { key: 'lotReview', value: formatAutoSelectOption('LOT MAINTENANCE') },
+  { key: 'lotSearch', value: formatAutoSelectOption('LOT SEARCH') },
+  { key: 'member', value: formatAutoSelectOption('MEMBER') },
+  { key: 'mbp', value: formatAutoSelectOption('MEMBER PAYMENTS') },
+  { key: 'miHub', value: formatAutoSelectOption('MIHUB') },
+  { key: 'pricing', value: formatAutoSelectOption('PRICING') },
+  { key: 'proQuote', value: formatAutoSelectOption('PRO QUOTE') },
+  { key: 'titlePortal', value: formatAutoSelectOption('TITLE PORTAL') },
+  { key: 'vendor', value: formatAutoSelectOption('VENDOR') },
+  { key: 'quicklooks', value: formatAutoSelectOption('QUICKLOOKS') }
 ]
 
 const issueTypeOptions = [
@@ -93,6 +107,7 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
   };
 
   toggleIncludeEmail = event => {
+    console.log('toggling')
     this.setState(state => ({
       includeEmail: !state.includeEmail
     }));
@@ -146,19 +161,22 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 	}
 
   render() {
-		const { props, state } = this
+    const { props, state } = this
+    
+    console.log({ props, state })
 
     return (
       <div data-ccc="AppBarFeedback">
         <FeedbackButton onTouchTap={this.handleOpen} />
 				<DialogBox
+          styleName="FeedbackDialog"
 					showHeader
 					showCloseButton
-					title="Please provide us your feedback."
+					title={<DialogTitle />}
 					hideDialog={!state.open}
 					onDismiss={this.handleClose}
 					autoScrollBodyContent
-					containerClassName='copart_cc_FeedbackDialog_actionsContainer'
+					containerClassName='copart_core-components_FeedbackDialog_Container'
 				>
 					<FAQText />
 					<form onSubmit={this.onSubmit}>
@@ -175,7 +193,7 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 									floatingLabelFixed
 									multiline
 									required
-									rows={4}
+									rows={10}
 									fullWidth
 								/>
 							</div>
@@ -185,9 +203,9 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 								<Checkbox
 									label="Include Email"
 									labelPosition="right"
-									handleChange={this.toggleIncludeEmail}
+                  handleChange={this.toggleIncludeEmail}
+                  defaultChecked={state.includeEmail}
 									style={EMAIL_CHECKBOX_STYLES}
-									defaultChecked
 								/>
 							</If>
 							<If condition={!state.enhancementChosen}>
@@ -218,14 +236,15 @@ const EmailInput = ({ self }) => {
 				floatingLabelText="Email"
 				floatingLabelFixed
 				type="email"
-				disabled
+				disabled={!!self.props.userEmail}
 				fullWidth
-				value={self.props.userEmail}
+				value={self.props.userEmail || ''}
 			/>
 		</div>
 	)
 }
 
+// NOTE: Should AutoSelect fuzzy-filter as the user types?
 const AutoSelects = ({ self }) => {
 	return (
 		<div styleName="autoSelectsBox">
@@ -237,7 +256,7 @@ const AutoSelects = ({ self }) => {
 				label="Issue Type*"
 				selectedOption="2"
 				required
-				placeholder="Issue Type"
+        placeholder="Issue Type"
 				value={self.state.selectedissueType}
 				onChange={self.setSelectedIssueType}
 				optionStyleProps={OPTION_STYLES}
@@ -252,7 +271,7 @@ const AutoSelects = ({ self }) => {
 					placeholder="Process"
 					options={processOptions}
 					selectedOption="2"
-					required
+          required
 					value={self.state.selectedprocess}
 					onChange={self.setSelected('process')}
 					optionStyleProps={OPTION_STYLES}
