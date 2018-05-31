@@ -1,6 +1,6 @@
 {
   "name": "@copart/core-components",
-  "version": "0.1.11",
+  "version": "0.2.0",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -44,8 +44,9 @@
     "@babel/preset-env": "7.0.0-beta.44",
     "@babel/preset-flow": "7.0.0-beta.44",
     "@babel/preset-react": "7.0.0-beta.44",
-    "@babel/preset-stage-0": "7.0.0-beta.44",
+    "@babel/preset-stage-0": "^7.0.0-beta.44",
     "@babel/register": "7.0.0-beta.44",
+    "@copart/babel-preset-ops-core": "^1.0.0",
     "babel-jest": "22.4.3",
     "babel-loader": "8.0.0-beta.2",
     "babel-plugin-react-css-modules": "3.4.2",
@@ -66,11 +67,11 @@
     "webpack": "4.6.0",
     "webpack-bundle-analyzer": "2.11.1",
     "webpack-cli": "2.0.15"
-	},
-	"peerDependencies": {
-		"react": "15.6.2",
+  },
+  "peerDependencies": {
+    "react": "15.6.2",
     "react-dom": "15.6.2"
-	},
+  },
   "jest": {
     "moduleNameMapper": {
       "^.+\\.(css|scss|pcss)$": "identity-obj-proxy",
