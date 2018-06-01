@@ -55,37 +55,44 @@ const initialState = {
 	selectedprocess: ""
 };
 
+// TODO: Move to utilities.
+const sortOptions = (a, b) => {
+  return a.value < b.value
+    ? -1
+    : 1
+}
+
 // TODO: Move to consts somewhere.
 // TODO: Manually re-format these thangs.
 const processOptions = [
-  { key: 'abc', value: 'ABC (Auction Board Control)' },
-  { key: 'cfr', value: 'Call For Lelease' },
-  { key: 'casbo', value: 'Cas Back Office Support' },
-  { key: 'vwt', value: 'Compliance Management' },
-  { key: 'dispatch', value: 'Dispatch' },
-  { key: 'dtle', value: 'Dtle' },
-  { key: 'employee', value: 'Employee' },
-  { key: 'lotReview', value: 'Lot Maintenance' },
-  { key: 'lotSearch', value: 'Lot Search' },
-  { key: 'member', value: 'Member' },
-  { key: 'mbp', value: 'Member Payments' },
-  { key: 'miHub', value: 'Mihub' },
-  { key: 'pricing', value: 'Pricing' },
-  { key: 'proQuote', value: 'Pro Quote' },
-  { key: 'titlePortal', value: 'Title Portal' },
-  { key: 'vendor', value: 'Vendor' },
-  { key: 'quicklooks', value: 'Quicklooks' }
-]
+  { key: 'ABC', value: 'ABC (Auction Board Control)' },
+  { key: 'CFR', value: 'Call For Release' },
+  { key: 'CASBO', value: 'CAS Back Office Support' },
+  { key: 'VWT', value: 'Compliance Management' },
+  { key: 'DISPATCH', value: 'Dispatch' },
+  { key: 'DTLE', value: 'DLTE' },
+  { key: 'EMPLOYEE', value: 'Employee' },
+  { key: 'LOTREVIEW', value: 'Lot Maintenance' },
+  { key: 'LOTSEARCH', value: 'Lot Search' },
+  { key: 'MEMBER', value: 'Member' },
+  { key: 'MBP', value: 'Member Payments' },
+  { key: 'MIHUB', value: 'MiHub' },
+  { key: 'PRICING', value: 'Pricing' },
+  { key: 'PROQUOTE', value: 'Pro Quote' },
+  { key: 'TITLEPORTAL', value: 'Title Portal' },
+  { key: 'VENDOR', value: 'Vendor' },
+  { key: 'QUICKLOOKS', value: 'QuickLooks' }
+].sort(sortOptions)
 
 const issueTypeOptions = [
   { key: 'ACCESS', value: 'Access/Permissions' },
   { key: 'BUG', value: 'Bug/Problem' },
   { key: 'CAS GAP', value: 'CAS Gap/Missing Functionality' },
-  { key: 'COMMENT', value: 'Comment' },
+  { key: 'COMMENT', value: 'Comment' },  
   { key: 'ENHANCEMENT', value: 'Enhancement/Improvements' },
   { key: 'QUESTION', value: 'Question' },
   { key: 'OTHER', value: 'Other' },
-]
+].sort(sortOptions)
 
 export class FeedbackDialog extends React.PureComponent<PropsT> {
   state = { ...initialState }
