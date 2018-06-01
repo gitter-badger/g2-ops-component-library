@@ -20,7 +20,9 @@
     "precommit": "pretty-quick --staged"
   },
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "bugs": {
     "url": "https://github.com/copartit/g2-ops-component-library/issues"
   },
@@ -39,6 +41,7 @@
     "prop-types": "^15.6.0",
     "ramda": "^0.25.0",
     "react": "15.6.2",
+    "react-charges-table": "^1.0.4",
     "react-dom": "15.6.2",
     "react-tap-event-plugin": "2.0.1",
     "react-tooltip": "^3.4.0",
@@ -131,9 +134,14 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/jestProcess.js"
     },
-    "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/g2-layout-demo"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "testRegex": "packages/.*(jest|test).js$"
   },
-  "pre-push": ["test"]
+  "pre-push": [
+    "test"
+  ]
 }

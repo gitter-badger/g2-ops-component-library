@@ -20,6 +20,7 @@ export { SnackBar } from './components/SnackBar'
 export { SearchBar } from './components/SearchBar'
 export { Stepper, Step, StepLabel } from './components/Stepper'
 export { Tabs } from './components/Tabs'
+export { ChargesTable } from './components/ChargesTable'
 
 export {
   Table,
