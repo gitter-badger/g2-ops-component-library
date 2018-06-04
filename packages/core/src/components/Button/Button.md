@@ -1,12 +1,12 @@
 Button Component Examples:
 ```jsx
 <div>
-  <span style={{ margin: '10px' }}><Button type="primary" label="Copart Primary Button" /></span>
-  <span style={{ margin: '10px' }}><Button type="secondary" label="Secondary Button" /></span>
-  <span style={{ margin: '10px' }}><Button type="inactive" disabled label="Inactive" /></span>
-  <span style={{ margin: '10px' }}><Button type="add" /></span>
-  <span style={{ margin: '10px' }}><Button type="edit" /></span>
-  <span style={{ margin: '10px' }}><Button type="delete" /></span>
+  <span style={{ margin: '10px' }}><Button type="primary" label="Primary Button" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button type="secondary" label="Secondary Button" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button type="inactive" disabled label="Inactive" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button type="add" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button type="edit" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button type="delete" onClick={() => console.log('Clicked')}/></span>
 </div>
 ```
 
