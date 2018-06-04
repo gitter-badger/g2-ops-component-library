@@ -21,8 +21,22 @@ export const copartBaseTheme: ThemeType = {
     ...muiTheme.appBar,
     color: copartBlue,
   },
+  baseTheme: {
+    ...muiTheme.baseTheme,
+    palette: {
+      ...muiTheme.baseTheme.palette,
+      pickerHeaderColor: copartBlue,
+      primary1Color: copartBlue,
+      primary2Color: copartBlue,
+    },
+  },
+  flatButton: {
+    ...muiTheme.flatButton,
+    primaryTextColor: copartBlue,
+  },
   palette: {
     ...muiTheme.palette,
+    pickerHeaderColor: copartBlue,
     primary1Color: copartBlue,
     primary2Color: copartBlue,
   },
@@ -38,8 +52,14 @@ export const copartBaseTheme: ThemeType = {
     trackOnColor: niceBlue,
   },
   timePicker: {
-    ...muiTheme.timepicker,
+    ...muiTheme.timePicker,
     headerColor: copartBlue,
+    accentColor: copartBlue,
+    selectColor: copartBlue,
+  },
+  stepper: {
+    ...muiTheme.stepper,
+    iconColor: copartBlue,
   },
   tabs: {
     selectedTextColor: 'rgba(38, 166, 91, 1.0)',
@@ -49,6 +69,8 @@ export const copartBaseTheme: ThemeType = {
     backgroundColor: '#545A63',
   },
 }
+
+console.log(copartBaseTheme)
 
 initializeIcons()
 injectTapEventPlugin()
