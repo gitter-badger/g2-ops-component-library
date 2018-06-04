@@ -31,7 +31,7 @@ const iconsList = [
     <IconButton
       key={iconName}
       tooltip={iconName}
-      onTouchTap={() => console.log(`${iconName} clicked.`)}>
+      onClick={() => console.log(`${iconName} clicked.`)}>
       <i className="material-icons">{iconName}</i>
     </IconButton>
   ))}

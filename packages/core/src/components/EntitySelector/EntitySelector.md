@@ -27,7 +27,7 @@ initialState = { value: '', disabled: false };
       <IconButton 
         style={{  marginTop: '-8px' }}
         tooltip={'Add New Location'}
-        onTouchTap={() => console.log('Add New Location clicked')}
+        onClick={() => console.log('Add New Location clicked')}
       >
         <i className="material-icons md-dark md-22">add_box</i>
       </IconButton>
@@ -35,7 +35,7 @@ initialState = { value: '', disabled: false };
     onRenderSuffix={() => !state.disabled ? (
       <IconButton
         style={{ margin: '-15px' }}
-        onTouchTap={() => console.log('edit clicked')}
+        onClick={() => console.log('edit clicked')}
         tooltip={'Edit Location'}
       >
         <i className="material-icons md-dark md-18">edit_mode</i>

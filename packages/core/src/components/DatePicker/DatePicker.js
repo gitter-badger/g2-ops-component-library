@@ -11,9 +11,9 @@ import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/d
 
 import { TextField } from 'components/TextField'
 import { IconButton } from 'components/Button'
+import { wrapMuiContext } from 'utilities/wrapMuiContext'
 
 import { getDateObject, getDefaultMinDate, getDefaultMaxDate, validateDateAndGetErrorMesssage } from './dateUtils'
-import { wrapMuiContext } from 'utilities/wrapMuiContext'
 
 import './style.scss'
 
@@ -39,7 +39,7 @@ type DatePickerProps = {
   onDismiss: (SyntheticEvent<HTMLInputElement>) => void,
   onFocus: (SyntheticFocusEvent<HTMLInputElement>) => void,
   onShow: any => void,
-  onTouchTap: (SyntheticUIEvent<HTMLInputElement>) => void,
+  onClick: (SyntheticUIEvent<HTMLInputElement>) => void,
   shouldDisableDate: Date => boolean,
   style: Node,
   value: Date,
@@ -215,7 +215,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       onDismiss,
       onFocus, // eslint-disable-line no-unused-vars
       onShow,
-      onTouchTap, // eslint-disable-line no-unused-vars
+      onClick,
       shouldDisableDate,
       style,
       defaultFormat,
@@ -235,7 +235,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
           onChanged={this.handleTextFieldChange}
           onRenderSuffix={() =>
             renderDateIcon(
-              <IconButton style={{ margin: '-15px' }} onTouchTap={this.handleClick}>
+              <IconButton style={{ margin: '-15px' }} onClick={this.handleClick}>
                 <i className="material-icons md-dark md-18">date_range</i>
               </IconButton>,
             )

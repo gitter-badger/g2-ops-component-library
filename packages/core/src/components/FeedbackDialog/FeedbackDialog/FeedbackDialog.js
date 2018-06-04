@@ -1,16 +1,26 @@
-import * as React from "react";
-import { Link } from "react-router-dom";
+import * as React from "react"
+import { Link } from "react-router-dom"
 
-import { Button } from "components/Button";
-import { TextField } from "components/TextField";
-import { Checkbox } from "components/Checkbox";
-import { AutoSelect } from "components/AutoSelect";
-import { DialogBox } from "components/DialogBox";
-import { FAQLink } from "../FAQLink";
-import { FeedbackButton } from "../FeedbackButton";
-import { EnhancementInfo } from "../EnhancementInfo";
-import { toObject, generateFeedbackEmail, createSubjectText } from "../utilities";
+import { Button } from "components/Button"
+import { TextField } from "components/TextField"
+import { Checkbox } from "components/Checkbox"
+import { AutoSelect } from "components/AutoSelect"
+import { DialogBox } from "components/DialogBox"
+
+import { FAQLink } from "../FAQLink"
+import { FeedbackButton } from "../FeedbackButton"
+import { EnhancementInfo } from "../EnhancementInfo"
+import { toObject, generateFeedbackEmail, createSubjectText } from "../utilities"
+import {
+	FEEDBACK_ENHANCEMENT_LINK,
+	ENHANCEMENT_LINK_STYLES,
+	EMAIL_CHECKBOX_STYLES,
+	SUBJECT_HEADER,
+	OPTION_STYLES,
+	PADDING_5PX_0
+} from '../consts'
 import { FAQText } from '../FAQText'
+
 import './FeedbackDialog.pcss'
 
 const formatAutoSelectOption = (option) => {
@@ -24,16 +34,6 @@ const DialogTitle = (props) => {
     <span styleName="dialogTitle"><i className="material-icons">feedback</i>Please provide us your feedback.</span>
   )
 }
-
-import {
-	FEEDBACK_ENHANCEMENT_LINK,
-	ENHANCEMENT_LINK_STYLES,
-	EMAIL_CHECKBOX_STYLES,
-	SUBJECT_HEADER,
-	OPTION_STYLES,
-	PADDING_5PX_0
-} from '../consts';
-
 type PropsT = {
   userEmail: string,
   afterSendFeedback(): any,
@@ -53,7 +53,7 @@ const initialState = {
 	feedbackValue: "",
 	selectedissueType: "",
 	selectedprocess: ""
-};
+}
 
 // TODO: Move to utilities.
 const sortOptions = (a, b) => {
@@ -97,40 +97,8 @@ const issueTypeOptions = [
 export class FeedbackDialog extends React.PureComponent<PropsT> {
   state = { ...initialState }
 
-  setFeedbackValue = event => {
-		event.persist();
-
-    this.setState(state => ({
-      feedbackValue: event.target.value
-    }));
-  };
-
-  handleOpen = () => {
-    this.setState(state => ({ open: true }));
-  };
-
-  handleClose = () => {
-    this.setState(state => (initialState));
-  };
-
-  toggleIncludeEmail = event => {
-    this.setState(state => ({
-      includeEmail: !state.includeEmail
-    }));
-	};
-	
-	sendFeedback = async (feedback) => {
-		// TODO: Handle this request here.
-		// const response = await xhr.post('/feedback', feedback, {
-    //   headers: { 'Content-Type': 'application/json; charset=UTF-8' },
-    //   responseType: 'json',
-		// })
-
-		this.props.afterSendFeedback(feedback)
-	}
-
   onSubmit = event => {
-		event.preventDefault();
+		event.preventDefault()
 		const { props, state } = this
 
 		this.sendFeedback({
@@ -144,10 +112,10 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 				countryCode: props.countryCode,
 				language: props.language
 			})
-		});
+		})
 
-    this.handleClose();
-	};
+    this.handleClose()
+	}
 	
 	setSelected = (which) => value => {
 		return this.setState(state => ({ [`selected${which}`]: value }))
@@ -158,20 +126,53 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
       ? issueTypeOptions
       : processOptions
 
-		return options.find(x => which.key === x.key).value;
+		return options.find(x => which.key === x.key).value
 	}
 
 	setSelectedIssueType = option => {
-		this.state.enhancementChosen = option.key === "ENHANCEMENT" ? true : false;
+		this.setState({ enhancementChosen: option.key === "ENHANCEMENT"  })
 		this.setSelected('issueType')(option.value)
+	}
+
+  setFeedbackValue = event => {
+		event.persist()
+
+    this.setState(state => ({
+      feedbackValue: event.target.value
+    }))
+	}
+
+  handleOpen = () => {
+    this.setState(state => ({ open: true }))
+  }
+
+  handleClose = () => {
+    this.setState(state => (initialState))
+	}
+	
+	
+	sendFeedback = async (feedback) => {
+		// TODO: Handle this request here.
+		// const response = await xhr.post('/feedback', feedback, {
+    //   headers: { 'Content-Type': 'application/json charset=UTF-8' },
+    //   responseType: 'json',
+		// })
+
+		this.props.afterSendFeedback(feedback)
+	}
+
+
+  toggleIncludeEmail = event => {
+    this.setState(state => ({
+      includeEmail: !state.includeEmail
+    }))
 	}
 
   render() {
     const { props, state } = this
-
     return (
       <div data-ccc="AppBarFeedback">
-        <FeedbackButton onTouchTap={this.handleOpen} />
+        <FeedbackButton onClick={this.handleOpen} />
 				<DialogBox
           styleName="FeedbackDialog"
 					showHeader
@@ -227,7 +228,7 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 					</form>
 				</DialogBox>
       </div>
-    );
+    )
   }
 }
 
