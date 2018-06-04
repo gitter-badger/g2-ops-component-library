@@ -9,21 +9,18 @@ import { FilterSidebar } from './FilterSidebar'
 import filters, { quickLinks } from './MockData/FilterMockData'
 
 
-export default class Example extends Component {
-	sup = true
-	render() {
-		return (
-    <FilterSidebar 
-			filters={filters}
-			onFilterChange={(obj) => { console.log('on filter change ',obj) }}
-			onQuickFiltersChange={(obj) => { console.log('onn quick filter change ', obj) }}
-			onFiltersClear={() => { console.log('on filters clear ') }}
-			quickFilters={quickLinks}
-			selectedQuickFilter={"dispatch"}
-			height={'450px'}
-			width={'350px'}
-		/>
-		)
-	}
-}
+const ComponentExample = () => (
+  <FilterSidebar
+    filters={filters}
+    onFilterChange={(obj) => { console.log('on filter change ',obj) }}
+    onQuickFiltersChange={(obj) => { console.log('on quick filter change ', obj) }}
+    onFiltersClear={() => { console.log('on filters clear ') }}
+    quickFilters={quickLinks}
+    selectedQuickFilter={"dispatch"}
+    height={'450px'}
+    width={'350px'}
+  />
+)
+
+export default ComponentExample
 
