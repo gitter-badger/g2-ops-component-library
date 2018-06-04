@@ -99,7 +99,7 @@ exports[`<TimePicker /> should render properly 1`] = `
             Object {
               "borderBottomStyle": "solid",
               "borderBottomWidth": 2,
-              "borderColor": "#1d5ab9",
+              "borderColor": "#00bcd4",
               "borderLeft": "none",
               "borderRight": "none",
               "borderTop": "none",

@@ -5,10 +5,10 @@ import type { Node } from 'react'
 import React, { Component } from 'react'
 import renderIf from 'render-if'
 
-import {QuickFilters} from 'components/FilterSidebar/QuickFilters'
-import {Filters} from 'components/FilterSidebar/Filters'
+import { QuickFilters } from 'components/FilterSidebar/QuickFilters'
+import { Filters } from 'components/FilterSidebar/Filters'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
-import {FilterSwitcher} from './FilterSwitcher'
+import { FilterSwitcher } from './FilterSwitcher'
 import './FilterSidebar.scss'
 
 type FilterSidebarPropType = {
@@ -27,7 +27,6 @@ type FilterSidebarStateType = {
   filterDrawerOpen: boolean,
 }
 
-@wrapMuiContext
 class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateType> {
   static defaultProps = {
     quickFilters: [],
@@ -79,4 +78,5 @@ class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateT
   }
 }
 
-export { FilterSidebar }
+const FilterSidebarComponent = wrapMuiContext(FilterSidebar)
+export { FilterSidebarComponent as FilterSidebar }

@@ -12,7 +12,7 @@ exports[`<Tabs /> should render properly 1`] = `
   <div
     style={
       Object {
-        "backgroundColor": "#1d5ab9",
+        "backgroundColor": undefined,
         "display": "flex",
         "muiPrepared": true,
         "whiteSpace": "nowrap",
