@@ -53,13 +53,13 @@ const searchTypes = [
   onLogoutItemClicked={(event, item) => console.log(item)}
   logoutItems={logoutItems}
   onFeedbackClick={() => console.log('Feedback clicked')}
-  role="foobar"
+  role="Germany Executive"
   userEmail="test@copart.com"
   selectedYard={2244}
   language="Spanglish"
   afterSendFeedback={() => { console.log('afterSendFeedback') }}
   homeYard={99}
-  selectedRole="barfoo"
+  selectedRole="Germany Executive"
   renderSearchbar={() => (
     <SearchBar
       searchType={{ key: 'lot', name: 'Lot' }}

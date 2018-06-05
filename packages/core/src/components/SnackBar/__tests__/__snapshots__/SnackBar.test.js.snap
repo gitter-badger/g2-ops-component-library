@@ -5,7 +5,6 @@ exports[`<SnackBar /> should render properly 1`] = `
   <div
     action={null}
     className="CopartSnackBar"
-    onActionTouchTap={[Function]}
     open={false}
     style={
       Object {
@@ -65,7 +64,6 @@ exports[`<SnackBar /> should render properly when showOKButton=true 1`] = `
   <div
     action="OK"
     className="CopartSnackBar"
-    onActionTouchTap={[Function]}
     open={false}
     style={
       Object {
@@ -197,7 +195,6 @@ exports[`<SnackBar /> should render properly when showSnackBar=true 1`] = `
   <div
     action={null}
     className="CopartSnackBar"
-    onActionTouchTap={[Function]}
     open={true}
     style={
       Object {

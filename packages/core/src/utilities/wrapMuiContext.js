@@ -5,27 +5,61 @@ import React, { Component } from 'react'
 import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
-import lightBaseTheme from 'material-ui/styles/baseThemes/lightBaseTheme'
 import { initializeIcons } from '@uifabric/icons'
 
 type ThemeType = {
   [string]: any,
 }
 
+const muiTheme = getMuiTheme()
+const copartBlue = '#1d5ab9'
+const niceBlue = '#4a90e2'
+
 export const copartBaseTheme: ThemeType = {
-  ...lightBaseTheme,
+    ...muiTheme,
+  appBar: {
+    ...muiTheme.appBar,
+    color: copartBlue,
+  },
+  baseTheme: {
+    ...muiTheme.baseTheme,
+    palette: {
+      ...muiTheme.baseTheme.palette,
+      pickerHeaderColor: copartBlue,
+      primary1Color: copartBlue,
+      primary2Color: copartBlue,
+    },
+  },
+  flatButton: {
+    ...muiTheme.flatButton,
+    primaryTextColor: copartBlue,
+  },
   palette: {
-    ...lightBaseTheme.palette,
-    primary1Color: '#1d5ab9',
-    primary2Color: '#1d5ab9',
+    ...muiTheme.palette,
+    pickerHeaderColor: copartBlue,
+    primary1Color: copartBlue,
+    primary2Color: copartBlue,
   },
   datePicker: {
-    ...lightBaseTheme.datePicker,
-    headerColor: '#1d5ab9',
+    ...muiTheme.datePicker,
+    headerColor: copartBlue,
+    color: copartBlue,
+    selectColor: copartBlue,
+  },
+  toggle: {
+    ...muiTheme.toggle,
+    thumbOnColor: copartBlue,
+    trackOnColor: niceBlue,
   },
   timePicker: {
-    ...lightBaseTheme.timepicker,
-    headerColor: '#1d5ab9',
+    ...muiTheme.timePicker,
+    headerColor: copartBlue,
+    accentColor: copartBlue,
+    selectColor: copartBlue,
+  },
+  stepper: {
+    ...muiTheme.stepper,
+    iconColor: copartBlue,
   },
   tabs: {
     selectedTextColor: 'rgba(38, 166, 91, 1.0)',
@@ -42,7 +76,7 @@ injectTapEventPlugin()
 // a higher order function that provides mui context to the Component being passed.
 export function wrapMuiContext<T>(WrapperComponent: ComponentType<T>): (T) => Node {
   return (props) => (
-    <MuiThemeProvider muiTheme={getMuiTheme(copartBaseTheme)}>
+    <MuiThemeProvider muiTheme={copartBaseTheme}>
       <WrapperComponent {...props} />
     </MuiThemeProvider>
   )

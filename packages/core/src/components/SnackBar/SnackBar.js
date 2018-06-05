@@ -41,7 +41,7 @@ class SnackBar extends PureComponent<ButtonPropType, ButtonStateType> {
           message={message}
           autoHideDuration={4000000}
           action={showOKButton ? 'OK' : null}
-          onActionTouchTap={this.handleRequestClose}
+          onActionClick={this.handleRequestClose}
           onRequestClose={this.handleRequestClose}
           style={{ left: 'auto', bottom: '5px', right: '5px' }}
           bodyStyle={{ maxWidth: '800px', backgroundColor: isError ? '#EE2727' : '#92D04E' }}

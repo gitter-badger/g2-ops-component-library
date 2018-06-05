@@ -4,7 +4,7 @@ import type { QuickFilterType } from 'types/Filter'
 
 import React, { Component } from 'react'
 
-import {QuickFilter} from './quick-filter.component'
+import { QuickFilter } from './quick-filter.component'
 
 type QuickFiltersPropType = {
   quickFilters: Array<QuickFilterType>,

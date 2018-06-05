@@ -173,6 +173,13 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
     renderSearchbar,
     onRenderFlag,
     onRenderLogo,
+    onFeedbackClick,
+    userEmail,
+    selectedYard,
+    language,
+    afterSendFeedback,
+    homeYard,
+    selectedRole,
     ...appBarProps
   } = otherProps
   return (

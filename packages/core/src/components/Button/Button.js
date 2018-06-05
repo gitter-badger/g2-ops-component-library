@@ -13,12 +13,8 @@ import './Button.css'
 type ButtonPropTypes = {
   /** To indicate type of button {primary, secondary, inactive, add, edit, delete} */
   type: 'primary' | 'secondary' | 'inactive' | 'add' | 'edit' | 'delete',
-  /** This has no effect currently */
-  primary: boolean,
-  /** This has no effect currently */
-  secondary: boolean,
-  /** any extra props to be passed to button */
-  buttonProps: any,
+  /** OnClick event for button */
+  onClick: (SyntheticMouseEvent<HTMLInputElement>) => void,
 }
 
 export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) => {

@@ -1,7 +1,9 @@
 // @flow
 import type { FilterType } from 'types/Filter'
+
 import React from 'react'
-import {Filter} from 'components/FilterSidebar/Filter'
+import { Filter } from 'components/FilterSidebar/Filter'
+
 import './filters.component.scss'
 
 type FiltersPropType = {
@@ -23,8 +25,8 @@ export const Filters = ({ filters = [], onFilterChange, onFiltersClear, width }:
     </div>
     <div className="filterSections">
       {filters.map((filter) => {
-				return <Filter key={filter.name} filter={filter} onFilterChange={onFilterChange} />
-			})}
+        return <Filter key={filter.name} filter={filter} onFilterChange={onFilterChange} />
+      })}
     </div>
   </div>
 )

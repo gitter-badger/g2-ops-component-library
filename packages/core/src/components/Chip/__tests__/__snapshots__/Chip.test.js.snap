@@ -15,7 +15,6 @@ exports[`<Chip /> should render properly 1`] = `
   onMouseUp={[Function]}
   onTouchEnd={[Function]}
   onTouchStart={[Function]}
-  onTouchTap={undefined}
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0, 0, 0, 0)",

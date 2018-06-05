@@ -24,7 +24,7 @@ type ChippropTypes = {
   /** Callback function fired when the delete icon is clicked. If set, the delete icon will be shown. */
   onRequestDelete: (SyntheticMouseEvent<HTMLInputElement>) => void,
   /** Callback function fired when the Chip element is touch-tapped. */
-  onTouchTap: (SyntheticMouseEvent<HTMLInputElement>) => void,
+  onClick: (SyntheticMouseEvent<HTMLInputElement>) => void,
   /** Override the inline-styles of the root element. */
   style: StyleType,
 }
@@ -36,7 +36,7 @@ export const Chip = wrapMuiContext(({
   labelColor,
   labelStyle,
   onRequestDelete,
-  onTouchTap,
+  onClick,
   style,
 }: ChippropTypes) => (
   <MuiChip
@@ -45,7 +45,7 @@ export const Chip = wrapMuiContext(({
     labelColor={labelColor}
     labelStyle={labelStyle}
     onRequestDelete={onRequestDelete}
-    onTouchTap={onTouchTap}
+    onClick={onClick}
     style={style}
   >
     {children}

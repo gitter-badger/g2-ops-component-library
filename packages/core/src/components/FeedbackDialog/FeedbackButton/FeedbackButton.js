@@ -10,7 +10,7 @@ export const FeedbackButton = (props) => {
 			styleName="FeedbackButton"
 			type="secondary"
 			label='Feedback'
-			onTouchTap={props.onTouchTap}
+			onClick={props.onClick}
 		/>
 	)
 }
