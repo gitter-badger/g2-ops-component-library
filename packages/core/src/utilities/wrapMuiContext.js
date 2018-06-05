@@ -70,8 +70,6 @@ export const copartBaseTheme: ThemeType = {
   },
 }
 
-console.log(copartBaseTheme)
-
 initializeIcons()
 injectTapEventPlugin()
 
