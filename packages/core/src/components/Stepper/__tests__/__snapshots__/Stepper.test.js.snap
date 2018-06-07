@@ -53,9 +53,9 @@ exports[`<Stepper /> should render properly 1`] = `
             onMouseLeave={[Function]}
             style={
               Object {
-                "color": "#00bcd4",
+                "color": "#1d5ab9",
                 "display": "block",
-                "fill": "#00bcd4",
+                "fill": "#1d5ab9",
                 "fontSize": 24,
                 "height": 24,
                 "muiPrepared": true,
@@ -134,9 +134,9 @@ exports[`<Stepper /> should render properly 1`] = `
             onMouseLeave={[Function]}
             style={
               Object {
-                "color": "#00bcd4",
+                "color": "#1d5ab9",
                 "display": "block",
-                "fill": "#00bcd4",
+                "fill": "#1d5ab9",
                 "fontSize": 24,
                 "height": 24,
                 "muiPrepared": true,
