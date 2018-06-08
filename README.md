@@ -1,5 +1,9 @@
 # Ops Portal UI Component Library
 
+<p>
+<a href="https://www.npmjs.com/package/@copart/core-components"><img src="https://img.shields.io/badge/%40copart%2Fcore--components-0.2.3-brightgreen.svg" alt="NPM Version"></a>
+</p>
+
 #### Collection of generic UI components built in React using Material-ui and Fabric.
 
 ### Style Guide
