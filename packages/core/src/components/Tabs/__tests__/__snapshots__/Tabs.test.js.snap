@@ -552,7 +552,6 @@ exports[`<Tabs /> should render properly 1`] = `
   <div
     style={
       Object {
-        "muiPrepared": true,
         "width": "100%",
       }
     }

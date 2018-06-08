@@ -1,6 +1,6 @@
 {
   "name": "@copart/core-components",
-  "version": "0.2.2",
+  "version": "0.2.3",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -55,12 +55,12 @@
     "enzyme-adapter-react-15": "1.0.5",
     "html-webpack-plugin": "3.2.0",
     "identity-obj-proxy": "3.0.0",
-    "react-scripts": "1.1.4",
     "mini-css-extract-plugin": "0.4.0",
     "postcss-loader": "2.1.4",
     "postcss-scss": "1.0.5",
     "ramda": "0.25.0",
     "react-router-dom": "4.2.2",
+    "react-scripts": "1.1.4",
     "sass-loader": "7.0.1",
     "style-loader": "0.21.0",
     "url-loader": "1.0.1",

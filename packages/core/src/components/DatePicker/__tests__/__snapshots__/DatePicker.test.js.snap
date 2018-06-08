@@ -11,7 +11,7 @@ exports[`<DatePicker /> should render properly 1`] = `
   }
 >
   <div
-    className="ms-Fabric root-33"
+    className="ms-Fabric root-65"
   >
     <div
       className="ms-TextField root"
@@ -20,7 +20,7 @@ exports[`<DatePicker /> should render properly 1`] = `
         className="ms-TextField-wrapper wrapper"
       >
         <label
-          className="ms-Label root-34"
+          className="ms-Label root-66"
           htmlFor="TextField0"
         >
           Select Date
@@ -127,7 +127,7 @@ exports[`<DatePicker /> should render when value prop passed 1`] = `
   }
 >
   <div
-    className="ms-Fabric root-33"
+    className="ms-Fabric root-65"
   >
     <div
       className="ms-TextField root"
@@ -136,7 +136,7 @@ exports[`<DatePicker /> should render when value prop passed 1`] = `
         className="ms-TextField-wrapper wrapper"
       >
         <label
-          className="ms-Label root-34"
+          className="ms-Label root-66"
           htmlFor="TextField2"
         >
           Select Date
