@@ -33,14 +33,13 @@ $ yarn
 ### Scripts
 
 * `yarn` to install dependencies
-* `yarn styleguide` to generate and serve style guide
+* `yarn start` to run the style guide
 * `yarn test` to run tests
-* `yarn build` to build for production
 * `yarn styleguide:build` to build a static version of the styleguide for deployment
 
 ### Tests
 
-We are aiming to build from the ground up with tests where appropriate, using Mocha, Chai and Enzyme.
+Test coverage for Components using Jest.
 
 To execute the tests, simply run `yarn test`.
 
