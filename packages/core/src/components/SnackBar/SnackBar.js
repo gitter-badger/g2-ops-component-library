@@ -33,18 +33,26 @@ class SnackBar extends PureComponent<ButtonPropType, ButtonStateType> {
   }
 
   render() {
-    const { showOKButton, showSnackBar, isError, message } = this.props
+    const {
+      autoHideDuration,
+      defaultColor,
+      errorColor,
+      isError,
+      message,
+      showOKButton,
+      showSnackBar,
+    } = this.props
     return (
       <div>
         <Snackbar
           open={this.state.open}
           message={message}
-          autoHideDuration={4000000}
+          autoHideDuration={autoHideDuration || 4000}
           action={showOKButton ? 'OK' : null}
           onActionClick={this.handleRequestClose}
           onRequestClose={this.handleRequestClose}
           style={{ left: 'auto', bottom: '5px', right: '5px' }}
-          bodyStyle={{ maxWidth: '800px', backgroundColor: isError ? '#EE2727' : '#92D04E' }}
+          bodyStyle={{ maxWidth: '800px', backgroundColor: isError ? errorColor || '#EE2727' : defaultColor || '#92D04E' }}
           className="CopartSnackBar"
         />
       </div>
