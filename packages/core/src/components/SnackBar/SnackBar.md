@@ -1,21 +1,21 @@
 Copart SnackBar Example:
 ```js
   initialState = { showSnackBar: false };
-  const handleAutoClose = () => setTimeout(() => setState({ showSnackBar: false }), 3000);
+
   <div>
     <span style={{ margin: '10px' }}>
       <Button
         type="primary"
         label="Show SnackBar"
-        onClick={() => setState({ showSnackBar: true }, handleAutoClose)}
+        onClick={() => setState({ showSnackBar: true })}
       />
     </span>
     {state.showSnackBar && (
       <SnackBar
-        showSnackBar={state.showSnackBar}
+        isError
         message="Oops, something went wrong here."
+        showSnackBar={state.showSnackBar}
         showOKButton
-        error
       />
     )}
   </div>

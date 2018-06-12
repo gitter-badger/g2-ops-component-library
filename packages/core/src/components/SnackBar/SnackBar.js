@@ -33,13 +33,19 @@ class SnackBar extends PureComponent<ButtonPropType, ButtonStateType> {
   }
 
   render() {
-    const { showOKButton, showSnackBar, isError, message } = this.props
+    const {
+      isError,
+      message,
+      showOKButton,
+      showSnackBar,
+    } = this.props
+
     return (
       <div>
         <Snackbar
           open={this.state.open}
           message={message}
-          autoHideDuration={4000000}
+          autoHideDuration={4000}
           action={showOKButton ? 'OK' : null}
           onActionClick={this.handleRequestClose}
           onRequestClose={this.handleRequestClose}
