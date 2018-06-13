@@ -1,12 +1,12 @@
 Button Component Examples:
 ```jsx
 <div>
-  <span style={{ margin: '10px' }}><Button type="primary" label="Primary Button" onClick={() => console.log('Clicked')}/></span>
-  <span style={{ margin: '10px' }}><Button type="secondary" label="Secondary Button" onClick={() => console.log('Clicked')}/></span>
-  <span style={{ margin: '10px' }}><Button type="inactive" disabled label="Inactive" onClick={() => console.log('Clicked')}/></span>
-  <span style={{ margin: '10px' }}><Button type="add" onClick={() => console.log('Clicked')}/></span>
-  <span style={{ margin: '10px' }}><Button type="edit" onClick={() => console.log('Clicked')}/></span>
-  <span style={{ margin: '10px' }}><Button type="delete" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button variant="primary" label="Primary Button" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button variant="secondary" label="Secondary Button" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button variant="inactive" disabled label="Inactive" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button variant="add" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button variant="edit" onClick={() => console.log('Clicked')}/></span>
+  <span style={{ margin: '10px' }}><Button variant="delete" onClick={() => console.log('Clicked')}/></span>
 </div>
 ```
 
