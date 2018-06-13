@@ -8,25 +8,26 @@ import DeleteIcon from 'material-ui/svg-icons/action/delete-forever'
 
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 
+// TODO: Fix button + icon styling.
 import './Button.css'
 
 type ButtonPropTypes = {
   /** To indicate type of button {primary, secondary, inactive, add, edit, delete} */
-  type: 'primary' | 'secondary' | 'inactive' | 'add' | 'edit' | 'delete',
+  variant: 'primary' | 'secondary' | 'inactive' | 'add' | 'edit' | 'delete',
   /** OnClick event for button */
   onClick: (SyntheticMouseEvent<HTMLInputElement>) => void,
 }
 
-export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps }: ButtonPropTypes) => {
-	let typeProps
+export const Button = wrapMuiContext(({ variant, ...buttonProps }: ButtonPropTypes) => {
+	let typeProps = { ...buttonProps }
 
-  switch (type) {
+  switch (variant) {
     case 'primary':
     case 'secondary':
     case 'inactive': {
       typeProps = {
         ...buttonProps,
-        className: `copartButton ${type}Button ${buttonProps.className}`,
+        className: `copartButton ${variant}Button ${buttonProps.className}`,
       }
       break
     }
@@ -35,7 +36,7 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
       typeProps = {
         ...buttonProps,
         label: 'Add',
-        className: `copartButton primaryButton ${type}Button ${buttonProps.className}`,
+        className: `copartButton primaryButton ${variant}Button ${buttonProps.className}`,
         icon: <AddIcon />,
       }
       break
@@ -45,7 +46,7 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
       typeProps = {
         ...buttonProps,
         label: 'Edit',
-        className: `copartButton primaryButton ${type}Button ${buttonProps.className}`,
+        className: `copartButton primaryButton ${variant}Button ${buttonProps.className}`,
         icon: <EditIcon />,
       }
       break
@@ -55,14 +56,10 @@ export const Button = wrapMuiContext(({ primary, secondary, type, ...buttonProps
       typeProps = {
         ...buttonProps,
         label: 'Delete',
-        className: `copartButton ${type}Button ${buttonProps.className}`,
+        className: `copartButton ${variant}Button ${buttonProps.className}`,
         icon: <DeleteIcon />,
       }
       break
-    }
-
-    default: {
-      typeProps = { ...buttonProps, 'type': type }
     }
   }
 
