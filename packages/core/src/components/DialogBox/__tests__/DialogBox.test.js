@@ -16,9 +16,9 @@ describe('<DialogBox />', () => {
         onDismiss={() => {}}
         footerRenderer={() => (
           <div style={{ display: 'flex', float: 'right' }}>
-            <Button type={'primary'} onClick={() => {}} label={'Save'} />
+            <Button variant='primary' onClick={() => {}} label={'Save'} />
             <span style={{ width: '10px' }}>{}</span>
-            <Button type={'secondary'} onClick={() => {}} label={'Discard'} />
+            <Button variant='secondary' onClick={() => {}} label={'Discard'} />
           </div>
         )}
       >

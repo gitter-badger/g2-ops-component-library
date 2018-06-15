@@ -101,7 +101,7 @@
     "flow-bin": "^0.73.0",
     "husky": "^0.14.3",
     "identity-obj-proxy": "3.0.0",
-    "jest": "^22.1.4",
+    "jest": "^23.1.0",
     "jss": "^9.5.1",
     "lint-staged": "^6.1.0",
     "node-sass": "^4.7.2",

@@ -191,6 +191,7 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
       {...appBarProps}
       iconElementLeft={renderLogoAndSearchBar(props)}
       iconElementRight={renderAppBarElements(props)}
+      data-core-component="AppBar"
     >
       {children}
     </MuiAppBar>

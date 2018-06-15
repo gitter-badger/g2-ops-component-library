@@ -170,8 +170,8 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
   render() {
     const { props, state } = this
     return (
-      <div data-ccc="AppBarFeedback">
-        <FeedbackButton onClick={this.handleOpen} />
+      <div data-core-component="FeedbackDialog">
+        <FeedbackButton onClick={this.handleOpen} data-core-component="FeedbackDialog-Button" />
 				<DialogBox
           styleName="FeedbackDialog"
 					showHeader
@@ -180,7 +180,7 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 					hideDialog={!state.open}
 					onDismiss={this.handleClose}
 					autoScrollBodyContent
-					containerClassName='copart_core-components_FeedbackDialog_Container'
+          containerClassName='copart_core-components_FeedbackDialog_Container'
 				>
 					<FAQText />
 					<form onSubmit={this.onSubmit}>
@@ -217,7 +217,7 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 									styleName="submitButton"
 									label="Submit"
 									type="submit"
-									primary
+									variant="primary"
 								/>
 							</If>
 						</div>
