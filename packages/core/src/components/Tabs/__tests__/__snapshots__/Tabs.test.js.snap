@@ -22,8 +22,6 @@ exports[`<Tabs /> should render properly 1`] = `
   >
     <button
       className="tab default undefined"
-      disabled={undefined}
-      name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -88,8 +86,6 @@ exports[`<Tabs /> should render properly 1`] = `
     </button>
     <button
       className="tab active undefined"
-      disabled={undefined}
-      name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -154,8 +150,6 @@ exports[`<Tabs /> should render properly 1`] = `
     </button>
     <button
       className="tab default undefined"
-      disabled={undefined}
-      name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -220,8 +214,6 @@ exports[`<Tabs /> should render properly 1`] = `
     </button>
     <button
       className="tab default undefined"
-      disabled={undefined}
-      name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -286,8 +278,6 @@ exports[`<Tabs /> should render properly 1`] = `
     </button>
     <button
       className="tab default undefined"
-      disabled={undefined}
-      name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -352,8 +342,6 @@ exports[`<Tabs /> should render properly 1`] = `
     </button>
     <button
       className="tab default undefined"
-      disabled={undefined}
-      name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -418,8 +406,6 @@ exports[`<Tabs /> should render properly 1`] = `
     </button>
     <button
       className="tab default undefined"
-      disabled={undefined}
-      name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -484,8 +470,6 @@ exports[`<Tabs /> should render properly 1`] = `
     </button>
     <button
       className="tab default undefined"
-      disabled={undefined}
-      name={undefined}
       onBlur={[Function]}
       onClick={[Function]}
       onFocus={[Function]}
@@ -574,7 +558,6 @@ exports[`<Tabs /> should render properly 1`] = `
     />
   </div>
   <div
-    className={undefined}
     style={
       Object {
         "muiPrepared": true,

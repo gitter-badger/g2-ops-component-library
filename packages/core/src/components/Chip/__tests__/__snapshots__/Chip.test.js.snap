@@ -2,8 +2,6 @@
 
 exports[`<Chip /> should render properly 1`] = `
 <div
-  className={undefined}
-  disabled={undefined}
   onBlur={[Function]}
   onClick={[Function]}
   onFocus={[Function]}

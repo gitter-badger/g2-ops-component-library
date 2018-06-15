@@ -2,8 +2,6 @@
 
 exports[`<Avatar /> <Avatar /> should render children 1`] = `
 <div
-  className={undefined}
-  color={undefined}
   size={40}
   style={
     Object {
@@ -29,8 +27,6 @@ exports[`<Avatar /> <Avatar /> should render children 1`] = `
 
 exports[`<Avatar /> <Avatar /> should render properly 1`] = `
 <div
-  className={undefined}
-  color={undefined}
   size={40}
   style={
     Object {
