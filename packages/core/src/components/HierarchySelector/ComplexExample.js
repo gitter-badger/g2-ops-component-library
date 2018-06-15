@@ -13,7 +13,12 @@ const initialUser = {
   driver: 15235,
 }
 
-const initialOptionId = prop('driver', initialUser) || prop('group', initialUser) || prop('company', initialUser)
+// SUMIT TEST
+const inactiveUser = {
+  company: 802,
+  group: null,
+  driver: null,
+}
 
 export const CardIcon = () => (
   <div className="CardIcon Icon" data-tip="PCard">
@@ -101,23 +106,28 @@ const towProviders = towProvidersJson.data
 const componentOptions = towProviders.map(transformVendorOption)
 
 class Example extends React.Component {
-  state = {
-    value: null,
+  constructor(props) {
+    super(props)
+    this.state = {
+      value: this.props.value,
+    }
   }
   onChange = (selectedOption: FlattenedOptionType) => {
     const selectedHierarchyOption = (typeof selectedOption === 'string')? selectedOption : selectedOption.hierarchy
-    this.setState({ value: selectedHierarchyOption })
+    this.setState({ value: selectedHierarchyOption, errorText: '' })
   }
   render () {
+    const { errorText, value } = this.state
     return (
       <div style={{ maxWidth: '400px' }}>
         <HierarchySelector
           name="Tow Provider"
           label="Tow Provider Example"
           options={componentOptions}
+          alternateValue={this.props.alternateValue}
           width={200}
           optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200, fontSize: '12px' }}
-          value={this.state.value}
+          value={value}
           renderMethod={renderMethod}
           onChange={this.onChange}
         />
