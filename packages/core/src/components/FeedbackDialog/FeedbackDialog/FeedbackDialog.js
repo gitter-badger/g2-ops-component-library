@@ -257,7 +257,7 @@ const AutoSelects = ({ self }) => {
 				name="IssueType"
 				options={issueTypeOptions}
 				width={200}
-				label="Issue Type*"
+				label="Issue Type"
 				selectedOption="2"
 				required
         placeholder="Issue Type"
@@ -271,7 +271,7 @@ const AutoSelects = ({ self }) => {
 					styleName="autoSelect"
 					width={200}
 					name="Process"
-					label="Process*"
+					label="Process"
 					placeholder="Process"
 					options={processOptions}
 					selectedOption="2"
