@@ -5,7 +5,7 @@ const {Button} = require('../Button');
 initialState = { hideDialog: true };
 <div>
   <Button
-    type={'primary'}
+    variant='primary'
     onClick={() => setState({ hideDialog: false })}
     label={'Show Default Dialog'}
   />
@@ -27,7 +27,7 @@ var { PrimaryButton, DefaultButton } = require('office-ui-fabric-react/lib/Butto
 initialState = { hideDialog: true };
 <div>
   <Button
-    type={'primary'}
+    variant='primary'
     onClick={() => setState({ hideDialog: false })}
     label={'Show Dialog with Header'}
   />

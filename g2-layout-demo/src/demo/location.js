@@ -63,7 +63,7 @@ class LocationComponent extends React.Component {
           onRenderFooter={() => (
             <div style={{ display: 'flex', float: 'right' }}>
               <Button
-                type={'primary'}
+                variant="primary"
                 icon={
                   <i style={{ marginTop: '-10px' }} className="material-icons md-light md-22">
                     save
