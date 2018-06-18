@@ -2,7 +2,7 @@
 
 exports[`<AppBar /> <AppBar /> renders properly 1`] = `
 <div
-  className={undefined}
+  data-core-component="AppBar"
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",

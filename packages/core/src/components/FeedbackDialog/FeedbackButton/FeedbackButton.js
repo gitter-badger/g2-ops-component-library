@@ -6,11 +6,10 @@ import './FeedbackButton.pcss'
 export const FeedbackButton = (props) => {
 	return (
 		<Button
-			// type current has no effect
 			styleName="FeedbackButton"
-			type="secondary"
+			variant="secondary"
 			label='Feedback'
-			onClick={props.onClick}
+      onClick={props.onClick}
 		/>
 	)
 }

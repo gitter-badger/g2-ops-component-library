@@ -1,15 +1,16 @@
 import React from 'react'
 import renderer from 'react-test-renderer'
-import { mount } from 'enzyme'
+import { mount, shallow } from 'enzyme'
+import toJSON from 'enzyme-to-json'
 
-import {CurrencyField} from '../CurrencyField'
+import { CurrencyField } from '../CurrencyField'
 import companyCodeMapper from '../countryMapper'
 
 describe('<CurrencyField />', () => {
   test('should render properly', () => {
     const countries = [ 'US', 'UK', 'IR', 'ME', 'CA', 'DE', 'ES', 'IN', 'GB' ]
     countries.forEach((countryCode) => {
-      const tree = renderer.create(
+      const tree = mount(
         <CurrencyField
           label={'Currency Field'}
           disabled={false}
@@ -18,7 +19,7 @@ describe('<CurrencyField />', () => {
           maxValue={99.99}
         />,
       )
-      expect(tree).toMatchSnapshot(tree)
+      expect(toJSON(tree)).toMatchSnapshot()
     })
   })
 

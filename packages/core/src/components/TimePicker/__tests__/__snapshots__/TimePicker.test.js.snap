@@ -46,7 +46,6 @@ exports[`<TimePicker /> should render properly 1`] = `
       <input
         disabled={false}
         id="time-picker"
-        name={undefined}
         onBlur={[Function]}
         onChange={[Function]}
         onClick={[Function]}
@@ -119,9 +118,7 @@ exports[`<TimePicker /> should render properly 1`] = `
     </div>
   </div>
   <input
-    name={undefined}
     type="hidden"
-    value={undefined}
   />
 </div>
 `;

@@ -3,13 +3,11 @@
 exports[`<QuickFilter /> <QuickFilter /> rendered properly 1`] = `
 <div
   className="QuickFilter"
-  data-tip={undefined}
   onClick={[Function]}
 >
   <div
     className="__react_component_tooltip place-top type-dark "
     data-id="tooltip"
-    id={undefined}
   />
   <div
     className="icon"

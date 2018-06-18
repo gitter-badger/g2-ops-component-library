@@ -21,6 +21,7 @@ exports[`<Button /> should render properly 1`] = `
   }
 >
   <button
+    data-core-component="Button"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -107,6 +108,7 @@ exports[`<Button /> should render properly 2`] = `
   }
 >
   <button
+    data-core-component="Button"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -193,6 +195,7 @@ exports[`<Button /> should render properly 3`] = `
   }
 >
   <button
+    data-core-component="Button"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -279,6 +282,7 @@ exports[`<Button /> should render properly 4`] = `
   }
 >
   <button
+    data-core-component="Button"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -410,6 +414,7 @@ exports[`<Button /> should render properly 5`] = `
   }
 >
   <button
+    data-core-component="Button"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}
@@ -541,6 +546,7 @@ exports[`<Button /> should render properly 6`] = `
   }
 >
   <button
+    data-core-component="Button"
     disabled={false}
     onBlur={[Function]}
     onClick={[Function]}

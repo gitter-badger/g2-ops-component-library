@@ -5,7 +5,7 @@ Copart SnackBar Example:
   <div>
     <span style={{ margin: '10px' }}>
       <Button
-        type="primary"
+        variant="primary"
         label="Show SnackBar"
         onClick={() => setState({ showSnackBar: true })}
       />

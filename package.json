@@ -40,7 +40,6 @@
     "ramda": "^0.25.0",
     "react": "15.6.2",
     "react-dom": "15.6.2",
-    "react-tap-event-plugin": "2.0.1",
     "react-tooltip": "^3.4.0",
     "react-virtualized": "^9.18.5",
     "render-if": "^0.1.1"
@@ -101,7 +100,7 @@
     "flow-bin": "^0.73.0",
     "husky": "^0.14.3",
     "identity-obj-proxy": "3.0.0",
-    "jest": "^22.1.4",
+    "jest": "^23.1.0",
     "jss": "^9.5.1",
     "lint-staged": "^6.1.0",
     "node-sass": "^4.7.2",

@@ -19,20 +19,20 @@ type ButtonPropTypes = {
 }
 
 export const Button = wrapMuiContext(({ variant, ...buttonProps }: ButtonPropTypes) => {
-	let typeProps = { ...buttonProps }
+	let typeProps = {}
 
   switch (variant) {
     case 'primary':
     case 'secondary':
-    case 'inactive': {
+    case 'inactive':
       typeProps = {
         ...buttonProps,
         className: `copartButton ${variant}Button ${buttonProps.className}`,
       }
       break
-    }
 
-    case 'add': {
+
+    case 'add':
       typeProps = {
         ...buttonProps,
         label: 'Add',
@@ -40,9 +40,8 @@ export const Button = wrapMuiContext(({ variant, ...buttonProps }: ButtonPropTyp
         icon: <AddIcon />,
       }
       break
-    }
 
-    case 'edit': {
+    case 'edit':
       typeProps = {
         ...buttonProps,
         label: 'Edit',
@@ -50,9 +49,8 @@ export const Button = wrapMuiContext(({ variant, ...buttonProps }: ButtonPropTyp
         icon: <EditIcon />,
       }
       break
-    }
 
-    case 'delete': {
+    case 'delete':
       typeProps = {
         ...buttonProps,
         label: 'Delete',
@@ -60,10 +58,13 @@ export const Button = wrapMuiContext(({ variant, ...buttonProps }: ButtonPropTyp
         icon: <DeleteIcon />,
       }
       break
-    }
+    
+    default:
+      typeProps = { ...buttonProps }
+
   }
 
-  return <RaisedButton {...typeProps} />
+  return <RaisedButton {...typeProps} data-core-component="Button" />
 })
 
 Button.defaultProps = {
@@ -71,3 +72,5 @@ Button.defaultProps = {
 }
 
 export const IconButton = wrapMuiContext(MuiIconButton)
+
+

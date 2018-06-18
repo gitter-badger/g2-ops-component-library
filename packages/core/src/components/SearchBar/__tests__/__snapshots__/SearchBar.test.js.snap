@@ -20,13 +20,10 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
             aria-describedby={null}
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label={undefined}
             aria-labelledby={null}
             aria-owns={null}
-            aria-pressed={undefined}
             className="ms-Button searchTypesMenuButton ms-Button--default root-37"
             data-is-focusable={true}
-            disabled={undefined}
             onClick={[Function]}
             onKeyDown={[Function]}
             type="button"
@@ -54,9 +51,7 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
           </button>
         </div>
         <input
-          aria-describedby={undefined}
           aria-invalid={false}
-          aria-label={undefined}
           className="ms-TextField-field field"
           id="TextField8"
           onBlur={[Function]}
@@ -72,12 +67,9 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
         >
           <button
             aria-describedby={null}
-            aria-label={undefined}
             aria-labelledby={null}
-            aria-pressed={undefined}
             className="ms-Button ms-Button--icon root-46"
             data-is-focusable={true}
-            disabled={undefined}
             onClick={[Function]}
             title="Search"
             type="button"
@@ -120,13 +112,10 @@ exports[`<SearchBar /> should render properly 1`] = `
             aria-describedby={null}
             aria-expanded={false}
             aria-haspopup={true}
-            aria-label={undefined}
             aria-labelledby={null}
             aria-owns={null}
-            aria-pressed={undefined}
             className="ms-Button searchTypesMenuButton ms-Button--default root-37"
             data-is-focusable={true}
-            disabled={undefined}
             onClick={[Function]}
             onKeyDown={[Function]}
             type="button"
@@ -154,9 +143,7 @@ exports[`<SearchBar /> should render properly 1`] = `
           </button>
         </div>
         <input
-          aria-describedby={undefined}
           aria-invalid={false}
-          aria-label={undefined}
           className="ms-TextField-field field"
           id="TextField0"
           onBlur={[Function]}
@@ -172,12 +159,9 @@ exports[`<SearchBar /> should render properly 1`] = `
         >
           <button
             aria-describedby={null}
-            aria-label={undefined}
             aria-labelledby={null}
-            aria-pressed={undefined}
             className="ms-Button ms-Button--icon root-46"
             data-is-focusable={true}
-            disabled={undefined}
             onClick={[Function]}
             title="Search"
             type="button"

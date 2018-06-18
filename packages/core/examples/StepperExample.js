@@ -78,13 +78,13 @@ class StepperExample extends React.Component {
               <p>{this.getStepContent(stepIndex)}</p>
               <div style={{ marginTop: 12 }}>
                 <Button
-                  type="secondary"
+                  variant="secondary"
                   label="Back"
                   disabled={stepIndex === 0}
                   onClick={this.handlePrev}
                   style={{ marginRight: 12 }}
                 />
-                <Button type="primary" label={stepIndex === 2 ? 'Finish' : 'Next'} onClick={this.handleNext} />
+                <Button variant="primary" label={stepIndex === 2 ? 'Finish' : 'Next'} onClick={this.handleNext} />
               </div>
             </div>
           )}
