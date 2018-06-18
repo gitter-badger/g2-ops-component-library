@@ -23,7 +23,10 @@ type HierarchySelectorPropType = {
   value: Object,
   /** Render method for options */
   renderMethod: (OptionsType) => Node,
+  /** OnChange method triggered when the value changes within the Component */
   onChange: (Object) => void,
+  /** AlternateValue to render when the value does not exist within options */
+  alternateValue: string,
 }
 
 type HierarchySelectorStateType = {
@@ -41,9 +44,9 @@ const matchesOption = (selectedOption: Object) => ({ hierarchy }) =>
 export class HierarchySelector extends PureComponent<HierarchySelectorPropType, HierarchySelectorStateType> {
   constructor(props: HierarchySelectorPropType) {
     super(props)
-    const { options, value, renderMethod } = props
+    const { options, value, renderMethod, alternateValue} = props
     const flattenedOptions = flattenNestedOptions(options, renderMethod)
-    const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions) : value
+    const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions, alternateValue) : value
     this.state = {
       flattenedOptions,
       filteredOptions: flattenedOptions,
@@ -53,10 +56,10 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
 
   componentWillReceiveProps(nextProps: HierarchySelectorPropType) {
     const { onChange } = this.props
-    const { options, value, renderMethod } = nextProps
+    const { options, value, renderMethod, alternateValue } = nextProps
     if (options !== this.props.options) {
       const flattenedOptions = flattenNestedOptions(options, renderMethod)
-      const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions) : value
+      const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions, alternateValue) : value
       this.setState((prevState) => ({
         ...prevState,
         flattenedOptions,
@@ -92,9 +95,9 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     }
   }
 
-  getPathFromSelectedValue = (selectedOption: FlattenedOptionType, options: Array<FlattenedOptionType>) => {
+  getPathFromSelectedValue = (selectedOption: FlattenedOptionType, options: Array<FlattenedOptionType>, alternateValue: string = '') => {
     const valueAmongOptions = options.find(matchesOption(selectedOption))
-    return valueAmongOptions ? this.renderSelectedOption(valueAmongOptions) : ''
+    return valueAmongOptions ? this.renderSelectedOption(valueAmongOptions) : alternateValue
   }
 
   getFilteredOptions = (changedOption: string | FlattenedOptionType, flattenedOptions: Array<FlattenedOptionType>) => 
