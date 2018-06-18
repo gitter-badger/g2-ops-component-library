@@ -1,6 +1,6 @@
 {
   "name": "@copart/core-components",
-  "version": "0.2.5",
+  "version": "0.2.7",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
@@ -13,7 +13,6 @@
     "material-ui": "0.20.0",
     "moment": "2.22.1",
     "office-ui-fabric-react": "5.111.0",
-    "react-tap-event-plugin": "2.0.1",
     "react-tooltip": "3.6.0",
     "render-if": "0.1.1"
   },

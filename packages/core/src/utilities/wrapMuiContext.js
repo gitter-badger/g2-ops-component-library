@@ -2,7 +2,6 @@
 import type { ComponentType, Node } from 'react'
 
 import React, { Component } from 'react'
-import injectTapEventPlugin from 'react-tap-event-plugin'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider'
 import getMuiTheme from 'material-ui/styles/getMuiTheme'
 import { initializeIcons } from '@uifabric/icons'
@@ -71,7 +70,6 @@ export const copartBaseTheme: ThemeType = {
 }
 
 initializeIcons()
-injectTapEventPlugin()
 
 // a higher order function that provides mui context to the Component being passed.
 export function wrapMuiContext<T>(WrapperComponent: ComponentType<T>): (T) => Node {
