@@ -67,7 +67,6 @@ module.exports = {
             syntax: 'postcss-scss',
           },
         },
-        webpackHotModuleReloading: true,
         context: '.${PWD}/packages/core/src',
         exclude: 'node_modules',
       },

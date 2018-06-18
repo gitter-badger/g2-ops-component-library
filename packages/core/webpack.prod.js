@@ -1,5 +1,3 @@
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const path = require('path')
 const webpack = require('webpack')
@@ -23,6 +21,12 @@ module.exports = {
   externals: [
     /^react$/,
     /react-dom/,
+    /moment/,
+    /ramda/,
+    /dayjs/,
+    /office-ui-fabric-react/,
+    /material-ui/,
+    /@uifabric/
   ],
 
   resolve: {

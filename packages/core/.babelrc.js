@@ -51,7 +51,6 @@ module.exports = {
         {
           generateScopedName: '__[name]-[local]',
           handleMissingStyleName: 'warn',
-					webpackHotModuleReloading: true,
 					filetypes: {
 						'.pcss': {
 							syntax: 'postcss-scss',
