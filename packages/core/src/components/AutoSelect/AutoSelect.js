@@ -210,11 +210,10 @@ export class AutoSelect extends PureComponent<PropsT> {
         e.preventDefault()
 
         const dir = e.keyCode === KeyCode.down ? DOWN : UP
-
         if (dir === DOWN && !active) {
           return this.setState({
             active: true,
-            highlightedOption: options.find(o => serializeOption(o) === this.props.value),
+            highlightedOption: options.find(o => serializeOption(o) === value)
           })
         }
 
@@ -223,8 +222,7 @@ export class AutoSelect extends PureComponent<PropsT> {
           dir === DOWN
             ? Math.min(options.indexOf(selectedOption) + 1, options.length - 1)
             : Math.max(0, options.indexOf(selectedOption) - 1)
-
-        return this.setState({ highlightedOption: selectedOption ? options[index] : options[0] })
+        return this.setState({ highlightedOption: !isNil(selectedOption) ? options[index] :  options[0] })
       }
       default:
         !active && this.setState({ active: true })

@@ -11,7 +11,7 @@ let descriptions = {
   5: { code: 5, desc: 'Fish' },
   6: { code: 6, desc: 'Giraffe' },
 }
-initialState = { value: 'Bee' }
+initialState = { value: 'Ape' }
 ;<div style={{ maxWidth: '400px' }}>
   <AutoSelect
     name="AutoSelect Field"
