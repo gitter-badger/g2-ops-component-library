@@ -143,7 +143,7 @@ export class AutoSelect extends PureComponent<PropsT> {
       inputElem = this.textField._textElement
     }
     if (document.activeElement !== inputElem) {
-      this.setState({ displayValue })
+      this.setState({ displayValue: displayValue }) // shorthand causes warnings when displayValue is undefined
     }
   }
 
