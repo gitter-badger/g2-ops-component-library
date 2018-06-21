@@ -1,6 +1,7 @@
-const colorStyle = { color: '#fff' }
-
-export const checkboxStyle = {
+const lightColorStyle = { color: '#fff' }
+const darkColorStyle = { color: '#000'}
+const getTextColor = (themeVariant) => (themeVariant === 'dark'? darkColorStyle: lightColorStyle)
+export const checkboxStyle = (themeVariant) =>({
   checkboxCheckedHovered: {
     borderColor: 'black',
   },
@@ -20,11 +21,11 @@ export const checkboxStyle = {
     opacity: '1',
   },
   text: {
-    ...colorStyle,
+    ...getTextColor(themeVariant),
     fontSize: '12px',
   },
-  textHovered: colorStyle,
-  textFocused: colorStyle,
-}
+  textHovered: getTextColor(themeVariant),
+  textFocused: getTextColor(themeVariant),
+})
 
 export default {}

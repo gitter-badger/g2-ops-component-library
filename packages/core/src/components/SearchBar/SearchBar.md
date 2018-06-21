@@ -17,8 +17,9 @@ var searchTypes = [
     searchTypes={searchTypes}
     borderless
     searchText='Default Search Text'
-    handleSearch={() => console.log('Search Clicked')}
-    showCheckbox={false}
+    handleSearch={(result) => console.log(result,'Search Clicked')}
+    showCheckbox={true}
+    themeVariant='dark'
   />
 </div>
 ```

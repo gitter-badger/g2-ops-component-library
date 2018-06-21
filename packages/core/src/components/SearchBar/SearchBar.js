@@ -23,22 +23,32 @@ type SearchBarPropType = {
   /** Search Types to be rendered in the searchMenu on the left */
   searchTypes: Array<SearchType>,
   /** Trigger search handler */
-  handleSearch(): any,
+  handleSearch: ({
+    searchType: SearchType,
+    searchText: string,
+    allFacilitiesChecked: boolean|null
+  }) => mixed,
   /** search text to display within the Search box */
   searchText: string,
   /** boolean to show Checkbox */
   showCheckbox: boolean,
   /** Callback triggered when the search type changes */
   onSearchTypeChange?: SearchType => any,
+  /* light or dark */
+  themeVariant: string,
 }
 
 type SearchBarStateType = {
   searchType: SearchType,
+  searchText: string,
+  allFacilitiesChecked: boolean | null,
 }
 
 class SearchBar extends PureComponent<SearchBarPropType, SearchBarStateType> {
   state = {
     searchType: this.props.searchType || { key: 'lot', name: 'Lot' },
+    searchText: this.props.searchText || '',
+    allFacilitiesChecked: null,
   }
 
   handleMenuChange = (event: SyntheticMouseEvent<HTMLInputElement>, item: SearchType) => {
@@ -49,7 +59,15 @@ class SearchBar extends PureComponent<SearchBarPropType, SearchBarStateType> {
       this.props.onSearchTypeChange(item)
     }
   }
-
+  handleSearchIconClick = () => {
+    const { searchType, searchText, allFacilitiesChecked} = this.state
+    this.props.handleSearch({searchType, searchText, allFacilitiesChecked})
+  }
+  handleFacilityChanged = (e, value: boolean) => {
+    this.setState({
+      allFacilitiesChecked: value
+    })
+  }
   renderSearchBarMenu = () => {
     const { searchTypes } = this.props
     return (
@@ -71,12 +89,12 @@ class SearchBar extends PureComponent<SearchBarPropType, SearchBarStateType> {
   }
 
   renderSearchIcon = () => (
-    <IconButton onClick={this.props.handleSearch} iconProps={{ iconName: 'search' }} title={'Search'} />
+    <IconButton onClick={this.handleSearchIconClick} iconProps={{ iconName: 'search' }} title={'Search'} />
   )
 
   render() {
-    const { searchType: searchTypeProp, showCheckbox, ...searchBarProps } = this.props
-    const { searchType } = this.state
+    const { searchType: searchTypeProp, showCheckbox,themeVariant, ...searchBarProps } = this.props
+    const { searchType, searchText,allFacilitiesChecked } = this.state
     const renderAllFacilitiesCheckbox = renderIf(searchType.key === 'lot' && showCheckbox)
     return (
       <div className="searchBarDiv">
@@ -86,9 +104,16 @@ class SearchBar extends PureComponent<SearchBarPropType, SearchBarStateType> {
           className="searchBarTextField"
           onRenderPrefix={this.renderSearchBarMenu}
           onRenderSuffix={this.renderSearchIcon}
+          value={searchText}
         />
         {renderAllFacilitiesCheckbox(
-          <Checkbox className="searchBarCheckbox" label={'All Facilities'} styles={checkboxStyle} />,
+          <Checkbox
+            className="searchBarCheckbox"
+            label="All Facilities"
+            styles={checkboxStyle(themeVariant)}
+            value={allFacilitiesChecked}
+            onChange={this.handleFacilityChanged}
+          />,
         )}
       </div>
     )
