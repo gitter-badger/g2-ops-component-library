@@ -35,7 +35,7 @@ type SearchBarPropType = {
   /** Callback triggered when the search type changes */
   onSearchTypeChange?: SearchType => any,
   /* light or dark */
-  themeVariant: string,
+  themeVariant: 'light'| 'dark',
 }
 
 type SearchBarStateType = {
