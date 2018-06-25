@@ -4,7 +4,7 @@ DatePicker Example:
 var moment = require('moment');
 var DatePickerExample = require('./DatePickerExample').default;
 var defaultFormat = 'DD/MM/YYYY';
-initialState = { dateValue: null };
+initialState = { dateValue: null, showCustomError: true, errorMessage: 'This is a custom required message' };
 <div style={{ maxWidth: '300px' }}>
   <DatePickerExample
     autoOk
@@ -12,8 +12,10 @@ initialState = { dateValue: null };
     hintText={defaultFormat}
     container="inline"
     value={state.dateValue}
-    onChange={(e, dateValue) => setState({ dateValue })}
+    onChange={(e, dateValue) => { setState({ dateValue })} }
     label="Select Date"
+    errorMessage={state.errorMessage}
+    showCustomError={state.showCustomError}
     minDate={moment()
       .subtract(10, 'd')
       .startOf('day')

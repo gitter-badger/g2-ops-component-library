@@ -8,6 +8,7 @@ import { isSameOrBeforeMaxDate, isSameOrAfterMinDate, getDateObject } from '../d
 
 const getProps = (props = {}) => {
   const { defaultFormat = 'DD/MM/YYYY', ...extraProps } = props
+  const defaultErrorMessage = 'This is a custom required message'
   return {
     autoOk: true,
     placeholder: defaultFormat,
@@ -17,6 +18,8 @@ const getProps = (props = {}) => {
     label: 'Select Date',
     defaultFormat,
     formatDate: (date) => moment(date, defaultFormat).format(defaultFormat),
+    errorMessage: defaultErrorMessage,
+    showCustomError: true,
     ...extraProps,
   }
 }
@@ -58,6 +61,16 @@ describe('Sets state when user enters date', () => {
 
     expect(datePicker.state.displayDate).toBe('02/03/1991')
     expect(datePicker.state.date.toISOString()).toBe('1991-03-02T12:00:00.000Z')
+  })
+
+  test('should set errorMessage when there is a custom error', () => {
+    expect(datePicker.state.errorMessage).toBe('This is a custom required message')
+
+    textField.prop('onChanged')('02/03/2018')
+    expect(datePicker.state.errorMessage).toBe('')
+
+    textField.prop('onChanged')('')
+    expect(datePicker.state.errorMessage).toBe('This is a custom required message')
   })
 
   test('should set errorMessage when user enters Invalid Date', () => {
