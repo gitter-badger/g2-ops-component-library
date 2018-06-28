@@ -1,15 +1,30 @@
 // @flow
 import type { QuickFilterType, FilterType } from 'types/Filter'
 import type { Node } from 'react'
-import { assoc, compose, findIndex, propEq,__, adjust,evolve, always,map } from 'ramda'
+import { assoc, compose, empty,findIndex, propEq,__, adjust,evolve, always,map } from 'ramda'
 import React, { Component } from 'react'
 
 import { FilterSidebar } from './FilterSidebar'
 import filters, { quickLinks } from './MockData/FilterMockData'
 
+const clearFilterData = compose(
+  map(
+    evolve({
+      selectedValues: empty,
+      filterOptions: map(assoc('isSelected', false))
+    })
+  )
+)
 class ComponentExample extends Component<Object, Object> {
   state = {
     filtersState: filters
+  }
+  handleFilterClear = () => {
+    const { filtersState } = this.state
+    const clearedFilters = clearFilterData(filtersState)
+    this.setState({
+      filtersState: clearedFilters
+    })
   }
   handleFilterChange = (selectedValues: Array<number|string>, filterName: string) => {
     const { filtersState } = this.state
@@ -32,7 +47,7 @@ console.log(updatedValue,'Updated')
         filters={this.state.filtersState}
         onFilterChange={this.handleFilterChange}
         onQuickFiltersChange={(obj) => { console.log('on quick filter change ', obj) }}
-        onFiltersClear={() => { console.log('on filters clear ') }}
+        onFiltersClear={this.handleFilterClear}
         quickFilters={quickLinks}
         selectedQuickFilter={"dispatch"}
         height={'450px'}
