@@ -20,7 +20,7 @@ export const FilterValue = ({ filterOption, onFilterValueChecked }: FilterValueP
           checked={filterOption.isSelected}
         />
       </div>
-      <div className="label">{filterOption.label}</div>
+      <div className="label">{filterOption.label}&nbsp;({filterOption.count})</div>
     </div>
   </div>
 )
