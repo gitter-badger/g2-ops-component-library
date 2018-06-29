@@ -14,16 +14,9 @@
   .count {
     color: #fff;
     font-size: 12px;
+    font-family: Roboto, sans-serif;
   }
   &.active {
-    background-color: rgb(222, 222, 222);
-    .icon {
-      svg {
-        fill: #323a49 !important;
-      }
-    }
-    .count {
-      color: #323a49;
-    }
+    background-color: #171717;
   }
 }
