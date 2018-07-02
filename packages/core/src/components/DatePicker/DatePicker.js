@@ -112,7 +112,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
 
   getErrorMessage(value, errorMessage, showCustomError, customError) {
     if (showCustomError && isEmpty(value)) return customError
-    else return errorMessage
+    return errorMessage
   }
 
   getDate() {
