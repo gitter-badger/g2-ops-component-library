@@ -7,7 +7,7 @@ export default [
   {
     label: 'Buyer Number',
     name: 'buyerNumber',
-    selectedValues: [ ('name': '323929') ],
+    selectedValues: [ '323929' ],
     filterOptions: [
       {
         name: '2597',
@@ -25,7 +25,7 @@ export default [
         name: '323929',
         label: '323929',
         count: 1,
-        isSelected: false,
+        isSelected: true,
       },
     ],
   },
