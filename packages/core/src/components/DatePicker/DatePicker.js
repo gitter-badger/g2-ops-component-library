@@ -5,6 +5,7 @@ import React, { Component } from 'react'
 import renderIf from 'render-if'
 
 import moment from 'moment'
+import { isEmpty } from 'ramda'
 import DatePickerDialog from 'material-ui/DatePicker/DatePickerDialog'
 import CalendarIcon from 'material-ui/svg-icons/action/date-range'
 import { dateTimeFormat, formatIso, isEqualDate } from 'material-ui/DatePicker/dateUtils'
@@ -43,12 +44,15 @@ type DatePickerProps = {
   shouldDisableDate: Date => boolean,
   style: Node,
   value: Date,
+  showCustomError: ?boolean,
+  errorMessage: ?string,
 }
 
 type DatePickerState = {
   date: Date | null,
   displayDate: string,
   dialogDate: Date | null,
+  showCustomError: ?boolean,
   errorMessage: ?string,
   style: Object,
 }
@@ -73,7 +77,8 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     date: null,
     displayDate: '',
     dialogDate: null,
-    errorMessage: '',
+    showCustomError: this.props.showCustomError,
+    errorMessage: this.getInitalErrorMessage(this.props.showCustomError, this.props.errorMessage),
     style: {},
   }
 
@@ -92,13 +97,22 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     if (this.isControlled() && nextProps.value !== null) {
       const newDate = this.getControlledDate(nextProps)
       if (!isEqualDate(this.state.date, newDate)) {
-        const { defaultFormat } = this.props
+        const { defaultFormat, showCustomError, errorMessage } = nextProps
         this.setState({
           date: newDate,
+          showCustomError,
+          errorMessage: this.getInitalErrorMessage(showCustomError, errorMessage),
           displayDate: newDate ? moment(newDate).format(defaultFormat) : '',
         })
       }
     }
+  }
+
+  getInitalErrorMessage(showCustomError, customError){ return showCustomError && customError }
+
+  getErrorMessage(value, errorMessage, showCustomError, customError) {
+    if (showCustomError && isEmpty(value)) return customError
+    return errorMessage
   }
 
   getDate() {
@@ -143,7 +157,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
 
   handleTextFieldChange = (value: string) => {
     const prevState = this.state
-    const { minDate, maxDate, formatDate, defaultFormat, onChange } = this.props
+    const { minDate, maxDate, formatDate, defaultFormat, onChange, showCustomError, errorMessage: customError } = this.props
     const { displayDate, date = prevState.date, errorMessage } = validateDateAndGetErrorMesssage(
       value,
       minDate,
@@ -151,13 +165,14 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       formatDate || this.formatDate,
       defaultFormat,
     )
+    const finalError = this.getErrorMessage(value, errorMessage, showCustomError, customError)
     this.setState({
       ...prevState,
       date,
       displayDate,
-      errorMessage,
+      errorMessage: finalError,
     })
-    onChange && onChange(displayDate, date, errorMessage)
+    onChange && onChange(displayDate, date)
   }
   isControlled() {
     return this.props.hasOwnProperty('value')
