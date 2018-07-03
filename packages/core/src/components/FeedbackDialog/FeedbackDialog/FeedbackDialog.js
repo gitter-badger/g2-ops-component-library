@@ -33,6 +33,7 @@ const DialogTitle = (props) => {
     <span styleName="dialogTitle"><i className="material-icons">feedback</i>Please provide us your feedback.</span>
   )
 }
+
 type PropsT = {
   userEmail: string,
   afterSendFeedback(): any,
@@ -40,9 +41,7 @@ type PropsT = {
   homeYard: string | number,
   selectedRole: string,
   countryCode: string,
-  language: string,
-  feedbackIssueTypeValues: [],
-  feedbackProcessValues: []
+  language: string
 }
 
 const initialState = {

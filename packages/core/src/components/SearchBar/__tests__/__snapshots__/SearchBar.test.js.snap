@@ -60,7 +60,7 @@ exports[`<SearchBar /> should render allFacilitiesCheckbox when searchType = "lo
           onInput={[Function]}
           placeholder="Type here to Search"
           type="text"
-          value=""
+          value="Default Search Text"
         />
         <div
           className="ms-TextField-suffix fieldPrefixSuffix"
@@ -152,7 +152,7 @@ exports[`<SearchBar /> should render properly 1`] = `
           onInput={[Function]}
           placeholder="Type here to Search"
           type="text"
-          value=""
+          value="Default Search Text"
         />
         <div
           className="ms-TextField-suffix fieldPrefixSuffix"

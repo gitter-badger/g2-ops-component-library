@@ -20,11 +20,6 @@ describe('<AppBar />', () => {
   test('<AppBar /> renders properly', () => {
     expect(renderer.create(wrapWithMaterialUIContext(<AppBar {...getProps()} />))).toMatchSnapshot()
 	})
-	
-	test('should not render <FeedbackDialog /> if specific props are invalid', () => {
-		const wrapper = mount(<AppBar {...getProps()} />)
-		expect(wrapper.find(FeedbackDialog).length).toEqual(0)
-	})
 
 	test('should render <FeedbackDialog /> if specific props are valid', () => {
 		const wrapper = mount(<AppBar

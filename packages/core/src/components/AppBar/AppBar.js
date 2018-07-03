@@ -30,22 +30,6 @@ const allTruthy = (conditions: Function[]): Boolean => {
   return true
 }
 
-// TODO: Test
-// TODO: Move into utilities file.
-const checkFeedbackProps = (props) => {
-  const propsPassTypeCheck = allTruthy([
-    () => ['String'].includes(getType (props.userEmail)),
-    () => ['Function'].includes(getType (props.afterSendFeedback)),
-    () => ['String', 'Number'].includes(getType (props.selectedYard)),
-    () => ['String', 'Number'].includes(getType (props.homeYard)),
-    () => ['String'].includes(getType (props.selectedRole)),
-    () => ['String'].includes(getType (props.countryCode)),
-    () => ['String'].includes(getType (props.language))
-  ])
-
-  // TODO: Handle warnings/errors for non-passing prop type check.
-  return propsPassTypeCheck
-}
 
 type AppBarPropTypes = {
   userEmail: string,
@@ -141,9 +125,14 @@ const renderAppBarElements = (props) => {
           <LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
         </If>
       </div>
-      <If condition={checkFeedbackProps(props)}>
-        <FeedbackDialog {...props} />
-      </If>
+        <FeedbackDialog
+          userEmail={props.userEmail || ''}
+          afterSendFeedback={props.afterSendFeedback}
+          selectedYard={props.selectedYard}
+          selectedRole={props.selectedRole}
+          countryCode={props.countryCode}
+          language={props.language}
+        />
     </div>
   )
 }
