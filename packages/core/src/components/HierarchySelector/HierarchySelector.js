@@ -57,7 +57,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
   componentWillReceiveProps(nextProps: HierarchySelectorPropType) {
     const { onChange } = this.props
     const { options, value, renderMethod, alternateValue } = nextProps
-    if (options !== this.props.options) {
+    if (options !== this.props.options || this.props.value !== value) {
       const flattenedOptions = flattenNestedOptions(options, renderMethod)
       const renderedPath = value ? this.getPathFromSelectedValue(value, flattenedOptions, alternateValue) : value
       this.setState((prevState) => ({
@@ -68,7 +68,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
       }))
     }
   }
-  
+
   onChange = (changedOption: FlattenedOptionType) => {
     const { onChange: onChangeMethod } = this.props
     if (typeof changedOption === 'string') {
@@ -100,7 +100,7 @@ export class HierarchySelector extends PureComponent<HierarchySelectorPropType, 
     return valueAmongOptions ? this.renderSelectedOption(valueAmongOptions) : alternateValue
   }
 
-  getFilteredOptions = (changedOption: string | FlattenedOptionType, flattenedOptions: Array<FlattenedOptionType>) => 
+  getFilteredOptions = (changedOption: string | FlattenedOptionType, flattenedOptions: Array<FlattenedOptionType>) =>
     flattenedOptions.filter((option: FlattenedOptionType) => {
       const { searchValues = [option.label] } = option
       return searchValues.some((value) => value.toLowerCase().startsWith(changedOption.toLowerCase()))
