@@ -1,10 +1,9 @@
 // @flow
 
 import type { FilterValueType } from 'types/Filter'
-
 import React, { Component } from 'react'
-
 import { FilterValue } from './FilterValue'
+import './FilterValueList.scss'
 
 type FilterValueListPropType = {
   filterOptions: Array<FilterValueType>,
