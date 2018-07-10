@@ -2,7 +2,7 @@ import React from 'react'
 import { AutoSizer, List } from 'react-virtualized'
 import cn from 'classnames'
 import mdlComponent from './autoselectMdlComponent'
-import { identity } from './autoSelectUtils'
+import { identity, isNil } from './autoSelectUtils'
 
 import './AutoSelect.scss'
 
@@ -26,7 +26,7 @@ let AutoSelectOption = ({
     onMouseLeave={onMouseLeave}
     onClick={() => {
       const isOptionSelectable = option.hasOwnProperty('isSelectable') ? option.isSelectable : true
-      if (option && isOptionSelectable) {
+      if (!isNil(option) && isOptionSelectable) {
         onClick(serializeOption(option))
         setTimeout(afterClickOption, 60)
       }
@@ -43,6 +43,7 @@ let AutoSelectOption = ({
     {displayOption(option)}
   </div>
 )
+
 AutoSelectOption = mdlComponent(AutoSelectOption)
 
 export const AutoSelectOptions = ({
