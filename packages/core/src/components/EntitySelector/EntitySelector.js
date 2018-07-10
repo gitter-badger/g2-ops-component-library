@@ -4,12 +4,8 @@ import { IconButton } from 'components/Button'
 import { pickAll, prop, pick, values, curry, any, __, compose } from 'ramda'
 import renderIf from 'render-if'
 
-// const startsWithIgnoringCase = (val1, val2) =>
-//   String(val1)
-//     .toUpperCase()
-//     .startsWith(String(val2).toUpperCase())
 
-// const curriedStartsWith = curry(startsWithIgnoringCase)
+const getIndex = (o) => typeof o === "object" ? o.code : o
 
 type EntitySelectorPropTypes = {
   labelPosition: string,
@@ -50,21 +46,6 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
     ) 
   }
 
-// searchThroughOptions = ({ options, displayOption, value }) => {
-//   // const pickedValues = compose(values, pick(['lot_site_nm', 'phone_num']))
-//   const getDisplayProps = (option) => ((option && displayOption(option) && displayOption(option).props)
-//     ? displayOption(option).props : {})
-//   const stringifiedValue = String(value).trim()
-//   const valueToCheck = displayOption(value) || value
-//   const checkIfPresent = any(curriedStartsWith(__, valueToCheck))
-//   return (
-//     options.find(
-//       (o) =>
-//         stringifiedValue &&
-//         checkIfPresent(getDisplayProps(o)))
-//   )
-// }
-
   render() {
     const { 
       labelPosition,
@@ -95,7 +76,7 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
             <AutoSelect
               {...otherProps}
               value={value}
-              displaySelectedOption={(o) => displaySelectedOption(o.code || o)}
+              displaySelectedOption={(o) => displaySelectedOption(entities[getIndex(o)] || o)}
               options={this.getOptions()}
               serializeOption={(o) => o.code}
               displayOption={(o) => o.description}

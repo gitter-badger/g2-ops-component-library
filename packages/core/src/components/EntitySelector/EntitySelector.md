@@ -19,7 +19,7 @@ initialState = { value: '', disabled: false };
     labelPosition="left"
     required
     disabled={state.disabled}
-    displaySelectedOption={(e) => locationDescriptions[e] && `${locationDescriptions[e].lot_site_nm}`}
+    displaySelectedOption={(e) => e.lot_site_nm}
     menuItemBuilder={(e) => e && <PickupPrimaryText {...e} />}
     entityInformation={<EntityInformation valueEntity={locationDescriptions[state.value] || {}} />}
     onChange={(value) => {
