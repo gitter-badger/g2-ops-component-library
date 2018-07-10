@@ -12,6 +12,17 @@ import renderIf from 'render-if'
 // const curriedStartsWith = curry(startsWithIgnoringCase)
 
 type EntitySelectorPropTypes = {
+  labelPosition: string,
+  label: string,
+  required: boolean,
+  onChange: (string | Object) => void,
+  onRenderSuffix: Node | Object,
+  onRenderEntityAction: Node | Object,
+  dataSource: Object,
+  displaySelectedOption: (Object) => string,
+  value: string,
+  entityInformation: Node,
+  menuItemBuilder: (Object) => Node,
 }
 
 const EntitySelectorDefaultProps = {
