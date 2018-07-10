@@ -79,11 +79,10 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
       entityInformation,
       ...otherProps 
     } = this.props
-
     const { ids: options, entities } = dataSource
     const labelText = required ? `${label}*:` : `${label}:`
     const renderIfLabelOnLeft = renderIf(labelPosition === 'left')
-    const renderIfValueEntity = renderIf(entityInformation && options.find((option) => option.code === value))
+    const renderIfValueEntity = renderIf(entityInformation && (options.find((option) => option === value) !== undefined))
     return (
       <div>
         <div style={{ display: 'flex' }}>
@@ -110,7 +109,7 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
             {onRenderEntityAction()}
           </span>
         </div>
-        {renderIfValueEntity(entityInformation)}
+        {entityInformation}
       </div>
     )
   }

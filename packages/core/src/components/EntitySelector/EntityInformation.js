@@ -16,6 +16,7 @@ const EntityInformation = ({ valueEntity = {} }) => {
     alt_phone_num: altPhone,
     vat_id: vatId
   } = valueEntity
+  console.log(valueEntity)
   const renderIfValueEntity = renderIf(name)
   return (
     renderIfValueEntity(

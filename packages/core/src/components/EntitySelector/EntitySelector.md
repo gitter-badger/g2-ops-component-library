@@ -4,6 +4,7 @@ Entity Selector Example:
 const pickupLocations = require('./refData').default;
 const { IconButton } = require('../Button');
 const PickupPrimaryText = require('./PickupPrimaryText').default;
+const EntityInformation = require('./EntityInformation').default;
 const locationOptions = pickupLocations.ids;
 const locationDescriptions = pickupLocations.entities;
 
@@ -20,6 +21,7 @@ initialState = { value: '', disabled: false };
     disabled={state.disabled}
     displaySelectedOption={(e) => locationDescriptions[e] && `${locationDescriptions[e].lot_site_nm}`}
     menuItemBuilder={(e) => e && <PickupPrimaryText {...e} />}
+    entityInformation={<EntityInformation valueEntity={locationDescriptions[state.value] || {}} />}
     onChange={(value) => {
       const newVal = typeof value === 'object' ? value.code : value
       setState({ value: newVal })}

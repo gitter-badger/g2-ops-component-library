@@ -1,6 +1,11 @@
 import React from 'react'
 import renderIf from 'render-if'
-import { Row } from './commonFunctions'
+
+export const Row = ({ value }) => (
+  <div style={{ fontSize: '12px', lineHeight: '10px', margin: '0px', paddingTop: '5px' }}>
+    <span>{value}</span>
+  </div>
+)
 
 const pickupTypeDesc = code =>
   ({
