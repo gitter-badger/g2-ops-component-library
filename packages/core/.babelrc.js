@@ -11,7 +11,8 @@ module.exports = {
   
     "presets": [
       ["@babel/preset-stage-0", {
-        "decoratorsLegacy": true
+        "decoratorsLegacy": true,
+        "pipelineProposal": "minimal",
       }],
       "@babel/preset-env",
       "@babel/preset-flow",

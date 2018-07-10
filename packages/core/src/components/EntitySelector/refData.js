@@ -4,7 +4,7 @@ export default {
     '772': {
       lot_site_id: 772,
       lot_site_uid: 10000361,
-      lot_site_type_cd: 'P',
+      lot_site_type_cd: 'P',   
       oper_cntry_cd: 'DEU',
       vendor_id: null,
       is_commercial_flg: true,

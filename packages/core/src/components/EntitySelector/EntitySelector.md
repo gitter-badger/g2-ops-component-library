@@ -3,6 +3,7 @@ Entity Selector Example:
 ```js
 const pickupLocations = require('./refData').default;
 const { IconButton } = require('../Button');
+const PickupPrimaryText = require('./PickupPrimaryText').default;
 const locationOptions = pickupLocations.ids;
 const locationDescriptions = pickupLocations.entities;
 
@@ -11,18 +12,18 @@ initialState = { value: '', disabled: false };
 <div style={{ maxWidth: '500px', height: '250px' }}>
   <EntitySelector
     name="Location"
-    options={locationOptions}
+    dataSource={pickupLocations}
     value={state.value}
     label="Location"
     labelPosition="left"
     required
     disabled={state.disabled}
+    displaySelectedOption={(e) => locationDescriptions[e] && `${locationDescriptions[e].lot_site_nm}`}
+    menuItemBuilder={(e) => e && <PickupPrimaryText {...e} />}
     onChange={(value) => {
       const newVal = typeof value === 'object' ? value.code : value
       setState({ value: newVal })}
       }
-    typeOfSelector="pickupLocation"
-    pickupLocations={pickupLocations}
     onRenderEntityAction={() => !state.disabled ? (
       <IconButton 
         style={{  marginTop: '-8px' }}
