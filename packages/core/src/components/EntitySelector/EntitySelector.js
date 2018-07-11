@@ -1,11 +1,18 @@
 import React, { Component } from 'react'
 import {AutoSelect} from 'components/AutoSelect'
 import { IconButton } from 'components/Button'
-import { pickAll, prop, pick, values, curry, any, __, compose } from 'ramda'
+import { pickAll, prop, pick, values, curry, any, __, compose, pickBy } from 'ramda'
 import renderIf from 'render-if'
 
 
 const getIndex = (o) => typeof o === "object" ? o.code : o
+
+const startsWithIgnoringCase = (val1, val2) =>
+  String(val1)
+    .toUpperCase()
+    .startsWith(String(val2).toUpperCase())
+
+const curriedStartsWith = curry(startsWithIgnoringCase)
 
 type EntitySelectorPropTypes = {
   labelPosition: string,
@@ -26,14 +33,11 @@ const EntitySelectorDefaultProps = {
     ids: [],
     entities: {}
   },
+  searchKeys: []
 }
 
 export class EntitySelector extends Component<EntitySelectorPropTypes> {
   static defaultProps = EntitySelectorDefaultProps
-
-  state = {
-    typeOfSelector: this.props.typeOfSelector,
-  }
 
   getOptions = () => {
     const { menuItemBuilder, dataSource } = this.props
@@ -41,9 +45,26 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
     return (
       options.map((option) => ({
         code: option,
-        description: menuItemBuilder && menuItemBuilder(entities[option])
+        description: (menuItemBuilder ? menuItemBuilder(entities[option]) : option),
+        entityValue: entities[option]
       }))
     ) 
+  }
+
+  searchThroughOptions = ({ options, displayOption, value }) => {
+    const { searchKeys } = this.props
+    const pickedValues = compose(values, pick(searchKeys))
+    const getDisplayProps = (option) => ((option && displayOption(option) && displayOption(option).props)
+      ? displayOption(option).props : {})
+    const stringifiedValue = String(value).trim()
+    const valueToCheck = displayOption(value) || value
+    const checkIfPresent = any(curriedStartsWith(__, valueToCheck))
+    return (
+      options.find(
+        (o) =>
+          stringifiedValue &&
+          checkIfPresent(pickedValues(getDisplayProps(o))))
+    )
   }
 
   render() {
@@ -81,13 +102,13 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
               serializeOption={(o) => o.code}
               displayOption={(o) => o.description}
               optionStyleProps={{ rowHeight: 130, optionsMinHeight: 200 }}
-              searchThroughOptions={() => {/* TODO: Implement filtering of options here */}}
+              searchThroughOptions={this.searchThroughOptions}
               title={value}
               onRenderSuffix={onRenderSuffix}
             />
           </span>
           <span style={{ width: '10%' }}>
-            {onRenderEntityAction()}
+            {onRenderEntityAction && onRenderEntityAction()}
           </span>
         </div>
         {entityInformation}
