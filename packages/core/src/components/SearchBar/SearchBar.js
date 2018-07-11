@@ -55,10 +55,12 @@ class SearchBar extends PureComponent<SearchBarPropType, SearchBarStateType> {
   handleSearchTextChange = (text: string) => {
     this.setState({
       searchText: text
+    }, () => {
+      if(this.props.onSearchTextChange){
+        this.props.onSearchTextChange(text)
+      }
     })
-    if(this.props.onSearchTextChange){
-      this.props.onSearchTextChange(text)
-    }
+
   }
   handleMenuChange = (event: SyntheticMouseEvent<HTMLInputElement>, item: SearchType) => {
     this.setState({
