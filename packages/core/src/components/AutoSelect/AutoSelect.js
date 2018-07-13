@@ -173,7 +173,7 @@ export class AutoSelect extends PureComponent<PropsT> {
         if (options && options.length === 1) {
           selectedOption = options[0]
         }
-        const isOptionSelectable = selectedOption.hasOwnProperty('isSelectable') ? selectedOption.isSelectable : true
+        const isOptionSelectable = (selectedOption && selectedOption.hasOwnProperty('isSelectable')) ? selectedOption.isSelectable : true
         if (active && selectedOption && isOptionSelectable) {
           e.stopPropagation()
           e.preventDefault()

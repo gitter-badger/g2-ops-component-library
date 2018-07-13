@@ -1,10 +1,46 @@
-export default {
+export const pickupLocations1 = {
+  ids: [ 772, 776, 778 ],
+  entities: {
+    '772': {
+      lot_site_id: 772,
+      lot_site_nm: 'CopartDE Location',
+      addr_line1: 'Test PIV Location',
+      city: 'Calle Aduana',
+      state_cd: 'M',
+      cntry_cd: 'DEU',
+      postal_cd: '28170',
+      phone_num: '494691679090',
+    },
+    '776': {
+      lot_site_id: 776,
+      lot_site_nm: 'PLANCHA Y PINTURA J. VILLAGRASA',
+      addr_line1: 'Isaac Peral,4',
+      city: 'CANOVELLES',
+      state_cd: 'B',
+      cntry_cd: 'ESP',
+      postal_cd: '08420',
+      phone_num: '34938400702',
+    },
+    '778': {
+      lot_site_id: 778,
+      lot_site_nm: 'COMAU S.A.',
+      addr_line1: 'AV JUAN CARLOS I 53',
+      city: 'VELEZ-MALAGA',
+      state_cd: 'MA',
+      cntry_cd: 'ESP',
+      postal_cd: '29700',
+      phone_num: '34952505200',
+    }
+  }
+}
+
+export const pickupLocations2 = {
   ids: [ 772, 776, 778, 779, 780, 781, 783, 788, 789, 790, 791, 792, 793 ],
   entities: {
     '772': {
       lot_site_id: 772,
       lot_site_uid: 10000361,
-      lot_site_type_cd: 'P',
+      lot_site_type_cd: 'P',   
       oper_cntry_cd: 'DEU',
       vendor_id: null,
       is_commercial_flg: true,
