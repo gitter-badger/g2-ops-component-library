@@ -67,7 +67,7 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
           renderSearch(
             <div className="SearchFilterValues">
               <TextField
-                onChanged={(textFieldValue) => textFieldValue && this.onFilterValueSearched(textFieldValue)}
+                onChanged={(textFieldValue) => this.onFilterValueSearched(textFieldValue)}
                 placeholder='Search'
               />
             </div>
