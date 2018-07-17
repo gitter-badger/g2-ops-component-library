@@ -2,6 +2,8 @@
 
 import type { FilterValueType } from 'types/Filter'
 import React, { Component } from 'react'
+import renderIf from 'render-if'
+import { TextField } from 'components/TextField'
 import { FilterValue } from './FilterValue'
 import './FilterValueList.scss'
 
@@ -20,11 +22,13 @@ type FilterValueListStateType = {
 export class FilterValueList extends Component<FilterValueListPropType, FilterValueListStateType> {
   state = {
     selectedFilterLabels: [],
+    filterOptions: {},
   }
 
   componentWillMount() {
-    const { selectedFilterLabels } = this.props
+    const { selectedFilterLabels, filterOptions } = this.props
     this.setState(() => ({ selectedFilterLabels: selectedFilterLabels }))
+    this.setState(() => ({ filterOptions: filterOptions }))
   }
 
   componentWillReceiveProps(nextProps: FilterValueListPropType) {
@@ -48,13 +52,28 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
     }
   }
 
+  onFilterValueSearched = (textFieldValue) => {
+    const filteredOptions = this.props.filterOptions
+    this.setState(() => ({ filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
+  }
+
   render() {
-    const { filterOptions } = this.props
     let filterOption
+    const renderSearch = renderIf(this.props.filterOptions.length > 5)
 
     return (
       <div className="FilterValueList">
-        <For each="filterOption" of={filterOptions} index="index">
+        {
+          renderSearch(
+            <div className="SearchFilterValues">
+              <TextField
+                onChanged={(textFieldValue) => this.onFilterValueSearched(textFieldValue)}
+                placeholder='Search'
+              />
+            </div>
+          )
+        }
+        <For each="filterOption" of={this.state.filterOptions} index="index">
           <FilterValue filterOption={filterOption} onFilterValueChecked={this.onFilterValueChecked} />
         </For>
       </div>
