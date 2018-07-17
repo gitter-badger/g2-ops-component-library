@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { ChoiceGroup as FabricChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react/lib/ChoiceGroup'
+import { ChoiceGroup as FabricChoiceGroup } from 'office-ui-fabric-react/lib/ChoiceGroup'
 
 const ChoiceGroup = ({ 
     selected, 
