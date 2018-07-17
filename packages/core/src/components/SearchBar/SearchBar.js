@@ -34,6 +34,8 @@ type SearchBarPropType = {
   showCheckbox: boolean,
   /** Callback triggered when the search type changes */
   onSearchTypeChange?: SearchType => any,
+  /** Callback invoked when the search text changes */
+  onSearchTextChange?: string => any,
   /* light or dark */
   themeVariant: 'light'| 'dark',
 }
@@ -50,7 +52,16 @@ class SearchBar extends PureComponent<SearchBarPropType, SearchBarStateType> {
     searchText: this.props.searchText || '',
     allFacilitiesChecked: null,
   }
+  handleSearchTextChange = (text: string) => {
+    this.setState({
+      searchText: text
+    }, () => {
+      if(this.props.onSearchTextChange){
+        this.props.onSearchTextChange(text)
+      }
+    })
 
+  }
   handleMenuChange = (event: SyntheticMouseEvent<HTMLInputElement>, item: SearchType) => {
     this.setState({
       searchType: item,
@@ -59,6 +70,7 @@ class SearchBar extends PureComponent<SearchBarPropType, SearchBarStateType> {
       this.props.onSearchTypeChange(item)
     }
   }
+
   handleSearchIconClick = () => {
     const { searchType, searchText, allFacilitiesChecked} = this.state
     this.props.handleSearch({searchType, searchText, allFacilitiesChecked})
@@ -105,6 +117,7 @@ class SearchBar extends PureComponent<SearchBarPropType, SearchBarStateType> {
           onRenderPrefix={this.renderSearchBarMenu}
           onRenderSuffix={this.renderSearchIcon}
           value={searchText}
+          onChanged={this.handleSearchTextChange}
         />
         {renderAllFacilitiesCheckbox(
           <Checkbox
