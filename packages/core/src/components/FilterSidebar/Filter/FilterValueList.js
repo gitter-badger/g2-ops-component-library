@@ -54,7 +54,7 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
 
   onFilterValueSearched = (textFieldValue) => {
     const filteredOptions = this.props.filterOptions
-    this.setState(() => ({ filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue)) }))
+    this.setState(() => ({ filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
   }
 
   render() {
@@ -65,9 +65,9 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
       <div className="FilterValueList">
         {
           renderSearch(
-            <div style={{ padding: '0px 12px 5px 3px' }}>
+            <div className="SearchFilterValues">
               <TextField
-                onChanged={(textFieldValue) => this.onFilterValueSearched(textFieldValue)}
+                onChanged={(textFieldValue) => textFieldValue && this.onFilterValueSearched(textFieldValue)}
                 placeholder='Search'
               />
             </div>
