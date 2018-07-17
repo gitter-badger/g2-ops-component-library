@@ -1,7 +1,7 @@
 import * as React from 'react'
 import { ChoiceGroup as FabricChoiceGroup } from 'office-ui-fabric-react/lib/ChoiceGroup'
 
-const ChoiceGroup = ({ 
+export const ChoiceGroup = ({ 
     selected, 
     defaultSelected, 
     options, 
@@ -20,4 +20,3 @@ const ChoiceGroup = ({
   /> 
 )
 
-export default ChoiceGroup
