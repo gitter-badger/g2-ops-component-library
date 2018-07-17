@@ -1,0 +1,23 @@
+import * as React from 'react'
+import { ChoiceGroup as FabricChoiceGroup, IChoiceGroupOption } from 'office-ui-fabric-react/lib/ChoiceGroup'
+
+const ChoiceGroup = ({ 
+    selected, 
+    defaultSelected, 
+    options, 
+    onChange, 
+    label, 
+    styles,
+    ...otherProps 
+}) => (
+  <FabricChoiceGroup
+    defaultSelectedKey={selected || defaultSelected}
+    options={options}
+    onChange={onChange}
+    label={label}
+    styles={styles}
+    {...otherProps}
+  /> 
+)
+
+export default ChoiceGroup
