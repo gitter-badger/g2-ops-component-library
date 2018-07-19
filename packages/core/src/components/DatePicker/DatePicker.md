@@ -31,7 +31,6 @@ initialState = {
       .toDate()}
     defaultFormat={defaultFormat}
     formatDate={date => moment(date, defaultFormat).format(defaultFormat)}
-    style={state.disabled ? { border: '1px solid #a6a6a6' } : { border: 'none' }}
     disabled={state.disabled}
   />
 </div>

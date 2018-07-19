@@ -8,4 +8,11 @@
 
 .ms-TextField-suffix {
   background: inherit!important;
+  border: 1px solid #a6a6a6;
+  border-left: 0;
+}
+
+.disabledDatePickerInput {
+  border: 1px solid #a6a6a6!important;
+  border-right: 0!important;
 }

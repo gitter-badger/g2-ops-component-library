@@ -239,13 +239,14 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     const formatDate = formatDateProp || this.formatDate
     const renderDateIcon = renderIf(disabled === false)
     return (
-      <div className={`DatePicker ${className}`} style={style}>
+      <div className={className}>
         <TextField
           {...other}
           errorMessage={this.state.errorMessage}
           value={this.state.displayDate}
           disabled={disabled}
           onChanged={this.handleTextFieldChange}
+          inputClassName={disabled ? 'disabledDatePickerInput' : ''}
           onRenderSuffix={() =>
             renderDateIcon(
               <IconButton style={{ margin: '-15px' }} onClick={this.handleClick}>
