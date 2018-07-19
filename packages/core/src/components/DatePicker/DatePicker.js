@@ -228,7 +228,6 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       mode,
       okLabel,
       onDismiss,
-      onFocus, // eslint-disable-line no-unused-vars
       onShow,
       onClick,
       shouldDisableDate,
