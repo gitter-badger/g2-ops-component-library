@@ -48,7 +48,7 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
         description: (menuItemBuilder ? menuItemBuilder(entities[option]) : option),
         entityValue: entities[option]
       }))
-    ) 
+    )
   }
 
   searchThroughOptions = ({ options, displayOption, value }) => {
@@ -68,18 +68,18 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
   }
 
   render() {
-    const { 
+    const {
       labelPosition,
       label,
-      required, 
-      onRenderSuffix, 
-      onRenderEntityAction, 
-      dataSource, 
+      required,
+      onRenderSuffix,
+      onRenderEntityAction,
+      dataSource,
       displaySelectedOption,
       optionStyle,
       value,
       entityInformation,
-      ...otherProps 
+      ...otherProps
     } = this.props
     const { ids: options, entities } = dataSource
     const labelText = required ? `${label}*:` : `${label}:`
@@ -89,11 +89,11 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
       <div>
         <div style={{ display: 'flex' }}>
           {renderIfLabelOnLeft(
-            <span style={{ width: '20%', marginTop: '10px', color: '#1d5ab9', fontSize: '13px' }}>
+            <span style={{ flexBasis: '20%', marginTop: '10px', color: '#1d5ab9', fontSize: '13px' }}>
               {labelText}
             </span>
           )}
-          <span style={{ width: '70%' }}>
+          <span style={{ flexGrow: 1 }}>
             <AutoSelect
               {...otherProps}
               value={value}
@@ -107,9 +107,11 @@ export class EntitySelector extends Component<EntitySelectorPropTypes> {
               onRenderSuffix={onRenderSuffix}
             />
           </span>
-          <span style={{ width: '10%' }}>
-            {onRenderEntityAction && onRenderEntityAction()}
-          </span>
+          {onRenderEntityAction &&
+            <span style={{ flexBasis: '10%' }}>
+              {onRenderEntityAction()}
+            </span>
+          }
         </div>
         {entityInformation}
       </div>
