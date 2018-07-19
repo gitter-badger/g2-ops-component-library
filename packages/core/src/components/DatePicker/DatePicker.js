@@ -54,7 +54,6 @@ type DatePickerState = {
   dialogDate: Date | null,
   showCustomError: ?boolean,
   errorMessage: ?string,
-  style: Object,
 }
 
 class DatePicker extends Component<DatePickerProps, DatePickerState> {
@@ -79,7 +78,6 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     dialogDate: null,
     showCustomError: this.props.showCustomError,
     errorMessage: this.getInitalErrorMessage(this.props.showCustomError, this.props.errorMessage),
-    style: {},
   }
 
   componentWillMount() {
