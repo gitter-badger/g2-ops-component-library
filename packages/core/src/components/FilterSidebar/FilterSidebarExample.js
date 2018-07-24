@@ -28,14 +28,13 @@ class ComponentExample extends Component<Object, Object> {
   }
   handleFilterChange = (selectedValues: Array<number|string>, filterName: string) => {
     const { filtersState } = this.state
-    console.log('on filter change ',selectedValues,filterName, filtersState)
+    console.log('on filter change ',selectedValues, filterName)
     const updatedValue = compose(adjust(evolve({
-   selectedValues: always(selectedValues),
+  selectedValues: always(selectedValues),
    filterOptions:(filteredValues) =>
    map((filteredValueElem) => selectedValues.includes(filteredValueElem.name)? assoc('isSelected',true)(filteredValueElem) : assoc('isSelected',false)(filteredValueElem)
      ,filteredValues)
- })
-, __,filtersState),findIndex(propEq('name', filterName)))(filtersState)
+ }), __,filtersState),findIndex(propEq('name', filterName)))(filtersState)
 console.log(updatedValue,'Updated')
   this.setState({
     filtersState: updatedValue
@@ -51,7 +50,7 @@ console.log(updatedValue,'Updated')
         quickFilters={quickLinks}
         selectedQuickFilter={"dispatch"}
         height={'450px'}
-        width={'350px'}
+        width={'300px'}
       />
     )
   }
