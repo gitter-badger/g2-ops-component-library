@@ -38,6 +38,7 @@ class SnackBar extends PureComponent<ButtonPropType, ButtonStateType> {
       message,
       showOKButton,
       showSnackBar,
+      anchorOrigin,
     } = this.props
 
     return (
@@ -46,6 +47,7 @@ class SnackBar extends PureComponent<ButtonPropType, ButtonStateType> {
         message={message}
         autoHideDuration={4000}
         action={showOKButton ? 'OK' : null}
+        anchorOrigin={anchorOrigin}
         onActionClick={this.handleRequestClose}
         onRequestClose={this.handleRequestClose}
         style={{ bottom: 5 }}
