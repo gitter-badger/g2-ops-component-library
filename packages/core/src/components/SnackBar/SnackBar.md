@@ -1,6 +1,12 @@
 Copart SnackBar Example:
 ```js
-  initialState = { showSnackBar: false };
+  initialState = {
+    showSnackBar: false,
+    anchorOrigin: {
+      vertical: 'bottom',
+      horizontal: 'center',
+    }
+  };
 
   <div>
     <span style={{ margin: '10px' }}>
@@ -13,6 +19,7 @@ Copart SnackBar Example:
     {state.showSnackBar && (
       <SnackBar
         isError
+        anchorOrigin={state.anchorOrigin}
         message="Oops, something went wrong here."
         showSnackBar={state.showSnackBar}
         showOKButton
