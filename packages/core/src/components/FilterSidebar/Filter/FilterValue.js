@@ -3,7 +3,7 @@
 import type { FilterValueType } from 'types/Filter'
 
 import React from 'react'
-import Checkbox from 'material-ui/Checkbox'
+import { Checkbox } from '../../Checkbox'
 import './FilterValue.scss'
 
 type FilterValuePropType = {
@@ -14,13 +14,16 @@ type FilterValuePropType = {
 export const FilterValue = ({ filterOption, onFilterValueChecked }: FilterValuePropType) => (
   <div className="FilterValue">
     <div className="filterActionContainer">
-      <div className="checkBox">
-        <Checkbox
-          onCheck={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.label)}
-          checked={filterOption.isSelected}
-        />
+      <div className="filterActionGroup">
+        <div className="checkBox">
+          <Checkbox
+            handleChange={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.label)}
+            isChecked={filterOption.isSelected}
+          />
+        </div>
+        <div className="label">{filterOption.label} </div>
       </div>
-      <div className="label">{`${filterOption.label} (${filterOption.count})`}</div>
+      <div className="count">{filterOption.count && `(${filterOption.count})`}</div>
     </div>
   </div>
 )

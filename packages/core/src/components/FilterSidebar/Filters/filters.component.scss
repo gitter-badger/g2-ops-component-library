@@ -2,25 +2,27 @@
   display: flex;
   flex-direction: column;
   height: 100%;
-  background-color: #d0dae5;
+  background-color: #fff;
+  box-shadow: 0 1px 3px -1px rgba(0,0,0,.4);
   width: 250px;
   .sectionHeading {
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
-    background-color: #aebecd;
+    background-color: #1d5ab9;
     color: black;
     font-weight: bold;
     height: 50px;
     padding: 0px 10px;
     .label {
-      color: black;
-      font-weight: 600;
+      color: #fff;
+      font-weight: 500;
     }
     .clearFilters {
       .clearButton {
-        background-color: black;
+        background-color: #114391;
+        border-color: #114391;
         color: white;
         height: 25px;
         width: 50px;
