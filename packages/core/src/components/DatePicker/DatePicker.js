@@ -54,7 +54,6 @@ type DatePickerState = {
   dialogDate: Date | null,
   showCustomError: ?boolean,
   errorMessage: ?string,
-  style: Object,
 }
 
 class DatePicker extends Component<DatePickerProps, DatePickerState> {
@@ -79,17 +78,14 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     dialogDate: null,
     showCustomError: this.props.showCustomError,
     errorMessage: this.getInitalErrorMessage(this.props.showCustomError, this.props.errorMessage),
-    style: {},
   }
 
   componentWillMount() {
     const { defaultDate, defaultFormat } = this.props
-    const { prepareStyles } = this.context.muiTheme
     const dateValue = this.isControlled() ? this.getControlledDate() : defaultDate
     this.setState({
       date: dateValue,
       displayDate: dateValue ? moment(dateValue).format(defaultFormat) : '',
-      style: prepareStyles(this.props.style),
     })
   }
 
@@ -240,13 +236,14 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     const formatDate = formatDateProp || this.formatDate
     const renderDateIcon = renderIf(disabled === false)
     return (
-      <div className={`DatePicker ${className}`} style={this.state.style}>
+      <div className={className}>
         <TextField
           {...other}
           errorMessage={this.state.errorMessage}
           value={this.state.displayDate}
           disabled={disabled}
           onChanged={this.handleTextFieldChange}
+          inputClassName={disabled ? 'disabledDatePickerInput' : ''}
           onRenderSuffix={() =>
             renderDateIcon(
               <IconButton style={{ margin: '-15px' }} onClick={this.handleClick}>
