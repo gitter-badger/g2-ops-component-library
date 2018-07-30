@@ -1,6 +1,6 @@
 {
   "name": "@copart/core-components",
-  "version": "0.2.7",
+  "version": "0.31.1",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
