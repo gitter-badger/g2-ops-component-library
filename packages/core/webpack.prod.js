@@ -1,6 +1,5 @@
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
-const MiniCssExtractPlugin = require("mini-css-extract-plugin")
 const path = require('path')
 const webpack = require('webpack')
 
@@ -41,11 +40,6 @@ module.exports = {
         BABEL_ENV: JSON.stringify('production'),
       },
     }),
-
-    new MiniCssExtractPlugin({
-        filename: "[name].css",
-        chunkFilename: "[id].css"
-      })
   ],
 
   module: {
@@ -58,7 +52,9 @@ module.exports = {
 			{
         test: /\.(pcss)$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: 'style-loader'
+          },
 					{
 						loader: 'css-loader',
 						options: {
@@ -71,14 +67,16 @@ module.exports = {
             loader: 'postcss-loader',
           },
           {
-            loader: 'sass-loader', // compiles Sass to CSS
+            loader: 'sass-loader',
           },
         ],
       },
       {
         test: /\.(css|scss)$/,
         use: [
-          MiniCssExtractPlugin.loader,
+          {
+            loader: 'style-loader'
+          },
 					{
 						loader: 'css-loader'
 					},
