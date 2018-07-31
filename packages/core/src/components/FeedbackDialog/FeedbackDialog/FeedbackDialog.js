@@ -16,7 +16,9 @@ import {
 	EMAIL_CHECKBOX_STYLES,
 	SUBJECT_HEADER,
 	OPTION_STYLES,
-	PADDING_5PX_0
+	PADDING_5PX_0,
+	PROCESS_OPTIONS,
+	ISSUE_TYPE_OPTIONS
 } from '../consts'
 import { FAQText } from '../FAQText'
 
@@ -33,14 +35,15 @@ const DialogTitle = (props) => {
     <span styleName="dialogTitle"><i className="material-icons">feedback</i>Please provide us your feedback.</span>
   )
 }
+
 type PropsT = {
-  userEmail: string,
+  userEmail?: string,
   afterSendFeedback(): any,
-  selectedYard: string | number,
-  homeYard: string | number,
-  selectedRole: string,
-  countryCode: string,
-  language: string,
+  selectedYard?: string | number,
+  homeYard?: string | number,
+  selectedRole?: string,
+  countryCode?: string,
+  language?: string,
   feedbackIssueTypeValues: [],
   feedbackProcessValues: []
 }
@@ -53,45 +56,6 @@ const initialState = {
 	selectedissueType: "",
 	selectedprocess: ""
 }
-
-// TODO: Move to utilities.
-const sortOptions = (a, b) => {
-  return a.value < b.value
-    ? -1
-    : 1
-}
-
-// TODO: Move to consts somewhere.
-// TODO: Manually re-format these thangs.
-const processOptions = [
-  { key: 'ABC', value: 'ABC (Auction Board Control)' },
-  { key: 'CFR', value: 'Call For Release' },
-  { key: 'CASBO', value: 'CAS Back Office Support' },
-  { key: 'VWT', value: 'Compliance Management' },
-  { key: 'DISPATCH', value: 'Dispatch' },
-  { key: 'DTLE', value: 'DLTE' },
-  { key: 'EMPLOYEE', value: 'Employee' },
-  { key: 'LOTREVIEW', value: 'Lot Maintenance' },
-  { key: 'LOTSEARCH', value: 'Lot Search' },
-  { key: 'MEMBER', value: 'Member' },
-  { key: 'MBP', value: 'Member Payments' },
-  { key: 'MIHUB', value: 'MiHub' },
-  { key: 'PRICING', value: 'Pricing' },
-  { key: 'PROQUOTE', value: 'Pro Quote' },
-  { key: 'TITLEPORTAL', value: 'Title Portal' },
-  { key: 'VENDOR', value: 'Vendor' },
-  { key: 'QUICKLOOKS', value: 'QuickLooks' }
-].sort(sortOptions)
-
-const issueTypeOptions = [
-  { key: 'ACCESS', value: 'Access/Permissions' },
-  { key: 'BUG', value: 'Bug/Problem' },
-  { key: 'CAS GAP', value: 'CAS Gap/Missing Functionality' },
-  { key: 'COMMENT', value: 'Comment' },  
-  { key: 'ENHANCEMENT', value: 'Enhancement/Improvements' },
-  { key: 'QUESTION', value: 'Question' },
-  { key: 'OTHER', value: 'Other' },
-].sort(sortOptions)
 
 export class FeedbackDialog extends React.PureComponent<PropsT> {
   state = { ...initialState }
@@ -122,8 +86,8 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
 
 	getDisplayOption = (whichFeedbackValues) => which => {
     const options = whichFeedbackValues[0] === 'i'
-      ? issueTypeOptions
-      : processOptions
+      ? ISSUE_TYPE_OPTIONS
+      : PROCESS_OPTIONS
 
 		return options.find(x => which.key === x.key).value
 	}
@@ -149,17 +113,9 @@ export class FeedbackDialog extends React.PureComponent<PropsT> {
     this.setState(state => (initialState))
 	}
 	
-	
 	sendFeedback = async (feedback) => {
-		// TODO: Handle this request here.
-		// const response = await xhr.post('/feedback', feedback, {
-    //   headers: { 'Content-Type': 'application/json charset=UTF-8' },
-    //   responseType: 'json',
-		// })
-
 		this.props.afterSendFeedback(feedback)
 	}
-
 
   toggleIncludeEmail = event => {
     this.setState(state => ({
@@ -242,7 +198,7 @@ const EmailInput = ({ self }) => {
 				type="email"
 				disabled={!!self.props.userEmail}
 				fullWidth
-				value={self.props.userEmail || ''}
+				value={self.props.userEmail}
 			/>
 		</div>
 	)
@@ -255,7 +211,7 @@ const AutoSelects = ({ self }) => {
 			<AutoSelect
 				styleName="autoSelect"
 				name="IssueType"
-				options={issueTypeOptions}
+				options={ISSUE_TYPE_OPTIONS}
 				width={200}
 				label="Issue Type"
 				selectedOption="2"
@@ -273,7 +229,7 @@ const AutoSelects = ({ self }) => {
 					name="Process"
 					label="Process"
 					placeholder="Process"
-					options={processOptions}
+					options={PROCESS_OPTIONS}
 					selectedOption="2"
           required
 					value={self.state.selectedprocess}
@@ -284,4 +240,15 @@ const AutoSelects = ({ self }) => {
 			</If>
 		</div>
 	)
+}
+
+FeedbackDialog.defaultProps = {
+	userEmail: '',
+	selectedYard: '',
+	homeYard: '',
+	selectedRole: '',
+	countryCode: '',
+	language: '',
+	feedbackIssueTypeValues: [],
+	feedbackProcessValues: []
 }

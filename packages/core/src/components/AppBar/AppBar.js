@@ -30,23 +30,6 @@ const allTruthy = (conditions: Function[]): Boolean => {
   return true
 }
 
-// TODO: Test
-// TODO: Move into utilities file.
-const checkFeedbackProps = (props) => {
-  const propsPassTypeCheck = allTruthy([
-    () => ['String'].includes(getType (props.userEmail)),
-    () => ['Function'].includes(getType (props.afterSendFeedback)),
-    () => ['String', 'Number'].includes(getType (props.selectedYard)),
-    () => ['String', 'Number'].includes(getType (props.homeYard)),
-    () => ['String'].includes(getType (props.selectedRole)),
-    () => ['String'].includes(getType (props.countryCode)),
-    () => ['String'].includes(getType (props.language))
-  ])
-
-  // TODO: Handle warnings/errors for non-passing prop type check.
-  return propsPassTypeCheck
-}
-
 type AppBarPropTypes = {
   userEmail: string,
   selectedYard: string | number,
@@ -141,7 +124,8 @@ const renderAppBarElements = (props) => {
           <LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
         </If>
       </div>
-      <If condition={checkFeedbackProps(props)}>
+      <If condition={['Function'].includes(getType(props.afterSendFeedback))}>
+        {/* Button + Dialog -> Won't show if afterSendFeedback is not present. */}
         <FeedbackDialog {...props} />
       </If>
     </div>
@@ -203,6 +187,7 @@ AppBar.defaultProps = {
     <Flag countryCode={countryCode} type={type} />
   ),
   onRenderLogo: (): Node => <img className="logo" src="./public/assets/images/logo.svg" alt="Copart" />,
+  config: ['flag', 'role', 'yard']
 }
 
 const wrappedAppBar = wrapMuiContext(AppBar)
