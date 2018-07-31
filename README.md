@@ -32,10 +32,10 @@ $ yarn
 
 ### Scripts
 
-* `yarn` to install dependencies
-* `yarn start` to run the style guide
-* `yarn test` to run tests
-* `yarn styleguide:build` to build a static version of the styleguide for deployment
+- `yarn` to install dependencies
+- `yarn start` to run the style guide
+- `yarn test` to run tests
+- `yarn styleguide:build` to build a static version of the styleguide for deployment
 
 ### Tests
 
@@ -50,3 +50,9 @@ To deploy follow the instructions on [Deploy.md](https://github.com/copartit/g2-
 ## Contributing
 
 Contributions are welcome. Please create Pull Requests for enhancements, bug fixes.
+
+## Todo
+
+- Remove `stage-2` and below Babel plugins/presets.
+- Create `localhost.copart.com/styleguide` proxy.
+- Set up `maid` scripts.
