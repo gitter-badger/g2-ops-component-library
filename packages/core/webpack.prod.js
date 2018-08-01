@@ -2,6 +2,7 @@ const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
 const HtmlWebpackPlugin = require('html-webpack-plugin')
 const path = require('path')
 const webpack = require('webpack')
+const pkg = require('./package.json')
 
 const resolve = (_path) => {
     return path.resolve(__dirname, _path)
@@ -29,9 +30,10 @@ module.exports = {
   },
 
   plugins: [
-    new webpack.DefinePlugin({
+    new webpack.EnvironmentPlugin({
       __DEVELOPMENT__: false,
       __DEVTOOLS__: false,
+      __VERSION__: pkg.version
     }),
 
     new webpack.DefinePlugin({
