@@ -35,6 +35,7 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
     if (nextProps.selectedFilterLabels !== this.props.selectedFilterValues) {
       this.setState(() => ({
         selectedFilterLabels: nextProps.selectedFilterLabels,
+        filterOptions: nextProps.filterOptions,
       }))
     }
   }

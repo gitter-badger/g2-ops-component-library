@@ -10,15 +10,21 @@ type FiltersPropType = {
   filters: Array<FilterType>,
   onFilterChange: (Array<string>, string) => void,
   onFiltersClear: () => void,
+  onFiltersApply: () => void,
   width: string,
+  showApply: boolean,
 }
 
-export const Filters = ({ filters = [], onFilterChange, onFiltersClear, width }: FiltersPropType) => (
+export const Filters = ({ filters = [], onFilterChange, onFiltersClear, onFiltersApply, width, showApply }: FiltersPropType) => (
   <div className="Filters" style={{ width }}>
     <div className="sectionHeading">
       <div className="label">Filters</div>
-      <div className="clearFilters">
-        <button onClick={onFiltersClear} className="clearButton">
+      <div className="filterButtons">
+        {showApply && 
+          <button onClick={onFiltersApply} className="filterButton">
+            Apply
+          </button>}
+        <button onClick={onFiltersClear} className="filterButton">
           Clear
         </button>
       </div>
