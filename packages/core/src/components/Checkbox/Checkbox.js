@@ -32,7 +32,7 @@ export const Checkbox = ({
 }: CheckboxPropTypes) => (
   <FabricCheckbox
     label={label}
-    checked={isChecked || checked || defaultChecked}
+    checked={!!(isChecked || checked || defaultChecked)}
     onChange={handleChange}
     styles={styles}
     onRenderLabel={labelRenderer}

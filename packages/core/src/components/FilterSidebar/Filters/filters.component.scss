@@ -19,8 +19,8 @@
       color: #fff;
       font-weight: 500;
     }
-    .clearFilters {
-      .clearButton {
+    .filterButtons {
+      .filterButton {
         background-color: #114391;
         border-color: #114391;
         color: white;
@@ -28,6 +28,7 @@
         width: 50px;
         border-radius: 11px;
         cursor: pointer;
+        margin: 0 5px;
       }
     }
   }

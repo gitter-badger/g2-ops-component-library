@@ -18,6 +18,8 @@ type FilterSidebarPropType = {
   onFilterChange: (Array<string>, string) => void,
   onFiltersClear: () => void,
   onQuickFiltersChange: (string) => void,
+  onFiltersApply: () => void,
+  showApply: boolean,
   children: Node,
   width: string,
   height: string,
@@ -49,6 +51,8 @@ class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateT
       onQuickFiltersChange,
       selectedQuickFilter,
       onFiltersClear,
+      onFiltersApply,
+      showApply,
       height,
       width,
     } = this.props
@@ -70,7 +74,8 @@ class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateT
         </div>
         <div className={`filters ${this.state.filterDrawerOpen ? 'open' : ''}`}>
           {renderIfFilterDrawerOpen(
-            <Filters width={width} filters={filters} onFilterChange={onFilterChange} onFiltersClear={onFiltersClear} />,
+            <Filters width={width} filters={filters} onFilterChange={onFilterChange} onFiltersClear={onFiltersClear}
+              showApply={showApply} onFiltersApply={onFiltersApply} />,
           )}
         </div>
       </div>
