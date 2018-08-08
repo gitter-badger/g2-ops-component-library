@@ -48,6 +48,7 @@ class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateT
       quickFilters,
       filters,
       onFilterChange,
+      onRangeFilterChange,
       onQuickFiltersChange,
       selectedQuickFilter,
       onFiltersClear,
@@ -74,8 +75,15 @@ class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateT
         </div>
         <div className={`filters ${this.state.filterDrawerOpen ? 'open' : ''}`}>
           {renderIfFilterDrawerOpen(
-            <Filters width={width} filters={filters} onFilterChange={onFilterChange} onFiltersClear={onFiltersClear}
-              showApply={showApply} onFiltersApply={onFiltersApply} />,
+            <Filters
+              width={width}
+              filters={filters}
+              onFilterChange={onFilterChange}
+              onRangeFilterChange={onRangeFilterChange}
+              onFiltersClear={onFiltersClear}
+              showApply={showApply}
+              onFiltersApply={onFiltersApply}
+            />,
           )}
         </div>
       </div>

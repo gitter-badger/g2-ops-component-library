@@ -11,6 +11,7 @@ import './FilterValue.scss'
 type FilterValuePropType = {
   filterOption: FilterValueType,
   onFilterValueChecked: (boolean, string) => void,
+  handleRangeFilterChange: Function,
   filterType: string,
 }
 type FilterValueStateType = {
@@ -21,8 +22,9 @@ class FilterValue extends React.Component<FilterValuePropType, FilterValueStateT
   state = {
     datePicker: '',
   }
+
   render() {
-    const { filterType, filterOption, onFilterValueChecked } = this.props
+    const { filterType, filterOption, onFilterValueChecked, handleRangeFilterChange } = this.props
     const { datePicker } = this.state
 
     return (
@@ -34,16 +36,15 @@ class FilterValue extends React.Component<FilterValuePropType, FilterValueStateT
               <div className="filterActionGroup">
                 <div className="checkBox">
                   <Checkbox
-                    handleChange={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.label)}
+                    handleChange={(e, isFilterSelected) => handleRangeFilterChange('checkbox', isFilterSelected, filterOption.label)}
                     isChecked={filterOption.isSelected}
                   />
                 </div>
                 <div className="dataPicker">
                   <DatePicker
                     hintText={'DD/MM/YYYY'}
-                    value={datePicker}
-                    onChange={(e, dateValue) => console.log(dateValue)}
-                    formatDate={date => moment(date, 'DD/MM/YYYY').format('DD/MM/YYYY')}
+                    value={filterOption.name}
+                    onChange={(e, dateValue) => handleRangeFilterChange('date', dateValue, filterOption.label)}
                   />
                 </div>
               </div>

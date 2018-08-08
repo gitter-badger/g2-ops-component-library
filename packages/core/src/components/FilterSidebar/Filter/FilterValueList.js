@@ -14,6 +14,7 @@ type FilterValueListPropType = {
   onFilterValueChange: (Array<string>, string) => void,
   name: string,
   type: string,
+  onRangeFilterChange: Function,
 }
 
 type FilterValueListStateType = {
@@ -56,13 +57,18 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
 
   onFilterValueSearched = (textFieldValue) => {
     const filteredOptions = this.props.filterOptions
-    this.setState(() => ({ filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
+    this.setState(() => ({filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
+  }
+
+  handleRangeFilterChange = (type: string, value: boolean | string, label: string) => {
+    const filteredOptions = this.props.filterOptions
+    this.props.onRangeFilterChange(filteredOptions, label)
   }
 
   render() {
     let filterOption
     const renderSearch = renderIf(this.props.filterOptions.length > 5)
-    const { type } = this.props
+    const { type, onRangeFilterChange } = this.props
 
     return (
       <div className="FilterValueList">
@@ -77,7 +83,12 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
           )
         }
         <For each="filterOption" of={this.state.filterOptions} index="index">
-          <FilterValue filterOption={filterOption} filterType={type} onFilterValueChecked={this.onFilterValueChecked} />
+          <FilterValue
+            filterOption={filterOption}
+            filterType={type}
+            onFilterValueChecked={this.onFilterValueChecked}
+            handleRangeFilterChange={this.handleRangeFilterChange}
+          />
         </For>
       </div>
     )
