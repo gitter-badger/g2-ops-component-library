@@ -9,7 +9,7 @@ import { QuickFilters } from 'components/FilterSidebar/QuickFilters'
 import { Filters } from 'components/FilterSidebar/Filters'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 import { FilterSwitcher } from './FilterSwitcher'
-import './FilterSidebar.scss'
+import './FilterSidebar.scss' 
 
 type FilterSidebarPropType = {
   selectedQuickFilter: string,

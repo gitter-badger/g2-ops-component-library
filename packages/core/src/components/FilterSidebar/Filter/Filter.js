@@ -33,6 +33,7 @@ export const Filter = ({
       <FilterValueList
         filterOptions={filter.filterOptions}
         name={filter.name}
+        type={filter.type}
         onFilterValueChange={onFilterChange}
         selectedFilterLabels={filter.selectedValues}
       />

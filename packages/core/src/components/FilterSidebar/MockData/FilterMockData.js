@@ -5,6 +5,27 @@ import AwaitingDriverAssignIcon from './AwaitingDriverAssign.Icon'
 
 export default [
   {
+    label: 'Date',
+    name: 'imageUploadedDate',
+    selectedValues: [ '10112017' ],
+    type: 'range',
+    dataType: 'date',
+    filterOptions: [
+      {
+        name: '10122017',
+        label: 'From',
+        count: 5,
+        isSelected: false,
+      },
+      {
+        name: '10112017',
+        label: 'To',
+        count: 1,
+        isSelected: true,
+      },
+    ],
+  },
+  {
     label: 'Buyer Number',
     name: 'buyerNumber',
     selectedValues: [ '323929' ],

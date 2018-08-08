@@ -4,7 +4,7 @@ import type { FilterValueType } from 'types/Filter'
 import React, { Component } from 'react'
 import renderIf from 'render-if'
 import { TextField } from 'components/TextField'
-import { FilterValue } from './FilterValue'
+import FilterValue from './FilterValue'
 import './FilterValueList.scss'
 
 type FilterValueListPropType = {
@@ -13,6 +13,7 @@ type FilterValueListPropType = {
   selectedFilterValues?: Array<string>,
   onFilterValueChange: (Array<string>, string) => void,
   name: string,
+  type: string,
 }
 
 type FilterValueListStateType = {
@@ -61,6 +62,7 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
   render() {
     let filterOption
     const renderSearch = renderIf(this.props.filterOptions.length > 5)
+    const { type } = this.props
 
     return (
       <div className="FilterValueList">
@@ -75,7 +77,7 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
           )
         }
         <For each="filterOption" of={this.state.filterOptions} index="index">
-          <FilterValue filterOption={filterOption} onFilterValueChecked={this.onFilterValueChecked} />
+          <FilterValue filterOption={filterOption} filterType={type} onFilterValueChecked={this.onFilterValueChecked} />
         </For>
       </div>
     )
