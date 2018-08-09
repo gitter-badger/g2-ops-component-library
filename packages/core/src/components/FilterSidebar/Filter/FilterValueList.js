@@ -80,7 +80,7 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
   render() {
     let filterOption
     const renderSearch = renderIf(this.props.filterOptions.length > 5)
-    const { type, onRangeFilterChange, name } = this.props
+    const { type, onRangeFilterChange } = this.props
 
     return (
       <div className="FilterValueList">

@@ -17,14 +17,14 @@ type FiltersPropType = {
 }
 
 export const Filters = ({
-  filters = [],
-  onFilterChange,
-  onRangeFilterChange,
-  onFiltersClear,
-  onFiltersApply,
-  width,
-  showApply }
-    :FiltersPropType
+    filters = [],
+    onFilterChange,
+    onRangeFilterChange,
+    onFiltersClear,
+    onFiltersApply,
+    width,
+    showApply,
+  }: FiltersPropType
   ) => (<div className="Filters" style={{ width }}>
     <div className="sectionHeading">
       <div className="label">Filters</div>

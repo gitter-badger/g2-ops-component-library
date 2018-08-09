@@ -15,9 +15,10 @@ const clearFilterData = compose(
     })
   )
 )
+
 class ComponentExample extends Component<Object, Object> {
   state = {
-    filtersState: filters
+    filtersState: filters,
   }
   handleFilterClear = () => {
     const { filtersState } = this.state
@@ -57,9 +58,7 @@ class ComponentExample extends Component<Object, Object> {
       filtersState: updatedValue
     })
   }
-  // const dateProps = {
-  //   defaultFormat: 'DD/MM/YYYY',
-  // }
+
 
   render() {
     return (
@@ -71,7 +70,6 @@ class ComponentExample extends Component<Object, Object> {
         onFiltersClear={this.handleFilterClear}
         quickFilters={quickLinks}
         selectedQuickFilter={"dispatch"}
-        // dateProps={dateProps}
         height={'450px'}
         width={'300px'}
       />
