@@ -5,6 +5,8 @@ import type { FilterValueType } from 'types/Filter'
 import React from 'react'
 import { DatePicker } from 'components/DatePicker'
 import moment from 'moment'
+import RangeFilterValue from './RangeFilterValue'
+import PartFilterValue from './PartFilterValue'
 import { Checkbox } from '../../Checkbox'
 import './FilterValue.scss'
 
@@ -31,35 +33,8 @@ class FilterValue extends React.Component<FilterValuePropType, FilterValueStateT
       <div className="FilterValue">
         <div className="filterActionContainer">
           {filterType === 'range'
-            ? (<div>
-              <div style={{ paddingLeft: '30px' }}>{filterOption.label}</div>
-              <div className="filterActionGroup">
-                <div className="checkBox">
-                  <Checkbox
-                    handleChange={(e, isFilterSelected) => handleRangeFilterChange('checkbox', isFilterSelected, filterOption.label)}
-                    isChecked={filterOption.isSelected}
-                  />
-                </div>
-                <div className="dataPicker">
-                  <DatePicker
-                    value={filterOption.name}
-                    onChange={(e, dateValue) => handleRangeFilterChange('date', dateValue, filterOption.label)}
-                  />
-                </div>
-              </div>
-            </div>
-            )
-            : (<div className="filterActionGroup">
-              <div className="checkBox">
-                <Checkbox
-                  handleChange={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.label)}
-                  isChecked={filterOption.isSelected}
-                />
-              </div>
-              <div className="label">{filterOption.label} </div>
-              <div className="count">{filterOption.count && `(${filterOption.count})`}</div>
-            </div>
-            )
+            ? <RangeFilterValue filterOption={filterOption} handleRangeFilterChange={handleRangeFilterChange} />
+            : <PartFilterValue filterOption={filterOption} onFilterValueChecked={onFilterValueChecked} />
           }
         </div>
       </div>
