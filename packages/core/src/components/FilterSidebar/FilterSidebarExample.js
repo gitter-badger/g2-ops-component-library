@@ -1,7 +1,7 @@
 // @flow
 import type { QuickFilterType, FilterType } from 'types/Filter'
 import type { Node } from 'react'
-import { assoc, compose, empty,findIndex, propEq,__, adjust,evolve, always,map } from 'ramda'
+import { assoc, compose, empty, findIndex, propEq,__, adjust, evolve, always, map, clone } from 'ramda'
 import React, { Component } from 'react'
 
 import { FilterSidebar } from './FilterSidebar'
@@ -51,9 +51,16 @@ class ComponentExample extends Component<Object, Object> {
   }
 
   handleRangeFilterChange = (filterOptions: any, filterName: string) => {
-    const updatedValue = filterOptions
-    this.setState({
-      filtersState: updatedValue
+    const { filtersState } = this.state
+    const updatedValue = filtersState.map((filter) => {
+      if (filter.name === filterName) {
+        const updatedFilter = clone(filter)
+        updatedFilter.filterOptions = filterOptions
+        console.log('Updated state', updatedFilter)
+        this.setState({
+          filtersState: updatedValue
+        })
+      }
     })
   }
   // const dateProps = {

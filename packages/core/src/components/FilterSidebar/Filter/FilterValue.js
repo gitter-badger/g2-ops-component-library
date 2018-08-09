@@ -43,7 +43,7 @@ class FilterValue extends React.Component<FilterValuePropType, FilterValueStateT
                 <div className="dataPicker">
                   <DatePicker
                     hintText={'DD/MM/YYYY'}
-                    value={filterOption.name}
+                    value={moment(filterOption.name, 'DD/MM/YYYY').format('DD/MM/YYYY')}
                     onChange={(e, dateValue) => handleRangeFilterChange('date', dateValue, filterOption.label)}
                   />
                 </div>

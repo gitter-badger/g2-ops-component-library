@@ -2,6 +2,7 @@
 
 import type { FilterValueType } from 'types/Filter'
 import React, { Component } from 'react'
+import { clone } from 'ramda'
 import renderIf from 'render-if'
 import { TextField } from 'components/TextField'
 import FilterValue from './FilterValue'
@@ -60,8 +61,19 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
     this.setState(() => ({filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
   }
 
-  handleRangeFilterChange = (type: string, value: boolean | string, label: string) => {
-    const filteredOptions = this.props.filterOptions
+  handleRangeFilterChange = (type: string, value: boolean|string, label: string) => {
+    const filteredOptions = this.props.filterOptions.map((filterOptionObject) => {
+      const filterOptionObjectCopy = clone(filterOptionObject)
+      if (filterOptionObject.label === label) {
+        if (type === 'checkbox') {
+          filterOptionObjectCopy.isSelected = value
+        } else if (type === 'date') {
+          filterOptionObjectCopy.name = value
+        }
+      }
+      return filterOptionObjectCopy
+    })
+    this.setState(() => ({ filterOptions: filteredOptions }))
     this.props.onRangeFilterChange(filteredOptions, label)
   }
 
