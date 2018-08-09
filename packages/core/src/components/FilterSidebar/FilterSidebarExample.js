@@ -50,17 +50,11 @@ class ComponentExample extends Component<Object, Object> {
     })
   }
 
-  handleRangeFilterChange = (filterOptions: any, filterName: string) => {
+  handleChangeInRangeFilter = (filterOptions: any, filterName: string) => {
     const { filtersState } = this.state
-    const updatedValue = filtersState.map((filter) => {
-      if (filter.name === filterName) {
-        const updatedFilter = clone(filter)
-        updatedFilter.filterOptions = filterOptions
-        console.log('Updated state', updatedFilter)
-        this.setState({
-          filtersState: updatedValue
-        })
-      }
+    const updatedValue = filtersState.map((filter) => (filter.name === filterName) ? assoc('filterOptions', filterOptions)(filter) : filter)
+    this.setState({
+      filtersState: updatedValue
     })
   }
   // const dateProps = {
@@ -72,7 +66,7 @@ class ComponentExample extends Component<Object, Object> {
       <FilterSidebar
         filters={this.state.filtersState}
         onFilterChange={this.handleFilterChange}
-        onRangeFilterChange={this.handleRangeFilterChange}
+        onRangeFilterChange={this.handleChangeInRangeFilter}
         onQuickFiltersChange={(obj) => { console.log('on quick filter change ', obj) }}
         onFiltersClear={this.handleFilterClear}
         quickFilters={quickLinks}

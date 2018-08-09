@@ -16,6 +16,7 @@ type FilterSidebarPropType = {
   quickFilters: Array<QuickFilterType>,
   filters: Array<FilterType>,
   onFilterChange: (Array<string>, string) => void,
+  onRangeFilterChange: Function,
   onFiltersClear: () => void,
   onQuickFiltersChange: (string) => void,
   onFiltersApply: () => void,

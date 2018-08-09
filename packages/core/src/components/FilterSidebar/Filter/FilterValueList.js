@@ -61,7 +61,7 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
     this.setState(() => ({filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
   }
 
-  handleRangeFilterChange = (type: string, value: boolean|string, label: string) => {
+  handleRangeFilterChange = (type: string, value: boolean|{}, label: string, filterName: string) => {
     const filteredOptions = this.props.filterOptions.map((filterOptionObject) => {
       const filterOptionObjectCopy = clone(filterOptionObject)
       if (filterOptionObject.label === label) {
@@ -74,13 +74,13 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
       return filterOptionObjectCopy
     })
     this.setState(() => ({ filterOptions: filteredOptions }))
-    this.props.onRangeFilterChange(filteredOptions, label)
+    this.props.onRangeFilterChange(filteredOptions, this.props.name)
   }
 
   render() {
     let filterOption
     const renderSearch = renderIf(this.props.filterOptions.length > 5)
-    const { type, onRangeFilterChange } = this.props
+    const { type, onRangeFilterChange, name } = this.props
 
     return (
       <div className="FilterValueList">

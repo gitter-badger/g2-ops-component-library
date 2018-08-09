@@ -14,12 +14,12 @@ export default [
     // calling application needs to handle how to send query to SOLR with these values.
     filterOptions: [
       {
-        name: '',
+        name: null,
         label: 'From',
         isSelected: false,
       },
       {
-        name: '',
+        name: null,
         label: 'To',
         isSelected: true,
       },
