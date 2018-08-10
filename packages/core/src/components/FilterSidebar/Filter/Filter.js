@@ -30,12 +30,15 @@ export const Filter = ({
       showExpandableButton
       style={{ ...filterStyles.filterHeaderStyle, ...filterHeaderStyle }}
     />
-    <CardText expandable style={{ ...filterStyles.filterContentStyle, ...filterContentStyle }}>
+    <CardText
+      expandable
+      style={{ ...filterStyles.filterContentStyle, ...filterContentStyle }}
+    >
       <FilterValueList
         filterOptions={filter.filterOptions}
         name={filter.name}
         onFilterValueChange={onFilterChange}
-        selectedFilterLabels={filter.selectedValues}
+        selectedFilterNames={filter.selectedValues}
       />
     </CardText>
   </Card>

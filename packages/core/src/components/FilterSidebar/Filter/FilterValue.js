@@ -16,7 +16,7 @@ export const FilterValue = ({ filterOption, onFilterValueChecked }: FilterValueP
     <div className="filterActionContainer">
       <div className="checkBox">
         <Checkbox
-          onCheck={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.label)}
+          onCheck={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.name)}
           checked={filterOption.isSelected}
         />
       </div>
