@@ -17,7 +17,7 @@ export const FilterValue = ({ filterOption, onFilterValueChecked }: FilterValueP
       <div className="filterActionGroup">
         <div className="checkBox">
           <Checkbox
-            handleChange={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.label)}
+            handleChange={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.name)}
             isChecked={filterOption.isSelected}
           />
         </div>

@@ -34,7 +34,7 @@ export const Filter = ({
         filterOptions={filter.filterOptions}
         name={filter.name}
         onFilterValueChange={onFilterChange}
-        selectedFilterLabels={filter.selectedValues}
+        selectedFilterNames={filter.selectedValues}
       />
     </CardText>
   </Card>
