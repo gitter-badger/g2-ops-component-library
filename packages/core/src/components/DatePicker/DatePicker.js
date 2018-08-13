@@ -159,7 +159,6 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       defaultFormat,
     )
     const finalError = this.getErrorMessage(value, errorMessage, showCustomError, customError)
-    console.log(finalError)
     this.setState({
       ...prevState,
       date,

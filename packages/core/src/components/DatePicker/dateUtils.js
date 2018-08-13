@@ -73,7 +73,6 @@ export function validateDateAndGetErrorMesssage(
       errorMessage = 'Invalid date entered'
     }
   }
-  console.log(errorMessage)
   return { displayDate, date, errorMessage }
 }
 
