@@ -38,9 +38,16 @@ export { Toggle } from './components/Toggle'
 export { wrapMuiContext } from 'utilities/wrapMuiContext'
 export { wrapFabricContext } from 'utilities/wrapFabricContext'
 
-(() => {
-  if (window) window._coreComponents = {
-    version: __VERSION__
-  }
+import { setIconOptions } from 'office-ui-fabric-react/lib/Styling';
+import { initializeIcons } from '@uifabric/icons';
 
-})
+if (window) window._coreComponents = {
+  version: __VERSION__
+}
+
+// Suppress icon warnings.
+setIconOptions({
+  disableWarnings: true
+});
+
+initializeIcons(undefined, { disableWarnings: true });
