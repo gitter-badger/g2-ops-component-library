@@ -37,7 +37,7 @@ var searchTypes = [
   { key: 'buyer', name: 'Buyer' },
 ];
 
-<div style={{ padding: '5px',width: '100%', border: '1px solid #a6a6a6',backgroundColor: 'indigo' }}>
+<div style={{ padding: '5px',width: '100%', border: '1px solid #a6a6a6',backgroundColor: '#1d5ab9' }}>
   <SearchBar
     searchType={{ key: 'lot', name: 'Lot' }}
     searchTypes={searchTypes}
