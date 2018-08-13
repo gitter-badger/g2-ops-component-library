@@ -12,6 +12,7 @@ type FilterPropType = {
   filterContentStyle?: Object,
   filterStyle?: Object,
   onFilterChange: (Array<string>, string) => void,
+  onRangeFilterChange: Function,
 }
 
 export const Filter = ({
@@ -20,6 +21,7 @@ export const Filter = ({
   filterHeaderStyle = {},
   filterContentStyle = {},
   onFilterChange,
+  onRangeFilterChange,
 }: FilterPropType) => (
   <Card containerStyle={{ ...filterStyles.filterStyle, ...filterStyle }}>
     <CardHeader
@@ -33,7 +35,9 @@ export const Filter = ({
       <FilterValueList
         filterOptions={filter.filterOptions}
         name={filter.name}
+        type={filter.type}
         onFilterValueChange={onFilterChange}
+        onRangeFilterChange={onRangeFilterChange}
         selectedFilterLabels={filter.selectedValues}
       />
     </CardText>
