@@ -3,6 +3,7 @@ import type { Node } from 'react'
 
 import React, { Component } from 'react'
 import renderIf from 'render-if'
+import PropTypes from 'prop-types'
 
 import moment from 'moment'
 import { isEmpty } from 'ramda'
@@ -68,8 +69,9 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     style: {},
   }
 
+  // TODO: Remove!
   static contextTypes = {
-    muiTheme: React.PropTypes.object.isRequired,
+    muiTheme: PropTypes.object.isRequired,
   }
 
   state = {

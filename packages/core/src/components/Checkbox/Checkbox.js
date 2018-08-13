@@ -5,7 +5,7 @@ import React from 'react'
 
 import { Checkbox as FabricCheckbox } from 'office-ui-fabric-react/lib/Checkbox'
 
-type CheckboxPropTypes = {
+type CheckboxPropsT = {
   /** label to be displayed */
   label: string,
   /** isChecked to indicate checked state */
@@ -29,7 +29,7 @@ export const Checkbox = ({
   labelRenderer,
   styles,
   ...otherProps
-}: CheckboxPropTypes) => (
+}: CheckboxPropsT) => (
   <FabricCheckbox
     label={label}
     checked={!!(isChecked || checked || defaultChecked)}

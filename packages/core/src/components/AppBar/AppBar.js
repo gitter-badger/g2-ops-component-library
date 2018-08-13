@@ -30,7 +30,7 @@ const allTruthy = (conditions: Function[]): Boolean => {
   return true
 }
 
-type AppBarPropTypes = {
+type AppBarPropsT = {
   userEmail: string,
   selectedYard: string | number,
   homeYard: string | number,
@@ -142,7 +142,7 @@ const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, rende
   </div>
 )
 
-const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
+const AppBar = (props: AppBarPropsT): Element<typeof MuiAppBar> => {
   const { config, isLoggedOn, children, ...otherProps } = props
   const {
     countryCode,

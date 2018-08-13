@@ -10,7 +10,7 @@ type StyleType = {
   [string]: mixed,
 }
 
-type ChippropTypes = {
+type ChipPropsT = {
   /** Override the background color of the chip. */
   backgroundColor: string,
   /** Used to render elements inside the Chip. */
@@ -38,7 +38,7 @@ export const Chip = wrapMuiContext(({
   onRequestDelete,
   onClick,
   style,
-}: ChippropTypes) => (
+}: ChipPropsT) => (
   <MuiChip
     backgroundColor={backgroundColor}
     className={className}

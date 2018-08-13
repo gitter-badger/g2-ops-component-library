@@ -14,7 +14,7 @@ const CASCountry = ['US', 'UK', 'CA', 'IR', 'ME', 'GB']
 const GlobalCountry = ['DE', 'ES', 'IN']
 const countriesSupported = [...CASCountry, ...GlobalCountry]
 
-type CurrencyFieldPropTypes = {
+type CurrencyFieldPropsT = {
   name: string,
   value: number | string,
   label: string,
@@ -32,7 +32,7 @@ type CurrencyFieldValidationType = {
   displayedValue: string,
 }
 
-type CurrencyFieldStateType = {
+type CurrencyFieldStateT = {
   errorMessage: string,
   formattedValue: string,
   displayedValue: string,
@@ -42,7 +42,7 @@ const validateInputValueAndReturnErrorMessage = (
   value: string,
   countryCode: string,
   maxValue: number,
-): CurrencyFieldStateType => {
+): CurrencyFieldStateT => {
   if (!countriesSupported.includes(countryCode)) {
     return {
       formattedValue: value,
@@ -80,19 +80,19 @@ const arePropValuesEqual = (
   properties: Array<string> = ['maxValue', 'countryCode', 'value'],
 ): boolean => !equals(pick(properties, nextProps), pick(properties, props))
 
-export class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFieldStateType> {
+export class CurrencyField extends Component<CurrencyFieldPropsT, CurrencyFieldStateT> {
   static defaultProps = {
     countryCode: 'US',
     value: '',
   }
 
-  constructor(props: CurrencyFieldPropTypes) {
+  constructor(props: CurrencyFieldPropsT) {
     super(props)
     const { value, countryCode, maxValue } = props
     this.state = validateInputValueAndReturnErrorMessage(value.toString(), countryCode, maxValue)
   }
 
-  componentWillReceiveProps(nextProps: CurrencyFieldPropTypes) {
+  componentWillReceiveProps(nextProps: CurrencyFieldPropsT) {
     if (arePropValuesEqual(nextProps, this.props)) {
       const { value, countryCode, maxValue } = nextProps
       this.setState(prevState => ({

@@ -8,7 +8,7 @@ import {wrapFabricContext} from 'utilities/wrapFabricContext'
 
 import './DialogBox.scss'
 
-type DialogBoxPropTypes = {
+type DialogBoxPropsT = {
   /** Title to be displayed in the dialog header */
   title: string,
   subText: string,
@@ -24,7 +24,7 @@ type DialogBoxPropTypes = {
   otherProps: any,
 }
 
-export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
+export const DialogBox = wrapFabricContext((props: DialogBoxPropsT) => {
   const {
     title,
     subText,

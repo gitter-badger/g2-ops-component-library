@@ -6,18 +6,18 @@ import { TextField } from 'components/TextField'
 import { AsYouType } from 'libphonenumber-js'
 import { stripDownPhoneNumber, getCountryDialCode, getFormattedNumber } from './phoneNumberUtils'
 
-type PhoneNumberPropTypes = {
+type PhoneNumberPropsT = {
   value: string,
   label: string,
   placeholder: string,
   countryCode: string,
 }
 
-type PhoneNumberStateTypes = {
+type PhoneNumberStateT = {
   formattedNumber: string,
 }
 
-export class PhoneNumber extends Component<PhoneNumberPropTypes, PhoneNumberStateTypes> {
+export class PhoneNumber extends Component<PhoneNumberPropsT, PhoneNumberStateT> {
   state = {
     formattedNumber: getFormattedNumber(this.props.value),
   }

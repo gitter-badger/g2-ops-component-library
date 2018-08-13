@@ -8,7 +8,7 @@ import {wrapFabricContext} from 'utilities/wrapFabricContext'
 
 import './style.scss'
 
-type TextFieldPropTypes = {
+type TextFieldPropsT = {
 	text: string,
 	label: string,
   disabled: boolean,
@@ -21,7 +21,7 @@ type TextFieldPropTypes = {
 }
 
 export const TextField = wrapFabricContext(
-  ({ placeholder, disabled, className, inputClassName, ...otherProps }: TextFieldPropTypes) => (
+  ({ placeholder, disabled, className, inputClassName, ...otherProps }: TextFieldPropsT) => (
     <FabricTextField
       {...otherProps}
       disabled={disabled}

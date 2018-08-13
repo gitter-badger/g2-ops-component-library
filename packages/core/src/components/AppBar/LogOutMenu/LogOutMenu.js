@@ -7,7 +7,7 @@ import { DirectionalHint } from 'office-ui-fabric-react/lib/ContextualMenu'
 // QUESTION: Is this necessary? The CSS is already imported and globally available.
 import '../AppBar.scss'
 
-type LogOutMenuPropTypes = {
+type LogOutMenuPropsT = {
   items?: Array<{
     key: string,
     name: string,
@@ -18,7 +18,7 @@ type LogOutMenuPropTypes = {
 const renderIcon = () => <i className="material-icons md-light">account_circle</i>
 const renderMenuIcon = () => {}
 
-export const LogOutMenu = ({ items, onItemClick }: LogOutMenuPropTypes) =>(
+export const LogOutMenu = ({ items, onItemClick }: LogOutMenuPropsT) =>(
   <IconButton
     onRenderIcon={renderIcon}
     onRenderMenuIcon={renderMenuIcon}

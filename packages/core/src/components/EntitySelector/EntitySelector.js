@@ -14,7 +14,7 @@ const startsWithIgnoringCase = (val1, val2) =>
 
 const curriedStartsWith = curry(startsWithIgnoringCase)
 
-type EntitySelectorPropTypes = {
+type EntitySelectorPropsT = {
   labelPosition: string,
   label: string,
   required: boolean,
@@ -36,7 +36,7 @@ const EntitySelectorDefaultProps = {
   searchKeys: []
 }
 
-export class EntitySelector extends Component<EntitySelectorPropTypes> {
+export class EntitySelector extends Component<EntitySelectorPropsT> {
   static defaultProps = EntitySelectorDefaultProps
 
   getOptions = () => {

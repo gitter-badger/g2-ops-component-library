@@ -7,7 +7,7 @@ import MuiAvatar from 'material-ui/Avatar'
 
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 
-type AvatarPropTypes = {
+type AvatarPropsT = {
   /** The backgroundColor of the avatar. Does not apply to image avatars. */
   backgroundColor?: string,
   /** Can be used, for instance, to render a letter inside the avatar. */
@@ -28,7 +28,7 @@ type AvatarPropTypes = {
   },
 }
 
-export const Avatar = wrapMuiContext(({ backgroundColor, className, color, size, icon, src, style, children }: AvatarPropTypes) => (
+export const Avatar = wrapMuiContext(({ backgroundColor, className, color, size, icon, src, style, children }: AvatarPropsT) => (
   <MuiAvatar
     backgroundColor={backgroundColor}
     className={className}

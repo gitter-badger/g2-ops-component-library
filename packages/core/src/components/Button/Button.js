@@ -11,14 +11,14 @@ import { wrapMuiContext } from 'utilities/wrapMuiContext'
 // TODO: Fix button + icon styling.
 import './Button.css'
 
-type ButtonPropTypes = {
+type ButtonPropsT = {
   /** To indicate type of button {primary, secondary, inactive, add, edit, delete} */
   variant: 'primary' | 'secondary' | 'inactive' | 'add' | 'edit' | 'delete',
   /** OnClick event for button */
   onClick: (SyntheticMouseEvent<HTMLInputElement>) => void,
 }
 
-export const Button = wrapMuiContext(({ variant, ...buttonProps }: ButtonPropTypes) => {
+export const Button = wrapMuiContext(({ variant, ...buttonProps }: ButtonPropsT) => {
 	let typeProps = {}
 
   switch (variant) {

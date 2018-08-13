@@ -20,7 +20,9 @@
     "precommit": "pretty-quick --staged"
   },
   "private": true,
-  "workspaces": ["packages/*"],
+  "workspaces": [
+    "packages/*"
+  ],
   "bugs": {
     "url": "https://github.com/copartit/g2-ops-component-library/issues"
   },
@@ -29,6 +31,7 @@
     "@uifabric/icons": "5.8.0",
     "classnames": "^2.2.5",
     "country-telephone-data": "^0.5.4",
+    "hostile": "^1.3.2",
     "libphonenumber-js": "^1.0.3",
     "material-design-icons": "^3.0.1",
     "material-icons": "^0.1.0",
@@ -129,9 +132,14 @@
     "transform": {
       "^.+\\.js$": "<rootDir>/jestProcess.js"
     },
-    "testPathIgnorePatterns": ["<rootDir>/node_modules/", "<rootDir>/g2-layout-demo"],
+    "testPathIgnorePatterns": [
+      "<rootDir>/node_modules/",
+      "<rootDir>/g2-layout-demo"
+    ],
     "setupTestFrameworkScriptFile": "<rootDir>/jestSetup.js",
     "testRegex": "packages/.*(jest|test).js$"
   },
-  "pre-push": ["precommit"]
+  "pre-push": [
+    "precommit"
+  ]
 }
