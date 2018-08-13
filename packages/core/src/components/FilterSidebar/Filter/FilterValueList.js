@@ -2,9 +2,10 @@
 
 import type { FilterValueType } from 'types/Filter'
 import React, { Component } from 'react'
+import { clone } from 'ramda'
 import renderIf from 'render-if'
 import { TextField } from 'components/TextField'
-import { FilterValue } from './FilterValue'
+import FilterValue from './FilterValue'
 import './FilterValueList.scss'
 
 type FilterValueListPropType = {
@@ -13,6 +14,8 @@ type FilterValueListPropType = {
   selectedFilterValues?: Array<string>,
   onFilterValueChange: (Array<string>, string) => void,
   name: string,
+  type: string,
+  onRangeFilterChange: Function,
 }
 
 type FilterValueListStateType = {
@@ -55,12 +58,29 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
 
   onFilterValueSearched = (textFieldValue) => {
     const filteredOptions = this.props.filterOptions
-    this.setState(() => ({ filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
+    this.setState(() => ({filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
+  }
+
+  handleRangeFilterChange = (type: string, value: boolean|{}, label: string, filterName: string) => {
+    const filteredOptions = this.props.filterOptions.map((filterOptionObject) => {
+      const filterOptionObjectCopy = clone(filterOptionObject)
+      if (filterOptionObject.label === label) {
+        if (type === 'checkbox') {
+          filterOptionObjectCopy.isSelected = value
+        } else if (type === 'date') {
+          filterOptionObjectCopy.name = value
+        }
+      }
+      return filterOptionObjectCopy
+    })
+    this.setState(() => ({ filterOptions: filteredOptions }))
+    this.props.onRangeFilterChange(filteredOptions, this.props.name)
   }
 
   render() {
     let filterOption
     const renderSearch = renderIf(this.props.filterOptions.length > 5)
+    const { type, onRangeFilterChange } = this.props
 
     return (
       <div className="FilterValueList">
@@ -75,7 +95,12 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
           )
         }
         <For each="filterOption" of={this.state.filterOptions} index="index">
-          <FilterValue filterOption={filterOption} onFilterValueChecked={this.onFilterValueChecked} />
+          <FilterValue
+            filterOption={filterOption}
+            filterType={type}
+            onFilterValueChecked={this.onFilterValueChecked}
+            handleRangeFilterChange={this.handleRangeFilterChange}
+          />
         </For>
       </div>
     )

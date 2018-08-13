@@ -9,13 +9,14 @@ import { QuickFilters } from 'components/FilterSidebar/QuickFilters'
 import { Filters } from 'components/FilterSidebar/Filters'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 import { FilterSwitcher } from './FilterSwitcher'
-import './FilterSidebar.scss'
+import './FilterSidebar.scss' 
 
 type FilterSidebarPropType = {
   selectedQuickFilter: string,
   quickFilters: Array<QuickFilterType>,
   filters: Array<FilterType>,
   onFilterChange: (Array<string>, string) => void,
+  onRangeFilterChange: Function,
   onFiltersClear: () => void,
   onQuickFiltersChange: (string) => void,
   onFiltersApply: () => void,
@@ -48,6 +49,7 @@ class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateT
       quickFilters,
       filters,
       onFilterChange,
+      onRangeFilterChange,
       onQuickFiltersChange,
       selectedQuickFilter,
       onFiltersClear,
@@ -74,8 +76,15 @@ class FilterSidebar extends Component<FilterSidebarPropType, FilterSidebarStateT
         </div>
         <div className={`filters ${this.state.filterDrawerOpen ? 'open' : ''}`}>
           {renderIfFilterDrawerOpen(
-            <Filters width={width} filters={filters} onFilterChange={onFilterChange} onFiltersClear={onFiltersClear}
-              showApply={showApply} onFiltersApply={onFiltersApply} />,
+            <Filters
+              width={width}
+              filters={filters}
+              onFilterChange={onFilterChange}
+              onRangeFilterChange={onRangeFilterChange}
+              onFiltersClear={onFiltersClear}
+              showApply={showApply}
+              onFiltersApply={onFiltersApply}
+            />,
           )}
         </div>
       </div>

@@ -20,9 +20,8 @@ var searchTypes = [
     handleSearch={(result) => console.log(result,'Search Clicked')}
     showCheckbox={true}
     themeVariant='dark'
-		onSearchTextChange={
-			(text) => console.log(text,'Text cahnged')
-		}
+    onSearchTypeChange={(text) => console.log(text,'Type changed')}
+		onSearchTextChange={(text) => console.log(text,'Text changed')}
   />
 </div>
 ```

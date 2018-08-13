@@ -10,13 +10,22 @@ type FiltersPropType = {
   filters: Array<FilterType>,
   onFilterChange: (Array<string>, string) => void,
   onFiltersClear: () => void,
+  onRangeFilterChange: Function,
   onFiltersApply: () => void,
   width: string,
   showApply: boolean,
 }
 
-export const Filters = ({ filters = [], onFilterChange, onFiltersClear, onFiltersApply, width, showApply }: FiltersPropType) => (
-  <div className="Filters" style={{ width }}>
+export const Filters = ({
+    filters = [],
+    onFilterChange,
+    onRangeFilterChange,
+    onFiltersClear,
+    onFiltersApply,
+    width,
+    showApply,
+  }: FiltersPropType
+  ) => (<div className="Filters" style={{ width }}>
     <div className="sectionHeading">
       <div className="label">Filters</div>
       <div className="filterButtons">
@@ -30,9 +39,13 @@ export const Filters = ({ filters = [], onFilterChange, onFiltersClear, onFilter
       </div>
     </div>
     <div className="filterSections">
-      {filters.map((filter) => {
-        return <Filter key={filter.name} filter={filter} onFilterChange={onFilterChange} />
-      })}
+      {filters.map((filter) => (<Filter
+        key={filter.name}
+        filter={filter}
+        onFilterChange={onFilterChange}
+        onRangeFilterChange={onRangeFilterChange}
+      />
+      ))}
     </div>
   </div>
 )
