@@ -51,7 +51,7 @@ export function validateDateAndGetErrorMesssage(
   value: string,
   minDate: Date,
   maxDate: Date,
-  formatDate: (string | Date) => string,
+  formatDateFunc: (string | Date) => string,
   defaultFormat: string,
 ): validateReturnValue {
   let errorMessage = ''
@@ -65,17 +65,15 @@ export function validateDateAndGetErrorMesssage(
   if (matchedDate.length > 0) {
     const isValidMomentDate: boolean = moment(value, defaultFormat).isValid()
     if (isValidMomentDate) {
-      displayDate = formatDate(displayDate)
+      displayDate = formatDateFunc(displayDate)
       date = getDateObject(displayDate, defaultFormat)
       const formatDateForValidation: string = moment(displayDate, defaultFormat).format('MM/DD/YYYY')
-      errorMessage = isSameOrAfterMinDate(formatDateForValidation, minDate, defaultFormat)
-      if (errorMessage === '') {
-        errorMessage = isSameOrBeforeMaxDate(formatDateForValidation, maxDate, defaultFormat)
-      }
+      errorMessage = isSameOrAfterMinDate(formatDateForValidation, minDate, defaultFormat) || isSameOrBeforeMaxDate(formatDateForValidation, maxDate, defaultFormat)
     } else {
       errorMessage = 'Invalid date entered'
     }
   }
+  console.log(errorMessage)
   return { displayDate, date, errorMessage }
 }
 

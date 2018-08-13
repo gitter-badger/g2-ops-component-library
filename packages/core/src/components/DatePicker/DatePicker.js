@@ -36,7 +36,7 @@ type DatePickerProps = {
   minDate: Date,
   mode: 'portrait' | 'landscape',
   okLabel: Node,
-  onChange: (string, Date | null, string) => void,
+  onChange: (string, Date | null) => void,
   onDismiss: (SyntheticEvent<HTMLInputElement>) => void,
   onFocus: (SyntheticFocusEvent<HTMLInputElement>) => void,
   onShow: any => void,
@@ -44,8 +44,8 @@ type DatePickerProps = {
   shouldDisableDate: Date => boolean,
   style: Node,
   value: Date,
-  showCustomError: ?boolean,
-  errorMessage: ?string,
+  showCustomError?: boolean,
+  errorMessage?: string,
 }
 
 type DatePickerState = {
@@ -55,6 +55,8 @@ type DatePickerState = {
   showCustomError: ?boolean,
   errorMessage: ?string,
 }
+
+const getInitialErrorMessage = (showCustomError: boolean, customError: string) => (showCustomError ? customError : '')
 
 class DatePicker extends Component<DatePickerProps, DatePickerState> {
   static defaultProps = {
@@ -77,7 +79,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
     displayDate: '',
     dialogDate: null,
     showCustomError: this.props.showCustomError,
-    errorMessage: this.getInitalErrorMessage(this.props.showCustomError, this.props.errorMessage),
+    errorMessage: getInitialErrorMessage(this.props.showCustomError, this.props.errorMessage),
   }
 
   componentWillMount() {
@@ -97,19 +99,14 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
         this.setState({
           date: newDate,
           showCustomError,
-          errorMessage: this.getInitalErrorMessage(showCustomError, errorMessage),
+          errorMessage: getInitialErrorMessage(showCustomError, errorMessage),
           displayDate: newDate ? moment(newDate).format(defaultFormat) : '',
         })
       }
     }
   }
 
-  getInitalErrorMessage(showCustomError, customError){ return showCustomError && customError }
-
-  getErrorMessage(value, errorMessage, showCustomError, customError) {
-    if (showCustomError && isEmpty(value)) return customError
-    return errorMessage
-  }
+  getErrorMessage = (value: any, errorMessage: string, showCustomError: boolean, customError: string) => showCustomError && isEmpty(value) ? customError : errorMessage
 
   getDate() {
     return this.state.date
@@ -133,7 +130,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       })
     }
     if (this.props.onChange) {
-      this.props.onChange('', date, '')
+      this.props.onChange('', date)
     }
   }
 
@@ -162,6 +159,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       defaultFormat,
     )
     const finalError = this.getErrorMessage(value, errorMessage, showCustomError, customError)
+    console.log(finalError)
     this.setState({
       ...prevState,
       date,
@@ -234,23 +232,22 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
 		} = this.props
 
     const formatDate = formatDateProp || this.formatDate
-    const renderDateIcon = renderIf(disabled === false)
+    const renderDateIcon = disabled === false ? {
+      onRenderSuffix: () => (
+        <IconButton style={{ margin: '-15px' }} onClick={this.handleClick}>
+          <i className="material-icons md-dark md-18">date_range</i>
+        </IconButton>
+      )
+    } : {}
     return (
       <div className={className}>
         <TextField
           {...other}
+          {...renderDateIcon}
           errorMessage={this.state.errorMessage}
           value={this.state.displayDate}
           disabled={disabled}
           onChanged={this.handleTextFieldChange}
-          inputClassName={disabled ? 'disabledDatePickerInput' : ''}
-          onRenderSuffix={() =>
-            renderDateIcon(
-              <IconButton style={{ margin: '-15px' }} onClick={this.handleClick}>
-                <i className="material-icons md-dark md-18">date_range</i>
-              </IconButton>,
-            )
-          }
         />
         <DatePickerDialog
           DateTimeFormat={DateTimeFormat}
