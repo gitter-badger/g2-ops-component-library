@@ -13,39 +13,53 @@ type RangeFilterValueProps = {
   handleRangeFilterChange: Function,
 }
 type RangeFilterValueState = {
-  newDate: {}
+  newDate: {},
 }
 
-class RangeFilterValue extends React.Component<RangeFilterValueProps, RangeFilterValueState> {
+class RangeFilterValue extends React.Component<
+  RangeFilterValueProps,
+  RangeFilterValueState,
+> {
   state = {
     newDate: {},
   }
-  
+
   render() {
     const { filterOption, handleRangeFilterChange } = this.props
-    
-    return (<div>
-      <div style={{ paddingLeft: '30px' }}>{filterOption.label}</div>
-      <div className="filterActionGroup">
-        <div className="checkBox">
-          <Checkbox
-            handleChange={(e, isFilterSelected) => handleRangeFilterChange('checkbox', isFilterSelected, filterOption.label)}
-            isChecked={filterOption.isSelected}
-          />
-        </div>
-        <div className="dataPicker">
-          <DatePicker
-            value={this.state.newDate}
-            onChange={(e, dateValue) =>
-              this.setState({newDate: dateValue},() => {
-                handleRangeFilterChange('date', JSON.stringify(dateValue), filterOption.label)
-              })
-            }
-            defaultFormat={'DD/MM/YYYY'}
-          />
+
+    return (
+      <div>
+        <div style={{ paddingLeft: '30px' }}>{filterOption.label}</div>
+        <div className="filterActionGroup">
+          <div className="checkBox">
+            <Checkbox
+              handleChange={(e, isFilterSelected) =>
+                handleRangeFilterChange(
+                  'checkbox',
+                  isFilterSelected,
+                  filterOption.name,
+                )
+              }
+              isChecked={filterOption.isSelected}
+            />
+          </div>
+          <div className="dataPicker">
+            <DatePicker
+              value={this.state.newDate}
+              onChange={(e, dateValue) =>
+                this.setState({ newDate: dateValue }, () => {
+                  handleRangeFilterChange(
+                    'date',
+                    JSON.stringify(dateValue),
+                    filterOption.name,
+                  )
+                })
+              }
+              defaultFormat={'DD/MM/YYYY'}
+            />
+          </div>
         </div>
       </div>
-    </div>
     )
   }
 }
