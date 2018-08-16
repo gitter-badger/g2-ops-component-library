@@ -38,9 +38,6 @@ export { Toggle } from './components/Toggle'
 export { wrapMuiContext } from 'utilities/wrapMuiContext'
 export { wrapFabricContext } from 'utilities/wrapFabricContext'
 
-(() => {
-  if (window) window._coreComponents = {
-    version: __VERSION__
-  }
-
-})
+if (window) window._coreComponents = {
+  version: __VERSION__
+}

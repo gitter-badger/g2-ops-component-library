@@ -69,7 +69,7 @@ export const copartBaseTheme: ThemeType = {
   },
 }
 
-initializeIcons()
+initializeIcons(undefined, { disableWarnings: true })
 
 // a higher order function that provides mui context to the Component being passed.
 export function wrapMuiContext<T>(WrapperComponent: ComponentType<T>): (T) => Node {
