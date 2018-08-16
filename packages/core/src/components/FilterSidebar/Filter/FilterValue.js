@@ -3,27 +3,57 @@
 import type { FilterValueType } from 'types/Filter'
 
 import React from 'react'
+import { DatePicker } from 'components/DatePicker'
+import moment from 'moment'
+import RangeFilterValue from './RangeFilterValue'
+import PartFilterValue from './PartFilterValue'
 import { Checkbox } from '../../Checkbox'
 import './FilterValue.scss'
 
 type FilterValuePropType = {
   filterOption: FilterValueType,
   onFilterValueChecked: (boolean, string) => void,
+  handleRangeFilterChange: Function,
+  filterType: string,
+}
+type FilterValueStateType = {
+  datePicker: string,
 }
 
-export const FilterValue = ({ filterOption, onFilterValueChecked }: FilterValuePropType) => (
-  <div className="FilterValue">
-    <div className="filterActionContainer">
-      <div className="filterActionGroup">
-        <div className="checkBox">
-          <Checkbox
-            handleChange={(e, isFilterSelected) => onFilterValueChecked(isFilterSelected, filterOption.name)}
-            isChecked={filterOption.isSelected}
-          />
+class FilterValue extends React.Component<
+  FilterValuePropType,
+  FilterValueStateType,
+> {
+  state = {
+    datePicker: '',
+  }
+
+  render() {
+    const {
+      filterType,
+      filterOption,
+      onFilterValueChecked,
+      handleRangeFilterChange,
+    } = this.props
+    const { datePicker } = this.state
+
+    return (
+      <div className="FilterValue">
+        <div className="filterActionContainer">
+          {filterType === 'range' ? (
+            <RangeFilterValue
+              filterOption={filterOption}
+              handleRangeFilterChange={handleRangeFilterChange}
+            />
+          ) : (
+            <PartFilterValue
+              filterOption={filterOption}
+              onFilterValueChecked={onFilterValueChecked}
+            />
+          )}
         </div>
-        <div className="label">{filterOption.label} </div>
       </div>
-      <div className="count">{filterOption.count && `(${filterOption.count})`}</div>
-    </div>
-  </div>
-)
+    )
+  }
+}
+export default FilterValue

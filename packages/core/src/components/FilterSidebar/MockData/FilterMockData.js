@@ -5,6 +5,27 @@ import AwaitingDriverAssignIcon from './AwaitingDriverAssign.Icon'
 
 export default [
   {
+    label: 'Image Uploaded Date',
+    name: 'imageUploadedDate',
+    // selectedValues: [ '10112017' ],
+    type: 'range',
+    // dataType: 'date', will need it if we want range in datatype other than datepicker
+    // filterOptions would be these two (from/to) always so we dont need selectedValues
+    // calling application needs to handle how to send query to SOLR with these values.
+    filterOptions: [
+      {
+        name: null,
+        label: 'From',
+        isSelected: false,
+      },
+      {
+        name: null,
+        label: 'To',
+        isSelected: true,
+      },
+    ],
+  },
+  {
     label: 'Buyer Number',
     name: 'buyerNumber',
     selectedValues: ['323929'],
