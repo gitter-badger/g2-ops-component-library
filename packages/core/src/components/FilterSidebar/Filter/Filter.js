@@ -37,8 +37,8 @@ export const Filter = ({
         name={filter.name}
         type={filter.type}
         onFilterValueChange={onFilterChange}
+        selectedFilterNames={filter.selectedValues}
         onRangeFilterChange={onRangeFilterChange}
-        selectedFilterLabels={filter.selectedValues}
       />
     </CardText>
   </Card>

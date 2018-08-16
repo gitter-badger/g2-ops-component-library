@@ -20,26 +20,40 @@ type FilterValueStateType = {
   datePicker: string,
 }
 
-class FilterValue extends React.Component<FilterValuePropType, FilterValueStateType> {
+class FilterValue extends React.Component<
+  FilterValuePropType,
+  FilterValueStateType,
+> {
   state = {
     datePicker: '',
   }
 
   render() {
-    const { filterType, filterOption, onFilterValueChecked, handleRangeFilterChange } = this.props
+    const {
+      filterType,
+      filterOption,
+      onFilterValueChecked,
+      handleRangeFilterChange,
+    } = this.props
     const { datePicker } = this.state
 
     return (
       <div className="FilterValue">
         <div className="filterActionContainer">
-          {filterType === 'range'
-            ? <RangeFilterValue filterOption={filterOption} handleRangeFilterChange={handleRangeFilterChange} />
-            : <PartFilterValue filterOption={filterOption} onFilterValueChecked={onFilterValueChecked} />
-          }
+          {filterType === 'range' ? (
+            <RangeFilterValue
+              filterOption={filterOption}
+              handleRangeFilterChange={handleRangeFilterChange}
+            />
+          ) : (
+            <PartFilterValue
+              filterOption={filterOption}
+              onFilterValueChecked={onFilterValueChecked}
+            />
+          )}
         </div>
       </div>
-      )
+    )
   }
 }
 export default FilterValue
-  
