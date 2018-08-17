@@ -7,14 +7,17 @@ import React, { Component } from 'react'
 import { FilterSidebar } from './FilterSidebar'
 import filters, { quickLinks } from './MockData/FilterMockData'
 
-const clearFilterData = compose(
+const clearFilterData =
   map(
-    evolve({
-      selectedValues: empty,
-      filterOptions: map(assoc('isSelected', false))
-    })
+    (currentFilter) => {
+      console.log(currentFilter, 'currentFilter')
+      const filterOptionsWithClear = map((currentOption)=>{
+        const unselectedOption= assoc('isSelected',false)(currentOption)
+        return currentFilter.type!=='range'? filterOptionsWithClear: assoc('name',null,unselectedOption)
+      })(currentFilter.filterOptions)
+      return {...currentFilter,filterOptions: filterOptionsWithClear, selectedValues: []}
+    }
   )
-)
 
 class ComponentExample extends Component<Object, Object> {
   state = {

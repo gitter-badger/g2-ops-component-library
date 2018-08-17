@@ -3,6 +3,7 @@
 import type { FilterValueType } from 'types/Filter'
 
 import React from 'react'
+import {equals} from 'ramda'
 import { DatePicker } from 'components/DatePicker'
 import moment from 'moment'
 import { Checkbox } from '../../Checkbox'
@@ -27,17 +28,29 @@ class RangeFilterValue extends React.Component<
     }={
       name: null
     }} = props
-    const dateValue = name ? new Date(name): null
+    const dateValue = name ? new Date(name): ''
     this.state = {
       newDate: dateValue
     }
   }
-
+  componentWillReceiveProps(nextProps: RangeFilterValueProps){
+    const {filterOption:{
+      name: newName
+    }} = nextProps
+    console.log(newName,'new name')
+    const { filterOption: {name: oldName}} = this.props
+    if(!equals(oldName,newName)){
+      const dateValue = newName ? new Date(newName): ''
+      this.setState({
+        newDate: dateValue
+      })
+    }
+  }
   render() {
     const { filterOption, handleRangeFilterChange } = this.props
     return (
       <div>
-        <div style={{ paddingLeft: '30px' }}>{filterOption.label}</div>
+        <div style={{ paddingLeft: '30px' }} title={filterOption.label}>{filterOption.label}</div>
         <div className="filterActionGroup">
           <div className="checkBox">
             <Checkbox
