@@ -31,7 +31,7 @@ class ComponentExample extends Component<Object, Object> {
   handleFilterChange = (selectedValues: Array<number|string>, filterName: string) => {
     const { filtersState } = this.state
     console.log('on filter change ', selectedValues, filterName)
-    
+
     const updatedValue = compose(adjust(evolve({
     selectedValues: always(selectedValues),
     filterOptions: (filteredValues) =>
@@ -51,9 +51,10 @@ class ComponentExample extends Component<Object, Object> {
     })
   }
 
-  handleChangeInRangeFilter = (filterOptions: any, filterName: string) => {
+  handleChangeInRangeFilter = (filterOptions: Array<FilterType>, filterName: string) => {
     const { filtersState } = this.state
     const updatedValue = filtersState.map((filter) => (filter.name === filterName) ? assoc('filterOptions', filterOptions)(filter) : filter)
+    console.log(updatedValue, 'updatedValue')
     this.setState({
       filtersState: updatedValue
     })

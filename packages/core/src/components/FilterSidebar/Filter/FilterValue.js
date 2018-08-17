@@ -13,7 +13,7 @@ import './FilterValue.scss'
 type FilterValuePropType = {
   filterOption: FilterValueType,
   onFilterValueChecked: (boolean, string) => void,
-  handleRangeFilterChange: Function,
+  handleRangeFilterChange: (type:'checkbox'|'date',value: boolean|string,label:string,filterName:string) => mixed,
   filterType: string,
 }
 type FilterValueStateType = {

@@ -10,35 +10,46 @@ import './FilterValue.scss'
 
 type RangeFilterValueProps = {
   filterOption: FilterValueType,
-  handleRangeFilterChange: Function,
+  handleRangeFilterChange: (type: 'checkbox'| 'date',value: string, label:string, filterName: string) => mixed,
 }
 type RangeFilterValueState = {
-  newDate: {},
+  newDate: Date|null,
 }
 
 class RangeFilterValue extends React.Component<
   RangeFilterValueProps,
   RangeFilterValueState,
 > {
-  state = {
-    newDate: {},
+  constructor(props: RangeFilterValueProps){
+    super(props)
+    const { filterOption: {
+      name
+    }={
+      name: null
+    }} = props
+    const dateValue = name ? new Date(name): null
+    this.state = {
+      newDate: dateValue
+    }
   }
 
   render() {
     const { filterOption, handleRangeFilterChange } = this.props
-
     return (
       <div>
         <div style={{ paddingLeft: '30px' }}>{filterOption.label}</div>
         <div className="filterActionGroup">
           <div className="checkBox">
             <Checkbox
-              handleChange={(e, isFilterSelected) =>
+              handleChange={(e, isFilterSelected) => {
                 handleRangeFilterChange(
                   'checkbox',
                   isFilterSelected,
+                  filterOption.label,
                   filterOption.name,
                 )
+              }
+
               }
               isChecked={filterOption.isSelected}
             />
@@ -46,11 +57,13 @@ class RangeFilterValue extends React.Component<
           <div className="dataPicker">
             <DatePicker
               value={this.state.newDate}
+              autoOk
               onChange={(e, dateValue) =>
                 this.setState({ newDate: dateValue }, () => {
                   handleRangeFilterChange(
                     'date',
-                    JSON.stringify(dateValue),
+                    moment(dateValue).format(),
+                    filterOption.label,
                     filterOption.name,
                   )
                 })
