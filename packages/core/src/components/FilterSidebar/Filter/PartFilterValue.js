@@ -16,21 +16,23 @@ type PartFilterValueProps = {
 const PartFilterValue = ({
   filterOption,
   onFilterValueChecked,
-}: PartFilterValueProps) => (
-  <div className="filterActionGroup">
-    <div className="checkBox">
-      <Checkbox
-        handleChange={(e, isFilterSelected) =>
-          onFilterValueChecked(isFilterSelected, filterOption.name)
-        }
-        isChecked={filterOption.isSelected}
-      />
+}: PartFilterValueProps) => {
+  const count = filterOption.count ? `(${filterOption.count})` : ''
+  const label = filterOption.label
+  return (
+    <div className="filterActionGroup">
+      <div className="checkBox">
+        <Checkbox
+          handleChange={(e, isFilterSelected) =>
+            onFilterValueChecked(isFilterSelected, filterOption.name)
+          }
+          isChecked={filterOption.isSelected}
+        />
+      </div>
+      <div className="label" title={`${label}${count}`}>{label} </div>
+      <div className="count">{count}</div>
     </div>
-    <div className="label">{filterOption.label} </div>
-    <div className="count">
-      {filterOption.count && `(${filterOption.count})`}
-    </div>
-  </div>
-)
+  )
+}
 
 export default PartFilterValue
