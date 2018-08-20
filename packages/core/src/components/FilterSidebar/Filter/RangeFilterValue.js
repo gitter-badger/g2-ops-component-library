@@ -14,37 +14,38 @@ type RangeFilterValueProps = {
   handleRangeFilterChange: (type: 'checkbox'| 'date',value: string, label:string, filterName: string) => mixed,
 }
 type RangeFilterValueState = {
-  newDate: Date|null,
+  newDate: Date|'',
 }
-
 class RangeFilterValue extends React.Component<
   RangeFilterValueProps,
   RangeFilterValueState,
 > {
   constructor(props: RangeFilterValueProps){
     super(props)
-    const { filterOption: {
-      name
-    }={
-      name: null
-    }} = props
-    const dateValue = name ? new Date(name): ''
+    const dateValue = this.getDateValueFromOption(props.filterOption)
     this.state = {
       newDate: dateValue
     }
   }
+
   componentWillReceiveProps(nextProps: RangeFilterValueProps){
     const {filterOption:{
       name: newName
     }} = nextProps
-    console.log(newName,'new name')
     const { filterOption: {name: oldName}} = this.props
     if(!equals(oldName,newName)){
-      const dateValue = newName ? new Date(newName): ''
+      const dateValue = this.getDateValueFromOption(nextProps.filterOption)
       this.setState({
         newDate: dateValue
       })
     }
+  }
+  getDateValueFromOption = (filterOption:FilterValueType) : Date| ''=> {
+    if(!filterOption){
+      return ''
+    }
+    const { name } = filterOption
+    return name ? new Date(name): ''
   }
   render() {
     const { filterOption, handleRangeFilterChange } = this.props
@@ -54,15 +55,13 @@ class RangeFilterValue extends React.Component<
         <div className="filterActionGroup">
           <div className="checkBox">
             <Checkbox
-              handleChange={(e, isFilterSelected) => {
+              handleChange={(e, isFilterSelected) =>
                 handleRangeFilterChange(
                   'checkbox',
                   isFilterSelected,
                   filterOption.label,
                   filterOption.name,
                 )
-              }
-
               }
               isChecked={filterOption.isSelected}
             />

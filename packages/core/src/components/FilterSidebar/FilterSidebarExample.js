@@ -56,6 +56,7 @@ class ComponentExample extends Component<Object, Object> {
   }
 
   handleChangeInRangeFilter = (filterOptions: Array<FilterType>, filterName: string) => {
+    console.log(filterOptions, 'filter')
     const { filtersState } = this.state
     const selectedValues = compose(map(elem => `${elem.label}:${elem.name}`),filter(propEq('isSelected',true)))(filterOptions)
     const updatedValue = compose(adjust(evolve({
