@@ -16,37 +16,33 @@ type RangeFilterValueProps = {
 type RangeFilterValueState = {
   newDate: Date|'',
 }
+const getDateValueFromOption = (filterOption:FilterValueType) : Date| ''=> {
+  if(!filterOption){
+    return ''
+  }
+  const { name } = filterOption
+  return name ? new Date(name): ''
+}
 class RangeFilterValue extends React.Component<
   RangeFilterValueProps,
   RangeFilterValueState,
 > {
-  constructor(props: RangeFilterValueProps){
-    super(props)
-    const dateValue = this.getDateValueFromOption(props.filterOption)
-    this.state = {
-      newDate: dateValue
-    }
+  state = {
+    newDate: getDateValueFromOption(this.props.filterOption)
   }
-
   componentWillReceiveProps(nextProps: RangeFilterValueProps){
     const {filterOption:{
       name: newName
     }} = nextProps
     const { filterOption: {name: oldName}} = this.props
     if(!equals(oldName,newName)){
-      const dateValue = this.getDateValueFromOption(nextProps.filterOption)
+      const dateValue = getDateValueFromOption(nextProps.filterOption)
       this.setState({
         newDate: dateValue
       })
     }
   }
-  getDateValueFromOption = (filterOption:FilterValueType) : Date| ''=> {
-    if(!filterOption){
-      return ''
-    }
-    const { name } = filterOption
-    return name ? new Date(name): ''
-  }
+
   render() {
     const { filterOption, handleRangeFilterChange } = this.props
     return (
