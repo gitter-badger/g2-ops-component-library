@@ -5,12 +5,10 @@
 .CustomDialogWithHeader .ms-Dialog-main {
   min-width: 600px;
 }
-.CustomDialogWithHeader .ms-Dialog-main > div {
-  width: 100%;
-}
 .CustomDialogWithHeader .ms-Dialog-header {
   background-color: #0d5db8;
   height: 40px;
+  padding: 6px;
 }
 .CustomDialogWithHeader .ms-Dialog-header .topButton-72 {
   padding: 5px;
@@ -25,14 +23,42 @@
   color: white;
 }
 .CustomDialogWithHeader .ms-Dialog-inner {
-  padding-top: 20px;
+  padding: 0px;
 }
 
 .CustomDialogWithoutHeader .ms-Dialog-header p {
   visibility: hidden;
 }
 
-.ms-Dialog-header > div[class*=topButton] {
-  padding-top: 4px;
-  padding-right: 4px;
+.ms-Dialog-header {
+  > div[class*=topButton] {
+    padding-top: 4px;
+    padding-right: 4px;
+  }
+  .ms-Dialog-title {
+    padding: 7px!important;
+    font-weight: bold;
+    i {
+      float: left;
+      margin-right: 5px
+    }
+  }
+  button {
+    i {
+      font-weight: bold;
+    }
+  }
+}
+.DialogFooter {
+  .ms-Dialog-action {
+    margin: 0px;
+    > div {
+      background-color: #f1f1f1!important;
+      justify-content: flex-end!important;
+      height: 60px;
+    }
+  }
+  .ms-Dialog-actionsRight {
+    margin: 0;
+  }
 }

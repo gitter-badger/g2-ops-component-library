@@ -4,7 +4,7 @@ import type { Node, ChildrenArray } from 'react'
 import React from 'react'
 import { Dialog, DialogFooter } from 'office-ui-fabric-react/lib/Dialog'
 
-import {wrapFabricContext} from 'utilities/wrapFabricContext'
+import { wrapFabricContext } from 'utilities/wrapFabricContext'
 
 import './DialogBox.scss'
 
@@ -45,8 +45,8 @@ export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
     <Dialog
       hidden={!!hideDialog}
       dialogType="normal"
-			onDismiss={onDismiss}
-			showCloseButton={props.showCloseButton}
+      onDismiss={onDismiss}
+      showCloseButton={props.showCloseButton}
       dialogContentProps={{
         title: title,
         subText: subText,
@@ -57,10 +57,10 @@ export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
 				isBlocking: isBlocking,
 				isDarkOverlay: true
 			}}
-			
+
     >
       {children}
-      {footerRenderer && <DialogFooter>{footerRenderer()}</DialogFooter>}
+      {footerRenderer && <DialogFooter className="DialogFooter">{footerRenderer()}</DialogFooter>}
     </Dialog>
   )
 })
