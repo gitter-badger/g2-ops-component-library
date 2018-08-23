@@ -1,13 +1,13 @@
 {
   "name": "@copart/core-components",
-  "version": "0.33.2",
+  "version": "0.33.3",
   "main": "dist/index.js",
   "license": "MIT",
   "scripts": {
     "prepublishOnly": "npm run build && node ./prepublish",
     "build": "webpack --mode production --config ./webpack.prod.js",
     "start": "yarn build --watch",
-    "test": "babel-node node_modules/.bin/jest"
+    "test": "babel-node node_modules/.bin/jest -u"
   },
   "dependencies": {
     "@uifabric/icons": "5.8.0",
