@@ -4,6 +4,7 @@ exports[`<Checkbox /> should render properly 1`] = `
 <button
   aria-checked={false}
   aria-describedby=""
+  checked={false}
   className="ms-Checkbox is-enabled css-33"
   id="checkbox-0"
   onBlur={[Function]}

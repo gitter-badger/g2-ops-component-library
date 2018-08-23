@@ -2,16 +2,10 @@
 
 exports[`<DatePicker /> should render properly 1`] = `
 <div
-  className="DatePicker "
-  style={
-    Object {
-      "maxWidth": "300px",
-      "muiPrepared": true,
-    }
-  }
+  className=""
 >
   <div
-    className="ms-Fabric root-65"
+    className="ms-Fabric root-33"
   >
     <div
       className="ms-TextField root"
@@ -20,7 +14,7 @@ exports[`<DatePicker /> should render properly 1`] = `
         className="ms-TextField-wrapper wrapper"
       >
         <label
-          className="ms-Label root-67"
+          className="ms-Label root-35"
           htmlFor="TextField0"
         >
           Select Date
@@ -124,16 +118,10 @@ exports[`<DatePicker /> should render properly 1`] = `
 
 exports[`<DatePicker /> should render when value prop passed 1`] = `
 <div
-  className="DatePicker "
-  style={
-    Object {
-      "maxWidth": "300px",
-      "muiPrepared": true,
-    }
-  }
+  className=""
 >
   <div
-    className="ms-Fabric root-65"
+    className="ms-Fabric root-33"
   >
     <div
       className="ms-TextField root"
@@ -142,7 +130,7 @@ exports[`<DatePicker /> should render when value prop passed 1`] = `
         className="ms-TextField-wrapper wrapper"
       >
         <label
-          className="ms-Label root-67"
+          className="ms-Label root-35"
           htmlFor="TextField2"
         >
           Select Date
