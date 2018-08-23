@@ -10,6 +10,8 @@ import { LogOutMenu } from './LogOutMenu'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 import { FeedbackDialog } from 'components/FeedbackDialog'
 
+import { beautifyRoleText } from './utils'
+
 import './AppBar.scss'
 import './AppBar.pcss'
 
@@ -110,13 +112,19 @@ const renderAppBarElements = (props) => {
           {onRenderFlag({ countryCode, type })}
         </If>
         <If condition={props.config.includes('role') && props.isLoggedOn}>
-          <div className="text role">{role}</div>
+          <div className="text role">{beautifyRoleText(role)}</div>
         </If>
       </div>
       <If condition={props.config.includes('yard') && props.isLoggedOn}>
         <div className="col element" styleName="yardNumber">
           <i className="material-icons">domain</i>
           <div className="iconText yardNumber">{yardNumber}</div>
+        </div>
+      </If>
+      <If condition={props.config.includes('phone') && props.isLoggedOn}>
+        <div className="col element" styleName="yardNumber">
+          <i className="material-icons">phone</i>
+          <div className="iconText yardNumber">{phoneNumber}</div>
         </div>
       </If>
       <div className="col" styleName="userMenu">
