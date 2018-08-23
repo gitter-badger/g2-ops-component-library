@@ -53,7 +53,7 @@ describe('<CurrencyField />', () => {
 
   test('should return formatted currency value when entered value < maxValue', () => {
     const countryCodeErrorMap = {
-      DE: [ '€ 100,000.00', '100000' ],
+      DE: [ '€100,000.00', '100000' ],
       US: [ '$100,000.00', '100000' ],
       UK: [ '£100,000.00', '100000' ],
       IR: [ '€100,000.00', '100000' ],
@@ -88,11 +88,11 @@ describe('<CurrencyField />', () => {
 
   test('should display errorMessage onBlur when value entered > maxValue', () => {
     const countryCodeErrorMap = {
-      DE: [ 'Max Limit € 9,999.99', '100000' ],
+      DE: [ 'Max Limit €9,999.99', '100000' ],
       US: [ 'Max Limit $9,999.99', '100000' ],
       UK: [ 'Max Limit £9,999.99', '100000' ],
       IR: [ 'Max Limit €9,999.99', '100000' ],
-      CA: [ 'Max Limit CAD9,999.99', '100000' ],
+      CA: [ 'Max Limit CAD 9,999.99', '100000' ],
       IN: [ 'Max Limit ₹9,999.99', '100000' ],
       GB: [ 'Max Limit £9,999.99', '100000' ],
     }
