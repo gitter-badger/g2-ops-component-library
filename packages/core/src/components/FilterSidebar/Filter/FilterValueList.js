@@ -15,17 +15,18 @@ type FilterValueListPropType = {
   onFilterValueChange: (Array<string>, string) => void,
   name: string,
   type: string,
-  onRangeFilterChange: Function,
+  onRangeFilterChange: (filteredOptions: *, name:string) => mixed,
 }
 
 type FilterValueListStateType = {
   selectedFilterNames: Array<string>,
+  filterOptions: Array<FilterValueType>,
 }
 
 export class FilterValueList extends Component<FilterValueListPropType, FilterValueListStateType> {
   state = {
     selectedFilterNames: [],
-    filterOptions: {},
+    filterOptions: [],
   }
 
   componentWillMount() {
@@ -56,12 +57,12 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
     }
   }
 
-  onFilterValueSearched = (textFieldValue) => {
+  onFilterValueSearched = (textFieldValue:string) => {
     const filteredOptions = this.props.filterOptions
     this.setState(() => ({filterOptions: filteredOptions.filter((option) => option.name.toLowerCase().includes(textFieldValue.toLowerCase())) }))
   }
 
-  handleRangeFilterChange = (type: string, value: boolean|{}, label: string, filterName: string) => {
+  handleRangeFilterChange = (type: string, value: boolean|string, label: string, filterName: string) => {
     const filteredOptions = this.props.filterOptions.map((filterOptionObject) => {
       const filterOptionObjectCopy = clone(filterOptionObject)
       if (filterOptionObject.label === label) {
@@ -96,6 +97,7 @@ export class FilterValueList extends Component<FilterValueListPropType, FilterVa
         }
         <For each="filterOption" of={this.state.filterOptions} index="index">
           <FilterValue
+            key={filterOption.label}
             filterOption={filterOption}
             filterType={type}
             onFilterValueChecked={this.onFilterValueChecked}
