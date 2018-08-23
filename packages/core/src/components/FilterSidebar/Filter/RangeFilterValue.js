@@ -11,17 +11,18 @@ import './FilterValue.scss'
 
 type RangeFilterValueProps = {
   filterOption: FilterValueType,
-  handleRangeFilterChange: (type: 'checkbox'| 'date',value: string, label:string, filterName: string) => mixed,
+  handleRangeFilterChange: (type: 'checkbox'| 'date',value: string|null, label:string, filterName: string) => mixed,
 }
 type RangeFilterValueState = {
-  newDate: Date|'',
+  newDate: Date|null,
 }
-const getDateValueFromOption = (filterOption:FilterValueType) : Date| ''=> {
+const DEFAULT_FORMAT = 'DD/MM/YYYY'
+const getDateValueFromOption = (filterOption:FilterValueType) : Date| null=> {
   if(!filterOption){
-    return ''
+    return null
   }
   const { name } = filterOption
-  return name ? new Date(name): ''
+  return name ? moment(name,DEFAULT_FORMAT).toDate(): null
 }
 class RangeFilterValue extends React.Component<
   RangeFilterValueProps,
@@ -66,17 +67,25 @@ class RangeFilterValue extends React.Component<
             <DatePicker
               value={this.state.newDate}
               autoOk
-              onChange={(e, dateValue) =>
+              placeholder={DEFAULT_FORMAT}
+              hintText={DEFAULT_FORMAT}
+              onChange={(e, dateValue) => {
                 this.setState({ newDate: dateValue }, () => {
+                  const formattedDate = dateValue ? moment(dateValue).format(DEFAULT_FORMAT): null
                   handleRangeFilterChange(
                     'date',
-                    moment(dateValue).format(),
+                    formattedDate,
                     filterOption.label,
                     filterOption.name,
                   )
                 })
               }
-              defaultFormat={'DD/MM/YYYY'}
+
+              }
+              formatDate={date => {
+                return moment(date,DEFAULT_FORMAT).format(DEFAULT_FORMAT)
+              }}
+              defaultFormat={DEFAULT_FORMAT}
             />
           </div>
         </div>
