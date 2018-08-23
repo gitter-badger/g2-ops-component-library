@@ -15,7 +15,8 @@
     "moment": "2.22.1",
     "office-ui-fabric-react": "5.111.0",
     "react-tooltip": "3.6.0",
-    "render-if": "0.1.1"
+    "render-if": "0.1.1",
+    "styled-components": "^3.4.4"
   },
   "devDependencies": {
     "@babel/cli": "7.0.0-beta.51",
@@ -50,6 +51,7 @@
     "babel-jest": "22.4.3",
     "babel-loader": "8.0.0-beta.2",
     "babel-plugin-react-css-modules": "3.4.2",
+    "babel-plugin-styled-components": "^1.5.1",
     "css-loader": "0.28.11",
     "enzyme": "3.3.0",
     "enzyme-adapter-react-15": "1.0.5",

@@ -2,22 +2,30 @@
   font-family: Roboto, sans-serif;
   font-size: 16px;
 }
+
 .CustomDialogWithHeader .ms-Dialog-main {
-  min-width: 600px;
+  max-width: 600px;
 }
+
 .CustomDialogWithHeader .ms-Dialog-header {
   background-color: #0d5db8;
   height: 40px;
   padding: 6px;
+  padding-left: 14px;
+  display: flex;
+  align-items: center;
 }
+
 .CustomDialogWithHeader .ms-Dialog-header .topButton-72 {
   padding: 5px;
 }
+
 .CustomDialogWithHeader .ms-Dialog-header p {
   padding: 11px 10px;
   font-family: Roboto, sans-serif;
   font-size: 16px;
 }
+
 .CustomDialogWithHeader .ms-Dialog-header p,
 .CustomDialogWithHeader .ms-Dialog-header button {
   color: white;
@@ -61,4 +69,13 @@
   .ms-Dialog-actionsRight {
     margin: 0;
   }
+}
+
+.ms-Dialog-header .ms-Dialog-title {
+  // fabric override
+  padding: 0 !important;
+}
+
+.ms-Dialog-inner .ms-Dialog-content > div {
+  padding: 20px 16px;
 }

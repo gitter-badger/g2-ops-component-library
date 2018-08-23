@@ -19,41 +19,49 @@ type DialogBoxPropTypes = {
   /** Render Function for rendering items in the Footer */
   footerRenderer?: () => Node,
   containerClassName: string,
-  children?: ChildrenArray<Node>,
-  containterClassName: string,
-  otherProps: any,
+  children: ChildrenArray<Node>,
+  containterClassName: string,otherProps: any,
+  className?: string,
+  showCloseButton?: boolean,
+  showHeader?: boolean,
+  width?: string
 }
 
-export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
-  const {
-    title,
-    subText,
-    onDismiss,
-    hideDialog,
-		isBlocking,
-		// TODO: Deprecate containerClassName.
-		containerClassName,
-		className,
-		// actionsContainerClassName,
-		// actionsContainerStyle,
-		children,
-    footerRenderer,
-    showHeader,
-    ...otherProps
-  } = props
-  return (
-    <Dialog
-      hidden={!!hideDialog}
+@wrapFabricContext
+export class DialogBox extends React.Component {
+  render() {
+    console.log(this.props)
+    const {
+      title,
+      subText,
+      onDismiss,
+      hideDialog,
+      isBlocking,
+      containerClassName = '',
+      className = '',
+      children,
+      width = '600px',
+      footerRenderer,
+      showHeader = false,
+      showCloseButton = true
+    } = this.props
+
+    const { props } = this
+
+    return (
+      <Dialog
+      hidden={hideDialog}
       dialogType="normal"
+      onDismissed={onDismiss}
       onDismiss={onDismiss}
-      showCloseButton={props.showCloseButton}
+      showCloseButton={showCloseButton}
       dialogContentProps={{
         title: title,
         subText: subText,
       }}
       modalProps={{
 				className: `${showHeader ? 'CustomDialogWithHeader' : 'CustomDialogWithoutHeader'} ${className}`,
-        containerClassName: `dialogModelContent ${containerClassName}`,
+        containerClassName: `dialogModalContent ${containerClassName}`,
 				isBlocking: isBlocking,
 				isDarkOverlay: true
 			}}
@@ -62,8 +70,9 @@ export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
       {children}
       {footerRenderer && <DialogFooter className="DialogFooter">{footerRenderer()}</DialogFooter>}
     </Dialog>
-  )
-})
+    )
+  }
+}
 
 DialogBox.defaultProps = {
   isBlocking: false,
