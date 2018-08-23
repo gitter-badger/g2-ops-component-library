@@ -1,20 +1,23 @@
 // @flow
 import type { QuickFilterType, FilterType } from 'types/Filter'
 import type { Node } from 'react'
-import { assoc, compose, empty, findIndex, propEq,__, adjust, evolve, always, map, clone } from 'ramda'
+import { assoc, compose, empty, findIndex, propEq,__, adjust, evolve, always, map, clone,filter } from 'ramda'
 import React, { Component } from 'react'
 
 import { FilterSidebar } from './FilterSidebar'
 import filters, { quickLinks } from './MockData/FilterMockData'
 
-const clearFilterData = compose(
+const clearFilterData =
   map(
-    evolve({
-      selectedValues: empty,
-      filterOptions: map(assoc('isSelected', false))
-    })
+    (currentFilter) => {
+      console.log(currentFilter, 'currentFilter')
+      const filterOptionsWithClear = map((currentOption)=>{
+        const unselectedOption= assoc('isSelected',false)(currentOption)
+        return currentFilter.type!=='range'? filterOptionsWithClear: assoc('name',null,unselectedOption)
+      })(currentFilter.filterOptions)
+      return {...currentFilter,filterOptions: filterOptionsWithClear, selectedValues: []}
+    }
   )
-)
 
 class ComponentExample extends Component<Object, Object> {
   state = {
@@ -23,6 +26,7 @@ class ComponentExample extends Component<Object, Object> {
   handleFilterClear = () => {
     const { filtersState } = this.state
     const clearedFilters = clearFilterData(filtersState)
+    console.log(clearedFilters,'After clear')
     this.setState({
       filtersState: clearedFilters
     })
@@ -31,7 +35,7 @@ class ComponentExample extends Component<Object, Object> {
   handleFilterChange = (selectedValues: Array<number|string>, filterName: string) => {
     const { filtersState } = this.state
     console.log('on filter change ', selectedValues, filterName)
-    
+
     const updatedValue = compose(adjust(evolve({
     selectedValues: always(selectedValues),
     filterOptions: (filteredValues) =>
@@ -51,9 +55,17 @@ class ComponentExample extends Component<Object, Object> {
     })
   }
 
-  handleChangeInRangeFilter = (filterOptions: any, filterName: string) => {
+  handleChangeInRangeFilter = (filterOptions: Array<FilterType>, filterName: string) => {
+    console.log(filterOptions, 'filter')
     const { filtersState } = this.state
-    const updatedValue = filtersState.map((filter) => (filter.name === filterName) ? assoc('filterOptions', filterOptions)(filter) : filter)
+    const selectedValues = compose(map(elem => `${elem.label}:${elem.name}`),filter(propEq('isSelected',true)))(filterOptions)
+    const updatedValue = compose(adjust(evolve({
+    selectedValues: always(selectedValues),
+    filterOptions: always(filterOptions)
+    }),
+    __,
+    filtersState),
+    findIndex(propEq('name', filterName)))(filtersState)
     this.setState({
       filtersState: updatedValue
     })

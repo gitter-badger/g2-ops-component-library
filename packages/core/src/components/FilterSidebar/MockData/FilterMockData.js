@@ -7,7 +7,7 @@ export default [
   {
     label: 'Image Uploaded Date',
     name: 'imageUploadedDate',
-    // selectedValues: [ '10112017' ],
+    selectedValues: ['To:null'],
     type: 'range',
     // dataType: 'date', will need it if we want range in datatype other than datepicker
     // filterOptions would be these two (from/to) always so we dont need selectedValues
