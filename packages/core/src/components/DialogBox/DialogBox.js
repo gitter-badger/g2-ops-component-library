@@ -21,7 +21,8 @@ type DialogBoxPropTypes = {
   containerClassName: string,
   children?: ChildrenArray<Node>,
   containterClassName: string,
-  otherProps: any,
+  showHeader?: boolean,
+  showCloseButton?: boolean
 }
 
 export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
@@ -29,24 +30,21 @@ export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
     title,
     subText,
     onDismiss,
-    hideDialog,
-		isBlocking,
-		// TODO: Deprecate containerClassName.
-		containerClassName,
-		className,
-		// actionsContainerClassName,
-		// actionsContainerStyle,
+    hideDialog = false,
+		isBlocking = false,
+		containerClassName = '',
+		className = '',
 		children,
     footerRenderer,
-    showHeader,
-    ...otherProps
+    showCloseButton = true,
+    showHeader = false,
   } = props
   return (
     <Dialog
-      hidden={!!hideDialog}
+      hidden={hideDialog}
       dialogType="normal"
       onDismiss={onDismiss}
-      showCloseButton={props.showCloseButton}
+      showCloseButton={showCloseButton}
       dialogContentProps={{
         title: title,
         subText: subText,
@@ -64,8 +62,3 @@ export const DialogBox = wrapFabricContext((props: DialogBoxPropTypes) => {
     </Dialog>
   )
 })
-
-DialogBox.defaultProps = {
-  isBlocking: false,
-  hideDialog: false,
-}
