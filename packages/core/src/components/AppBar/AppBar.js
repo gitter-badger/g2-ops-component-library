@@ -116,15 +116,15 @@ const renderAppBarElements = (props) => {
           <div className="yardNumber">{phoneNumber}</div>
         </div>
       </If>
+      <If condition={['Function'].includes(getType(afterSendFeedback))}>
+        {/* Button + Dialog -> Won't show if afterSendFeedback is not present. */}
+        <FeedbackDialog {...props} />
+      </If>
       <div className="col" styleName="userMenu">
         <If condition={isLoggedOn}>
           <LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
         </If>
       </div>
-      <If condition={['Function'].includes(getType(afterSendFeedback))}>
-        {/* Button + Dialog -> Won't show if afterSendFeedback is not present. */}
-        <FeedbackDialog {...props} />
-      </If>
     </div>
   )
 }
