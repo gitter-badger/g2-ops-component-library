@@ -31,16 +31,18 @@
 }
 
 .ms-Dialog-header {
+  padding-left: 13px !important;
+  display: flex;
+  align-items: center;
   > div[class*=topButton] {
     padding-top: 4px;
     padding-right: 4px;
   }
   .ms-Dialog-title {
-    padding: 7px!important;
+    padding: 0 !important;
     font-weight: bold;
     i {
-      float: left;
-      margin-right: 5px
+      margin-right: 13px
     }
   }
   button {
@@ -65,5 +67,10 @@
 
 
 .ms-Dialog-inner .ms-Dialog-content > div:first-of-type {
-  padding: 20px 16px;
+  padding: 20px;
+} 
+
+.__FeedbackDialog-FeedbackDialog .ms-Dialog-inner {
+  height: auto;
+  padding: 20px;
 }

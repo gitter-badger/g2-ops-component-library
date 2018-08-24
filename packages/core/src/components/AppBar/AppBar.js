@@ -9,28 +9,13 @@ import { DefaultButton } from 'office-ui-fabric-react/lib/Button'
 import { LogOutMenu } from './LogOutMenu'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 import { FeedbackDialog } from 'components/FeedbackDialog'
+import { CopartLogo } from './CopartLogo'
 
 import { beautifyRoleText } from './utils'
 
 import './AppBar.scss'
 import './AppBar.pcss'
 
-// TODO: Test
-// TODO: Move into utilities file.
-const allTruthy = (conditions: Function[]): Boolean => {
-  // If any one of the conditions evaluates to false
-  // then we want to return false, regardless of the
-  // other conditionals' outcomes. Thus; the for..of
-  // loop is used to exit early if we get a failing
-  // condition.
-  for (const condition of conditions) {
-    if (!condition()) {
-      return false 
-    }
-  }
-
-  return true
-}
 
 type AppBarPropTypes = {
   userEmail: string,
@@ -101,38 +86,42 @@ const renderAppBarElements = (props) => {
     showSearchBar,
     logoutItems,
     onLogoutItemClicked,
+    afterSendFeedback,
     onFeedbackClick,
     onRenderFlag,
     onRenderLogo,
+    config,
+    isLoggedOn,
+    navigateTo = () => {}
   } = props
   return (
     <div className="flex-grid" styleName="AppBarRight">
       <div className="col element" styleName="roleAndFlag">
-        <If condition={props.config.includes('flag') && props.isLoggedOn}>
+        <If condition={config.includes('flag') && isLoggedOn}>
           {onRenderFlag({ countryCode, type })}
         </If>
-        <If condition={props.config.includes('role') && props.isLoggedOn}>
-          <div className="text role">{beautifyRoleText(role)}</div>
+        <If condition={config.includes('role') && isLoggedOn}>
+          <div className="role">{beautifyRoleText(role)}</div>
         </If>
       </div>
-      <If condition={props.config.includes('yard') && props.isLoggedOn}>
-        <div className="col element" styleName="yardNumber">
+      <If condition={config.includes('yard') && isLoggedOn}>
+        <div className="col element" styleName="yardNumber" onClick={navigateTo('/settings')}>
           <i className="material-icons">domain</i>
-          <div className="iconText yardNumber">{yardNumber}</div>
+          <div className="yardNumber">{yardNumber}</div>
         </div>
       </If>
-      <If condition={props.config.includes('phone') && props.isLoggedOn}>
+      <If condition={config.includes('phone') && isLoggedOn}>
         <div className="col element" styleName="yardNumber">
           <i className="material-icons">phone</i>
-          <div className="iconText yardNumber">{phoneNumber}</div>
+          <div className="yardNumber">{phoneNumber}</div>
         </div>
       </If>
       <div className="col" styleName="userMenu">
-        <If condition={props.isLoggedOn}>
+        <If condition={isLoggedOn}>
           <LogOutMenu items={logoutItems} onItemClick={onLogoutItemClicked} />
         </If>
       </div>
-      <If condition={['Function'].includes(getType(props.afterSendFeedback))}>
+      <If condition={['Function'].includes(getType(afterSendFeedback))}>
         {/* Button + Dialog -> Won't show if afterSendFeedback is not present. */}
         <FeedbackDialog {...props} />
       </If>
@@ -143,8 +132,7 @@ const renderAppBarElements = (props) => {
 const renderLogoAndSearchBar = ({ showSearchBar, moduleName, onRenderLogo, renderSearchbar }) => (
   <div className="flex-grid">
     <div className="appBarLeft">
-      {onRenderLogo()}
-      <span className="moduleName">{moduleName}</span>
+      <CopartLogo />
     </div>
     {showSearchBar && renderSearchbar && <div className="searchBar">{renderSearchbar()}</div>}
   </div>
@@ -176,18 +164,20 @@ const AppBar = (props: AppBarPropTypes): Element<typeof MuiAppBar> => {
   } = otherProps
   return (
     <MuiAppBar
-      iconStyleRight={{
-        marginTop: '14px',
-        marginRight: '-14px',
-      }}
+      // iconStyleRight={iconStyles}
       {...appBarProps}
       iconElementLeft={renderLogoAndSearchBar(props)}
       iconElementRight={renderAppBarElements(props)}
-      data-core-component="AppBar"
+      data-test="AppBar"
     >
       {children}
     </MuiAppBar>
   )
+}
+
+const iconStyles = {
+  marginTop: '14px',
+  marginRight: '-14px',
 }
 
 AppBar.defaultProps = {

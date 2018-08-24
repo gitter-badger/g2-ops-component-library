@@ -11,7 +11,6 @@ const configCobalt = {
 	yardNumber: 5001,
   role: 'Germany Executive',
   showSearchBar: false,
-  moduleName: 'Cobalt Portal'
 }
 
 const logoutItems = [
