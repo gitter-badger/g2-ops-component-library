@@ -39,42 +39,35 @@ type CurrencyFieldStateType = {
 }
 
 const validateInputValueAndReturnErrorMessage = (
-  value: string,
-  countryCode: string,
-  maxValue: number,
+  props: Object, currencyValue: string = ''
 ): CurrencyFieldStateType => {
+  const { countryCode, maxValue } = props
   if (!countriesSupported.includes(countryCode)) {
     return {
-      formattedValue: value,
-      displayedValue: value,
+      formattedValue: currencyValue,
+      displayedValue: currencyValue,
       errorMessage: 'Please enter/send a valid country',
     }
   } else {
     const country = companyCodeMapper(countryCode)
-    let currencyValue = ''
-    if (!isBlank(value)) {
-      currencyValue = CASCountry.includes(countryCode)
-        ? stripDownCurrency(countryCode, value).replace(/[a-zA-Z,$#^&*()@!]+/, '') || 0
-        : serialize(countryCode, value)
-    }
     const formattedCurrency = formatCurrency(countryCode, currencyValue.toString(), country.currency)
     if (Number(currencyValue) > maxValue) {
       return {
         formattedValue: formattedCurrency,
-        displayedValue: currencyValue.toString(),
+        displayedValue: formattedCurrency,
         errorMessage: `Max Limit ${formatCurrency(countryCode, maxValue.toString(), country.currency)}`,
       }
     } else {
       return {
         formattedValue: formattedCurrency,
-        displayedValue: currencyValue.toString(),
+        displayedValue: formattedCurrency,
         errorMessage: '',
       }
     }
   }
 }
 
-const arePropValuesEqual = (
+const arePropValuesNotEqual = (
   nextProps: any,
   props: any,
   properties: Array<string> = ['maxValue', 'countryCode', 'value'],
@@ -88,39 +81,53 @@ export class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFie
 
   constructor(props: CurrencyFieldPropTypes) {
     super(props)
-    const { value, countryCode, maxValue } = props
-    this.state = validateInputValueAndReturnErrorMessage(value.toString(), countryCode, maxValue)
+    const { value, countryCode } = this.props
+    const valueFromProps = value.toString()
+    this.state = validateInputValueAndReturnErrorMessage(this.props, valueFromProps)
   }
 
   componentWillReceiveProps(nextProps: CurrencyFieldPropTypes) {
-    if (arePropValuesEqual(nextProps, this.props)) {
-      const { value, countryCode, maxValue } = nextProps
+    if (arePropValuesNotEqual(nextProps, this.props)) {
+      const { countryCode, value } = nextProps
+      const valueFromProps = value.toString()
       this.setState(prevState => ({
         ...prevState,
-        ...validateInputValueAndReturnErrorMessage(value.toString(), countryCode, maxValue),
+        ...validateInputValueAndReturnErrorMessage(nextProps, valueFromProps),
       }))
     }
   }
 
   onBlur = (e: SyntheticKeyboardEvent<HTMLInputElement>) => {
-    const { countryCode, maxValue } = this.props
     const value = e.currentTarget.value
-    const validatedInput = validateInputValueAndReturnErrorMessage(value, countryCode, maxValue)
+    let currencyValue = value
+    const { countryCode } = this.props
+    if (!isBlank(value)) {
+      currencyValue = CASCountry.includes(countryCode)
+        ? stripDownCurrency(countryCode, value).replace(/[a-zA-Z,$#^&*()@!]+/, '') || 0
+        : serialize(countryCode, value)
+    }
+    const validatedInput = validateInputValueAndReturnErrorMessage(this.props, currencyValue.toString())
     this.setState(prevState => ({
       ...prevState,
       ...validatedInput,
       displayedValue: validatedInput.formattedValue,
-    }))
-    if (this.props.onBlur) {
-      const { formattedValue, displayedValue } = this.state
-      this.props.onBlur(formattedValue, validatedInput.displayedValue.toString()) // To be consistent we return both strings
-    }
+    }), () => {
+      if (this.props.onBlur) {
+        const { formattedValue } = this.state
+        this.props.onBlur(formattedValue, currencyValue.toString()) // To be consistent we return both strings
+      }
+    })
   }
 
   onChange = (value: string) => {
-    const { countryCode, maxValue } = this.props
-    const validatedInput = validateInputValueAndReturnErrorMessage(value, countryCode, maxValue)
-    let currencyValue = validatedInput.displayedValue
+    const { countryCode } = this.props
+    let currencyValue = value
+    if (!isBlank(value)) {
+      currencyValue = CASCountry.includes(countryCode)
+        ? stripDownCurrency(countryCode, value).replace(/[a-zA-Z,$#^&*()@!]+/, '') || 0
+        : serialize(countryCode, value)
+    }
+    const validatedInput = validateInputValueAndReturnErrorMessage(this.props, currencyValue.toString())
     if (countriesSupported.includes(countryCode)) {
       const country = companyCodeMapper(countryCode)
       const delimiter = country.delimiter
@@ -129,12 +136,21 @@ export class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFie
     this.setState(prevState => ({
       ...prevState,
       ...validatedInput,
-      displayedValue: currencyValue,
+      displayedValue: currencyValue.toString(),
     }))
-    if (this.props.onChange) {
-      const { formattedValue, displayedValue } = this.state
-      this.props.onChange(formattedValue, displayedValue)
-    }
+  }
+
+  onFocus = (value: string) => {
+    // Triggered when the user focuses onto the field for the first time
+    const { countryCode } = this.props
+    const country = companyCodeMapper(countryCode)
+    const delimiter = country.delimiter
+    const currencyValue = value.replace(/\D/g, match => (match === delimiter ? delimiter : ''))
+    this.setState({
+      formattedValue: currencyValue.toString(),
+      displayedValue: currencyValue.toString(),
+      errorMessage: '',
+    })
   }
 
   render() {
@@ -147,7 +163,7 @@ export class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFie
           value={this.state.displayedValue}
           onChanged={this.onChange}
           onBlur={this.onBlur}
-          onFocus={e => this.onChange(e.target.value)}
+          onFocus={e => this.onFocus(e.target.value)}
           errorMessage={this.state.errorMessage}
         />
         <input type="hidden" name={this.props.name} required={this.props.required} value={this.state.formattedValue} />
