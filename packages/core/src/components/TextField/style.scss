@@ -1,0 +1,23 @@
+:global {
+	input {
+		color: black !important;
+		padding: 0 12px 0 5px !important;
+		font-family: 'Roboto', sans-serif;
+		font-size: 16px;
+	}
+	
+	.ms-TextField {
+		label {
+			font-family: 'Roboto', sans-serif;
+			font-size: 12px;
+		}
+	}
+	.ms-TextField-errorMessage {
+		font-family: 'Roboto', sans-serif;
+	}
+	.ms-TextField-suffix {
+		background: #ffffff !important;
+		color: #000000 !important;
+		align-items: center;
+	}
+}

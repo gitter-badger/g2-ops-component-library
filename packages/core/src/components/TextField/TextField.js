@@ -6,7 +6,7 @@ import { Fabric } from 'office-ui-fabric-react/lib/Fabric'
 
 import {wrapFabricContext} from 'utilities/wrapFabricContext'
 
-import './TextField.scss'
+import './style.scss'
 
 type TextFieldPropTypes = {
 	text: string,
@@ -21,12 +21,12 @@ type TextFieldPropTypes = {
 }
 
 export const TextField = wrapFabricContext(
-  ({ placeholder, disabled, className, inputClassName, horizontal, ...otherProps }: TextFieldPropTypes) => (
+  ({ placeholder, disabled, className, inputClassName, ...otherProps }: TextFieldPropTypes) => (
     <FabricTextField
       {...otherProps}
       disabled={disabled}
       inputClassName={`input ${inputClassName}`}
-      className={`${className} ${horizontal ? 'leftLabel' : ''}`}
+      className={className}
       placeholder={disabled ? '' : placeholder}
     />
   ),
