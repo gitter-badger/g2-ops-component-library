@@ -26,15 +26,8 @@ type CurrencyFieldPropTypes = {
   maxValue: number,
 }
 
-type CurrencyFieldValidationType = {
-  errorMessage: string,
-  formattedValue: string,
-  displayedValue: string,
-}
-
 type CurrencyFieldStateType = {
   errorMessage: string,
-  formattedValue: string,
   displayedValue: string,
 }
 
@@ -44,7 +37,6 @@ const validateInputValueAndReturnErrorMessage = (
   const { countryCode, maxValue } = props
   if (!countriesSupported.includes(countryCode)) {
     return {
-      formattedValue: currencyValue,
       displayedValue: currencyValue,
       errorMessage: 'Please enter/send a valid country',
     }
@@ -53,13 +45,11 @@ const validateInputValueAndReturnErrorMessage = (
     const formattedCurrency = formatCurrency(countryCode, currencyValue.toString(), country.currency)
     if (Number(currencyValue) > maxValue) {
       return {
-        formattedValue: formattedCurrency,
         displayedValue: formattedCurrency,
         errorMessage: `Max Limit ${formatCurrency(countryCode, maxValue.toString(), country.currency)}`,
       }
     } else {
       return {
-        formattedValue: formattedCurrency,
         displayedValue: formattedCurrency,
         errorMessage: '',
       }
@@ -110,11 +100,11 @@ export class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFie
     this.setState(prevState => ({
       ...prevState,
       ...validatedInput,
-      displayedValue: validatedInput.formattedValue,
+      displayedValue: validatedInput.displayedValue,
     }), () => {
       if (this.props.onBlur) {
-        const { formattedValue } = this.state
-        this.props.onBlur(formattedValue, currencyValue.toString()) // To be consistent we return both strings
+        const { displayedValue } = this.state
+        this.props.onBlur(displayedValue, currencyValue.toString()) // To be consistent we return both strings
       }
     })
   }
@@ -147,7 +137,6 @@ export class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFie
     const delimiter = country.delimiter
     const currencyValue = value.replace(/\D/g, match => (match === delimiter ? delimiter : ''))
     this.setState({
-      formattedValue: currencyValue.toString(),
       displayedValue: currencyValue.toString(),
       errorMessage: '',
     })
@@ -166,7 +155,7 @@ export class CurrencyField extends Component<CurrencyFieldPropTypes, CurrencyFie
           onFocus={e => this.onFocus(e.target.value)}
           errorMessage={this.state.errorMessage}
         />
-        <input type="hidden" name={this.props.name} required={this.props.required} value={this.state.formattedValue} />
+        <input type="hidden" name={this.props.name} required={this.props.required} value={this.state.displayedValue} />
       </div>
     )
   }
