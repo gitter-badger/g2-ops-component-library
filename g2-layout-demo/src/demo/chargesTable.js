@@ -6,8 +6,8 @@ import {
   TableHeaderColumn,
   TableRowColumn,
   TableRow,
-  IconButton
-} from 'ops-portal-component-library'
+  IconButton,
+} from '@copart/core-components'
 import './billingAndPickup.css'
 
 const tableStyle = {
@@ -72,8 +72,8 @@ const tableStyle = {
   },
 }
 
-const renderIcon = (iconName) => (
-  <IconButton style={{ margin: '-15px' }}onTouchTap={() => console.log(iconName, ' clicked')}>
+const renderIcon = iconName => (
+  <IconButton style={{ margin: '-15px' }} onClick={() => console.log(iconName, ' clicked')}>
     <i className="material-icons md-18">open_in_new</i>
   </IconButton>
 )
@@ -119,28 +119,20 @@ const ChargesTable = () => (
             </TableRowColumn>
           </TableRow>
           <TableRow style={tableStyle.tableRowStyle}>
-            <TableRowColumn style={tableStyle.tableColumnDesc}>
-              {'Sale Price'}
-            </TableRowColumn>
+            <TableRowColumn style={tableStyle.tableColumnDesc}>{'Sale Price'}</TableRowColumn>
             <TableRowColumn style={tableStyle.tableColumnAmount}>
               <span>{'0.00'}</span>
             </TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn style={tableStyle.tableTotalChargesColumnDesc}>
-              {'Total Charges'}
-            </TableRowColumn>
+            <TableRowColumn style={tableStyle.tableTotalChargesColumnDesc}>{'Total Charges'}</TableRowColumn>
             <TableRowColumn style={tableStyle.tableTotalChargesColumnAmount}>
               <span>{'0.00'}</span>
             </TableRowColumn>
           </TableRow>
           <TableRow>
-            <TableRowColumn style={tableStyle.tableTotalChargesColumnDesc}>
-              {'Total Due From Seller'}
-            </TableRowColumn>
-            <TableRowColumn style={tableStyle.tableTotalChargesColumnAmount}>
-              {'0.00'}
-            </TableRowColumn>
+            <TableRowColumn style={tableStyle.tableTotalChargesColumnDesc}>{'Total Due From Seller'}</TableRowColumn>
+            <TableRowColumn style={tableStyle.tableTotalChargesColumnAmount}>{'0.00'}</TableRowColumn>
           </TableRow>)
         </TableBody>
       </Table>

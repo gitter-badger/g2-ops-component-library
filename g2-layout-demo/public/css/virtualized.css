@@ -1,133 +1,131 @@
 /* Collection default theme */
 
-:global {
-  .Collection {
-    position: relative;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    /* Without this property, Chrome repaints the entire Collection any time a new row or column is added.
+.Collection {
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Without this property, Chrome repaints the entire Collection any time a new row or column is added.
      Firefox only repaints the new row or column (regardless of this property).
      Safari and IE don't support the property at all. */
-    will-change: transform;
-  }
-  .Collection__innerScrollContainer {
-    box-sizing: border-box;
-    overflow: hidden;
-  }
-  .Collection__cell {
-    position: absolute;
-  }
-  /* Grid default theme */
-  .Grid {
-    position: relative;
-    overflow: auto;
-    -webkit-overflow-scrolling: touch;
-    /* Without this property, Chrome repaints the entire Grid any time a new row or column is added.
+  will-change: transform;
+}
+.Collection__innerScrollContainer {
+  box-sizing: border-box;
+  overflow: hidden;
+}
+.Collection__cell {
+  position: absolute;
+}
+/* Grid default theme */
+.Grid {
+  position: relative;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  /* Without this property, Chrome repaints the entire Grid any time a new row or column is added.
      Firefox only repaints the new row or column (regardless of this property).
      Safari and IE don't support the property at all. */
-    will-change: transform;
-  }
-  .Grid__innerScrollContainer {
-    box-sizing: border-box;
-    overflow: hidden;
-    position: relative;
-  }
-  .Grid__cell {
-    position: absolute;
-  }
-  /* FlexTable default theme */
-  .FlexTable {
-  }
-  .FlexTable__Grid {
-    overflow-x: hidden;
-    box-sizing: border-box;
-  }
-  .FlexTable__headerRow {
-    font-weight: 700;
-    text-transform: uppercase;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    overflow: hidden;
-    box-sizing: border-box;
-  }
-  .FlexTable__row {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    overflow: hidden;
-    color: black;
-  }
-  .FlexTable__headerTruncatedText {
-    display: inline-block;
-    max-width: 100%;
-    white-space: nowrap;
-    text-overflow: ellipsis;
-    overflow: hidden;
-  }
-  .FlexTable__headerColumn,
-  .FlexTable__rowColumn {
-    margin-right: 10px;
-    min-width: 0px;
-    color: black;
-  }
-  .FlexTable__rowColumn {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-    color: black;
-  }
-  .FlexTable__headerColumn:first-of-type,
-  .FlexTable__rowColumn:first-of-type {
-    margin-left: 10px;
-  }
-  .FlexTable__sortableHeaderColumn {
-    cursor: pointer;
-  }
-  .FlexTable__sortableHeaderIconContainer {
-    display: flex;
-    align-items: center;
-  }
-  .FlexTable__sortableHeaderIcon {
-    flex: 0 0 24px;
-    height: 1em;
-    width: 1em;
-    fill: currentColor;
-  }
-  /* VirtualScroll default theme */
-  .VirtualScroll {
-    position: relative;
-    overflow-y: auto;
-    overflow-x: hidden;
-    -webkit-overflow-scrolling: touch;
-  }
-  .NoteVirtualizedTable .FlexTable__headerRow {
-    background-color: #0d5db8;
-  }
-  .NoteVirtualizedTable .FlexTable__headerColumn {
-    color: white;
-  }
-  .NoteVirtualizedTable .FlexTable__rowColumn {
-    overflow: hidden;
-    text-overflow: inherit;
-    white-space: normal;
-  }
-  .NoteVirtualizedTable .FlexTable__row {
-    align-items: flex-start;
-    height: auto !important;
-    font-size: 14px;
-  }
-  .NoteVirtualizedTable .Grid__cell:nth-child(odd) {
-    background: #dadfe1;
-  }
-  .NoteVirtualizedTable .Grid__cell:nth-child(even) {
-    background: #ccc;
-  }
-  .NoteVirtualizedTable .Grid__cell {
-    position: initial !important;
-    height: auto !important;
-  }
-  .NoteVirtualizedTable .Grid__innerScrollContainer {
-    height: auto !important;
-  }
+  will-change: transform;
+}
+.Grid__innerScrollContainer {
+  box-sizing: border-box;
+  overflow: hidden;
+  position: relative;
+}
+.Grid__cell {
+  position: absolute;
+}
+/* FlexTable default theme */
+.FlexTable {
+}
+.FlexTable__Grid {
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+.FlexTable__headerRow {
+  font-weight: 700;
+  text-transform: uppercase;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  box-sizing: border-box;
+}
+.FlexTable__row {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  overflow: hidden;
+  color: black;
+}
+.FlexTable__headerTruncatedText {
+  display: inline-block;
+  max-width: 100%;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+.FlexTable__headerColumn,
+.FlexTable__rowColumn {
+  margin-right: 10px;
+  min-width: 0px;
+  color: black;
+}
+.FlexTable__rowColumn {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  color: black;
+}
+.FlexTable__headerColumn:first-of-type,
+.FlexTable__rowColumn:first-of-type {
+  margin-left: 10px;
+}
+.FlexTable__sortableHeaderColumn {
+  cursor: pointer;
+}
+.FlexTable__sortableHeaderIconContainer {
+  display: flex;
+  align-items: center;
+}
+.FlexTable__sortableHeaderIcon {
+  flex: 0 0 24px;
+  height: 1em;
+  width: 1em;
+  fill: currentColor;
+}
+/* VirtualScroll default theme */
+.VirtualScroll {
+  position: relative;
+  overflow-y: auto;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
+}
+.NoteVirtualizedTable .FlexTable__headerRow {
+  background-color: #0d5db8;
+}
+.NoteVirtualizedTable .FlexTable__headerColumn {
+  color: white;
+}
+.NoteVirtualizedTable .FlexTable__rowColumn {
+  overflow: hidden;
+  text-overflow: inherit;
+  white-space: normal;
+}
+.NoteVirtualizedTable .FlexTable__row {
+  align-items: flex-start;
+  height: auto !important;
+  font-size: 14px;
+}
+.NoteVirtualizedTable .Grid__cell:nth-child(odd) {
+  background: #dadfe1;
+}
+.NoteVirtualizedTable .Grid__cell:nth-child(even) {
+  background: #ccc;
+}
+.NoteVirtualizedTable .Grid__cell {
+  position: initial !important;
+  height: auto !important;
+}
+.NoteVirtualizedTable .Grid__innerScrollContainer {
+  height: auto !important;
 }

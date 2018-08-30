@@ -1,14 +1,5 @@
 import React from 'react'
 
-const PropsT = {
-  label: string,
-  labelStyle: TODO,
-  labelClassName: string,
-  fieldClassName: string,
-  fieldStyle: TODO,
-  required: boolean,
-}
-
 const defaultFieldStyle = {
   width: '60%',
 }
@@ -20,7 +11,7 @@ const defaultLabelStyle = {
   fontSize: '13px',
 }
 
-const ComponentWithLabel = (props: PropsT) => {
+const ComponentWithLabel = props => {
   const {
     Component,
     label,
