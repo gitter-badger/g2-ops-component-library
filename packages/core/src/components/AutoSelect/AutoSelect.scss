@@ -1,27 +1,25 @@
-@keyframes topLeftPopout {
+@keyframes dropDown {
   0% {
-    opacity: 0;
-    transform: scale(0, 0);
+    max-height: 0;
   }
   100% {
-    opacity: 1;
-    transform: scale(1, 1);
+    max-height: 200px;
   }
 }
 
 .options {
-  animation-name: topLeftPopout;
-  animation-duration: 0.2s;
+  animation-name: dropDown;
+  animation-duration: 0.275s;
   transition: all cubic-bezier(0.23, 1, 0.32, 1) 0ms;
-  transform-origin: 0% 0%;
+  transform-origin: center;
   max-height: 200px;
-  z-index: 10000;
-  background-color: white;
+  z-index: 100;
+  background-color: #ffffff;
   box-shadow: rgba(0, 0, 0, 0.117647) 0px 1px 6px, rgba(0, 0, 0, 0.117647) 0px 1px 4px;
 }
 
 .option {
-  height: 50px;
+  height: 40px;
   padding-top: 0.75rem;
   padding-left: 0.75rem;
   text-transform: capitalize;
@@ -30,7 +28,7 @@
   text-overflow: ellipsis;
   font-size: 16px;
   font-family: 'Roboto', sans-serif;
-  background-color: white;
+  background-color: #ffffff;
 }
 
 .selectedOption {
