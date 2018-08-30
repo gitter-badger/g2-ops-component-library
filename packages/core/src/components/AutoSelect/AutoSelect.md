@@ -23,5 +23,18 @@ initialState = { value: 'Ape' }
     optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
     width={200}
   />
+
+  <AutoSelect
+    horizontal
+    label="left to right"
+    name="AutoSelect Field"
+    options={options}
+    selectedOption="2"
+    value={state.value}
+    onChange={(value) => setState({ value })}
+    displayOption={(code) => descriptions[code].desc}
+    optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
+    width={200}
+  />
 </div>
 ```
