@@ -23,7 +23,7 @@ initialState = { value: 'Ape' }
     optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
     width={200}
   />
-
+  <br/>
   <AutoSelect
     horizontal
     label="left to right"
