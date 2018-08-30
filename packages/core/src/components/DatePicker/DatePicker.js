@@ -96,6 +96,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       const newDate = this.getControlledDate(nextProps)
       if (!isEqualDate(this.state.date, newDate)) {
         const { defaultFormat, showCustomError, errorMessage } = nextProps
+        
         this.setState({
           date: newDate,
           showCustomError,
@@ -151,6 +152,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
   handleTextFieldChange = (value: string) => {
     const prevState = this.state
     const { minDate, maxDate, formatDate, defaultFormat, onChange, showCustomError, errorMessage: customError } = this.props
+
     const { displayDate, date = prevState.date, errorMessage } = validateDateAndGetErrorMesssage(
       value,
       minDate,
@@ -158,15 +160,17 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       formatDate || this.formatDate,
       defaultFormat,
     )
+
     const finalError = this.getErrorMessage(value, errorMessage, showCustomError, customError)
+
     this.setState({
       ...prevState,
       date,
       displayDate,
       errorMessage: finalError,
-    })
-    onChange && onChange(displayDate, date)
+    }, () => onChange && onChange(displayDate, date))    
   }
+  
   isControlled() {
     return this.props.hasOwnProperty('value')
   }
@@ -228,9 +232,10 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
       defaultFormat,
       formatDate: formatDateProp,
       ...other
-		} = this.props
-
+    } = this.props
+    
     const formatDate = formatDateProp || this.formatDate
+
     const renderDateIcon = disabled === false ? {
       onRenderSuffix: () => (
         <IconButton style={{ margin: '-15px' }} onClick={this.handleClick}>
@@ -238,6 +243,7 @@ class DatePicker extends Component<DatePickerProps, DatePickerState> {
         </IconButton>
       )
     } : {}
+
     return (
       <div className={className}>
         <TextField
