@@ -1,5 +1,5 @@
 import React from 'react'
-import { AutoSelect, TextField, DatePicker } from 'ops-portal-component-library'
+import { AutoSelect, TextField, DatePicker } from '@copart/core-components'
 import ComponentWithLabel from './componentLabelWrapper'
 import { towProviderOptions, towProviderDescriptions } from './autoSelectOptionsRefData'
 import style from './style'
@@ -14,9 +14,9 @@ class TowProvider extends React.Component {
     'Promised Trip Date': null,
     'Trip Date': null,
     'Trip Distance': '',
-    'Unit': 'KM',
+    Unit: 'KM',
   }
-  formatDate = (date) => moment(date, defaultFormat).format(defaultFormat)
+  formatDate = date => moment(date, defaultFormat).format(defaultFormat)
   render() {
     const disabled = !this.props.isEditing
     return (
@@ -36,8 +36,8 @@ class TowProvider extends React.Component {
                 placeholder={'Select Tow Provider'}
                 value={this.state['Select Tow Provider']}
                 disabled={disabled}
-                onChange={(value) => this.setState({ 'Select Tow Provider': value })}
-                displayOption={(code) => towProviderDescriptions[code].desc}
+                onChange={value => this.setState({ 'Select Tow Provider': value })}
+                displayOption={code => towProviderDescriptions[code].desc}
                 optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
                 fieldStyle={style.fieldStyle}
                 labelStyle={style.labelStyle}
@@ -105,7 +105,7 @@ class TowProvider extends React.Component {
                 autoAdjustHeight
                 disabled={disabled}
                 value={this.state['Trip Distance']}
-                onChanged={(value) => this.setState({ 'Trip Distance': value })}
+                onChanged={value => this.setState({ 'Trip Distance': value })}
                 placeholder={'Trip Distance'}
                 fieldStyle={style.fieldStyle}
                 labelStyle={style.labelStyle}
@@ -118,7 +118,7 @@ class TowProvider extends React.Component {
                 autoAdjustHeight
                 disabled={disabled}
                 value={this.state['Unit']}
-                onChanged={(value) => this.setState({ 'Unit': value })}
+                onChanged={value => this.setState({ Unit: value })}
                 placeholder={'Unit'}
                 fieldStyle={style.fieldStyle}
                 labelStyle={style.labelStyle}
