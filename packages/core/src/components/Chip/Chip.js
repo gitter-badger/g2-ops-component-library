@@ -6,6 +6,9 @@ import React from 'react'
 import MuiChip from 'material-ui/Chip'
 import { wrapMuiContext } from 'utilities/wrapMuiContext'
 
+// TODO: Remove MUI from this super simple component!
+// i.e (Rewrite without MUI.)
+
 type StyleType = {
   [string]: mixed,
 }
