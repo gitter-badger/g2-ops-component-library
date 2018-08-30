@@ -8,7 +8,7 @@ exports[`<DatePicker /> should render properly 1`] = `
     className="ms-Fabric root-33"
   >
     <div
-      className="ms-TextField root"
+      className="ms-TextField root undefined "
     >
       <div
         className="ms-TextField-wrapper wrapper"
@@ -124,7 +124,7 @@ exports[`<DatePicker /> should render when value prop passed 1`] = `
     className="ms-Fabric root-33"
   >
     <div
-      className="ms-TextField root"
+      className="ms-TextField root undefined "
     >
       <div
         className="ms-TextField-wrapper wrapper"

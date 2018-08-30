@@ -21,7 +21,7 @@ exports[`<CurrencyField /> should render properly 1`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="$00,000,000.00"
-      value=""
+      value="$0.00"
     >
       <CustomizedFabric>
         <Fabric
@@ -183,6 +183,7 @@ exports[`<CurrencyField /> should render properly 1`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -222,6 +223,7 @@ exports[`<CurrencyField /> should render properly 1`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -243,11 +245,12 @@ exports[`<CurrencyField /> should render properly 1`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="$00,000,000.00"
-              value=""
+              value="$0.00"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="US"
                 deferredValidationTime={200}
                 disabled={false}
@@ -268,10 +271,10 @@ exports[`<CurrencyField /> should render properly 1`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="$0.00"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -439,6 +442,7 @@ exports[`<CurrencyField /> should render properly 1`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -478,6 +482,7 @@ exports[`<CurrencyField /> should render properly 1`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -507,7 +512,7 @@ exports[`<CurrencyField /> should render properly 1`] = `
                         onInput={[Function]}
                         placeholder="$00,000,000.00"
                         type="text"
-                        value=""
+                        value="$0.00"
                       />
                     </div>
                   </div>
@@ -547,7 +552,7 @@ exports[`<CurrencyField /> should render properly 2`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="£00,000,000.00"
-      value=""
+      value="£0.00"
     >
       <CustomizedFabric>
         <Fabric
@@ -709,6 +714,7 @@ exports[`<CurrencyField /> should render properly 2`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -748,6 +754,7 @@ exports[`<CurrencyField /> should render properly 2`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -769,11 +776,12 @@ exports[`<CurrencyField /> should render properly 2`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="£00,000,000.00"
-              value=""
+              value="£0.00"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="UK"
                 deferredValidationTime={200}
                 disabled={false}
@@ -794,10 +802,10 @@ exports[`<CurrencyField /> should render properly 2`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="£0.00"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -965,6 +973,7 @@ exports[`<CurrencyField /> should render properly 2`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -1004,6 +1013,7 @@ exports[`<CurrencyField /> should render properly 2`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -1033,7 +1043,7 @@ exports[`<CurrencyField /> should render properly 2`] = `
                         onInput={[Function]}
                         placeholder="£00,000,000.00"
                         type="text"
-                        value=""
+                        value="£0.00"
                       />
                     </div>
                   </div>
@@ -1073,7 +1083,7 @@ exports[`<CurrencyField /> should render properly 3`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="€00,000,000.00"
-      value=""
+      value="€0.00"
     >
       <CustomizedFabric>
         <Fabric
@@ -1235,6 +1245,7 @@ exports[`<CurrencyField /> should render properly 3`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -1274,6 +1285,7 @@ exports[`<CurrencyField /> should render properly 3`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -1295,11 +1307,12 @@ exports[`<CurrencyField /> should render properly 3`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="€00,000,000.00"
-              value=""
+              value="€0.00"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="IR"
                 deferredValidationTime={200}
                 disabled={false}
@@ -1320,10 +1333,10 @@ exports[`<CurrencyField /> should render properly 3`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="€0.00"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -1491,6 +1504,7 @@ exports[`<CurrencyField /> should render properly 3`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -1530,6 +1544,7 @@ exports[`<CurrencyField /> should render properly 3`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -1559,7 +1574,7 @@ exports[`<CurrencyField /> should render properly 3`] = `
                         onInput={[Function]}
                         placeholder="€00,000,000.00"
                         type="text"
-                        value=""
+                        value="€0.00"
                       />
                     </div>
                   </div>
@@ -1599,7 +1614,7 @@ exports[`<CurrencyField /> should render properly 4`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="AED00,000,000.00"
-      value=""
+      value="AED 0.00"
     >
       <CustomizedFabric>
         <Fabric
@@ -1761,6 +1776,7 @@ exports[`<CurrencyField /> should render properly 4`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -1800,6 +1816,7 @@ exports[`<CurrencyField /> should render properly 4`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -1821,11 +1838,12 @@ exports[`<CurrencyField /> should render properly 4`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="AED00,000,000.00"
-              value=""
+              value="AED 0.00"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="ME"
                 deferredValidationTime={200}
                 disabled={false}
@@ -1846,10 +1864,10 @@ exports[`<CurrencyField /> should render properly 4`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="AED 0.00"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -2017,6 +2035,7 @@ exports[`<CurrencyField /> should render properly 4`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -2056,6 +2075,7 @@ exports[`<CurrencyField /> should render properly 4`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -2085,7 +2105,7 @@ exports[`<CurrencyField /> should render properly 4`] = `
                         onInput={[Function]}
                         placeholder="AED00,000,000.00"
                         type="text"
-                        value=""
+                        value="AED 0.00"
                       />
                     </div>
                   </div>
@@ -2125,7 +2145,7 @@ exports[`<CurrencyField /> should render properly 5`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="CAD00,000,000.00"
-      value=""
+      value="CAD 0.00"
     >
       <CustomizedFabric>
         <Fabric
@@ -2287,6 +2307,7 @@ exports[`<CurrencyField /> should render properly 5`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -2326,6 +2347,7 @@ exports[`<CurrencyField /> should render properly 5`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -2347,11 +2369,12 @@ exports[`<CurrencyField /> should render properly 5`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="CAD00,000,000.00"
-              value=""
+              value="CAD 0.00"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="CA"
                 deferredValidationTime={200}
                 disabled={false}
@@ -2372,10 +2395,10 @@ exports[`<CurrencyField /> should render properly 5`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="CAD 0.00"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -2543,6 +2566,7 @@ exports[`<CurrencyField /> should render properly 5`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -2582,6 +2606,7 @@ exports[`<CurrencyField /> should render properly 5`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -2611,7 +2636,7 @@ exports[`<CurrencyField /> should render properly 5`] = `
                         onInput={[Function]}
                         placeholder="CAD00,000,000.00"
                         type="text"
-                        value=""
+                        value="CAD 0.00"
                       />
                     </div>
                   </div>
@@ -2651,7 +2676,7 @@ exports[`<CurrencyField /> should render properly 6`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="00.000.000,00 €"
-      value=""
+      value="0,00 €"
     >
       <CustomizedFabric>
         <Fabric
@@ -2813,6 +2838,7 @@ exports[`<CurrencyField /> should render properly 6`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -2852,6 +2878,7 @@ exports[`<CurrencyField /> should render properly 6`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -2873,11 +2900,12 @@ exports[`<CurrencyField /> should render properly 6`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="00.000.000,00 €"
-              value=""
+              value="0,00 €"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="DE"
                 deferredValidationTime={200}
                 disabled={false}
@@ -2898,10 +2926,10 @@ exports[`<CurrencyField /> should render properly 6`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="0,00 €"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -3069,6 +3097,7 @@ exports[`<CurrencyField /> should render properly 6`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -3108,6 +3137,7 @@ exports[`<CurrencyField /> should render properly 6`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -3137,7 +3167,7 @@ exports[`<CurrencyField /> should render properly 6`] = `
                         onInput={[Function]}
                         placeholder="00.000.000,00 €"
                         type="text"
-                        value=""
+                        value="0,00 €"
                       />
                     </div>
                   </div>
@@ -3150,7 +3180,7 @@ exports[`<CurrencyField /> should render properly 6`] = `
     </Component>
     <input
       type="hidden"
-      value="€0.00"
+      value="0,00 €"
     />
   </div>
 </CurrencyField>
@@ -3177,7 +3207,7 @@ exports[`<CurrencyField /> should render properly 7`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="00.000.000,00 €"
-      value=""
+      value="0,00 €"
     >
       <CustomizedFabric>
         <Fabric
@@ -3339,6 +3369,7 @@ exports[`<CurrencyField /> should render properly 7`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -3378,6 +3409,7 @@ exports[`<CurrencyField /> should render properly 7`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -3399,11 +3431,12 @@ exports[`<CurrencyField /> should render properly 7`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="00.000.000,00 €"
-              value=""
+              value="0,00 €"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="ES"
                 deferredValidationTime={200}
                 disabled={false}
@@ -3424,10 +3457,10 @@ exports[`<CurrencyField /> should render properly 7`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="0,00 €"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -3595,6 +3628,7 @@ exports[`<CurrencyField /> should render properly 7`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -3634,6 +3668,7 @@ exports[`<CurrencyField /> should render properly 7`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -3663,7 +3698,7 @@ exports[`<CurrencyField /> should render properly 7`] = `
                         onInput={[Function]}
                         placeholder="00.000.000,00 €"
                         type="text"
-                        value=""
+                        value="0,00 €"
                       />
                     </div>
                   </div>
@@ -3676,7 +3711,7 @@ exports[`<CurrencyField /> should render properly 7`] = `
     </Component>
     <input
       type="hidden"
-      value="€0.00"
+      value="0,00 €"
     />
   </div>
 </CurrencyField>
@@ -3703,7 +3738,7 @@ exports[`<CurrencyField /> should render properly 8`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="₹ 00,00,000.00"
-      value=""
+      value="₹ 0.00"
     >
       <CustomizedFabric>
         <Fabric
@@ -3865,6 +3900,7 @@ exports[`<CurrencyField /> should render properly 8`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -3904,6 +3940,7 @@ exports[`<CurrencyField /> should render properly 8`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -3925,11 +3962,12 @@ exports[`<CurrencyField /> should render properly 8`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="₹ 00,00,000.00"
-              value=""
+              value="₹ 0.00"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="IN"
                 deferredValidationTime={200}
                 disabled={false}
@@ -3950,10 +3988,10 @@ exports[`<CurrencyField /> should render properly 8`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="₹ 0.00"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -4121,6 +4159,7 @@ exports[`<CurrencyField /> should render properly 8`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -4160,6 +4199,7 @@ exports[`<CurrencyField /> should render properly 8`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -4189,7 +4229,7 @@ exports[`<CurrencyField /> should render properly 8`] = `
                         onInput={[Function]}
                         placeholder="₹ 00,00,000.00"
                         type="text"
-                        value=""
+                        value="₹ 0.00"
                       />
                     </div>
                   </div>
@@ -4202,7 +4242,7 @@ exports[`<CurrencyField /> should render properly 8`] = `
     </Component>
     <input
       type="hidden"
-      value="₹0.00"
+      value="₹ 0.00"
     />
   </div>
 </CurrencyField>
@@ -4229,7 +4269,7 @@ exports[`<CurrencyField /> should render properly 9`] = `
       onChanged={[Function]}
       onFocus={[Function]}
       placeholder="£00,000,000.00"
-      value=""
+      value="£0.00"
     >
       <CustomizedFabric>
         <Fabric
@@ -4391,6 +4431,7 @@ exports[`<CurrencyField /> should render properly 9`] = `
                 "buttonTextDisabled": "#d0d0d0",
                 "buttonTextHovered": "#000000",
                 "buttonTextPressed": "#212121",
+                "defaultStateBackground": "#eaeaea",
                 "disabledBackground": "#f4f4f4",
                 "disabledBodyText": "#c8c8c8",
                 "disabledSubtext": "#d0d0d0",
@@ -4430,6 +4471,7 @@ exports[`<CurrencyField /> should render properly 9`] = `
                 "smallInputBorder": "#666666",
                 "successBackground": "rgba(186, 216, 10, .2)",
                 "variantBorder": "#eaeaea",
+                "variantBorderHovered": "#a6a6a6",
                 "warningBackground": "rgba(255, 185, 0, .2)",
                 "warningHighlight": "#ffb900",
                 "warningText": "#333333",
@@ -4451,11 +4493,12 @@ exports[`<CurrencyField /> should render properly 9`] = `
               onChanged={[Function]}
               onFocus={[Function]}
               placeholder="£00,000,000.00"
-              value=""
+              value="£0.00"
             >
               <TextField
                 autoAdjustHeight={false}
                 borderless={false}
+                className="undefined "
                 countryCode="GB"
                 deferredValidationTime={200}
                 disabled={false}
@@ -4476,10 +4519,10 @@ exports[`<CurrencyField /> should render properly 9`] = `
                 validateOnFocusIn={false}
                 validateOnFocusOut={false}
                 validateOnLoad={true}
-                value=""
+                value="£0.00"
               >
                 <div
-                  className="ms-TextField root"
+                  className="ms-TextField root undefined "
                 >
                   <div
                     className="ms-TextField-wrapper wrapper"
@@ -4647,6 +4690,7 @@ exports[`<CurrencyField /> should render properly 9`] = `
                               "buttonTextDisabled": "#d0d0d0",
                               "buttonTextHovered": "#000000",
                               "buttonTextPressed": "#212121",
+                              "defaultStateBackground": "#eaeaea",
                               "disabledBackground": "#f4f4f4",
                               "disabledBodyText": "#c8c8c8",
                               "disabledSubtext": "#d0d0d0",
@@ -4686,6 +4730,7 @@ exports[`<CurrencyField /> should render properly 9`] = `
                               "smallInputBorder": "#666666",
                               "successBackground": "rgba(186, 216, 10, .2)",
                               "variantBorder": "#eaeaea",
+                              "variantBorderHovered": "#a6a6a6",
                               "warningBackground": "rgba(255, 185, 0, .2)",
                               "warningHighlight": "#ffb900",
                               "warningText": "#333333",
@@ -4715,7 +4760,7 @@ exports[`<CurrencyField /> should render properly 9`] = `
                         onInput={[Function]}
                         placeholder="£00,000,000.00"
                         type="text"
-                        value=""
+                        value="£0.00"
                       />
                     </div>
                   </div>
