@@ -4,39 +4,36 @@ Example:
 ```js
 initialState = { textFieldValue: '' };
 <div style={{ width: '300px' }}>
-  <div style={{ marginBottom: '24px' }}>
+  <TextField
+    horizontal
+    label='First Name'
+    placeholder='Enter First Name'
+  />
+  <TextField
+    horizontal
+    label='Last Name'
+    placeholder='Enter Last Name'
+  />
+  <TextField
+    horizontal
+    label='Required Field'
+    placeholder='This Is Required'
+    onGetErrorMessage={() => (state.textFieldValue || ''.length) === 0 ? 'This field is required.' : ''}
+  />
+  <br/>
     <TextField
-      horizontal
-      label={'First Name'}
-      placeholder={'Enter First Name'}
+      label='First Name'
+      placeholder='Enter First Name'
     />
     <TextField
-      horizontal
-      label={'Last Name'}
-      placeholder={'Enter Last Name'}
+      label='Last Name'
+      placeholder='Enter Last Name'
     />
     <TextField
-      horizontal
-      label={'Required Field'}
-      placeholder={'This Is Required'}
-      onGetErrorMessage={() => (state.textFieldValue || ''.length) === 0 ? 'This field is required.' : ''}
-    />
-  </div>
-  <div>
-    <TextField
-      label={'First Name'}
-      placeholder={'Enter First Name'}
-    />
-    <TextField
-      label={'Last Name'}
-      placeholder={'Enter Last Name'}
-    />
-    <TextField
-      label={'Required Field'}
+      label='Required Field'
       value={state.textFieldValue}
       onChanged={(textFieldValue) => setState({ textFieldValue })}
       onGetErrorMessage={() => (state.textFieldValue || ''.length) === 0 ? 'This field is required.' : ''}
     />
-  </div>
 </div>
 ```
