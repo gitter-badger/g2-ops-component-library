@@ -12,7 +12,7 @@ describe('<CurrencyField />', () => {
     countries.forEach((countryCode) => {
       const tree = mount(
         <CurrencyField
-          label={'Currency Field'}
+          label='Currency Field'
           disabled={false}
           countryCode={countryCode}
           placeholder={companyCodeMapper(countryCode).placeHolder}
@@ -25,47 +25,51 @@ describe('<CurrencyField />', () => {
 
   test('should throw error when maxValue is reached', () => {
     const countryCodeErrorMap = {
-      DE: 'Max Limit € 99.99',
+      DE: 'Max Limit 99,99\u00a0€',
       US: 'Max Limit $99.99',
       UK: 'Max Limit £99.99',
       IR: 'Max Limit €99.99',
-      CA: 'Max Limit CAD99.99',
-      IN: 'Max Limit ₹99.99',
+      CA: 'Max Limit CAD\u00a099.99',
+      IN: 'Max Limit ₹\u00a099.99',
       GB: 'Max Limit £99.99',
     }
-    Object.keys(countryCodeErrorMap).forEach((countryCode) => {
+
+    Object.entries(countryCodeErrorMap).forEach(([countryCode, expected]) => {
       const tree = mount(
         <CurrencyField
-          label={'Currency Field'}
+          label='Currency Field'
           disabled={false}
           countryCode={countryCode}
           placeholder={companyCodeMapper(countryCode).placeHolder}
           maxValue={99.99}
         />,
       )
+
       tree
         .find('TextField')
         .at(0)
         .prop('onChanged')('100.00')
-      expect(tree.state('errorMessage')).toBe(countryCodeErrorMap[countryCode])
+      
+      expect(tree.state('errorMessage')).toBe(expected)
     })
   })
 
   test('should return formatted currency value when entered value < maxValue', () => {
     const countryCodeErrorMap = {
-      DE: [ '€100,000.00', '100000' ],
+      DE: [ '100.000,00\u00a0€', '100000' ],
       US: [ '$100,000.00', '100000' ],
       UK: [ '£100,000.00', '100000' ],
       IR: [ '€100,000.00', '100000' ],
-      CA: [ 'CAD100,000.00', '100000' ],
-      IN: [ '₹100,000.00', '100000' ],
+      CA: [ 'CAD\u00a0100,000.00', '100000' ],
+      IN: [ '₹\u00a01,00,000.00', '100000' ],
       GB: [ '£100,000.00', '100000' ],
     }
-    Object.keys(countryCodeErrorMap).forEach((countryCode) => {
+    Object.entries(countryCodeErrorMap).forEach(([countryCode, expected]) => {
       const onBlur = jest.fn()
+
       const tree = mount(
         <CurrencyField
-          label={'Currency Field'}
+          label='Currency Field'
           disabled={false}
           countryCode={countryCode}
           placeholder={companyCodeMapper(countryCode).placeHolder}
@@ -73,34 +77,37 @@ describe('<CurrencyField />', () => {
           onBlur={onBlur}
         />,
       )
-      const expectedOutput = countryCodeErrorMap[countryCode]
+
       tree
         .find('TextField')
         .at(0)
         .prop('onBlur')({
           currentTarget: {
-            value: expectedOutput[1],
+            value: expected[1],
           },
         })
-      expect(onBlur).toHaveBeenCalledWith(expectedOutput[0], expectedOutput[1])
+      
+      expect(onBlur).toHaveBeenCalledWith(expected[0], expected[1])
     })
   })
 
   test('should display errorMessage onBlur when value entered > maxValue', () => {
     const countryCodeErrorMap = {
-      DE: [ 'Max Limit €9,999.99', '100000' ],
+      DE: [ 'Max Limit 9.999,99\u00a0€', '100000' ],
       US: [ 'Max Limit $9,999.99', '100000' ],
       UK: [ 'Max Limit £9,999.99', '100000' ],
       IR: [ 'Max Limit €9,999.99', '100000' ],
-      CA: [ 'Max Limit CAD 9,999.99', '100000' ],
-      IN: [ 'Max Limit ₹9,999.99', '100000' ],
+      CA: [ 'Max Limit CAD\u00a09,999.99', '100000' ],
+      IN: [ 'Max Limit ₹\u00a09,999.99', '100000' ],
       GB: [ 'Max Limit £9,999.99', '100000' ],
     }
-    Object.keys(countryCodeErrorMap).forEach((countryCode) => {
+
+    Object.entries(countryCodeErrorMap).forEach(([countryCode, expected]) => {
       const onBlur = jest.fn()
+  
       const tree = mount(
         <CurrencyField
-          label={'Currency Field'}
+          label='Currency Field'
           disabled={false}
           countryCode={countryCode}
           placeholder={companyCodeMapper(countryCode).placeHolder}
@@ -108,16 +115,17 @@ describe('<CurrencyField />', () => {
           onBlur={onBlur}
         />,
       )
-      const expectedOutput = countryCodeErrorMap[countryCode]
+
       tree
         .find('TextField')
         .at(0)
         .prop('onBlur')({
           currentTarget: {
-            value: expectedOutput[1],
+            value: expected[1],
           },
         })
-      expect(tree.state('errorMessage')).toBe(countryCodeErrorMap[countryCode][0])
+      
+      expect(tree.state('errorMessage')).toBe(expected[0])
     })
   })
 
@@ -126,11 +134,13 @@ describe('<CurrencyField />', () => {
       US: '',
       ZI: 'Please enter/send a valid country',
     }
-    Object.keys(countryToErrorMessage).forEach((countryCode) => {
+
+    Object.entries(countryToErrorMessage).forEach(([countryCode, expected]) => {
       const tree = mount(
-        <CurrencyField label={'Currency Field'} disabled={false} countryCode={countryCode} maxValue={99.99} />,
+        <CurrencyField label='Currency Field' disabled={false} countryCode={countryCode} maxValue={99.99} />,
       )
-      expect(tree.state('errorMessage')).toBe(countryToErrorMessage[countryCode])
+
+      expect(tree.state('errorMessage')).toBe(expected)
     })
   })
 })

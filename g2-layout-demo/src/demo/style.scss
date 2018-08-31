@@ -5,6 +5,7 @@
   background-color: #3c4656;
   color: white;
   font-weight: 100;
+  font-family: Roboto;
 }
 .breadcrumbsContainer a,
 .breadcrumbsContainer a:visited,
@@ -43,6 +44,7 @@
   color: white;
   display: flex;
   flex-direction: column;
+  font-family: Roboto;
   background-color: #545a63;
   .lotandviewers {
     display: flex;
@@ -128,6 +130,9 @@
   font-weight: 600;
   font-size: 18px;
   padding: 15px;
+}
+.ms-TextField-suffix {
+  border: none;
 }
 .ms-Dialog-topButton {
   button {

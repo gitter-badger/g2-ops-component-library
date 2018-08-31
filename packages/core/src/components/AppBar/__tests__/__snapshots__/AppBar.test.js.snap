@@ -2,7 +2,7 @@
 
 exports[`<AppBar /> <AppBar /> renders properly 1`] = `
 <div
-  data-core-component="AppBar"
+  data-test="AppBar"
   style={
     Object {
       "WebkitTapHighlightColor": "rgba(0,0,0,0)",
@@ -40,16 +40,14 @@ exports[`<AppBar /> <AppBar /> renders properly 1`] = `
       <div
         className="appBarLeft"
       >
-        <img
-          alt="Copart"
-          className="logo"
-          src="./public/assets/images/logo.svg"
-        />
-        <span
-          className="moduleName"
+        <a
+          href="/"
         >
-          CAS Portal
-        </span>
+          <img
+            className="__CopartLogo-CopartLogo"
+            src="https://www.copart.com/images/logo.svg"
+          />
+        </a>
       </div>
     </div>
   </div>
@@ -80,8 +78,8 @@ exports[`<AppBar /> <AppBar /> renders properly 1`] = `
     style={
       Object {
         "marginLeft": "auto",
-        "marginRight": "-14px",
-        "marginTop": "14px",
+        "marginRight": -16,
+        "marginTop": 8,
         "muiPrepared": true,
       }
     }

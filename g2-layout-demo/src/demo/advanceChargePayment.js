@@ -1,7 +1,12 @@
 import React from 'react'
-import { AutoSelect } from 'ops-portal-component-library'
+import { AutoSelect } from '@copart/core-components'
 import ComponentWithLabel from './componentLabelWrapper'
-import { yesNoOptions, yesNoDescriptions, responsiblePartyOptions, responsiblePartyDescriptions } from './autoSelectOptionsRefData'
+import {
+  yesNoOptions,
+  yesNoDescriptions,
+  responsiblePartyOptions,
+  responsiblePartyDescriptions,
+} from './autoSelectOptionsRefData'
 import style from './style'
 import './billingAndPickup.css'
 
@@ -9,9 +14,9 @@ class AdvanceChargePayment extends React.Component {
   state = {
     'Advance Charges': 'Yes',
     'Responsible Party': 'Seller',
-    'Advance Charges Paid': 'No'
+    'Advance Charges Paid': 'No',
   }
-  render() { 
+  render() {
     const disabled = !this.props.isEditing
     return (
       <div style={{ display: 'table', width: '100%' }}>
@@ -28,9 +33,9 @@ class AdvanceChargePayment extends React.Component {
               label="Advance Charges?"
               required
               disabled={disabled}
-              displayOption={(code) => yesNoDescriptions[code].desc}
+              displayOption={code => yesNoDescriptions[code].desc}
               value={this.state['Advance Charges']}
-              onChange={(value) => this.setState({ 'Advance Charges': value })}
+              onChange={value => this.setState({ 'Advance Charges': value })}
               optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
               width={200}
               fieldStyle={{ ...style.fieldStyle, marginTop: '5px' }}
@@ -46,9 +51,9 @@ class AdvanceChargePayment extends React.Component {
               label="Responsible Party"
               required
               disabled={disabled}
-              displayOption={(code) => responsiblePartyDescriptions[code].desc}
+              displayOption={code => responsiblePartyDescriptions[code].desc}
               value={this.state['Responsible Party']}
-              onChange={(value) => this.setState({ 'Responsible Party': value })}
+              onChange={value => this.setState({ 'Responsible Party': value })}
               optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
               width={200}
               fieldStyle={{ ...style.fieldStyle, marginTop: '5px' }}
@@ -64,9 +69,9 @@ class AdvanceChargePayment extends React.Component {
               placeholder={'Advance Charges Paid'}
               options={yesNoOptions}
               disabled={disabled}
-              displayOption={(code) => yesNoDescriptions[code].desc}
+              displayOption={code => yesNoDescriptions[code].desc}
               value={this.state['Advance Charges Paid']}
-              onChange={(value) => this.setState({ 'Advance Charges Paid': value })}
+              onChange={value => this.setState({ 'Advance Charges Paid': value })}
               optionStyleProps={{ rowHeight: 40, optionsMinHeight: 200 }}
               width={200}
               fieldStyle={{ ...style.fieldStyle, marginTop: '5px' }}

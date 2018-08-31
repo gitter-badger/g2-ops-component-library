@@ -1,5 +1,5 @@
 import React from 'react'
-import { Tabs } from 'ops-portal-component-library'
+import { Tabs } from '@copart/core-components'
 import tabsConfig from './tabsConfig'
 import BottomNav from './bottomNav'
 import BillingAndPickup from './billingAndPickup'
@@ -29,10 +29,7 @@ class Container extends React.Component {
           </div>
         </div>
         <div className="bottomnav">
-          <BottomNav
-            isEditing={isEditing}
-            onToggleEdit={() => this.setState({ isEditing: !isEditing })}
-          />
+          <BottomNav isEditing={isEditing} onToggleEdit={() => this.setState({ isEditing: !isEditing })} />
         </div>
       </div>
     )

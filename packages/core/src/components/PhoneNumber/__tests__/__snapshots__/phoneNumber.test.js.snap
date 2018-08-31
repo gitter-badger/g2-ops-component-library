@@ -177,6 +177,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 1`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -216,6 +217,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 1`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -240,6 +242,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 1`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="US"
               deferredValidationTime={200}
@@ -262,7 +265,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 1`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -430,6 +433,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 1`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -469,6 +473,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 1`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -689,6 +694,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 2`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -728,6 +734,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 2`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -752,6 +759,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 2`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="UK"
               deferredValidationTime={200}
@@ -774,7 +782,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 2`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -942,6 +950,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 2`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -981,6 +990,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 2`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -1201,6 +1211,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 3`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -1240,6 +1251,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 3`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -1264,6 +1276,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 3`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="IR"
               deferredValidationTime={200}
@@ -1286,7 +1299,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 3`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -1454,6 +1467,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 3`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -1493,6 +1507,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 3`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -1713,6 +1728,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 4`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -1752,6 +1768,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 4`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -1776,6 +1793,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 4`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="ME"
               deferredValidationTime={200}
@@ -1798,7 +1816,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 4`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -1966,6 +1984,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 4`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -2005,6 +2024,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 4`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -2225,6 +2245,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 5`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -2264,6 +2285,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 5`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -2288,6 +2310,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 5`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="CA"
               deferredValidationTime={200}
@@ -2310,7 +2333,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 5`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -2478,6 +2501,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 5`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -2517,6 +2541,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 5`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -2737,6 +2762,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 6`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -2776,6 +2802,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 6`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -2800,6 +2827,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 6`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="DE"
               deferredValidationTime={200}
@@ -2822,7 +2850,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 6`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -2990,6 +3018,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 6`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -3029,6 +3058,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 6`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -3249,6 +3279,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 7`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -3288,6 +3319,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 7`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -3312,6 +3344,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 7`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="ES"
               deferredValidationTime={200}
@@ -3334,7 +3367,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 7`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -3502,6 +3535,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 7`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -3541,6 +3575,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 7`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -3761,6 +3796,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 8`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -3800,6 +3836,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 8`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -3824,6 +3861,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 8`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="IN"
               deferredValidationTime={200}
@@ -3846,7 +3884,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 8`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -4014,6 +4052,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 8`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -4053,6 +4092,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 8`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -4273,6 +4313,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 9`] = 
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -4312,6 +4353,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 9`] = 
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -4336,6 +4378,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 9`] = 
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="GB"
               deferredValidationTime={200}
@@ -4358,7 +4401,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 9`] = 
               value="+"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -4526,6 +4569,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 9`] = 
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -4565,6 +4609,7 @@ exports[`<PhoneNumber /> should render properly for various country codes 9`] = 
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
@@ -4786,6 +4831,7 @@ exports[`<PhoneNumber /> should render properly with value set 1`] = `
               "buttonTextDisabled": "#d0d0d0",
               "buttonTextHovered": "#000000",
               "buttonTextPressed": "#212121",
+              "defaultStateBackground": "#eaeaea",
               "disabledBackground": "#f4f4f4",
               "disabledBodyText": "#c8c8c8",
               "disabledSubtext": "#d0d0d0",
@@ -4825,6 +4871,7 @@ exports[`<PhoneNumber /> should render properly with value set 1`] = `
               "smallInputBorder": "#666666",
               "successBackground": "rgba(186, 216, 10, .2)",
               "variantBorder": "#eaeaea",
+              "variantBorderHovered": "#a6a6a6",
               "warningBackground": "rgba(255, 185, 0, .2)",
               "warningHighlight": "#ffb900",
               "warningText": "#333333",
@@ -4849,6 +4896,7 @@ exports[`<PhoneNumber /> should render properly with value set 1`] = `
             <TextField
               autoAdjustHeight={false}
               borderless={false}
+              className="undefined "
               componentRef={[Function]}
               countryCode="de"
               deferredValidationTime={200}
@@ -4871,7 +4919,7 @@ exports[`<PhoneNumber /> should render properly with value set 1`] = `
               value="+7 793 847 41"
             >
               <div
-                className="ms-TextField root"
+                className="ms-TextField root undefined "
               >
                 <div
                   className="ms-TextField-wrapper wrapper"
@@ -5039,6 +5087,7 @@ exports[`<PhoneNumber /> should render properly with value set 1`] = `
                             "buttonTextDisabled": "#d0d0d0",
                             "buttonTextHovered": "#000000",
                             "buttonTextPressed": "#212121",
+                            "defaultStateBackground": "#eaeaea",
                             "disabledBackground": "#f4f4f4",
                             "disabledBodyText": "#c8c8c8",
                             "disabledSubtext": "#d0d0d0",
@@ -5078,6 +5127,7 @@ exports[`<PhoneNumber /> should render properly with value set 1`] = `
                             "smallInputBorder": "#666666",
                             "successBackground": "rgba(186, 216, 10, .2)",
                             "variantBorder": "#eaeaea",
+                            "variantBorderHovered": "#a6a6a6",
                             "warningBackground": "rgba(255, 185, 0, .2)",
                             "warningHighlight": "#ffb900",
                             "warningText": "#333333",
