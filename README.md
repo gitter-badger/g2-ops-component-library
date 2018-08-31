@@ -1,5 +1,7 @@
 # Ops Portal UI Component Library
 
+[![Join the chat at https://gitter.im/copartit/g2-ops-component-library](https://badges.gitter.im/copartit/g2-ops-component-library.svg)](https://gitter.im/copartit/g2-ops-component-library?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge)
+
 <p>
 <a href="https://www.npmjs.com/package/@copart/core-components"><img src="https://img.shields.io/badge/%40copart%2Fcore--components-0.2.3-brightgreen.svg" alt="NPM Version"></a>
 </p>
